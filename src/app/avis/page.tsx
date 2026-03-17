@@ -132,9 +132,9 @@ export default function AvisPage() {
     email: "smartmomentsevent@gmail.com",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "5 Avenue Marcel Cerdan",
-      addressLocality: "Villeurbanne",
-      postalCode: "69100",
+      streetAddress: "85 Rue André Bollier",
+      addressLocality: "Lyon",
+      postalCode: "69007",
       addressRegion: "Rhône-Alpes",
       addressCountry: "FR",
     },

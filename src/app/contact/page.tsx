@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title:
     "Contact & Devis Gratuit - Organisation Mariage Lyon",
   description:
-    "Contactez Smart Moments Event pour votre projet de mariage ou d'événement à Lyon. Devis gratuit et sans engagement sous 24h. Wedding planner Lyon : 07 56 98 71 81. Villeurbanne, Rhône-Alpes.",
+    "Contactez Smart Moments Event pour votre projet de mariage ou d'événement à Lyon. Devis gratuit et sans engagement sous 24h. Wedding planner Lyon : 07 56 98 71 81. Lyon 7ème, Rhône-Alpes.",
   alternates: { canonical: "https://www.smartmoments.fr/contact" },
   openGraph: {
     title: "Contact & Devis Gratuit | Smart Moments Event Lyon",
@@ -45,9 +45,9 @@ export default function ContactPage() {
     email: "smartmomentsevent@gmail.com",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "5 Avenue Marcel Cerdan",
-      addressLocality: "Villeurbanne",
-      postalCode: "69100",
+      streetAddress: "85 Rue André Bollier",
+      addressLocality: "Lyon",
+      postalCode: "69007",
       addressRegion: "Rhône-Alpes",
       addressCountry: "FR",
     },
@@ -247,7 +247,7 @@ export default function ContactPage() {
                     title: "Adresse",
                     content: (
                       <>
-                        5 Avenue Marcel Cerdan<br />69100 Villeurbanne, Lyon<br />France
+                        85 Rue André Bollier<br />69007 Lyon<br />France
                       </>
                     ),
                   },
@@ -274,7 +274,7 @@ export default function ContactPage() {
                     title: "Zone d'intervention",
                     content: (
                       <>
-                        Lyon, Villeurbanne, Rhône-Alpes<br />et toute la France
+                        Lyon et Rhône-Alpes<br />et toute la France
                       </>
                     ),
                   },
@@ -353,8 +353,8 @@ export default function ContactPage() {
               {/* Map */}
               <div className="overflow-hidden border border-gold/10">
                 <iframe
-                  title="Localisation Smart Moments Event Villeurbanne Lyon"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2783.5!2d4.83566!3d45.764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s5+Avenue+Marcel+Cerdan+69100+Villeurbanne!5e0!3m2!1sfr!2sfr!4v1"
+                  title="Localisation Smart Moments Event Lyon 7ème"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2784.5!2d4.8357!3d45.7387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s85+Rue+Andr%C3%A9+Bollier+69007+Lyon!5e0!3m2!1sfr!2sfr!4v1"
                   width="100%"
                   height="280"
                   style={{ border: 0 }}

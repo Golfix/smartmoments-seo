@@ -140,7 +140,7 @@ export default function HomePage() {
         name: "Dans quelles villes intervenez-vous ?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Basés à Villeurbanne, nous intervenons principalement à Lyon et dans toute la région Rhône-Alpes (Villeurbanne, Vienne, Annecy, Grenoble, Saint-Étienne). Nous organisons également des événements dans toute la France : Paris, Marseille, Bordeaux, Nice et au-delà.",
+          text: "Basés à Lyon, nous intervenons principalement à Lyon et dans toute la région Rhône-Alpes (Villeurbanne, Vienne, Annecy, Grenoble, Saint-Étienne). Nous organisons également des événements dans toute la France : Paris, Marseille, Bordeaux, Nice et au-delà.",
         },
       },
       {
@@ -202,9 +202,9 @@ export default function HomePage() {
     email: "smartmomentsevent@gmail.com",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "5 Avenue Marcel Cerdan",
-      addressLocality: "Villeurbanne",
-      postalCode: "69100",
+      streetAddress: "85 Rue André Bollier",
+      addressLocality: "Lyon",
+      postalCode: "69007",
       addressRegion: "Rhône-Alpes",
       addressCountry: "FR",
     },
@@ -215,7 +215,7 @@ export default function HomePage() {
     },
     areaServed: [
       { "@type": "City", name: "Lyon" },
-      { "@type": "City", name: "Villeurbanne" },
+      { "@type": "City", name: "Lyon 7ème" },
       { "@type": "AdministrativeArea", name: "Rhône-Alpes" },
       { "@type": "Country", name: "France" },
     ],
@@ -345,7 +345,7 @@ export default function HomePage() {
             <br />
             <span className="gold-shimmer italic">moments d&apos;exception</span>
           </h1>
-          <p className="hero-reveal hero-reveal-delay-3 text-base sm:text-lg text-white/70 max-w-2xl mx-auto mb-12 font-light leading-relaxed tracking-wide">
+          <p className="hero-reveal hero-reveal-delay-3 text-base sm:text-lg text-white/70 max-w-2xl mx-auto mb-8 font-light leading-relaxed tracking-wide">
             Organisateur d&apos;événements de prestige à Lyon. Mariage clé en
             main, coordination jour J, décoration haut de gamme et animations
             sur mesure.
@@ -439,7 +439,7 @@ export default function HomePage() {
                 <span className="text-gold-gradient italic">inoubliables</span>
               </h2>
               <p className="text-taupe-soft leading-relaxed mb-6">
-                Basée à Villeurbanne, au coeur de la métropole lyonnaise, notre
+                Basée à Lyon, au coeur de la métropole lyonnaise, notre
                 agence d&apos;organisation de mariage réunit une équipe de
                 <strong> wedding planners qualifiés</strong>, de{" "}
                 <strong>décorateurs haut de gamme</strong> et de wedding
@@ -637,7 +637,7 @@ export default function HomePage() {
               },
               {
                 q: "Dans quelles villes intervenez-vous ?",
-                a: "Basés à Villeurbanne, nous intervenons principalement à Lyon et dans toute la région Rhône-Alpes (Villeurbanne, Vienne, Annecy, Grenoble, Saint-Étienne). Nous organisons également des événements dans toute la France : Paris, Marseille, Bordeaux, Nice et au-delà.",
+                a: "Basés à Lyon, nous intervenons principalement à Lyon et dans toute la région Rhône-Alpes (Villeurbanne, Vienne, Annecy, Grenoble, Saint-Étienne). Nous organisons également des événements dans toute la France : Paris, Marseille, Bordeaux, Nice et au-delà.",
               },
               {
                 q: "Quels types d'événements organisez-vous ?",

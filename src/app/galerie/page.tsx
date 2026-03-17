@@ -226,7 +226,7 @@ export default function GaleriePage() {
               De la cérémonie laïque en plein air à la réception dans un château,
               en passant par les mariages champêtres et bohèmes, notre équipe de
               wedding designers s&apos;adapte à tous les styles et tous les budgets.
-              Nous intervenons à Lyon, Villeurbanne, et dans toute la région
+              Nous intervenons à Lyon et dans toute la région
               Rhône-Alpes.
             </p>
             <p className="text-taupe-soft leading-relaxed">

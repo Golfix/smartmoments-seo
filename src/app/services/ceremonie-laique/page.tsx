@@ -71,7 +71,7 @@ export default function CeremonieLaiquePage() {
       name: "Smart Moments Event",
       address: {
         "@type": "PostalAddress",
-        addressLocality: "Villeurbanne",
+        addressLocality: "Lyon",
         addressRegion: "Rhône-Alpes",
         addressCountry: "FR",
       },
@@ -83,7 +83,7 @@ export default function CeremonieLaiquePage() {
     ],
     areaServed: [
       { "@type": "City", name: "Lyon" },
-      { "@type": "City", name: "Villeurbanne" },
+      { "@type": "City", name: "Lyon 7ème" },
       { "@type": "AdministrativeArea", name: "Rhône-Alpes" },
     ],
     description:

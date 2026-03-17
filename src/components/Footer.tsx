@@ -89,7 +89,7 @@ export default function Footer() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span>5 Avenue Marcel Cerdan<br />69100 Villeurbanne, Lyon</span>
+                <span>85 Rue André Bollier<br />69007 Lyon</span>
               </li>
               <li className="flex items-center gap-3">
                 <svg className="w-4 h-4 text-gold/60 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -140,7 +140,7 @@ export default function Footer() {
           <p className="text-taupe-light/50 text-xs leading-relaxed">
             Smart Moments Event est une agence de wedding planning et
             d&apos;organisation d&apos;événements haut de gamme basée à
-            Villeurbanne, Lyon. Nous proposons l&apos;organisation de mariage
+            Lyon 7ème. Nous proposons l&apos;organisation de mariage
             clé en main, la coordination du jour J, la décoration de mariage sur
             mesure et la location de photobooth miroir magique et vidéo 360°.
             Nous intervenons à Lyon, Paris, Marseille, Bordeaux, Toulouse, Nice,

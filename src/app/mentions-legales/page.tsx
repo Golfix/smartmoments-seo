@@ -20,9 +20,9 @@ export default function MentionsLegalesPage() {
           <p>
             Smart Moments Event
             <br />
-            5 Avenue Marcel Cerdan
+            85 Rue André Bollier
             <br />
-            69100 Villeurbanne, France
+            69007 Lyon, France
             <br />
             Téléphone : 07 56 98 71 81
             <br />

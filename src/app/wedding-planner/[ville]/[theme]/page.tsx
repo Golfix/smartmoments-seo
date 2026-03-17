@@ -166,7 +166,7 @@ function generateIntroText(
   themeDescription: string,
   themeIntro: string
 ) {
-  return `Vous rêvez d'un ${themeName.toLowerCase()} à ${cityName} ? Smart Moments Event, wedding planner basé à Villeurbanne (Lyon), vous accompagne dans l'organisation de votre mariage en ${cityRegion}. ${cityName}, ${cityDescription}, offre un cadre exceptionnel pour célébrer votre union dans un style ${themeName.toLowerCase().replace("mariage ", "")}.
+  return `Vous rêvez d'un ${themeName.toLowerCase()} à ${cityName} ? Smart Moments Event, wedding planner basé à Lyon, vous accompagne dans l'organisation de votre mariage en ${cityRegion}. ${cityName}, ${cityDescription}, offre un cadre exceptionnel pour célébrer votre union dans un style ${themeName.toLowerCase().replace("mariage ", "")}.
 
 ${themeDescription} Notre équipe de wedding planners expérimentés connaît parfaitement les lieux de réception, prestataires et artisans du département ${cityDepartment} pour donner vie à votre vision. Des environs de ${cityNearby} aux plus beaux domaines de ${cityName}, nous dénichons les perles rares qui feront de votre ${themeName.toLowerCase()} un moment inoubliable.
 
@@ -220,9 +220,9 @@ export default async function CityThemePage({
       name: "Smart Moments Event",
       address: {
         "@type": "PostalAddress",
-        addressLocality: "Villeurbanne",
+        addressLocality: "Lyon",
         addressRegion: "Rhône-Alpes",
-        postalCode: "69100",
+        postalCode: "69007",
         addressCountry: "FR",
       },
       aggregateRating: {

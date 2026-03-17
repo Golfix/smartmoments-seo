@@ -364,7 +364,7 @@ export const blogArticles: BlogArticle[] = [
 
       <h2>Le wedding design sur mesure chez Smart Moments Event</h2>
       <p>Chez Smart Moments Event, notre <strong>équipe de wedding designers</strong> crée des scénographies uniques pour chaque couple. Nous ne proposons jamais de décoration "catalogue" : chaque mariage est une création originale, pensée en fonction de votre personnalité, de votre lieu de réception et de votre budget.</p>
-      <p>De l'<strong>arche de cérémonie</strong> à la décoration de salle, du plan de table au candy bar, nous concevons et réalisons l'intégralité de la décoration de votre mariage. Notre atelier à Villeurbanne nous permet de créer des éléments sur mesure, introuvables ailleurs.</p>
+      <p>De l'<strong>arche de cérémonie</strong> à la décoration de salle, du plan de table au candy bar, nous concevons et réalisons l'intégralité de la décoration de votre mariage. Notre atelier à Lyon 7ème nous permet de créer des éléments sur mesure, introuvables ailleurs.</p>
 
       <h3>Créons ensemble votre univers</h3>
       <p>Vous avez une vision pour votre mariage ? Partagez-la avec nous. Nos wedding designers la transformeront en une réalité qui dépassera vos attentes. Premier rendez-vous gratuit et sans engagement.</p>

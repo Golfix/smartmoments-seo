@@ -163,9 +163,9 @@ export default function WeddingPlannerPage() {
       name: "Smart Moments Event",
       address: {
         "@type": "PostalAddress",
-        addressLocality: "Villeurbanne",
+        addressLocality: "Lyon",
         addressRegion: "Rhône-Alpes",
-        postalCode: "69100",
+        postalCode: "69007",
         addressCountry: "FR",
       },
       aggregateRating: {
@@ -178,7 +178,7 @@ export default function WeddingPlannerPage() {
     serviceType: "Wedding Planning",
     areaServed: [
       { "@type": "City", name: "Lyon" },
-      { "@type": "City", name: "Villeurbanne" },
+      { "@type": "City", name: "Lyon 7ème" },
       { "@type": "AdministrativeArea", name: "Rhône-Alpes" },
     ],
     description:

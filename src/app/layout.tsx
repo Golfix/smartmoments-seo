@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     template: "%s | Smart Moments Event Lyon",
   },
   description:
-    "Wedding planner et organisateur d'événements haut de gamme à Lyon et Villeurbanne. Organisation de mariage clé en main, coordination jour J, décoration luxe, photobooth. Mariages, baptêmes, bar-mitzvahs, séminaires dans toute la France. Devis gratuit.",
+    "Wedding planner et organisateur d'événements haut de gamme à Lyon. Organisation de mariage clé en main, coordination jour J, décoration luxe, photobooth. Mariages, baptêmes, bar-mitzvahs, séminaires dans toute la France. Devis gratuit.",
   keywords: [
     "wedding planner lyon",
     "organisateur mariage lyon",

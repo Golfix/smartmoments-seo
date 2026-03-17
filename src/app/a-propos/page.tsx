@@ -6,7 +6,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 export const metadata: Metadata = {
   title: "À Propos - Agence Wedding Planner & Événementiel Lyon",
   description:
-    "Découvrez Smart Moments Event, agence d'organisation de mariage et d'événements haut de gamme à Lyon Villeurbanne. Équipe de wedding planners qualifiés, décorateurs créatifs et coordinatrices expérimentées. 4.6/5 sur Mariages.net, 92% recommandé.",
+    "Découvrez Smart Moments Event, agence d'organisation de mariage et d'événements haut de gamme à Lyon 7ème. Équipe de wedding planners qualifiés, décorateurs créatifs et coordinatrices expérimentées. 4.6/5 sur Mariages.net, 92% recommandé.",
   alternates: { canonical: "https://www.smartmoments.fr/a-propos" },
   openGraph: {
     title: "À Propos | Smart Moments Event Lyon",
@@ -55,14 +55,14 @@ export default function AProposPage() {
     url: "https://www.smartmoments.fr",
     logo: "https://www.smartmoments.fr/favicon.ico",
     description:
-      "Agence d'organisation de mariage et d'événements haut de gamme à Lyon Villeurbanne. Wedding planners qualifiés, décorateurs créatifs, coordinatrices expérimentées.",
+      "Agence d'organisation de mariage et d'événements haut de gamme à Lyon 7ème. Wedding planners qualifiés, décorateurs créatifs, coordinatrices expérimentées.",
     foundingLocation: {
       "@type": "Place",
       address: {
         "@type": "PostalAddress",
-        addressLocality: "Villeurbanne",
+        addressLocality: "Lyon",
         addressRegion: "Rhône-Alpes",
-        postalCode: "69100",
+        postalCode: "69007",
         addressCountry: "FR",
       },
     },
@@ -178,7 +178,7 @@ export default function AProposPage() {
                 raffinement.
               </p>
               <p className="text-taupe-soft leading-relaxed mb-6">
-                Basée à Villeurbanne, au coeur de la métropole lyonnaise, notre
+                Basée à Lyon, au coeur de la métropole lyonnaise, notre
                 agence réunit une équipe de{" "}
                 <strong>wedding planners qualifiés</strong>, de{" "}
                 <strong>décorateurs haut de gamme</strong> et de wedding

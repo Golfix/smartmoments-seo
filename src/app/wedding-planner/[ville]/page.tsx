@@ -69,9 +69,9 @@ export default async function CityWeddingPlannerPage({
       name: "Smart Moments Event",
       address: {
         "@type": "PostalAddress",
-        addressLocality: "Villeurbanne",
+        addressLocality: "Lyon",
         addressRegion: "Rhône-Alpes",
-        postalCode: "69100",
+        postalCode: "69007",
         addressCountry: "FR",
       },
       aggregateRating: {
@@ -136,7 +136,7 @@ export default async function CityWeddingPlannerPage({
         name: `Intervenez-vous à ${city.name} pour organiser un mariage ?`,
         acceptedAnswer: {
           "@type": "Answer",
-          text: `Oui, Smart Moments Event intervient à ${city.name} et dans tout le département ${city.department} en ${city.region}. Basés à Villeurbanne (Lyon), nous nous déplaçons dans toute la France pour organiser votre mariage.`,
+          text: `Oui, Smart Moments Event intervient à ${city.name} et dans tout le département ${city.department} en ${city.region}. Basés à Lyon (Lyon), nous nous déplaçons dans toute la France pour organiser votre mariage.`,
         },
       },
       {
@@ -226,7 +226,7 @@ export default async function CityWeddingPlannerPage({
                 Vous cherchez un{" "}
                 <strong>wedding planner à {city.name}</strong> ? Smart Moments
                 Event vous accompagne dans l&apos;organisation de votre mariage
-                en {city.region}. Basés à Villeurbanne (Lyon), nous intervenons
+                en {city.region}. Basés à Lyon (Lyon), nous intervenons
                 à {city.name} et dans tout le département {city.department}.
               </p>
               <p className="text-taupe-soft leading-relaxed mb-6">
@@ -400,7 +400,7 @@ export default async function CityWeddingPlannerPage({
               },
               {
                 q: `Intervenez-vous à ${city.name} pour organiser un mariage ?`,
-                a: `Oui, Smart Moments Event intervient à ${city.name} et dans tout le département ${city.department} en ${city.region}. Basés à Villeurbanne (Lyon), nous nous déplaçons dans toute la France pour organiser votre mariage de rêve.`,
+                a: `Oui, Smart Moments Event intervient à ${city.name} et dans tout le département ${city.department} en ${city.region}. Basés à Lyon (Lyon), nous nous déplaçons dans toute la France pour organiser votre mariage de rêve.`,
               },
               {
                 q: `Comment organiser son mariage à ${city.name} ?`,

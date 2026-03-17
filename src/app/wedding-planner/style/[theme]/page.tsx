@@ -69,9 +69,9 @@ export default async function ThemeWeddingPlannerPage({
       name: "Smart Moments Event",
       address: {
         "@type": "PostalAddress",
-        addressLocality: "Villeurbanne",
+        addressLocality: "Lyon",
         addressRegion: "Rhône-Alpes",
-        postalCode: "69100",
+        postalCode: "69007",
         addressCountry: "FR",
       },
       aggregateRating: {

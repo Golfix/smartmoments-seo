@@ -28,7 +28,7 @@ export const cities: City[] = [
   { name: "Dijon", slug: "dijon", department: "Côte-d'Or", region: "Bourgogne-Franche-Comté", population: "159 000", description: "capitale de la Bourgogne et de la gastronomie", nearbyCity: "Beaune" },
   { name: "Angers", slug: "angers", department: "Maine-et-Loire", region: "Pays de la Loire", population: "157 000", description: "ville verte au patrimoine historique remarquable", nearbyCity: "Nantes" },
   { name: "Nîmes", slug: "nimes", department: "Gard", region: "Occitanie", population: "151 000", description: "la Rome française, riche en patrimoine antique", nearbyCity: "Montpellier" },
-  { name: "Villeurbanne", slug: "villeurbanne", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "150 000", description: "au cœur de la métropole lyonnaise, notre ville d'implantation", nearbyCity: "Lyon" },
+  { name: "Villeurbanne", slug: "villeurbanne", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "150 000", description: "au cœur de la métropole lyonnaise", nearbyCity: "Lyon" },
   { name: "Aix-en-Provence", slug: "aix-en-provence", department: "Bouches-du-Rhône", region: "Provence-Alpes-Côte d'Azur", population: "147 000", description: "ville d'art et d'histoire, berceau de Cézanne", nearbyCity: "Marseille" },
   { name: "Le Mans", slug: "le-mans", department: "Sarthe", region: "Pays de la Loire", population: "145 000", description: "cité historique aux 24 Heures du Mans", nearbyCity: "Angers" },
   { name: "Clermont-Ferrand", slug: "clermont-ferrand", department: "Puy-de-Dôme", region: "Auvergne-Rhône-Alpes", population: "143 000", description: "capitale auvergnate au pied des volcans", nearbyCity: "Vichy" },
