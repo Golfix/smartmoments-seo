@@ -37,7 +37,7 @@ export async function POST(request: Request) {
     };
 
     await resend.emails.send({
-      from: "Smart Moments Event <onboarding@resend.dev>",
+      from: "Smart Moments Event <contact@laphotobootherie.fr>",
       to: "smartmomentsevent@gmail.com",
       replyTo: email,
       subject: `Demande de devis - ${eventLabels[evenement] || evenement} - ${prenom} ${nom}`,
