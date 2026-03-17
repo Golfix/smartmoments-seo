@@ -1,26 +1,377 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-gold: #c9a96e;
+  --color-gold-dark: #a8873d;
+  --color-gold-light: #e8d5a8;
+  --color-gold-pale: #f5ecd7;
+  --color-champagne: #f7f3ea;
+  --color-ivory: #fdfbf7;
+  --color-rose: #f3ebe6;
+  --color-blush: #faf5f2;
+  --color-pearl: #e8e4dc;
+  --color-white: #ffffff;
+  --color-taupe: #4a3728;
+  --color-taupe-soft: #6b5744;
+  --color-taupe-light: #9a8775;
+  --color-warm-gray: #b8a99a;
+  --color-primary: #c9a96e;
+  --color-primary-dark: #a8873d;
+  --color-primary-light: #e8d5a8;
+  --color-dark: #4a3728;
+  --color-dark-soft: #6b5744;
+  --color-gray: #9a8775;
+  --color-gray-light: #f5f5f0;
+  --color-cream: #fdfbf7;
+  --font-heading: var(--font-nourd), "Helvetica Neue", sans-serif;
+  --font-body: var(--font-nourd), "Helvetica Neue", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  color: var(--color-taupe);
+  background: var(--color-white);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-white);
+}
+
+/* Luxury decorative line */
+.luxury-line {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+  margin: 0 auto;
+}
+
+.luxury-line-left {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--color-gold), transparent);
+}
+
+/* Gold gradient text */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #c9a96e 0%, #e8d5a8 50%, #c9a96e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Luxury card hover */
+.luxury-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.luxury-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+  transform: scaleX(0);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.luxury-card:hover::before {
+  transform: scaleX(1);
+}
+
+.luxury-card:hover {
+  box-shadow: 0 20px 60px rgba(201, 169, 110, 0.12);
+  transform: translateY(-4px);
+}
+
+/* Luxury button shine */
+.btn-luxury {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.btn-luxury::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transition: left 0.6s ease;
+}
+
+.btn-luxury:hover::after {
+  left: 100%;
+}
+
+/* Warm precious overlay for hero images */
+.precious-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(247, 243, 234, 0.3) 0%,
+    rgba(243, 235, 230, 0.5) 40%,
+    rgba(253, 251, 247, 0.85) 100%
+  );
+}
+
+/* Hero text reveal animation */
+@keyframes heroReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.hero-reveal {
+  animation: heroReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
+.hero-reveal-delay-1 { animation-delay: 0.2s; }
+.hero-reveal-delay-2 { animation-delay: 0.4s; }
+.hero-reveal-delay-3 { animation-delay: 0.6s; }
+.hero-reveal-delay-4 { animation-delay: 0.9s; }
+
+/* Gold shimmer animation */
+@keyframes goldShimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    #c9a96e 0%,
+    #e8d5a8 25%,
+    #c9a96e 50%,
+    #e8d5a8 75%,
+    #c9a96e 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: goldShimmer 4s linear infinite;
+}
+
+/* Floating element animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Pulse glow */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201, 169, 110, 0.3); }
+  50% { box-shadow: 0 0 30px 5px rgba(201, 169, 110, 0.15); }
+}
+
+.pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+/* Smooth line expand */
+@keyframes lineExpand {
+  0% { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
+}
+
+.line-expand {
+  animation: lineExpand 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform-origin: center;
+}
+
+/* Counter animation for stats */
+@keyframes countUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Parallax-like slow zoom on hero images */
+@keyframes slowZoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.08); }
+}
+
+.slow-zoom {
+  animation: slowZoom 20s ease-out forwards;
+}
+
+/* Blog article content styles */
+.article-content h2 {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-taupe);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.article-content h3 {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-taupe);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.article-content p {
+  color: var(--color-taupe-soft);
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+  font-size: 1rem;
+}
+
+.article-content strong {
+  color: var(--color-taupe);
+  font-weight: 700;
+}
+
+.article-content em {
+  color: var(--color-taupe-soft);
+  font-style: italic;
+}
+
+.article-content ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 1.5rem;
+}
+
+.article-content ul li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-taupe-soft);
+  line-height: 1.7;
+}
+
+.article-content ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 6px;
+  height: 6px;
+  background: var(--color-gold);
+  border-radius: 50%;
+}
+
+.article-content a {
+  color: var(--color-gold);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.3s;
+}
+
+.article-content a:hover {
+  color: var(--color-gold-dark);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-ivory);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold-dark);
+}
+
+/* Accessibility: Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .hero-reveal {
+    opacity: 1;
+  }
+
+  .slow-zoom {
+    animation: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  header,
+  footer,
+  .btn-luxury,
+  .pulse-glow,
+  nav {
+    display: none !important;
+  }
+
+  body {
+    color: #000 !important;
+    background: #fff !important;
+    font-size: 12pt;
+  }
+
+  h1, h2, h3 {
+    color: #333 !important;
+    page-break-after: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
+
+  a[href^="tel:"]::after,
+  a[href^="mailto:"]::after {
+    content: " (" attr(href) ")";
+  }
+
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after {
+    content: "";
+  }
 }
