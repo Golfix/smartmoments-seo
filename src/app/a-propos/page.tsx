@@ -7,12 +7,12 @@ export const metadata: Metadata = {
   title: "À Propos - Agence Wedding Planner & Événementiel Lyon",
   description:
     "Découvrez Smart Moments Event, agence d'organisation de mariage et d'événements haut de gamme à Lyon 7ème. Équipe de wedding planners qualifiés, décorateurs créatifs et coordinatrices expérimentées. 4.6/5 sur Mariages.net, 92% recommandé.",
-  alternates: { canonical: "https://smartmoments.fr/a-propos" },
+  alternates: { canonical: "https://www.smartmoments.fr/a-propos" },
   openGraph: {
     title: "À Propos | Smart Moments Event Lyon",
     description:
       "L'équipe Smart Moments : des passionnés de l'événementiel haut de gamme à votre service à Lyon.",
-    url: "https://smartmoments.fr/a-propos",
+    url: "https://www.smartmoments.fr/a-propos",
     images: [{ url: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/img-3255_3_306698-168573250631346.jpeg", width: 960, height: 640, alt: "Équipe Smart Moments Event wedding planner Lyon" }],
   },
 };
@@ -52,8 +52,8 @@ export default function AProposPage() {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "Smart Moments Event",
-    url: "https://smartmoments.fr",
-    logo: "https://smartmoments.fr/favicon.ico",
+    url: "https://www.smartmoments.fr",
+    logo: "https://www.smartmoments.fr/favicon.ico",
     description:
       "Agence d'organisation de mariage et d'événements haut de gamme à Lyon 7ème. Wedding planners qualifiés, décorateurs créatifs, coordinatrices expérimentées.",
     foundingLocation: {
@@ -103,13 +103,13 @@ export default function AProposPage() {
         "@type": "ListItem",
         position: 1,
         name: "Accueil",
-        item: "https://smartmoments.fr",
+        item: "https://www.smartmoments.fr",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "À Propos",
-        item: "https://smartmoments.fr/a-propos",
+        item: "https://www.smartmoments.fr/a-propos",
       },
     ],
   };

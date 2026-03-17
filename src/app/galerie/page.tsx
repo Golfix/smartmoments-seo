@@ -7,12 +7,12 @@ export const metadata: Metadata = {
   title: "Galerie Photos Mariage & Décoration Lyon | Smart Moments Event",
   description:
     "Portfolio et réalisations Smart Moments Event à Lyon : décoration de mariage haut de gamme, cérémonies laïques avec arches fleuries, scénographies sur mesure, photobooth miroir magique. Inspirez-vous pour votre mariage.",
-  alternates: { canonical: "https://smartmoments.fr/galerie" },
+  alternates: { canonical: "https://www.smartmoments.fr/galerie" },
   openGraph: {
     title: "Galerie Photos | Smart Moments Event Lyon",
     description:
       "Découvrez nos réalisations en images : mariages, cérémonies laïques et décoration haut de gamme à Lyon.",
-    url: "https://smartmoments.fr/galerie",
+    url: "https://www.smartmoments.fr/galerie",
     images: [{ url: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-30-at-10-54-55-1_3_306698-168563709678965.jpeg", width: 960, height: 640, alt: "Galerie photos mariages et événements Smart Moments Lyon" }],
   },
 };
@@ -93,11 +93,11 @@ export default function GaleriePage() {
     name: "Galerie Photos - Mariages & Événements Smart Moments Event",
     description:
       "Portfolio de nos réalisations : décoration de mariage haut de gamme, cérémonies laïques, arches fleuries, scénographies sur mesure à Lyon.",
-    url: "https://smartmoments.fr/galerie",
+    url: "https://www.smartmoments.fr/galerie",
     isPartOf: {
       "@type": "WebSite",
       name: "Smart Moments Event",
-      url: "https://smartmoments.fr",
+      url: "https://www.smartmoments.fr",
     },
     about: {
       "@type": "Thing",
@@ -123,13 +123,13 @@ export default function GaleriePage() {
         "@type": "ListItem",
         position: 1,
         name: "Accueil",
-        item: "https://smartmoments.fr",
+        item: "https://www.smartmoments.fr",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Galerie",
-        item: "https://smartmoments.fr/galerie",
+        item: "https://www.smartmoments.fr/galerie",
       },
     ],
   };

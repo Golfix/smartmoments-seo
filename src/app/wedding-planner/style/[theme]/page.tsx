@@ -22,12 +22,12 @@ export async function generateMetadata({
     title: themeData.title,
     description: themeData.metaDescription,
     alternates: {
-      canonical: `https://smartmoments.fr/wedding-planner/style/${themeData.slug}`,
+      canonical: `https://www.smartmoments.fr/wedding-planner/style/${themeData.slug}`,
     },
     openGraph: {
       title: `${themeData.title} | Smart Moments Event`,
       description: themeData.metaDescription,
-      url: `https://smartmoments.fr/wedding-planner/style/${themeData.slug}`,
+      url: `https://www.smartmoments.fr/wedding-planner/style/${themeData.slug}`,
       images: [
         {
           url: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41-3_3_306698-168546594978953.jpeg",
@@ -102,19 +102,19 @@ export default async function ThemeWeddingPlannerPage({
         "@type": "ListItem",
         position: 1,
         name: "Accueil",
-        item: "https://smartmoments.fr",
+        item: "https://www.smartmoments.fr",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Wedding Planner",
-        item: "https://smartmoments.fr/wedding-planner",
+        item: "https://www.smartmoments.fr/wedding-planner",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: themeData.name,
-        item: `https://smartmoments.fr/wedding-planner/style/${themeData.slug}`,
+        item: `https://www.smartmoments.fr/wedding-planner/style/${themeData.slug}`,
       },
     ],
   };

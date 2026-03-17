@@ -19,12 +19,12 @@ export const metadata: Metadata = {
     "planificateur mariage lyon",
     "organisateur événement mariage lyon",
   ],
-  alternates: { canonical: "https://smartmoments.fr/services/mariage" },
+  alternates: { canonical: "https://www.smartmoments.fr/services/mariage" },
   openGraph: {
     title: "Organisation de Mariage Clé en Main à Lyon",
     description:
       "Wedding planner à Lyon. Organisation complète de votre mariage : lieu, prestataires, décoration, coordination. Mariage sur mesure et haut de gamme.",
-    url: "https://smartmoments.fr/services/mariage",
+    url: "https://www.smartmoments.fr/services/mariage",
     images: [
       {
         url: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41_3_306698-168546595030467.jpeg",
@@ -45,19 +45,19 @@ export default function MariagePage() {
         "@type": "ListItem",
         position: 1,
         name: "Accueil",
-        item: "https://smartmoments.fr",
+        item: "https://www.smartmoments.fr",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Services",
-        item: "https://smartmoments.fr/services",
+        item: "https://www.smartmoments.fr/services",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: "Organisation de Mariage",
-        item: "https://smartmoments.fr/services/mariage",
+        item: "https://www.smartmoments.fr/services/mariage",
       },
     ],
   };

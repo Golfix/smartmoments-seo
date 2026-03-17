@@ -19,12 +19,12 @@ export const metadata: Metadata = {
     "anniversaire 50 ans lyon",
     "soirée anniversaire lyon",
   ],
-  alternates: { canonical: "https://smartmoments.fr/services/anniversaire" },
+  alternates: { canonical: "https://www.smartmoments.fr/services/anniversaire" },
   openGraph: {
     title: "Organisation d'Anniversaire Haut de Gamme Lyon",
     description:
       "Fêtes d'anniversaire sur mesure à Lyon. Décoration raffinée, animations, lieux d'exception. De 18 à 60 ans et plus.",
-    url: "https://smartmoments.fr/services/anniversaire",
+    url: "https://www.smartmoments.fr/services/anniversaire",
     images: [
       {
         url: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-42-1_3_306698-168546594928335.jpeg",
@@ -45,19 +45,19 @@ export default function AnniversairePage() {
         "@type": "ListItem",
         position: 1,
         name: "Accueil",
-        item: "https://smartmoments.fr",
+        item: "https://www.smartmoments.fr",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Services",
-        item: "https://smartmoments.fr/services",
+        item: "https://www.smartmoments.fr/services",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: "Organisation d'Anniversaire",
-        item: "https://smartmoments.fr/services/anniversaire",
+        item: "https://www.smartmoments.fr/services/anniversaire",
       },
     ],
   };

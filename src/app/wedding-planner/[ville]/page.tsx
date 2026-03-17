@@ -23,12 +23,12 @@ export async function generateMetadata({
     title: `Wedding Planner ${city.name} - Organisation de Mariage ${city.name}`,
     description: `Wedding planner à ${city.name} (${city.department}). Organisation de mariage clé en main, coordination jour J, décoration haut de gamme en ${city.region}. Smart Moments Event, noté 4.6/5. Devis gratuit.`,
     alternates: {
-      canonical: `https://smartmoments.fr/wedding-planner/${city.slug}`,
+      canonical: `https://www.smartmoments.fr/wedding-planner/${city.slug}`,
     },
     openGraph: {
       title: `Wedding Planner ${city.name} | Organisation de Mariage | Smart Moments Event`,
       description: `Organisatrice de mariage à ${city.name}. Organisation complète, coordination jour J et décoration haut de gamme. Devis gratuit.`,
-      url: `https://smartmoments.fr/wedding-planner/${city.slug}`,
+      url: `https://www.smartmoments.fr/wedding-planner/${city.slug}`,
       images: [
         {
           url: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41-3_3_306698-168546594978953.jpeg",
@@ -102,19 +102,19 @@ export default async function CityWeddingPlannerPage({
         "@type": "ListItem",
         position: 1,
         name: "Accueil",
-        item: "https://smartmoments.fr",
+        item: "https://www.smartmoments.fr",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Wedding Planner",
-        item: "https://smartmoments.fr/wedding-planner",
+        item: "https://www.smartmoments.fr/wedding-planner",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: city.name,
-        item: `https://smartmoments.fr/wedding-planner/${city.slug}`,
+        item: `https://www.smartmoments.fr/wedding-planner/${city.slug}`,
       },
     ],
   };

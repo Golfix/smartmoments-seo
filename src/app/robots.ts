@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/", "/members/"],
       },
     ],
-    sitemap: "https://smartmoments.fr/sitemap.xml",
+    sitemap: "https://www.smartmoments.fr/sitemap.xml",
   };
 }

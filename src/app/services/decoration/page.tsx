@@ -20,12 +20,12 @@ export const metadata: Metadata = {
     "décoration mariage champêtre lyon",
     "décoration mariage bohème lyon",
   ],
-  alternates: { canonical: "https://smartmoments.fr/services/decoration" },
+  alternates: { canonical: "https://www.smartmoments.fr/services/decoration" },
   openGraph: {
     title: "Décoration Mariage Haut de Gamme Lyon",
     description:
       "Scénographie et décoration de mariage sur mesure à Lyon. Créations florales, mise en lumière, mobilier d'exception.",
-    url: "https://smartmoments.fr/services/decoration",
+    url: "https://www.smartmoments.fr/services/decoration",
     images: [
       {
         url: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-40-1_3_306698-168546595086946.jpeg",
@@ -46,19 +46,19 @@ export default function DecorationPage() {
         "@type": "ListItem",
         position: 1,
         name: "Accueil",
-        item: "https://smartmoments.fr",
+        item: "https://www.smartmoments.fr",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Services",
-        item: "https://smartmoments.fr/services",
+        item: "https://www.smartmoments.fr/services",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: "Décoration Mariage",
-        item: "https://smartmoments.fr/services/decoration",
+        item: "https://www.smartmoments.fr/services/decoration",
       },
     ],
   };
