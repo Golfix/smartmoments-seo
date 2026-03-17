@@ -186,7 +186,7 @@ export default function HomePage() {
         "@type": "ListItem",
         position: 1,
         name: "Accueil",
-        item: "https://www.smartmoments.fr",
+        item: "https://smartmoments.fr",
       },
     ],
   };
@@ -197,7 +197,7 @@ export default function HomePage() {
     name: "Smart Moments Event",
     description:
       "Wedding planner et organisateur d'événements haut de gamme à Lyon. Organisation de mariage clé en main, coordination jour J, décoration luxe, photobooth. Mariages, baptêmes, bar-mitzvahs, séminaires.",
-    url: "https://www.smartmoments.fr",
+    url: "https://smartmoments.fr",
     telephone: "+33756987181",
     email: "smartmomentsevent@gmail.com",
     address: {

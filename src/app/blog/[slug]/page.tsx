@@ -27,12 +27,12 @@ export async function generateMetadata({
     title: article.metaTitle,
     description: article.metaDescription,
     alternates: {
-      canonical: `https://www.smartmoments.fr/blog/${article.slug}`,
+      canonical: `https://smartmoments.fr/blog/${article.slug}`,
     },
     openGraph: {
       title: `${article.metaTitle} | Smart Moments Event`,
       description: article.metaDescription,
-      url: `https://www.smartmoments.fr/blog/${article.slug}`,
+      url: `https://smartmoments.fr/blog/${article.slug}`,
       type: "article",
       publishedTime: article.publishedDate,
       modifiedTime: article.updatedDate,
@@ -72,20 +72,20 @@ export default async function BlogArticlePage({
     author: {
       "@type": "Organization",
       name: "Smart Moments Event",
-      url: "https://www.smartmoments.fr",
+      url: "https://smartmoments.fr",
     },
     publisher: {
       "@type": "Organization",
       name: "Smart Moments Event",
-      url: "https://www.smartmoments.fr",
+      url: "https://smartmoments.fr",
       logo: {
         "@type": "ImageObject",
-        url: "https://www.smartmoments.fr/favicon.ico",
+        url: "https://smartmoments.fr/favicon.ico",
       },
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://www.smartmoments.fr/blog/${article.slug}`,
+      "@id": `https://smartmoments.fr/blog/${article.slug}`,
     },
     keywords: article.tags.join(", "),
     articleSection: article.category,
@@ -101,19 +101,19 @@ export default async function BlogArticlePage({
         "@type": "ListItem",
         position: 1,
         name: "Accueil",
-        item: "https://www.smartmoments.fr",
+        item: "https://smartmoments.fr",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Blog",
-        item: "https://www.smartmoments.fr/blog",
+        item: "https://smartmoments.fr/blog",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: article.title,
-        item: `https://www.smartmoments.fr/blog/${article.slug}`,
+        item: `https://smartmoments.fr/blog/${article.slug}`,
       },
     ],
   };

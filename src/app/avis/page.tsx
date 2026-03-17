@@ -6,12 +6,12 @@ export const metadata: Metadata = {
   title: "Avis Clients - Wedding Planner Lyon | Témoignages Smart Moments",
   description:
     "Découvrez les avis et témoignages de nos clients. Smart Moments Event, wedding planner à Lyon, noté 4.6/5 sur Mariages.net. 92% de recommandation, 25+ avis vérifiés. Organisation de mariage, décoration, coordination jour J.",
-  alternates: { canonical: "https://www.smartmoments.fr/avis" },
+  alternates: { canonical: "https://smartmoments.fr/avis" },
   openGraph: {
     title: "Avis Clients | Smart Moments Event Lyon",
     description:
       "4.6/5 sur Mariages.net — Découvrez les témoignages de nos mariés et clients. Wedding planner Lyon.",
-    url: "https://www.smartmoments.fr/avis",
+    url: "https://smartmoments.fr/avis",
   },
   keywords: [
     "avis wedding planner lyon",
@@ -127,7 +127,7 @@ export default function AvisPage() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: "Smart Moments Event",
-    url: "https://www.smartmoments.fr",
+    url: "https://smartmoments.fr",
     telephone: "+33756987181",
     email: "smartmomentsevent@gmail.com",
     address: {
@@ -182,13 +182,13 @@ export default function AvisPage() {
         "@type": "ListItem",
         position: 1,
         name: "Accueil",
-        item: "https://www.smartmoments.fr",
+        item: "https://smartmoments.fr",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Avis Clients",
-        item: "https://www.smartmoments.fr/avis",
+        item: "https://smartmoments.fr/avis",
       },
     ],
   };

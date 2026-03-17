@@ -10,12 +10,12 @@ export const metadata: Metadata = {
     "Wedding Planner Lyon - Organisatrice de Mariage Haut de Gamme | 4.6★",
   description:
     "Meilleur wedding planner à Lyon et Rhône-Alpes. Organisation de mariage sur mesure, coordination jour J, prestation partielle. Noté 4.6/5 sur Mariages.net, recommandé par 92% des couples. Formules à partir de 200€. Première consultation gratuite.",
-  alternates: { canonical: "https://www.smartmoments.fr/wedding-planner" },
+  alternates: { canonical: "https://smartmoments.fr/wedding-planner" },
   openGraph: {
     title: "Wedding Planner Lyon | Organisation de Mariage de Prestige",
     description:
       "Dites oui à Smart Moments et vivez un mariage extraordinaire. Wedding planning sur mesure, coordination jour J et décoration haut de gamme à Lyon.",
-    url: "https://www.smartmoments.fr/wedding-planner",
+    url: "https://smartmoments.fr/wedding-planner",
     images: [{ url: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41-3_3_306698-168546594978953.jpeg", width: 960, height: 640, alt: "Wedding Planner Lyon - Smart Moments organise votre mariage" }],
   },
 };
@@ -104,13 +104,13 @@ export default function WeddingPlannerPage() {
         "@type": "ListItem",
         position: 1,
         name: "Accueil",
-        item: "https://www.smartmoments.fr",
+        item: "https://smartmoments.fr",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Wedding Planner Lyon",
-        item: "https://www.smartmoments.fr/wedding-planner",
+        item: "https://smartmoments.fr/wedding-planner",
       },
     ],
   };

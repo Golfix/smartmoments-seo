@@ -21,13 +21,13 @@ export const metadata: Metadata = {
     "événement corporate lyon",
   ],
   alternates: {
-    canonical: "https://www.smartmoments.fr/services/seminaire-entreprise",
+    canonical: "https://smartmoments.fr/services/seminaire-entreprise",
   },
   openGraph: {
     title: "Séminaire & Événements d'Entreprise Lyon | Smart Moments Event",
     description:
       "Agence événementielle à Lyon spécialisée dans l'organisation de séminaires, team building, conférences et soirées de gala pour les entreprises.",
-    url: "https://www.smartmoments.fr/services/seminaire-entreprise",
+    url: "https://smartmoments.fr/services/seminaire-entreprise",
     images: [
       {
         url: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-43_3_306698-168546594996125.jpeg",
@@ -48,19 +48,19 @@ export default function SeminaireEntreprisePage() {
         "@type": "ListItem",
         position: 1,
         name: "Accueil",
-        item: "https://www.smartmoments.fr",
+        item: "https://smartmoments.fr",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Services",
-        item: "https://www.smartmoments.fr/services",
+        item: "https://smartmoments.fr/services",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: "Séminaires & Entreprise",
-        item: "https://www.smartmoments.fr/services/seminaire-entreprise",
+        item: "https://smartmoments.fr/services/seminaire-entreprise",
       },
     ],
   };

@@ -20,12 +20,12 @@ export const metadata: Metadata = {
     "location borne photo mariage",
     "photobooth mariage rhône alpes",
   ],
-  alternates: { canonical: "https://www.smartmoments.fr/services/photobooth" },
+  alternates: { canonical: "https://smartmoments.fr/services/photobooth" },
   openGraph: {
     title: "Location Photobooth & Vidéo 360° Mariage Lyon",
     description:
       "Photobooth miroir magique et vidéo 360° immersive pour mariage et événements à Lyon. L'animation préférée des invités !",
-    url: "https://www.smartmoments.fr/services/photobooth",
+    url: "https://smartmoments.fr/services/photobooth",
     images: [
       {
         url: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-42_3_306698-168546594931608.jpeg",
@@ -46,19 +46,19 @@ export default function PhotoboothPage() {
         "@type": "ListItem",
         position: 1,
         name: "Accueil",
-        item: "https://www.smartmoments.fr",
+        item: "https://smartmoments.fr",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Services",
-        item: "https://www.smartmoments.fr/services",
+        item: "https://smartmoments.fr/services",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: "Photobooth & Vidéo 360°",
-        item: "https://www.smartmoments.fr/services/photobooth",
+        item: "https://smartmoments.fr/services/photobooth",
       },
     ],
   };

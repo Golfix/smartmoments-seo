@@ -19,12 +19,12 @@ export const metadata: Metadata = {
     "cérémonie symbolique lyon",
     "cérémonie laïque rhône-alpes",
   ],
-  alternates: { canonical: "https://www.smartmoments.fr/services/ceremonie-laique" },
+  alternates: { canonical: "https://smartmoments.fr/services/ceremonie-laique" },
   openGraph: {
     title: "Cérémonie Laïque Lyon | Organisation & Officiant",
     description:
       "Cérémonie laïque sur mesure à Lyon. Officiant professionnel, rituels symboliques, décoration et coordination. Vivez une cérémonie unique et émouvante.",
-    url: "https://www.smartmoments.fr/services/ceremonie-laique",
+    url: "https://smartmoments.fr/services/ceremonie-laique",
     images: [
       {
         url: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-30-at-10-54-55-1_3_306698-168563709678965.jpeg",
@@ -45,19 +45,19 @@ export default function CeremonieLaiquePage() {
         "@type": "ListItem",
         position: 1,
         name: "Accueil",
-        item: "https://www.smartmoments.fr",
+        item: "https://smartmoments.fr",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Services",
-        item: "https://www.smartmoments.fr/services",
+        item: "https://smartmoments.fr/services",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: "Cérémonie Laïque",
-        item: "https://www.smartmoments.fr/services/ceremonie-laique",
+        item: "https://smartmoments.fr/services/ceremonie-laique",
       },
     ],
   };

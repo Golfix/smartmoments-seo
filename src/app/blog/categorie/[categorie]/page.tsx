@@ -30,12 +30,12 @@ export async function generateMetadata({
     title,
     description,
     alternates: {
-      canonical: `https://www.smartmoments.fr/blog/categorie/${categorie}`,
+      canonical: `https://smartmoments.fr/blog/categorie/${categorie}`,
     },
     openGraph: {
       title,
       description,
-      url: `https://www.smartmoments.fr/blog/categorie/${categorie}`,
+      url: `https://smartmoments.fr/blog/categorie/${categorie}`,
     },
   };
 }
@@ -57,18 +57,18 @@ export default async function BlogCategoriePage({
     "@type": "CollectionPage",
     name: `${categoryName} - Blog Mariage Smart Moments Event`,
     description: `Articles sur le thème "${categoryName}" pour organiser votre mariage à Lyon.`,
-    url: `https://www.smartmoments.fr/blog/categorie/${categorie}`,
+    url: `https://smartmoments.fr/blog/categorie/${categorie}`,
     publisher: {
       "@type": "Organization",
       name: "Smart Moments Event",
-      url: "https://www.smartmoments.fr",
+      url: "https://smartmoments.fr",
     },
     mainEntity: {
       "@type": "ItemList",
       itemListElement: articles.map((article, index) => ({
         "@type": "ListItem",
         position: index + 1,
-        url: `https://www.smartmoments.fr/blog/${article.slug}`,
+        url: `https://smartmoments.fr/blog/${article.slug}`,
         name: article.title,
       })),
     },
@@ -82,19 +82,19 @@ export default async function BlogCategoriePage({
         "@type": "ListItem",
         position: 1,
         name: "Accueil",
-        item: "https://www.smartmoments.fr",
+        item: "https://smartmoments.fr",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Blog",
-        item: "https://www.smartmoments.fr/blog",
+        item: "https://smartmoments.fr/blog",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: categoryName,
-        item: `https://www.smartmoments.fr/blog/categorie/${categorie}`,
+        item: `https://smartmoments.fr/blog/categorie/${categorie}`,
       },
     ],
   };

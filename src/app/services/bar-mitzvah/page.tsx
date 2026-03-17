@@ -20,12 +20,12 @@ export const metadata: Metadata = {
     "bar mitzvah animation lyon",
     "célébration bar mitzvah lyon",
   ],
-  alternates: { canonical: "https://www.smartmoments.fr/services/bar-mitzvah" },
+  alternates: { canonical: "https://smartmoments.fr/services/bar-mitzvah" },
   openGraph: {
     title: "Organisation Bar Mitzvah Lyon | Smart Moments Event",
     description:
       "Organisation complète de Bar-Mitzvah à Lyon. Décoration raffinée, animations, traiteur et coordination le jour J.",
-    url: "https://www.smartmoments.fr/services/bar-mitzvah",
+    url: "https://smartmoments.fr/services/bar-mitzvah",
     images: [
       {
         url: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-42_3_306698-168546594931608.jpeg",
@@ -46,19 +46,19 @@ export default function BarMitzvahPage() {
         "@type": "ListItem",
         position: 1,
         name: "Accueil",
-        item: "https://www.smartmoments.fr",
+        item: "https://smartmoments.fr",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Services",
-        item: "https://www.smartmoments.fr/services",
+        item: "https://smartmoments.fr/services",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: "Organisation de Bar-Mitzvah",
-        item: "https://www.smartmoments.fr/services/bar-mitzvah",
+        item: "https://smartmoments.fr/services/bar-mitzvah",
       },
     ],
   };

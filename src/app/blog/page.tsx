@@ -10,13 +10,13 @@ export const metadata: Metadata = {
   description:
     "Conseils, guides et inspiration pour votre mariage à Lyon. Articles de wedding planner professionnel : organisation, budget, décoration, lieux de réception et tendances 2025.",
   alternates: {
-    canonical: "https://www.smartmoments.fr/blog",
+    canonical: "https://smartmoments.fr/blog",
   },
   openGraph: {
     title: "Blog Mariage & Événementiel | Smart Moments Event Lyon",
     description:
       "Conseils, guides et inspiration pour votre mariage à Lyon par nos wedding planners professionnels.",
-    url: "https://www.smartmoments.fr/blog",
+    url: "https://smartmoments.fr/blog",
     images: [
       {
         url: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-30-at-10-54-55-1_3_306698-168563709678965.jpeg",
@@ -36,18 +36,18 @@ export default function BlogPage() {
     name: "Blog Mariage & Événementiel - Smart Moments Event",
     description:
       "Conseils, guides et inspiration pour votre mariage à Lyon par nos wedding planners professionnels.",
-    url: "https://www.smartmoments.fr/blog",
+    url: "https://smartmoments.fr/blog",
     publisher: {
       "@type": "Organization",
       name: "Smart Moments Event",
-      url: "https://www.smartmoments.fr",
+      url: "https://smartmoments.fr",
     },
     mainEntity: {
       "@type": "ItemList",
       itemListElement: blogArticles.map((article, index) => ({
         "@type": "ListItem",
         position: index + 1,
-        url: `https://www.smartmoments.fr/blog/${article.slug}`,
+        url: `https://smartmoments.fr/blog/${article.slug}`,
         name: article.title,
       })),
     },
@@ -61,13 +61,13 @@ export default function BlogPage() {
         "@type": "ListItem",
         position: 1,
         name: "Accueil",
-        item: "https://www.smartmoments.fr",
+        item: "https://smartmoments.fr",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Blog",
-        item: "https://www.smartmoments.fr/blog",
+        item: "https://smartmoments.fr/blog",
       },
     ],
   };

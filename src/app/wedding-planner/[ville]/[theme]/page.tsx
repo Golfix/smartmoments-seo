@@ -44,12 +44,12 @@ export async function generateMetadata({
     title,
     description,
     alternates: {
-      canonical: `https://www.smartmoments.fr/wedding-planner/${city.slug}/${themeData.slug}`,
+      canonical: `https://smartmoments.fr/wedding-planner/${city.slug}/${themeData.slug}`,
     },
     openGraph: {
       title,
       description,
-      url: `https://www.smartmoments.fr/wedding-planner/${city.slug}/${themeData.slug}`,
+      url: `https://smartmoments.fr/wedding-planner/${city.slug}/${themeData.slug}`,
       images: [
         {
           url: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41-3_3_306698-168546594978953.jpeg",
@@ -254,25 +254,25 @@ export default async function CityThemePage({
         "@type": "ListItem",
         position: 1,
         name: "Accueil",
-        item: "https://www.smartmoments.fr",
+        item: "https://smartmoments.fr",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Wedding Planner",
-        item: "https://www.smartmoments.fr/wedding-planner",
+        item: "https://smartmoments.fr/wedding-planner",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: city.name,
-        item: `https://www.smartmoments.fr/wedding-planner/${city.slug}`,
+        item: `https://smartmoments.fr/wedding-planner/${city.slug}`,
       },
       {
         "@type": "ListItem",
         position: 4,
         name: themeData.name,
-        item: `https://www.smartmoments.fr/wedding-planner/${city.slug}/${themeData.slug}`,
+        item: `https://smartmoments.fr/wedding-planner/${city.slug}/${themeData.slug}`,
       },
     ],
   };

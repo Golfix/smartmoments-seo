@@ -22,7 +22,7 @@ const nourd = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.smartmoments.fr"),
+  metadataBase: new URL("https://smartmoments.fr"),
   title: {
     default:
       "Smart Moments Event | Wedding Planner & Organisateur d'Événements de Prestige à Lyon",
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "fr_FR",
-    url: "https://www.smartmoments.fr",
+    url: "https://smartmoments.fr",
     siteName: "Smart Moments Event",
     title:
       "Smart Moments Event | Wedding Planner & Organisateur d'Événements de Prestige à Lyon",
@@ -95,7 +95,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://www.smartmoments.fr",
+    canonical: "https://smartmoments.fr",
   },
 };
 
@@ -104,24 +104,24 @@ const websiteJsonLd = {
   "@type": "WebSite",
   name: "Smart Moments Event",
   alternateName: "Smart Moments",
-  url: "https://www.smartmoments.fr",
+  url: "https://smartmoments.fr",
   description:
     "Wedding planner et organisateur d'événements haut de gamme à Lyon. Organisation de mariage, coordination jour J, décoration luxe.",
   inLanguage: "fr-FR",
   publisher: {
     "@type": "Organization",
     name: "Smart Moments Event",
-    url: "https://www.smartmoments.fr",
+    url: "https://smartmoments.fr",
     logo: {
       "@type": "ImageObject",
-      url: "https://www.smartmoments.fr/favicon.ico",
+      url: "https://smartmoments.fr/favicon.ico",
     },
   },
   potentialAction: {
     "@type": "SearchAction",
     target: {
       "@type": "EntryPoint",
-      urlTemplate: "https://www.smartmoments.fr/?q={search_term_string}",
+      urlTemplate: "https://smartmoments.fr/?q={search_term_string}",
     },
     "query-input": "required name=search_term_string",
   },

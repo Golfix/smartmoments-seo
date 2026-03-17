@@ -4,7 +4,7 @@ import { themes } from "@/data/themes";
 import { blogArticles, getCategories } from "@/data/blog-articles";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://www.smartmoments.fr";
+  const baseUrl = "https://smartmoments.fr";
 
   const mainPages: MetadataRoute.Sitemap = [
     {

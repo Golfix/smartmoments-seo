@@ -1,0 +1,39 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./smartmoments.db"
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  backups      Backup[]
+  cloudData    CloudData?
+}
+
+model Backup {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  data      Bytes
+  sizeBytes Int
+  createdAt DateTime @default(now())
+  @@index([userId])
+}
+
+model CloudData {
+  id        String   @id @default(cuid())
+  userId    String   @unique
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  data      Bytes
+  sizeBytes Int
+  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
+}

@@ -20,12 +20,12 @@ export const metadata: Metadata = {
     "organisation fête baptême",
     "baptême sur mesure lyon",
   ],
-  alternates: { canonical: "https://www.smartmoments.fr/services/bapteme" },
+  alternates: { canonical: "https://smartmoments.fr/services/bapteme" },
   openGraph: {
     title: "Organisation de Baptême à Lyon | Smart Moments Event",
     description:
       "Organisation complète de baptême à Lyon : cérémonie, décoration, animations et coordination. Baptême religieux ou laïque, sur mesure et haut de gamme.",
-    url: "https://www.smartmoments.fr/services/bapteme",
+    url: "https://smartmoments.fr/services/bapteme",
     images: [
       {
         url: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-30-at-10-53-36_3_306698-168546595011373.jpeg",
@@ -46,19 +46,19 @@ export default function BaptemePage() {
         "@type": "ListItem",
         position: 1,
         name: "Accueil",
-        item: "https://www.smartmoments.fr",
+        item: "https://smartmoments.fr",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Services",
-        item: "https://www.smartmoments.fr/services",
+        item: "https://smartmoments.fr/services",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: "Organisation de Baptême",
-        item: "https://www.smartmoments.fr/services/bapteme",
+        item: "https://smartmoments.fr/services/bapteme",
       },
     ],
   };

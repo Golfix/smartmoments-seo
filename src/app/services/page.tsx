@@ -8,12 +8,12 @@ export const metadata: Metadata = {
     "Services Organisation Mariage, Décoration & Photobooth Lyon | Devis Gratuit",
   description:
     "Tous nos services événementiels à Lyon : organisation de mariage clé en main, décoration haut de gamme sur mesure, location photobooth miroir magique & vidéo 360°, coordination jour J. Baptêmes, bar-mitzvahs, séminaires. À partir de 200€.",
-  alternates: { canonical: "https://www.smartmoments.fr/services" },
+  alternates: { canonical: "https://smartmoments.fr/services" },
   openGraph: {
     title: "Services d'Organisation d'Événements de Prestige | Smart Moments Event Lyon",
     description:
       "Organisation de mariage complète, décoration haut de gamme, location photobooth et coordination jour J à Lyon et en France.",
-    url: "https://www.smartmoments.fr/services",
+    url: "https://smartmoments.fr/services",
     images: [{ url: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-43_3_306698-168546594996125.jpeg", width: 960, height: 640, alt: "Services organisation mariage et événements haut de gamme Lyon" }],
   },
 };
@@ -131,13 +131,13 @@ export default function ServicesPage() {
         "@type": "ListItem",
         position: 1,
         name: "Accueil",
-        item: "https://www.smartmoments.fr",
+        item: "https://smartmoments.fr",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Services",
-        item: "https://www.smartmoments.fr/services",
+        item: "https://smartmoments.fr/services",
       },
     ],
   };
