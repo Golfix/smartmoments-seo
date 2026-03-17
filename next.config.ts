@@ -12,6 +12,7 @@ const nextConfig: NextConfig = {
         hostname: "static.wixstatic.com",
       },
     ],
+    unoptimized: true,
   },
   async headers() {
     return [
