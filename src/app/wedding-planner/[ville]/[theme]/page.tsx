@@ -7,19 +7,19 @@ import AnimateOnScroll from "@/components/AnimateOnScroll";
 import { cities, getCityBySlug } from "@/data/cities";
 import { themes, getThemeBySlug } from "@/data/themes";
 
-// Top 20 villes par population
-const top20Cities = cities
+// Top 50 villes par population
+const top50Cities = cities
   .slice()
   .sort(
     (a, b) =>
       parseInt(b.population.replace(/\s/g, "")) -
       parseInt(a.population.replace(/\s/g, ""))
   )
-  .slice(0, 20);
+  .slice(0, 50);
 
 export function generateStaticParams() {
   const params: { ville: string; theme: string }[] = [];
-  for (const city of top20Cities) {
+  for (const city of top50Cities) {
     for (const theme of themes) {
       params.push({ ville: city.slug, theme: theme.slug });
     }

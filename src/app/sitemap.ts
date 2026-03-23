@@ -113,17 +113,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  // Top 20 villes par population × 5 thèmes = pages croisées
-  const top20Cities = cities
+  // Top 50 villes par population × 5 thèmes = pages croisées
+  const top50Cities = cities
     .slice()
     .sort(
       (a, b) =>
         parseInt(b.population.replace(/\s/g, "")) -
         parseInt(a.population.replace(/\s/g, ""))
     )
-    .slice(0, 20);
+    .slice(0, 50);
 
-  const cityThemePages: MetadataRoute.Sitemap = top20Cities.flatMap((city) =>
+  const cityThemePages: MetadataRoute.Sitemap = top50Cities.flatMap((city) =>
     themes.map((theme) => ({
       url: `${baseUrl}/wedding-planner/${city.slug}/${theme.slug}`,
       lastModified: new Date(),
