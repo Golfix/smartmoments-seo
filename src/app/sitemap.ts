@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { cities } from "@/data/cities";
+import { departments } from "@/data/departments";
 import { themes } from "@/data/themes";
 import { blogArticles, getCategories } from "@/data/blog-articles";
 
@@ -155,5 +156,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...mainPages, ...blogIndexPage, ...blogPages, ...blogCategoryPages, ...themePages, ...cityPages, ...cityThemePages];
+  const departmentPages: MetadataRoute.Sitemap = departments.map((dept) => ({
+    url: `${baseUrl}/wedding-planner/departement/${dept.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
+  return [...mainPages, ...blogIndexPage, ...blogPages, ...blogCategoryPages, ...themePages, ...departmentPages, ...cityPages, ...cityThemePages];
 }

@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import Breadcrumb from "@/components/Breadcrumb";
 import { cities, getCityBySlug } from "@/data/cities";
 import { themes } from "@/data/themes";
+import { departments } from "@/data/departments";
 
 // Fonction de hash déterministe pour varier le contenu par ville
 function hashCode(str: string): number {
@@ -394,6 +395,7 @@ export default async function CityWeddingPlannerPage({
     },
   };
 
+  const cityDept = departments.find((d) => d.name === city.department);
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -410,9 +412,15 @@ export default async function CityWeddingPlannerPage({
         name: "Wedding Planner",
         item: "https://www.smartmoments.fr/wedding-planner",
       },
-      {
+      ...(cityDept ? [{
         "@type": "ListItem",
         position: 3,
+        name: city.department,
+        item: `https://www.smartmoments.fr/wedding-planner/departement/${cityDept.slug}`,
+      }] : []),
+      {
+        "@type": "ListItem",
+        position: cityDept ? 4 : 3,
         name: city.name,
         item: `https://www.smartmoments.fr/wedding-planner/${city.slug}`,
       },
@@ -483,6 +491,10 @@ export default async function CityWeddingPlannerPage({
       <Breadcrumb
         items={[
           { label: "Wedding Planner", href: "/wedding-planner" },
+          ...((() => {
+            const dept = departments.find((d) => d.name === city.department);
+            return dept ? [{ label: city.department, href: `/wedding-planner/departement/${dept.slug}` }] : [];
+          })()),
           { label: city.name },
         ]}
       />
@@ -717,6 +729,93 @@ export default async function CityWeddingPlannerPage({
                 </div>
               </details>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pourquoi se marier ici - contenu unique enrichi */}
+      <section className="py-24 bg-rose">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <div className="luxury-line-left mb-6" />
+              <h2 className="text-3xl md:text-4xl font-heading font-bold text-taupe mb-8 leading-tight">
+                {pick([
+                  <>Pourquoi se marier<br /><span className="text-gold-gradient italic">à {city.name} ?</span></>,
+                  <>Se marier à {city.name}<br /><span className="text-gold-gradient italic">un choix d&apos;exception</span></>,
+                  <>{city.name}, un cadre<br /><span className="text-gold-gradient italic">idéal pour votre mariage</span></>,
+                ], city.slug, 21)}
+              </h2>
+              {cat === "metropole" || cat === "grande" ? (
+                <>
+                  <p className="text-taupe-soft leading-relaxed mb-5">
+                    Avec ses <strong>{city.population} habitants</strong>, {city.name} est l&apos;une des destinations les plus prisées pour se marier en {city.region}. La ville offre une diversité exceptionnelle de <strong>lieux de réception</strong> : hôtels particuliers, rooftops avec vue panoramique, domaines historiques et espaces événementiels contemporains.
+                  </p>
+                  <p className="text-taupe-soft leading-relaxed mb-5">
+                    {city.name}, {city.description}, séduit les couples par son <strong>accessibilité</strong> (gare TGV, aéroport, autoroutes) et la richesse de son <strong>réseau de prestataires mariage</strong> : traiteurs gastronomiques, photographes de renom, fleuristes créatifs, DJ et musiciens de talent.
+                  </p>
+                  <p className="text-taupe-soft leading-relaxed">
+                    En tant que wedding planner intervenant régulièrement à {city.name}, nous avons tissé des <strong>partenariats privilégiés</strong> avec les meilleurs professionnels du {city.department}. Notre connaissance du terrain vous garantit un mariage à la hauteur de vos rêves, avec des prestataires testés et approuvés.
+                  </p>
+                </>
+              ) : cat === "moyenne" ? (
+                <>
+                  <p className="text-taupe-soft leading-relaxed mb-5">
+                    {city.name}, {city.description}. Avec <strong>{city.population} habitants</strong>, la ville allie le charme d&apos;une taille humaine à la richesse de ses <strong>lieux de réception</strong>. Domaines viticoles, mas provençaux, châteaux de caractère ou salles de prestige : le {city.department} regorge de pépites pour votre mariage.
+                  </p>
+                  <p className="text-taupe-soft leading-relaxed mb-5">
+                    Se marier à {city.name} et dans ses environs, c&apos;est profiter d&apos;un cadre authentique en {city.region}, loin de l&apos;agitation des grandes métropoles. Les <strong>prestataires locaux</strong> — traiteurs, photographes, fleuristes — connaissent parfaitement les lieux et apportent une touche personnelle à chaque célébration.
+                  </p>
+                  <p className="text-taupe-soft leading-relaxed">
+                    Notre équipe de <strong>coordinatrices mariage</strong> sillonne le {city.department} depuis des années. Nous connaissons les domaines cachés, les artisans talentueux et les petites attentions qui font la différence pour votre jour J à {city.name}.
+                  </p>
+                </>
+              ) : (
+                <>
+                  <p className="text-taupe-soft leading-relaxed mb-5">
+                    {city.name}, {city.description}. Ce lieu de caractère en {city.department} offre un <strong>cadre intimiste et authentique</strong> qui séduit de plus en plus de couples pour leur mariage. Loin des sentiers battus, un mariage ici a cette touche d&apos;exception que seuls les lieux préservés peuvent offrir.
+                  </p>
+                  <p className="text-taupe-soft leading-relaxed mb-5">
+                    Les environs de {city.name} recèlent des <strong>trésors pour votre réception</strong> : granges rénovées avec poutres apparentes, jardins privatifs avec vue sur la campagne, demeures historiques pleines de cachet. Le {city.department} est une terre de caractère qui sublime les mariages champêtres et romantiques.
+                  </p>
+                  <p className="text-taupe-soft leading-relaxed">
+                    Même dans les communes plus intimes, notre exigence de <strong>wedding planner</strong> reste identique. Nous sélectionnons des <strong>prestataires de confiance</strong> dans tout le {city.department} pour garantir une prestation irréprochable, de {city.name} à {city.nearbyCity} et au-delà.
+                  </p>
+                </>
+              )}
+              {/* Lien vers la page département */}
+              {(() => {
+                const dept = departments.find((d) => d.name === city.department);
+                if (!dept) return null;
+                return (
+                  <Link
+                    href={`/wedding-planner/departement/${dept.slug}`}
+                    className="inline-flex items-center gap-2 mt-8 text-gold text-[11px] font-bold uppercase tracking-[0.2em] hover:text-gold-dark transition-colors"
+                  >
+                    Voir toutes les villes en {city.department}
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
+                );
+              })()}
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4", label: pick(["Lieux d'exception", "Domaines & Châteaux", "Lieux de réception"], city.slug, 22), desc: `${cat === "metropole" || cat === "grande" ? "Large choix" : "Sélection de pépites"} en ${city.department}` },
+                { icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z", label: pick(["Coordination jour J", "Gestion du jour J", "Pilotage jour J"], city.slug, 23), desc: "De la préparation au départ" },
+                { icon: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z", label: pick(["Sur mesure", "100% personnalisé", "Mariage unique"], city.slug, 24), desc: "Adapté à votre style et budget" },
+                { icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z", label: pick(["Prestataires locaux", "Réseau de confiance", "Artisans sélectionnés"], city.slug, 25), desc: `Les meilleurs du ${city.department}` },
+              ].map((item) => (
+                <div key={item.label} className="bg-white border border-gold/10 p-6 text-center">
+                  <svg className="w-8 h-8 text-gold mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d={item.icon} />
+                  </svg>
+                  <h3 className="font-heading font-bold text-taupe text-sm mb-1">{item.label}</h3>
+                  <p className="text-taupe-soft text-xs">{item.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

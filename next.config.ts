@@ -12,7 +12,8 @@ const nextConfig: NextConfig = {
         hostname: "static.wixstatic.com",
       },
     ],
-    unoptimized: true,
+    formats: ["image/avif", "image/webp"],
+    minimumCacheTTL: 31536000,
   },
   async headers() {
     return [
