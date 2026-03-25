@@ -229,6 +229,7 @@ export default function HomePage() {
       {
         "@type": "Review",
         author: { "@type": "Person", name: "Antoine" },
+        datePublished: "2024-09-15",
         reviewRating: {
           "@type": "Rating",
           ratingValue: "5",
@@ -240,6 +241,7 @@ export default function HomePage() {
       {
         "@type": "Review",
         author: { "@type": "Person", name: "Laetitia" },
+        datePublished: "2024-11-20",
         reviewRating: {
           "@type": "Rating",
           ratingValue: "5",
