@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { prisma } from "@/lib/prisma";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -14,6 +15,25 @@ export async function POST(request: Request) {
         { error: "Champs obligatoires manquants" },
         { status: 400 }
       );
+    }
+
+    // Save to database (non-blocking: email is more important)
+    try {
+      await prisma.contactRequest.create({
+        data: {
+          prenom,
+          nom,
+          email,
+          telephone: telephone || null,
+          evenement,
+          date: date || null,
+          invites: invites || null,
+          message,
+        },
+      });
+    } catch (dbError) {
+      console.error("Erreur sauvegarde DB:", dbError);
+      // Continue to send email even if DB fails
     }
 
     const eventLabels: Record<string, string> = {

@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/members/"],
+        disallow: ["/api/", "/members/", "/admin/", "/api/admin/"],
       },
     ],
     sitemap: "https://www.smartmoments.fr/sitemap.xml",

@@ -1,0 +1,22 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model ContactRequest {
+  id        Int      @id @default(autoincrement())
+  prenom    String
+  nom       String
+  email     String
+  telephone String?
+  evenement String
+  date      String?
+  invites   String?
+  message   String
+  createdAt DateTime @default(now())
+  read      Boolean  @default(false)
+}
