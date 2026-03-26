@@ -135,8 +135,26 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Partenaires */}
+        <div className="mt-16 mb-8">
+          <div className="h-[1px] bg-gradient-to-r from-transparent via-gold/20 to-transparent mb-8" />
+          <div className="flex flex-wrap items-center justify-center gap-6">
+            <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-gold/60">
+              Partenaire
+            </span>
+            <a
+              href="https://eclatsetincelants.fr"
+              target="_blank"
+              rel="noopener"
+              className="text-taupe-light text-sm hover:text-gold transition-colors duration-300"
+            >
+              Eclats Etincelants &mdash; Feu d&apos;artifice
+            </a>
+          </div>
+        </div>
+
         {/* SEO paragraph */}
-        <div className="mt-16 mb-8 max-w-4xl mx-auto text-center">
+        <div className="mb-8 max-w-4xl mx-auto text-center">
           <p className="text-taupe-light/50 text-xs leading-relaxed">
             Smart Moments Event est une agence de wedding planning et
             d&apos;organisation d&apos;événements haut de gamme basée à
