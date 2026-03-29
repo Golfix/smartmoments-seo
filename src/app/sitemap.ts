@@ -3,6 +3,7 @@ import { cities } from "@/data/cities";
 import { departments } from "@/data/departments";
 import { themes } from "@/data/themes";
 import { blogArticles, getCategories } from "@/data/blog-articles";
+import { serviceTypes } from "@/data/service-types";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.smartmoments.fr";
@@ -163,5 +164,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...mainPages, ...blogIndexPage, ...blogPages, ...blogCategoryPages, ...themePages, ...departmentPages, ...cityPages, ...cityThemePages];
+  // Service type × city pages (tiered)
+  const allServiceSlugs = serviceTypes.map((s) => s.slug);
+  const tier2ServiceSlugs = ["organisation-mariage", "coordinatrice-jour-j", "decoration-mariage"];
+  const tier3ServiceSlugs = ["organisation-mariage"];
+
+  const serviceTypeCityPages: MetadataRoute.Sitemap = cities.flatMap((city) => {
+    const p = parseInt(city.population.replace(/\s/g, ""));
+    const slugs = p >= 30000 ? allServiceSlugs : p >= 10000 ? tier2ServiceSlugs : p >= 5000 ? tier3ServiceSlugs : [];
+    return slugs.map((slug) => ({
+      url: `${baseUrl}/${slug}/${city.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: p >= 30000 ? 0.7 : 0.6,
+    }));
+  });
+
+  return [...mainPages, ...blogIndexPage, ...blogPages, ...blogCategoryPages, ...themePages, ...departmentPages, ...cityPages, ...cityThemePages, ...serviceTypeCityPages];
 }

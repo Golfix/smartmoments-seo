@@ -896,6 +896,39 @@ export default async function CityWeddingPlannerPage({
         </div>
       </section>
 
+      {/* Services spécifiques dans cette ville */}
+      {pop(city) >= 5000 && (
+        <section className="py-16 bg-champagne">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-xl font-light text-taupe mb-8">
+              Nos services à <span className="text-gold">{city.name}</span>
+            </h2>
+            <div className="flex flex-wrap justify-center gap-3">
+              {[
+                { slug: "organisation-mariage", name: "Organisation Mariage", minPop: 5000 },
+                { slug: "coordinatrice-jour-j", name: "Coordinatrice Jour J", minPop: 10000 },
+                { slug: "decoration-mariage", name: "Décoration Mariage", minPop: 10000 },
+                { slug: "photobooth-mariage", name: "Photobooth Mariage", minPop: 30000 },
+                { slug: "organisation-bapteme", name: "Organisation Baptême", minPop: 30000 },
+                { slug: "organisation-anniversaire", name: "Organisation Anniversaire", minPop: 30000 },
+                { slug: "seminaire-entreprise", name: "Séminaire Entreprise", minPop: 30000 },
+                { slug: "organisation-bar-mitzvah", name: "Bar-Mitzvah", minPop: 30000 },
+              ]
+                .filter((s) => pop(city) >= s.minPop)
+                .map((s) => (
+                  <Link
+                    key={s.slug}
+                    href={`/${s.slug}/${city.slug}`}
+                    className="border border-gold/20 bg-white px-5 py-2.5 text-[11px] text-taupe-soft uppercase tracking-[0.15em] hover:border-gold hover:text-gold transition-all duration-300"
+                  >
+                    {s.name} {city.name}
+                  </Link>
+                ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* CTA */}
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0">
