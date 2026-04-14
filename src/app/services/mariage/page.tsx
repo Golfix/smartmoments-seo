@@ -862,6 +862,48 @@ export default function MariagePage() {
         </div>
       </section>
 
+      {/* Organisation mariage par ville */}
+      <section className="py-20 bg-champagne">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl font-heading font-bold text-taupe mb-4">
+              Organisation de mariage dans votre ville
+            </h2>
+            <p className="text-taupe-light text-sm">
+              Découvrez nos services d&apos;organisation de mariage dans les principales villes de France.
+            </p>
+          </div>
+          <div className="flex flex-wrap justify-center gap-3">
+            {[
+              { name: "Lyon", slug: "lyon" },
+              { name: "Grenoble", slug: "grenoble" },
+              { name: "Annecy", slug: "annecy" },
+              { name: "Chambéry", slug: "chambery" },
+              { name: "Saint-Étienne", slug: "saint-etienne" },
+              { name: "Valence", slug: "valence" },
+              { name: "Marseille", slug: "marseille" },
+              { name: "Aix-en-Provence", slug: "aix-en-provence" },
+              { name: "Nice", slug: "nice" },
+              { name: "Avignon", slug: "avignon" },
+              { name: "Paris", slug: "paris" },
+              { name: "Bordeaux", slug: "bordeaux" },
+              { name: "Toulouse", slug: "toulouse" },
+              { name: "Montpellier", slug: "montpellier" },
+              { name: "Genève", slug: "geneve" },
+              { name: "Bora Bora", slug: "bora-bora" },
+            ].map((city) => (
+              <Link
+                key={city.slug}
+                href={`/organisation-mariage/${city.slug}`}
+                className="border border-gold/20 bg-white px-5 py-2.5 text-[11px] text-taupe-soft uppercase tracking-[0.15em] hover:border-gold hover:text-gold transition-all duration-300"
+              >
+                Organisation Mariage {city.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="relative py-28 overflow-hidden">
         <div className="absolute inset-0">

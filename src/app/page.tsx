@@ -685,6 +685,83 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Villes d'intervention + services */}
+      <section className="py-20 bg-champagne">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="luxury-line mx-auto mb-6" />
+            <h2 className="text-2xl md:text-3xl font-heading font-bold text-taupe mb-4">
+              Votre wedding planner partout en France
+            </h2>
+            <p className="text-taupe-light leading-relaxed">
+              Basés à Lyon, nous organisons mariages et événements dans toute la France et à l&apos;international.
+            </p>
+          </div>
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
+            {[
+              { name: "Lyon", slug: "lyon" },
+              { name: "Grenoble", slug: "grenoble" },
+              { name: "Annecy", slug: "annecy" },
+              { name: "Chambéry", slug: "chambery" },
+              { name: "Saint-Étienne", slug: "saint-etienne" },
+              { name: "Valence", slug: "valence" },
+              { name: "Marseille", slug: "marseille" },
+              { name: "Aix-en-Provence", slug: "aix-en-provence" },
+              { name: "Nice", slug: "nice" },
+              { name: "Avignon", slug: "avignon" },
+              { name: "Paris", slug: "paris" },
+              { name: "Bordeaux", slug: "bordeaux" },
+              { name: "Toulouse", slug: "toulouse" },
+              { name: "Montpellier", slug: "montpellier" },
+              { name: "Genève", slug: "geneve" },
+              { name: "Lausanne", slug: "lausanne" },
+            ].map((city) => (
+              <Link
+                key={city.slug}
+                href={`/wedding-planner/${city.slug}`}
+                className="border border-gold/20 bg-white px-5 py-2.5 text-[11px] text-taupe-soft uppercase tracking-[0.15em] hover:border-gold hover:text-gold transition-all duration-300"
+              >
+                {city.name}
+              </Link>
+            ))}
+          </div>
+          <div className="text-center mb-8">
+            <h3 className="text-lg font-heading font-bold text-taupe mb-6">
+              Nos services par ville
+            </h3>
+          </div>
+          <div className="flex flex-wrap justify-center gap-3">
+            {[
+              { label: "Organisation Mariage Lyon", href: "/organisation-mariage/lyon" },
+              { label: "Coordinatrice Jour J Lyon", href: "/coordinatrice-jour-j/lyon" },
+              { label: "Décoration Mariage Lyon", href: "/decoration-mariage/lyon" },
+              { label: "Photobooth Mariage Lyon", href: "/photobooth-mariage/lyon" },
+              { label: "Organisation Mariage Grenoble", href: "/organisation-mariage/grenoble" },
+              { label: "Organisation Mariage Annecy", href: "/organisation-mariage/annecy" },
+              { label: "Organisation Mariage Marseille", href: "/organisation-mariage/marseille" },
+              { label: "Organisation Mariage Nice", href: "/organisation-mariage/nice" },
+              { label: "Décoration Mariage Annecy", href: "/decoration-mariage/annecy" },
+              { label: "Coordinatrice Jour J Grenoble", href: "/coordinatrice-jour-j/grenoble" },
+              { label: "Séminaire Entreprise Lyon", href: "/seminaire-entreprise/lyon" },
+              { label: "Organisation Baptême Lyon", href: "/organisation-bapteme/lyon" },
+            ].map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="border border-gold/20 bg-white px-4 py-2 text-[10px] text-taupe-light uppercase tracking-[0.1em] hover:border-gold hover:text-gold transition-all duration-300"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+          <div className="text-center mt-6">
+            <Link href="/wedding-planner" className="text-gold text-sm hover:underline">
+              Voir toutes les villes →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA final */}
       <section className="relative py-32 md:py-40 overflow-hidden">
         <div className="absolute inset-0">

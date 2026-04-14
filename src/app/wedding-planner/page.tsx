@@ -536,6 +536,46 @@ export default function WeddingPlannerPage() {
               pour votre ville
             </p>
           </div>
+
+          {/* Services × villes principales */}
+          <div className="mt-16">
+            <div className="h-[1px] bg-gradient-to-r from-transparent via-gold/20 to-transparent mb-12" />
+            <h3 className="text-xl font-heading font-bold text-taupe text-center mb-8">
+              Nos services dans les grandes villes
+            </h3>
+            <div className="flex flex-wrap justify-center gap-2">
+              {[
+                { label: "Organisation Mariage Lyon", href: "/organisation-mariage/lyon" },
+                { label: "Coordinatrice Jour J Lyon", href: "/coordinatrice-jour-j/lyon" },
+                { label: "Décoration Mariage Lyon", href: "/decoration-mariage/lyon" },
+                { label: "Photobooth Mariage Lyon", href: "/photobooth-mariage/lyon" },
+                { label: "Organisation Mariage Grenoble", href: "/organisation-mariage/grenoble" },
+                { label: "Coordinatrice Jour J Grenoble", href: "/coordinatrice-jour-j/grenoble" },
+                { label: "Décoration Mariage Grenoble", href: "/decoration-mariage/grenoble" },
+                { label: "Organisation Mariage Annecy", href: "/organisation-mariage/annecy" },
+                { label: "Décoration Mariage Annecy", href: "/decoration-mariage/annecy" },
+                { label: "Organisation Mariage Marseille", href: "/organisation-mariage/marseille" },
+                { label: "Organisation Mariage Nice", href: "/organisation-mariage/nice" },
+                { label: "Organisation Mariage Aix-en-Provence", href: "/organisation-mariage/aix-en-provence" },
+                { label: "Organisation Mariage Paris", href: "/organisation-mariage/paris" },
+                { label: "Coordinatrice Jour J Paris", href: "/coordinatrice-jour-j/paris" },
+                { label: "Organisation Mariage Chambéry", href: "/organisation-mariage/chambery" },
+                { label: "Organisation Mariage Saint-Étienne", href: "/organisation-mariage/saint-etienne" },
+                { label: "Séminaire Entreprise Lyon", href: "/seminaire-entreprise/lyon" },
+                { label: "Organisation Baptême Lyon", href: "/organisation-bapteme/lyon" },
+                { label: "Organisation Anniversaire Lyon", href: "/organisation-anniversaire/lyon" },
+                { label: "Organisation Bar-Mitzvah Lyon", href: "/organisation-bar-mitzvah/lyon" },
+              ].map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="border border-gold/20 bg-white px-4 py-2 text-[10px] text-taupe-light uppercase tracking-[0.1em] hover:border-gold hover:text-gold transition-all duration-300"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 

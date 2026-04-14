@@ -337,6 +337,61 @@ export default async function BlogArticlePage({
           </div>
         </div>
       </section>
+
+      {/* Liens services et villes */}
+      <section className="py-16 bg-champagne">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-xl font-heading font-bold text-taupe mb-2">
+              Nos services
+            </h2>
+            <p className="text-taupe-light text-sm">
+              Découvrez nos prestations de wedding planning dans les principales villes
+            </p>
+          </div>
+          <div className="flex flex-wrap justify-center gap-2 mb-8">
+            {[
+              { label: "Organisation Mariage Lyon", href: "/organisation-mariage/lyon" },
+              { label: "Coordinatrice Jour J Lyon", href: "/coordinatrice-jour-j/lyon" },
+              { label: "Décoration Mariage Lyon", href: "/decoration-mariage/lyon" },
+              { label: "Photobooth Mariage Lyon", href: "/photobooth-mariage/lyon" },
+              { label: "Organisation Mariage Grenoble", href: "/organisation-mariage/grenoble" },
+              { label: "Organisation Mariage Annecy", href: "/organisation-mariage/annecy" },
+              { label: "Organisation Mariage Marseille", href: "/organisation-mariage/marseille" },
+              { label: "Organisation Mariage Nice", href: "/organisation-mariage/nice" },
+              { label: "Organisation Mariage Paris", href: "/organisation-mariage/paris" },
+            ].map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="border border-gold/20 bg-white px-4 py-2 text-[10px] text-taupe-light uppercase tracking-[0.1em] hover:border-gold hover:text-gold transition-all duration-300"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+          <div className="flex flex-wrap justify-center gap-2">
+            {[
+              { name: "Lyon", slug: "lyon" },
+              { name: "Grenoble", slug: "grenoble" },
+              { name: "Annecy", slug: "annecy" },
+              { name: "Chambéry", slug: "chambery" },
+              { name: "Marseille", slug: "marseille" },
+              { name: "Nice", slug: "nice" },
+              { name: "Paris", slug: "paris" },
+              { name: "Genève", slug: "geneve" },
+            ].map((city) => (
+              <Link
+                key={city.slug}
+                href={`/wedding-planner/${city.slug}`}
+                className="border border-gold/20 bg-white px-4 py-2 text-[10px] text-taupe-light uppercase tracking-[0.1em] hover:border-gold hover:text-gold transition-all duration-300"
+              >
+                Wedding Planner {city.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
     </>
   );
 }
