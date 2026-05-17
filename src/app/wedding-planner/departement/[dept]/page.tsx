@@ -184,6 +184,8 @@ function generateDeptFaq(dept: { name: string; slug: string; region: string; cit
   return indices.map((idx) => allFaq[idx]);
 }
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return departments.map((dept) => ({ dept: dept.slug }));
 }

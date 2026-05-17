@@ -10,6 +10,8 @@ import {
   getRelatedArticles,
 } from "@/data/blog-articles";
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return blogArticles.map((article) => ({ slug: article.slug }));
 }

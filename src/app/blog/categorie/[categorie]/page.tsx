@@ -10,6 +10,8 @@ import {
   getCategoryNameBySlug,
 } from "@/data/blog-articles";
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return getCategories().map((cat) => ({ categorie: cat.slug }));
 }

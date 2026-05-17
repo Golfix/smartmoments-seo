@@ -67,6 +67,8 @@ function tierSlugsForPop(p: number): string[] {
 
 // ─── Static params ──────────────────────────────────────────────────────────
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   const params: { serviceType: string; ville: string }[] = [];
   for (const city of cities) {

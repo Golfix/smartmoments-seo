@@ -6,6 +6,8 @@ import Breadcrumb from "@/components/Breadcrumb";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 import { destinations, getDestinationBySlug } from "@/data/destinations";
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return destinations.map((d) => ({ destination: d.slug }));
 }

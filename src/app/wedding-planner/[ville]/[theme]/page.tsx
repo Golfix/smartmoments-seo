@@ -17,6 +17,8 @@ const top50Cities = cities
   )
   .slice(0, 50);
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   const params: { ville: string; theme: string }[] = [];
   for (const city of top50Cities) {

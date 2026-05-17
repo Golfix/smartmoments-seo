@@ -35,6 +35,8 @@ function cityCategory(city: { population: string }): "metropole" | "grande" | "m
   return "village";
 }
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return cities.map((city) => ({ ville: city.slug }));
 }

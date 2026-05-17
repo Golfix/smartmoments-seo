@@ -5,6 +5,8 @@ import { notFound } from "next/navigation";
 import Breadcrumb from "@/components/Breadcrumb";
 import { themes, getThemeBySlug } from "@/data/themes";
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return themes.map((t) => ({ theme: t.slug }));
 }
