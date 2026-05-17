@@ -885,12 +885,12 @@ export default function MariagePage() {
               { name: "Aix-en-Provence", slug: "aix-en-provence" },
               { name: "Nice", slug: "nice" },
               { name: "Avignon", slug: "avignon" },
+              { name: "Cannes", slug: "cannes" },
+              { name: "Toulon", slug: "toulon" },
               { name: "Paris", slug: "paris" },
-              { name: "Bordeaux", slug: "bordeaux" },
-              { name: "Toulouse", slug: "toulouse" },
-              { name: "Montpellier", slug: "montpellier" },
-              { name: "Genève", slug: "geneve" },
-              { name: "Bora Bora", slug: "bora-bora" },
+              { name: "Versailles", slug: "versailles" },
+              { name: "Dijon", slug: "dijon" },
+              { name: "Bourg-en-Bresse", slug: "bourg-en-bresse" },
             ].map((city) => (
               <Link
                 key={city.slug}

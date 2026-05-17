@@ -453,7 +453,7 @@ export default function DecorationPage() {
               { name: "Aix-en-Provence", slug: "aix-en-provence" },
               { name: "Nice", slug: "nice" },
               { name: "Paris", slug: "paris" },
-              { name: "Genève", slug: "geneve" },
+              { name: "Cannes", slug: "cannes" },
             ].map((city) => (
               <Link
                 key={city.slug}

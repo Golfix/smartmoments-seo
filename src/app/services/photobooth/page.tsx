@@ -451,7 +451,7 @@ export default function PhotoboothPage() {
               { name: "Marseille", slug: "marseille" },
               { name: "Nice", slug: "nice" },
               { name: "Paris", slug: "paris" },
-              { name: "Genève", slug: "geneve" },
+              { name: "Cannes", slug: "cannes" },
             ].map((city) => (
               <Link
                 key={city.slug}

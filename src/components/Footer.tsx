@@ -35,6 +35,7 @@ export default function Footer() {
                 { href: "/", label: "Accueil" },
                 { href: "/services", label: "Nos Services" },
                 { href: "/wedding-planner", label: "Wedding Planner Lyon" },
+                { href: "/destination-wedding", label: "Destination Wedding" },
                 { href: "/a-propos", label: "À Propos" },
                 { href: "/galerie", label: "Galerie" },
                 { href: "/avis", label: "Avis Clients" },
@@ -161,10 +162,14 @@ export default function Footer() {
             Lyon 7ème. Nous proposons l&apos;organisation de mariage
             clé en main, la coordination du jour J, la décoration de mariage sur
             mesure et la location de photobooth miroir magique et vidéo 360°.
-            Nous intervenons à Lyon, Paris, Marseille, Bordeaux, Toulouse, Nice,
-            Nantes, Strasbourg, Montpellier, Lille, Grenoble, Annecy et dans
-            toute la France. Mariages, baptêmes, bar-mitzvahs, cérémonies
-            laïques, séminaires d&apos;entreprise et événements privés.
+            Nous intervenons en Auvergne-Rhône-Alpes (Lyon, Villeurbanne, Grenoble,
+            Annecy, Chambéry, Saint-Étienne, Valence, Bourg-en-Bresse), en
+            Provence-Alpes-Côte d&apos;Azur (Marseille, Aix-en-Provence, Nice,
+            Cannes, Avignon, Toulon), en Île-de-France (Paris, Versailles) et en
+            Bourgogne-Franche-Comté (Dijon, Mâcon). Nous organisons aussi des
+            destination weddings à l&apos;étranger : Italie, Suisse, Grèce, Bali,
+            Maroc, Portugal, Espagne, USA. Mariages, baptêmes, bar-mitzvahs,
+            cérémonies laïques, séminaires d&apos;entreprise et événements privés.
           </p>
         </div>
 

@@ -8,8 +8,8 @@ const navLinks = [
   { href: "/", label: "Accueil" },
   { href: "/services", label: "Services" },
   { href: "/wedding-planner", label: "Wedding Planner" },
+  { href: "/destination-wedding", label: "Destination Wedding" },
   { href: "/a-propos", label: "À Propos" },
-  { href: "/galerie", label: "Galerie" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];

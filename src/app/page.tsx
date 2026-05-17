@@ -140,7 +140,7 @@ export default function HomePage() {
         name: "Dans quelles villes intervenez-vous ?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Basés à Lyon, nous intervenons principalement à Lyon et dans toute la région Rhône-Alpes (Villeurbanne, Vienne, Annecy, Grenoble, Saint-Étienne). Nous organisons également des événements dans toute la France : Paris, Marseille, Bordeaux, Nice et au-delà.",
+          text: "Basés à Lyon, nous intervenons en Auvergne-Rhône-Alpes (Lyon, Villeurbanne, Annecy, Grenoble, Saint-Étienne, Chambéry), en PACA (Marseille, Aix-en-Provence, Nice, Avignon, Cannes), en Île-de-France (Paris, Versailles) et en Bourgogne-Franche-Comté. Nous organisons également des destination weddings à l'étranger : Italie, Suisse, Grèce, Bali, Maroc, USA.",
         },
       },
       {
@@ -639,7 +639,7 @@ export default function HomePage() {
               },
               {
                 q: "Dans quelles villes intervenez-vous ?",
-                a: "Basés à Lyon, nous intervenons principalement à Lyon et dans toute la région Rhône-Alpes (Villeurbanne, Vienne, Annecy, Grenoble, Saint-Étienne). Nous organisons également des événements dans toute la France : Paris, Marseille, Bordeaux, Nice et au-delà.",
+                a: "Basés à Lyon, nous intervenons en Auvergne-Rhône-Alpes (Lyon, Villeurbanne, Annecy, Grenoble, Saint-Étienne, Chambéry), en PACA (Marseille, Aix-en-Provence, Nice, Avignon, Cannes), en Île-de-France (Paris, Versailles) et en Bourgogne-Franche-Comté. Nous organisons également des destination weddings à l'étranger : Italie, Suisse, Grèce, Bali, Maroc, USA.",
               },
               {
                 q: "Quels types d'événements organisez-vous ?",
@@ -694,7 +694,7 @@ export default function HomePage() {
               Votre wedding planner partout en France
             </h2>
             <p className="text-taupe-light leading-relaxed">
-              Basés à Lyon, nous organisons mariages et événements dans toute la France et à l&apos;international.
+              Basés à Lyon, nous organisons mariages et événements en Auvergne-Rhône-Alpes, PACA, Île-de-France, Bourgogne, et à l&apos;international.
             </p>
           </div>
           <div className="flex flex-wrap justify-center gap-3 mb-12">
@@ -709,12 +709,12 @@ export default function HomePage() {
               { name: "Aix-en-Provence", slug: "aix-en-provence" },
               { name: "Nice", slug: "nice" },
               { name: "Avignon", slug: "avignon" },
+              { name: "Cannes", slug: "cannes" },
+              { name: "Toulon", slug: "toulon" },
               { name: "Paris", slug: "paris" },
-              { name: "Bordeaux", slug: "bordeaux" },
-              { name: "Toulouse", slug: "toulouse" },
-              { name: "Montpellier", slug: "montpellier" },
-              { name: "Genève", slug: "geneve" },
-              { name: "Lausanne", slug: "lausanne" },
+              { name: "Versailles", slug: "versailles" },
+              { name: "Dijon", slug: "dijon" },
+              { name: "Bourg-en-Bresse", slug: "bourg-en-bresse" },
             ].map((city) => (
               <Link
                 key={city.slug}
@@ -722,6 +722,36 @@ export default function HomePage() {
                 className="border border-gold/20 bg-white px-5 py-2.5 text-[11px] text-taupe-soft uppercase tracking-[0.15em] hover:border-gold hover:text-gold transition-all duration-300"
               >
                 {city.name}
+              </Link>
+            ))}
+          </div>
+
+          {/* Destinations à l'international */}
+          <div className="text-center mb-6">
+            <h3 className="text-lg font-heading font-bold text-taupe mb-4">
+              Destination Wedding
+            </h3>
+            <p className="text-taupe-light text-sm">
+              Nous organisons aussi votre mariage à l&apos;étranger
+            </p>
+          </div>
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
+            {[
+              { name: "Italie", slug: "italie" },
+              { name: "Suisse", slug: "suisse" },
+              { name: "Grèce", slug: "grece" },
+              { name: "Bali", slug: "bali" },
+              { name: "Maroc", slug: "maroc" },
+              { name: "Espagne", slug: "espagne" },
+              { name: "Portugal", slug: "portugal" },
+              { name: "USA", slug: "usa" },
+            ].map((d) => (
+              <Link
+                key={d.slug}
+                href={`/destination-wedding/${d.slug}`}
+                className="border border-gold/30 bg-white px-5 py-2.5 text-[11px] text-gold uppercase tracking-[0.15em] hover:bg-gold hover:text-white transition-all duration-300"
+              >
+                Mariage {d.name}
               </Link>
             ))}
           </div>

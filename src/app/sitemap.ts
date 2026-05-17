@@ -4,6 +4,7 @@ import { departments } from "@/data/departments";
 import { themes } from "@/data/themes";
 import { blogArticles, getCategories } from "@/data/blog-articles";
 import { serviceTypes } from "@/data/service-types";
+import { destinations } from "@/data/destinations";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.smartmoments.fr";
@@ -180,5 +181,34 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }));
   });
 
-  return [...mainPages, ...blogIndexPage, ...blogPages, ...blogCategoryPages, ...themePages, ...departmentPages, ...cityPages, ...cityThemePages, ...serviceTypeCityPages];
+  // Destination Wedding pages
+  const destinationHubPage: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/destination-wedding`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+  ];
+
+  const destinationPages: MetadataRoute.Sitemap = destinations.map((d) => ({
+    url: `${baseUrl}/destination-wedding/${d.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.75,
+  }));
+
+  return [
+    ...mainPages,
+    ...destinationHubPage,
+    ...destinationPages,
+    ...blogIndexPage,
+    ...blogPages,
+    ...blogCategoryPages,
+    ...themePages,
+    ...departmentPages,
+    ...cityPages,
+    ...cityThemePages,
+    ...serviceTypeCityPages,
+  ];
 }
