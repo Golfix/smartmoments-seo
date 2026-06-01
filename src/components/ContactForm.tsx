@@ -99,10 +99,10 @@ export default function ContactForm() {
       </div>
       <div>
         <label htmlFor="telephone" className="block text-[10px] font-semibold text-taupe uppercase tracking-[0.2em] mb-3">
-          Téléphone
+          Téléphone *
         </label>
         <input
-          type="tel" id="telephone" name="telephone"
+          type="tel" id="telephone" name="telephone" required
           autoComplete="tel"
           className="w-full px-5 py-3.5 border border-gold/20 bg-white focus:border-gold focus:outline-none transition-colors text-sm"
           placeholder="06 XX XX XX XX"

@@ -10,7 +10,7 @@ export async function POST(request: Request) {
     const { prenom, nom, email, telephone, evenement, date, invites, message } =
       body;
 
-    if (!prenom || !nom || !email || !evenement || !message) {
+    if (!prenom || !nom || !email || !telephone || !evenement || !message) {
       return NextResponse.json(
         { error: "Champs obligatoires manquants" },
         { status: 400 }
