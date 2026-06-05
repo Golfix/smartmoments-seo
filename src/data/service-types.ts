@@ -29,15 +29,19 @@ export const serviceTypes: ServiceType[] = [
     faqQuestions: [
       {
         q: "Combien coûte un wedding planner à {city} ?",
-        a: "Le tarif d'un wedding planner à {city} varie selon l'étendue des prestations souhaitées. Chez Smart Moments Event, nos formules d'organisation complète démarrent à partir de 1 500€. Nous établissons un devis personnalisé après un premier échange gratuit pour comprendre votre projet et vos attentes.",
+        a: "Le tarif d'un wedding planner à {city} dépend de la formule choisie. Chez Smart Moments Event, la coordination jour J démarre à 2 500 €, la prestation partielle à 4 500 €, et l'organisation complète clé en main à partir de 8 000 €. Chaque devis est personnalisé en fonction du nombre d'invités, du lieu et de la complexité du projet. Premier rendez-vous gratuit et sans engagement.",
       },
       {
         q: "Quand faut-il contacter un wedding planner à {city} ?",
-        a: "Nous recommandons de nous contacter entre 12 et 18 mois avant la date souhaitée, surtout pour les mariages en haute saison (mai à septembre) à {city}. Cependant, nous sommes également en mesure d'organiser des mariages dans des délais plus courts grâce à notre réseau de prestataires réactifs.",
+        a: "Nous recommandons de nous contacter entre 12 et 18 mois avant la date souhaitée, surtout pour les mariages en haute saison (mai à septembre) à {city}. Pour une coordination jour J uniquement, 3 à 6 mois suffisent. Nous gérons aussi des mariages en moins de 6 mois grâce à notre réseau de prestataires réactifs.",
+      },
+      {
+        q: "Pouvez-vous organiser un mariage intimiste à {city} (30 à 60 invités) ?",
+        a: "Oui, nous adorons les mariages intimistes ! Un mini wedding permet de concentrer le budget sur la qualité (lieu de prestige, traiteur étoilé, photographe d'art) et de partager des moments authentiques avec vos proches. Notre formule mariage intimiste à {city} démarre à 2 500 €.",
       },
       {
         q: "Intervenez-vous dans toute la région autour de {city} ?",
-        a: "Oui, Smart Moments Event intervient à {city} et dans toutes les communes environnantes. Nous connaissons parfaitement les lieux de réception, domaines, châteaux et salles de la région, ce qui nous permet de vous proposer les meilleures options pour votre mariage.",
+        a: "Oui, Smart Moments Event intervient à {city} et dans toutes les communes environnantes en {region}. Nous connaissons parfaitement les lieux de réception, domaines, châteaux et bastides de la région, et nous nous déplaçons systématiquement pour les visites de lieux et la coordination jour J.",
       },
     ],
     keywords: [
@@ -46,6 +50,9 @@ export const serviceTypes: ServiceType[] = [
       "organisateur mariage {city}",
       "wedding planner pas cher {city}",
       "agence organisation mariage {city}",
+      "mariage intimiste {city}",
+      "wedding planner mariage civil {city}",
+      "wedding planner mariage laïque {city}",
     ],
   },
   {

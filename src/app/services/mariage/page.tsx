@@ -4,20 +4,44 @@ import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Organisation Mariage Lyon | Wedding Planner Clé en Main | Smart Moments Event",
+  title: "Wedding Planner Lyon dès 2 500 € | Organisation Mariage Clé en Main - Smart Moments Event",
   description:
-    "Organisation de mariage clé en main à Lyon. Wedding planner expérimenté : recherche de lieu, prestataires, décoration, coordination jour J. Mariage champêtre, bohème, chic. Devis gratuit.",
+    "Wedding planner Lyon : organisation mariage de 50 à 250 invités, à partir de 2 500 €. Coordination jour J, mariage intimiste, civil, laïque, multiculturel. Noté 4.6/5, 100+ mariages organisés. Devis gratuit en 24h.",
   keywords: [
+    "wedding planner lyon",
     "organisation mariage lyon",
     "organisateur mariage lyon",
     "mariage clé en main lyon",
-    "wedding planner lyon",
+    "wedding planner pas cher lyon",
+    "prix wedding planner lyon",
+    "tarif organisation mariage lyon",
+    "wedding planner mariage intimiste",
+    "organisation mariage 50 invités",
+    "organisation mariage 100 invités",
+    "organisation mariage 150 invités",
+    "wedding planner mariage civil lyon",
+    "wedding planner mariage laïque lyon",
+    "wedding planner mariage multiculturel",
+    "wedding planner mariage juif lyon",
+    "wedding planner mariage mixte",
+    "petit mariage lyon",
+    "mini wedding lyon",
+    "wedding planner mariage week-end",
+    "mariage destination france",
+    "wedding planner mariage été",
+    "wedding planner mariage hiver",
+    "wedding planner mariage automne",
     "organisation mariage rhône-alpes",
+    "organisation mariage paca",
+    "organisation mariage paris",
+    "organisation mariage bourgogne",
     "mariage champêtre lyon",
     "mariage bohème lyon",
     "mariage chic lyon",
-    "planificateur mariage lyon",
-    "organisateur événement mariage lyon",
+    "wedding planner mariage 200 invités",
+    "wedding planner budget 20000",
+    "wedding planner budget 30000",
+    "wedding planner luxe lyon",
   ],
   alternates: { canonical: "https://www.smartmoments.fr/services/mariage" },
   openGraph: {
@@ -65,15 +89,27 @@ export default function MariagePage() {
   const serviceJsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "Organisation de Mariage Clé en Main",
+    name: "Organisation de Mariage Clé en Main - Wedding Planner Lyon",
     provider: {
       "@type": "LocalBusiness",
       name: "Smart Moments Event",
+      url: "https://www.smartmoments.fr",
+      telephone: "+33756987181",
+      email: "smartmomentsevent@gmail.com",
       address: {
         "@type": "PostalAddress",
+        streetAddress: "85 Rue André Bollier",
         addressLocality: "Lyon",
+        postalCode: "69007",
         addressRegion: "Rhône-Alpes",
         addressCountry: "FR",
+      },
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "4.6",
+        reviewCount: "25",
+        bestRating: "5",
+        worstRating: "1",
       },
     },
     serviceType: [
@@ -81,14 +117,72 @@ export default function MariagePage() {
       "Wedding planning",
       "Coordination jour J",
       "Mariage clé en main",
+      "Mariage intimiste",
+      "Mariage multiculturel",
+      "Destination wedding",
     ],
     areaServed: [
       { "@type": "City", name: "Lyon" },
-      { "@type": "City", name: "Lyon 7ème" },
-      { "@type": "AdministrativeArea", name: "Rhône-Alpes" },
+      { "@type": "City", name: "Villeurbanne" },
+      { "@type": "City", name: "Grenoble" },
+      { "@type": "City", name: "Annecy" },
+      { "@type": "City", name: "Marseille" },
+      { "@type": "City", name: "Aix-en-Provence" },
+      { "@type": "City", name: "Nice" },
+      { "@type": "City", name: "Paris" },
+      { "@type": "AdministrativeArea", name: "Auvergne-Rhône-Alpes" },
+      { "@type": "AdministrativeArea", name: "Provence-Alpes-Côte d'Azur" },
+      { "@type": "AdministrativeArea", name: "Île-de-France" },
+      { "@type": "AdministrativeArea", name: "Bourgogne-Franche-Comté" },
     ],
     description:
-      "Organisation de mariage complète et clé en main à Lyon. Recherche de lieu, sélection de prestataires, décoration, logistique et coordination jour J.",
+      "Organisation de mariage complète et clé en main à Lyon, en Rhône-Alpes, PACA, IDF, Bourgogne et à l'international. Recherche de lieu, sélection de prestataires, décoration, logistique et coordination jour J. À partir de 2 500 €.",
+    offers: {
+      "@type": "AggregateOffer",
+      priceCurrency: "EUR",
+      lowPrice: "2500",
+      highPrice: "12000",
+      offerCount: "3",
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Formules d'organisation mariage",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          name: "Coordination Jour J",
+          description: "Coordination uniquement le jour du mariage : reprise du dossier, suivi prestataires, planning minute par minute, gestion intégrale du déroulé. Idéal si vous avez tout organisé vous-même.",
+          price: "2500",
+          priceCurrency: "EUR",
+          itemOffered: {
+            "@type": "Service",
+            name: "Coordination Jour J Mariage Lyon",
+          },
+        },
+        {
+          "@type": "Offer",
+          name: "Prestation Partielle",
+          description: "Accompagnement ciblé sur certains volets : recherche de lieu, décoration sur mesure, coordination prestataires, mariage civil + laïque. À la carte.",
+          price: "4500",
+          priceCurrency: "EUR",
+          itemOffered: {
+            "@type": "Service",
+            name: "Wedding Planner Lyon - Prestation Partielle",
+          },
+        },
+        {
+          "@type": "Offer",
+          name: "Organisation Complète Clé en Main",
+          description: "Wedding planning de A à Z : recherche lieu, gestion budget, sélection complète prestataires, design floral, scénographie, papeterie, planning, coordination jour J. Tout est pris en charge.",
+          price: "8000",
+          priceCurrency: "EUR",
+          itemOffered: {
+            "@type": "Service",
+            name: "Organisation Mariage Clé en Main Lyon",
+          },
+        },
+      ],
+    },
   };
 
   const faqJsonLd = {
@@ -141,6 +235,94 @@ export default function MariagePage() {
         acceptedAnswer: {
           "@type": "Answer",
           text: "Nous organisons tous les styles de mariages : champêtre dans un domaine, bohème en pleine nature, chic et élégant dans un château, moderne et épuré dans un loft, intimiste pour les petits comités ou grandiose pour les grandes célébrations. Nous nous adaptons à votre vision, votre culture et vos traditions pour créer un mariage qui vous ressemble.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Pouvez-vous organiser un mariage intimiste de 30 à 50 invités ?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Oui, nous adorons les mariages intimistes ! Un mini wedding de 30 à 50 invités permet de soigner chaque détail, de partager des moments authentiques avec vos proches et de libérer du budget pour des prestations d'exception (lieu de prestige, traiteur étoilé, photographe d'art). Notre formule mariage intimiste démarre à 2 500 € pour la coordination jour J.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Combien coûte un mariage de 100 invités à Lyon ?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Le budget moyen d'un mariage de 100 invités à Lyon se situe entre 20 000 € et 40 000 € selon le lieu de réception, le traiteur et les prestations choisies. Notre rôle de wedding planner est d'optimiser chaque poste pour maximiser l'effet à votre budget. Notre devis personnalisé inclut une simulation budgétaire transparente avant tout engagement.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Pouvez-vous organiser un mariage multiculturel ou mixte ?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Absolument. Nous organisons régulièrement des mariages mixtes franco-internationaux (franco-marocain, franco-libanais, franco-asiatique, franco-juif, franco-musulman). Nous coordonnons les deux cérémonies religieuses ou laïques, gérons les traditions de chaque culture (henné, ketouba, thé, tea ceremony), travaillons avec des traiteurs adaptés (halal, casher) et créons un mariage qui honore les deux familles.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Organisez-vous des mariages civils ou laïques uniquement ?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Oui, nous proposons des prestations adaptées : organisation complète d'un mariage civil avec cocktail élégant, conception et écriture sur mesure d'une cérémonie laïque émouvante avec officiant professionnel, sélection de musiciens, gestion de la scénographie. La cérémonie laïque seule démarre à 1 500 €.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Pouvez-vous organiser un mariage week-end (vendredi au dimanche) ?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Oui, nous organisons de plus en plus de mariages week-end : welcome drink le vendredi soir, cérémonie + réception le samedi, brunch + activités le dimanche. C'est l'expérience préférée des invités qui se déplacent. Nous coordonnons l'hébergement, les transferts et toutes les activités sur 2 à 3 jours pour un mariage immersif.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Quels sont les meilleurs mois pour se marier à Lyon ?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "À Lyon, mai, juin, septembre et début octobre sont les mois les plus prisés : climat doux, ensoleillement optimal, vignobles en pleine activité dans le Beaujolais. Juillet-août sont plus chauds (préférer les domaines avec piscine ou ombre). Mai et septembre offrent souvent le meilleur ratio météo/disponibilité/prix. Nous accompagnons votre choix de date selon vos contraintes.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Quel délai pour un mariage en moins de 6 mois ?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Un mariage en 3 à 6 mois est tout à fait faisable grâce à notre réseau de prestataires réactifs. Nous proposons une organisation accélérée et privilégions les lieux/prestataires ayant des disponibilités. Les délais courts demandent plus de réactivité mais ne compromettent ni la qualité ni l'élégance. Idéal pour les mariages intimistes ou les couples qui veulent éviter une longue attente.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Comment se déroule le premier rendez-vous avec un wedding planner ?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Le premier rendez-vous est gratuit et sans engagement. Il dure environ 1h, en visio ou dans nos bureaux à Lyon. Nous échangeons sur votre projet, vos envies, votre budget et vos contraintes. Vous repartez avec une proposition personnalisée sous 48h. C'est aussi le moment de vérifier que le feeling passe : un mariage est un projet intime, la confiance compte autant que l'expertise.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Travaillez-vous avec un budget de 15 000 € ?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Oui, un budget de 15 000 € à 20 000 € permet d'organiser un beau mariage de 60 à 80 invités avec des prestataires de qualité, surtout si vous optez pour un mariage en mi-saison et pour un lieu type domaine viticole, ferme rénovée ou jardin privatif. Notre rôle de wedding planner est précisément de maximiser chaque euro investi.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Intervenez-vous en PACA, Île-de-France, Bourgogne ?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Oui, nous intervenons dans 4 régions principales : Auvergne-Rhône-Alpes, Provence-Alpes-Côte d'Azur (Marseille, Aix, Nice, Cannes), Île-de-France (Paris, Versailles) et Bourgogne-Franche-Comté (Dijon, Beaune). Nous organisons aussi des destination weddings à l'étranger (Italie, Suisse, Grèce, Bali, Maroc).",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Pouvez-vous nous trouver un lieu de réception en Beaujolais ou Drôme provençale ?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Oui, nous connaissons parfaitement les domaines viticoles du Beaujolais, les châteaux de la Drôme provençale, les mas du Vaucluse, les domaines du Luberon, les bastides de Provence et les fermes rénovées du Pilat. Notre repérage de lieux est inclus dans toutes nos formules (sauf coordination jour J).",
         },
       },
     ],
@@ -858,6 +1040,207 @@ export default function MariagePage() {
                 </div>
               </details>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Quel type de mariage organisons-nous ? */}
+      <section className="py-24 bg-ivory">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="luxury-line mx-auto mb-6" />
+            <p className="text-gold text-[10px] uppercase tracking-[0.4em] font-semibold mb-4">
+              Pour qui nous organisons
+            </p>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-taupe mb-6 leading-tight">
+              Tous types de mariages,
+              <br />
+              <span className="text-gold-gradient italic">100 % personnalisés</span>
+            </h2>
+            <p className="text-taupe-light leading-relaxed">
+              De 30 invités à 250 personnes, mariage civil, laïque ou religieux, en France ou à l&apos;étranger : nous avons l&apos;expérience pour transformer chaque projet en une journée inoubliable.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                title: "Mariage intimiste",
+                tag: "30 à 60 invités",
+                desc: "Mini wedding ou elopement raffiné : ambiance familiale, budget concentré sur la qualité, lieux d'exception accessibles avec moins de logistique. Idéal pour un mariage chic et émotionnel.",
+              },
+              {
+                title: "Mariage 100 à 150 invités",
+                tag: "Le format classique",
+                desc: "Le mariage standard français : 80 % de nos couples. Domaines viticoles du Beaujolais, châteaux du Rhône, mas provençaux. Budget moyen 20 000 € à 40 000 €.",
+              },
+              {
+                title: "Grand mariage",
+                tag: "180 à 250+ invités",
+                desc: "Grandes célébrations, mariages familiaux à plusieurs générations. Logistique complexe : nous coordonnons hébergement, transferts, plusieurs prestataires. Budget à partir de 50 000 €.",
+              },
+              {
+                title: "Mariage civil élégant",
+                tag: "Mairie + cocktail",
+                desc: "Cérémonie civile soignée + cocktail/déjeuner raffiné. Format court mais haut de gamme, idéal pour mariages express ou seconds mariages. Prestation partielle à partir de 1 500 €.",
+              },
+              {
+                title: "Mariage laïque sur mesure",
+                tag: "Cérémonie + officiant",
+                desc: "Écriture personnalisée de votre cérémonie, sélection d'un officiant professionnel, rituels symboliques (sable, bougies, ruban), scénographie en pleine nature.",
+              },
+              {
+                title: "Mariage multiculturel & mixte",
+                tag: "2 cultures, 1 union",
+                desc: "Mariages franco-marocain, franco-libanais, franco-juif, franco-asiatique. Coordination des traditions de chaque culture, traiteurs adaptés (halal, casher), 2 cérémonies si nécessaire.",
+              },
+              {
+                title: "Mariage week-end",
+                tag: "Vendredi → Dimanche",
+                desc: "Welcome drink le vendredi, cérémonie/réception le samedi, brunch le dimanche. L&apos;expérience la plus immersive pour vos invités, avec coordination hébergement et activités.",
+              },
+              {
+                title: "Destination Wedding",
+                tag: "France ou international",
+                desc: "Mariage en Provence, sur la Côte d&apos;Azur, en Toscane, à Bali ou à Marrakech. Coordination complète à distance depuis Lyon, repérage sur place, gestion des formalités.",
+              },
+              {
+                title: "Renouvellement de vœux",
+                tag: "10, 20, 25 ans",
+                desc: "Renouvellement de vœux ou anniversaires de mariage marquants. Cérémonie symbolique sur mesure, rétro-souvenir de votre mariage, célébration émouvante en famille.",
+              },
+            ].map((card, i) => (
+              <div
+                key={card.title}
+                className="bg-white border border-gold/10 p-7 hover:border-gold/40 transition-all duration-300 h-full"
+              >
+                <div className="flex items-start gap-3 mb-4">
+                  <span className="text-gold text-xs font-semibold">{String(i + 1).padStart(2, "0")}.</span>
+                  <div className="flex-1">
+                    <h3 className="text-base font-heading font-bold text-taupe mb-1">{card.title}</h3>
+                    <p className="text-[10px] uppercase tracking-[0.2em] text-gold-dark">{card.tag}</p>
+                  </div>
+                </div>
+                <p className="text-taupe-soft text-sm leading-relaxed">{card.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Budgets transparents */}
+      <section className="py-24 bg-champagne">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="luxury-line mx-auto mb-6" />
+            <p className="text-gold text-[10px] uppercase tracking-[0.4em] font-semibold mb-4">
+              Nos formules
+            </p>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-taupe mb-6 leading-tight">
+              Combien coûte
+              <br />
+              <span className="text-gold-gradient italic">un wedding planner à Lyon ?</span>
+            </h2>
+            <p className="text-taupe-light leading-relaxed">
+              Trois formules transparentes selon votre besoin. Devis personnalisé en 24h, sans engagement.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                name: "Coordination Jour J",
+                price: "À partir de 2 500 €",
+                description: "Vous avez tout organisé. Notre coordinatrice prend le relais 1 mois avant et orchestre votre journée minute par minute.",
+                includes: [
+                  "Reprise complète du dossier 1 mois avant",
+                  "Vérification et confirmation des prestataires",
+                  "Création du planning détaillé jour J",
+                  "Coordination de tous les prestataires sur place",
+                  "Gestion intégrale du timing et imprévus",
+                  "Présence d'un(e) coordinateur(rice) sur la journée",
+                ],
+                cta: "Idéal si vous voulez profiter sereinement",
+              },
+              {
+                name: "Prestation Partielle",
+                price: "À partir de 4 500 €",
+                description: "Accompagnement ciblé sur certains volets : recherche de lieu, décoration, cérémonie laïque, organisation civile.",
+                includes: [
+                  "Choix de 3 modules à la carte",
+                  "Recherche lieu de réception",
+                  "Décoration sur mesure",
+                  "Écriture cérémonie laïque",
+                  "Sélection prestataires clés",
+                  "Coordination jour J incluse",
+                ],
+                cta: "Pour un mariage en partie organisé",
+                highlight: true,
+              },
+              {
+                name: "Organisation Complète Clé en Main",
+                price: "À partir de 8 000 €",
+                description: "De A à Z : wedding planning complet, gestion budget, design floral, scénographie, papeterie et coordination.",
+                includes: [
+                  "Recherche et visite lieux de réception",
+                  "Gestion intégrale du budget",
+                  "Sélection complète des prestataires",
+                  "Conception décoration & design floral",
+                  "Création papeterie & save-the-date",
+                  "Planning, coordination & jour J",
+                ],
+                cta: "Pour un mariage sans aucun stress",
+              },
+            ].map((tier) => (
+              <div
+                key={tier.name}
+                className={`bg-white p-8 h-full flex flex-col ${
+                  tier.highlight
+                    ? "border-2 border-gold shadow-lg shadow-gold/10"
+                    : "border border-gold/10"
+                }`}
+              >
+                {tier.highlight && (
+                  <p className="text-[10px] uppercase tracking-[0.3em] text-gold font-bold mb-4">
+                    ⭐ Le plus choisi
+                  </p>
+                )}
+                <h3 className="text-xl font-heading font-bold text-taupe mb-2">{tier.name}</h3>
+                <p className="text-2xl font-heading text-gold-gradient italic mb-4">
+                  {tier.price}
+                </p>
+                <p className="text-taupe-soft text-sm leading-relaxed mb-6">{tier.description}</p>
+                <ul className="space-y-3 mb-8 flex-1">
+                  {tier.includes.map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-sm text-taupe-soft">
+                      <svg className="w-4 h-4 text-gold mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-[10px] uppercase tracking-[0.2em] text-taupe-light mb-6">
+                  {tier.cta}
+                </p>
+                <Link
+                  href="/contact"
+                  className={`text-center py-3 px-6 text-[11px] uppercase tracking-[0.3em] font-bold transition-all ${
+                    tier.highlight
+                      ? "bg-gold text-white hover:bg-gold-dark"
+                      : "border border-gold/40 text-gold hover:bg-gold hover:text-white"
+                  }`}
+                >
+                  Demander un devis
+                </Link>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <p className="text-taupe-light text-sm max-w-2xl mx-auto leading-relaxed">
+              Les tarifs varient selon le nombre d&apos;invités, la complexité de l&apos;événement et le niveau de personnalisation. Tous nos devis incluent une simulation budgétaire transparente. <strong>Paiement en plusieurs fois possible.</strong>
+            </p>
           </div>
         </div>
       </section>
