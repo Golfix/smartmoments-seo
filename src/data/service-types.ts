@@ -29,7 +29,7 @@ export const serviceTypes: ServiceType[] = [
     faqQuestions: [
       {
         q: "Combien coûte un wedding planner à {city} ?",
-        a: "Le tarif d'un wedding planner à {city} dépend de la formule choisie. Chez Smart Moments Event, la coordination jour J démarre à 2 500 €, la prestation partielle à 4 500 €, et l'organisation complète clé en main à partir de 8 000 €. Chaque devis est personnalisé en fonction du nombre d'invités, du lieu et de la complexité du projet. Premier rendez-vous gratuit et sans engagement.",
+        a: "Nos prestations de wedding planning à {city} démarrent à partir de 1 500 €. Le tarif final dépend de la formule choisie (coordination jour J, prestation partielle, organisation complète), du nombre d'invités et du niveau de personnalisation. Chaque devis est gratuit, transparent et sans engagement. Possibilité de paiement en plusieurs fois.",
       },
       {
         q: "Quand faut-il contacter un wedding planner à {city} ?",
@@ -37,7 +37,7 @@ export const serviceTypes: ServiceType[] = [
       },
       {
         q: "Pouvez-vous organiser un mariage intimiste à {city} (30 à 60 invités) ?",
-        a: "Oui, nous adorons les mariages intimistes ! Un mini wedding permet de concentrer le budget sur la qualité (lieu de prestige, traiteur étoilé, photographe d'art) et de partager des moments authentiques avec vos proches. Notre formule mariage intimiste à {city} démarre à 2 500 €.",
+        a: "Oui, nous adorons les mariages intimistes ! Un mini wedding permet de concentrer le budget sur la qualité (lieu de prestige, traiteur étoilé, photographe d'art) et de partager des moments authentiques avec vos proches. Nos prestations à {city} démarrent à partir de 1 500 €.",
       },
       {
         q: "Intervenez-vous dans toute la région autour de {city} ?",

@@ -4,9 +4,9 @@ import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Wedding Planner Lyon dès 2 500 € | Organisation Mariage Clé en Main - Smart Moments Event",
+  title: "Wedding Planner Lyon dès 1 500 € | Organisation Mariage Clé en Main - Smart Moments Event",
   description:
-    "Wedding planner Lyon : organisation mariage de 50 à 250 invités, à partir de 2 500 €. Coordination jour J, mariage intimiste, civil, laïque, multiculturel. Noté 4.6/5, 100+ mariages organisés. Devis gratuit en 24h.",
+    "Wedding planner Lyon à partir de 1 500 €. Organisation mariage clé en main, coordination jour J, mariage intimiste, civil, laïque, multiculturel. De 50 à 250 invités. Noté 4.6/5, 100+ mariages organisés. Devis gratuit en 24h.",
   keywords: [
     "wedding planner lyon",
     "organisation mariage lyon",
@@ -136,52 +136,11 @@ export default function MariagePage() {
       { "@type": "AdministrativeArea", name: "Bourgogne-Franche-Comté" },
     ],
     description:
-      "Organisation de mariage complète et clé en main à Lyon, en Rhône-Alpes, PACA, IDF, Bourgogne et à l'international. Recherche de lieu, sélection de prestataires, décoration, logistique et coordination jour J. À partir de 2 500 €.",
+      "Organisation de mariage complète et clé en main à Lyon, en Rhône-Alpes, PACA, IDF, Bourgogne et à l'international. Recherche de lieu, sélection de prestataires, décoration, logistique et coordination jour J. À partir de 1 500 €.",
     offers: {
       "@type": "AggregateOffer",
       priceCurrency: "EUR",
-      lowPrice: "2500",
-      highPrice: "12000",
-      offerCount: "3",
-    },
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "Formules d'organisation mariage",
-      itemListElement: [
-        {
-          "@type": "Offer",
-          name: "Coordination Jour J",
-          description: "Coordination uniquement le jour du mariage : reprise du dossier, suivi prestataires, planning minute par minute, gestion intégrale du déroulé. Idéal si vous avez tout organisé vous-même.",
-          price: "2500",
-          priceCurrency: "EUR",
-          itemOffered: {
-            "@type": "Service",
-            name: "Coordination Jour J Mariage Lyon",
-          },
-        },
-        {
-          "@type": "Offer",
-          name: "Prestation Partielle",
-          description: "Accompagnement ciblé sur certains volets : recherche de lieu, décoration sur mesure, coordination prestataires, mariage civil + laïque. À la carte.",
-          price: "4500",
-          priceCurrency: "EUR",
-          itemOffered: {
-            "@type": "Service",
-            name: "Wedding Planner Lyon - Prestation Partielle",
-          },
-        },
-        {
-          "@type": "Offer",
-          name: "Organisation Complète Clé en Main",
-          description: "Wedding planning de A à Z : recherche lieu, gestion budget, sélection complète prestataires, design floral, scénographie, papeterie, planning, coordination jour J. Tout est pris en charge.",
-          price: "8000",
-          priceCurrency: "EUR",
-          itemOffered: {
-            "@type": "Service",
-            name: "Organisation Mariage Clé en Main Lyon",
-          },
-        },
-      ],
+      lowPrice: "1500",
     },
   };
 
@@ -194,7 +153,7 @@ export default function MariagePage() {
         name: "Quel est le prix d'un wedding planner à Lyon ?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Le tarif d'un wedding planner à Lyon varie en fonction du niveau d'accompagnement souhaité. Chez Smart Moments Event, nos formules d'organisation de mariage démarrent à partir de 2 500 € pour une coordination jour J, et peuvent aller jusqu'à 8 000 € et plus pour une organisation complète clé en main. Chaque devis est personnalisé en fonction de vos besoins, du nombre d'invités et du niveau de prestation souhaité.",
+          text: "Nos prestations de wedding planning à Lyon démarrent à partir de 1 500 €. Le tarif final dépend de la formule choisie (coordination jour J, prestation partielle, organisation complète), du nombre d'invités et du niveau de personnalisation. Chaque devis est gratuit, transparent et sans engagement. Possibilité de paiement en plusieurs fois.",
         },
       },
       {
@@ -242,7 +201,7 @@ export default function MariagePage() {
         name: "Pouvez-vous organiser un mariage intimiste de 30 à 50 invités ?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Oui, nous adorons les mariages intimistes ! Un mini wedding de 30 à 50 invités permet de soigner chaque détail, de partager des moments authentiques avec vos proches et de libérer du budget pour des prestations d'exception (lieu de prestige, traiteur étoilé, photographe d'art). Notre formule mariage intimiste démarre à 2 500 € pour la coordination jour J.",
+          text: "Oui, nous adorons les mariages intimistes ! Un mini wedding de 30 à 50 invités permet de soigner chaque détail, de partager des moments authentiques avec vos proches et de libérer du budget pour des prestations d'exception (lieu de prestige, traiteur étoilé, photographe d'art). Nos prestations démarrent à partir de 1 500 €.",
         },
       },
       {
@@ -250,7 +209,7 @@ export default function MariagePage() {
         name: "Combien coûte un mariage de 100 invités à Lyon ?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Le budget moyen d'un mariage de 100 invités à Lyon se situe entre 20 000 € et 40 000 € selon le lieu de réception, le traiteur et les prestations choisies. Notre rôle de wedding planner est d'optimiser chaque poste pour maximiser l'effet à votre budget. Notre devis personnalisé inclut une simulation budgétaire transparente avant tout engagement.",
+          text: "Le budget global d'un mariage de 100 invités à Lyon dépend du lieu, du traiteur et des prestations choisies. Notre rôle de wedding planner est d'optimiser chaque poste pour maximiser l'effet à votre budget. Nos prestations de wedding planning démarrent à partir de 1 500 €. Devis personnalisé avec simulation budgétaire transparente.",
         },
       },
       {
@@ -266,7 +225,7 @@ export default function MariagePage() {
         name: "Organisez-vous des mariages civils ou laïques uniquement ?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Oui, nous proposons des prestations adaptées : organisation complète d'un mariage civil avec cocktail élégant, conception et écriture sur mesure d'une cérémonie laïque émouvante avec officiant professionnel, sélection de musiciens, gestion de la scénographie. La cérémonie laïque seule démarre à 1 500 €.",
+          text: "Oui, nous proposons des prestations adaptées : organisation complète d'un mariage civil avec cocktail élégant, conception et écriture sur mesure d'une cérémonie laïque émouvante avec officiant professionnel, sélection de musiciens, gestion de la scénographie. Nos prestations démarrent à partir de 1 500 €.",
         },
       },
       {
@@ -303,10 +262,10 @@ export default function MariagePage() {
       },
       {
         "@type": "Question",
-        name: "Travaillez-vous avec un budget de 15 000 € ?",
+        name: "Comment se déroule un devis personnalisé ?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Oui, un budget de 15 000 € à 20 000 € permet d'organiser un beau mariage de 60 à 80 invités avec des prestataires de qualité, surtout si vous optez pour un mariage en mi-saison et pour un lieu type domaine viticole, ferme rénovée ou jardin privatif. Notre rôle de wedding planner est précisément de maximiser chaque euro investi.",
+          text: "Le premier rendez-vous est gratuit et sans engagement. Nous échangeons sur votre projet, votre budget total et vos envies, puis nous établissons un devis personnalisé sous 48h détaillant la formule la plus adaptée à vos besoins. Nos prestations démarrent à partir de 1 500 €. Possibilité de paiement en plusieurs fois.",
         },
       },
       {
@@ -994,7 +953,7 @@ export default function MariagePage() {
             {[
               {
                 q: "Quel est le prix d'un wedding planner à Lyon ?",
-                a: "Le tarif d'un wedding planner à Lyon varie en fonction du niveau d'accompagnement souhaité. Chez Smart Moments Event, nos formules d'organisation de mariage démarrent à partir de 2 500 \u20ac pour une coordination jour J, et peuvent aller jusqu'à 8 000 \u20ac et plus pour une organisation complète clé en main. Chaque devis est personnalisé en fonction de vos besoins, du nombre d'invités et du niveau de prestation souhaité.",
+                a: "Nos prestations de wedding planning à Lyon démarrent à partir de 1 500 €. Le tarif final dépend de la formule choisie (coordination jour J, prestation partielle, organisation complète), du nombre d'invités et du niveau de personnalisation. Chaque devis est gratuit, transparent et sans engagement. Possibilité de paiement en plusieurs fois.",
               },
               {
                 q: "Combien de temps à l'avance faut-il contacter un wedding planner ?",
@@ -1072,17 +1031,17 @@ export default function MariagePage() {
               {
                 title: "Mariage 100 à 150 invités",
                 tag: "Le format classique",
-                desc: "Le mariage standard français : 80 % de nos couples. Domaines viticoles du Beaujolais, châteaux du Rhône, mas provençaux. Budget moyen 20 000 € à 40 000 €.",
+                desc: "Le mariage standard français : 80 % de nos couples. Domaines viticoles du Beaujolais, châteaux du Rhône, mas provençaux. Wedding planning à partir de 1 500 €.",
               },
               {
                 title: "Grand mariage",
                 tag: "180 à 250+ invités",
-                desc: "Grandes célébrations, mariages familiaux à plusieurs générations. Logistique complexe : nous coordonnons hébergement, transferts, plusieurs prestataires. Budget à partir de 50 000 €.",
+                desc: "Grandes célébrations, mariages familiaux à plusieurs générations. Logistique complexe : nous coordonnons hébergement, transferts et plusieurs prestataires.",
               },
               {
                 title: "Mariage civil élégant",
                 tag: "Mairie + cocktail",
-                desc: "Cérémonie civile soignée + cocktail/déjeuner raffiné. Format court mais haut de gamme, idéal pour mariages express ou seconds mariages. Prestation partielle à partir de 1 500 €.",
+                desc: "Cérémonie civile soignée + cocktail/déjeuner raffiné. Format court mais haut de gamme, idéal pour mariages express ou seconds mariages. À partir de 1 500 €.",
               },
               {
                 title: "Mariage laïque sur mesure",
@@ -1128,120 +1087,33 @@ export default function MariagePage() {
         </div>
       </section>
 
-      {/* Budgets transparents */}
+      {/* Tarifs */}
       <section className="py-24 bg-champagne">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="luxury-line mx-auto mb-6" />
-            <p className="text-gold text-[10px] uppercase tracking-[0.4em] font-semibold mb-4">
-              Nos formules
-            </p>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-taupe mb-6 leading-tight">
-              Combien coûte
-              <br />
-              <span className="text-gold-gradient italic">un wedding planner à Lyon ?</span>
-            </h2>
-            <p className="text-taupe-light leading-relaxed">
-              Trois formules transparentes selon votre besoin. Devis personnalisé en 24h, sans engagement.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                name: "Coordination Jour J",
-                price: "À partir de 2 500 €",
-                description: "Vous avez tout organisé. Notre coordinatrice prend le relais 1 mois avant et orchestre votre journée minute par minute.",
-                includes: [
-                  "Reprise complète du dossier 1 mois avant",
-                  "Vérification et confirmation des prestataires",
-                  "Création du planning détaillé jour J",
-                  "Coordination de tous les prestataires sur place",
-                  "Gestion intégrale du timing et imprévus",
-                  "Présence d'un(e) coordinateur(rice) sur la journée",
-                ],
-                cta: "Idéal si vous voulez profiter sereinement",
-              },
-              {
-                name: "Prestation Partielle",
-                price: "À partir de 4 500 €",
-                description: "Accompagnement ciblé sur certains volets : recherche de lieu, décoration, cérémonie laïque, organisation civile.",
-                includes: [
-                  "Choix de 3 modules à la carte",
-                  "Recherche lieu de réception",
-                  "Décoration sur mesure",
-                  "Écriture cérémonie laïque",
-                  "Sélection prestataires clés",
-                  "Coordination jour J incluse",
-                ],
-                cta: "Pour un mariage en partie organisé",
-                highlight: true,
-              },
-              {
-                name: "Organisation Complète Clé en Main",
-                price: "À partir de 8 000 €",
-                description: "De A à Z : wedding planning complet, gestion budget, design floral, scénographie, papeterie et coordination.",
-                includes: [
-                  "Recherche et visite lieux de réception",
-                  "Gestion intégrale du budget",
-                  "Sélection complète des prestataires",
-                  "Conception décoration & design floral",
-                  "Création papeterie & save-the-date",
-                  "Planning, coordination & jour J",
-                ],
-                cta: "Pour un mariage sans aucun stress",
-              },
-            ].map((tier) => (
-              <div
-                key={tier.name}
-                className={`bg-white p-8 h-full flex flex-col ${
-                  tier.highlight
-                    ? "border-2 border-gold shadow-lg shadow-gold/10"
-                    : "border border-gold/10"
-                }`}
-              >
-                {tier.highlight && (
-                  <p className="text-[10px] uppercase tracking-[0.3em] text-gold font-bold mb-4">
-                    ⭐ Le plus choisi
-                  </p>
-                )}
-                <h3 className="text-xl font-heading font-bold text-taupe mb-2">{tier.name}</h3>
-                <p className="text-2xl font-heading text-gold-gradient italic mb-4">
-                  {tier.price}
-                </p>
-                <p className="text-taupe-soft text-sm leading-relaxed mb-6">{tier.description}</p>
-                <ul className="space-y-3 mb-8 flex-1">
-                  {tier.includes.map((item) => (
-                    <li key={item} className="flex items-start gap-3 text-sm text-taupe-soft">
-                      <svg className="w-4 h-4 text-gold mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <p className="text-[10px] uppercase tracking-[0.2em] text-taupe-light mb-6">
-                  {tier.cta}
-                </p>
-                <Link
-                  href="/contact"
-                  className={`text-center py-3 px-6 text-[11px] uppercase tracking-[0.3em] font-bold transition-all ${
-                    tier.highlight
-                      ? "bg-gold text-white hover:bg-gold-dark"
-                      : "border border-gold/40 text-gold hover:bg-gold hover:text-white"
-                  }`}
-                >
-                  Demander un devis
-                </Link>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <p className="text-taupe-light text-sm max-w-2xl mx-auto leading-relaxed">
-              Les tarifs varient selon le nombre d&apos;invités, la complexité de l&apos;événement et le niveau de personnalisation. Tous nos devis incluent une simulation budgétaire transparente. <strong>Paiement en plusieurs fois possible.</strong>
-            </p>
-          </div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="luxury-line mx-auto mb-6" />
+          <p className="text-gold text-[10px] uppercase tracking-[0.4em] font-semibold mb-4">
+            Tarifs transparents
+          </p>
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-taupe mb-8 leading-tight">
+            Combien coûte
+            <br />
+            <span className="text-gold-gradient italic">un wedding planner à Lyon ?</span>
+          </h2>
+          <p className="text-5xl md:text-6xl font-heading text-gold-gradient italic mb-6">
+            À partir de 1 500 €
+          </p>
+          <p className="text-taupe-soft leading-relaxed text-lg max-w-2xl mx-auto mb-8">
+            Nos prestations de wedding planning démarrent à <strong>1 500 €</strong>. Le tarif final dépend de la formule choisie (coordination jour J, prestation partielle, organisation complète), du nombre d&apos;invités et du niveau de personnalisation.
+          </p>
+          <p className="text-taupe-light text-sm mb-10">
+            Devis gratuit en 24h, sans engagement. Paiement en plusieurs fois possible.
+          </p>
+          <Link
+            href="/contact"
+            className="btn-luxury inline-block bg-gold text-white px-12 py-4 text-[11px] font-bold uppercase tracking-[0.3em] hover:bg-gold-dark transition-colors"
+          >
+            Demander mon devis personnalisé
+          </Link>
         </div>
       </section>
 
