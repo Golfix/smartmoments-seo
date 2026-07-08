@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
+import { Suspense } from "react";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
@@ -115,7 +116,9 @@ export default function ContactPage() {
               <h2 className="text-2xl font-heading font-bold text-taupe mb-10">
                 Demande de Devis Gratuit
               </h2>
-              <ContactForm />
+              <Suspense fallback={null}>
+                <ContactForm />
+              </Suspense>
             </div>
 
             {/* Infos contact */}

@@ -9,6 +9,7 @@ const navLinks = [
   { href: "/services", label: "Services" },
   { href: "/wedding-planner", label: "Wedding Planner" },
   { href: "/destination-wedding", label: "Destination Wedding" },
+  { href: "/tarifs-wedding-planner", label: "Tarifs" },
   { href: "/a-propos", label: "À Propos" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },

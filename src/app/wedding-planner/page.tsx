@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
+import StickyContactBar, { HeroCtaRow } from "@/components/StickyContactBar";
 import { cities } from "@/data/cities";
 import { themes } from "@/data/themes";
 
@@ -9,10 +10,10 @@ export const metadata: Metadata = {
   title:
     "Wedding Planner Lyon - Organisatrice de Mariage Haut de Gamme | 4.6★",
   description:
-    "Meilleur wedding planner à Lyon et Rhône-Alpes. Organisation de mariage sur mesure, coordination jour J, prestation partielle. Noté 4.6/5 sur Mariages.net, recommandé par 92% des couples. Formules à partir de 200€. Première consultation gratuite.",
+    "Wedding planner à Lyon et Rhône-Alpes. Organisation de mariage sur mesure, coordination jour J, prestation partielle. Noté 4.6/5 sur Mariages.net. Prestations à partir de 1 500 €. Devis gratuit en 24h.",
   alternates: { canonical: "https://www.smartmoments.fr/wedding-planner" },
   openGraph: {
-    title: "Wedding Planner Lyon | Organisation de Mariage de Prestige",
+    title: "Wedding Planner Lyon | Smart Moments Event - Noté 4.6/5",
     description:
       "Dites oui à Smart Moments et vivez un mariage extraordinaire. Wedding planning sur mesure, coordination jour J et décoration haut de gamme à Lyon.",
     url: "https://www.smartmoments.fr/wedding-planner",
@@ -132,7 +133,7 @@ export default function WeddingPlannerPage() {
         name: "Peut-on faire appel à un wedding planner avec un petit budget ?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Absolument ! Nos formules démarrent à partir de 200 €. Nous proposons des prestations adaptées à tous les budgets : prestation partielle pour un accompagnement ciblé, coordination jour J pour la sérénité le jour du mariage, ou organisation complète clé en main. Le paiement en plusieurs fois est possible.",
+          text: "Nos prestations démarrent à partir de 1 500 €. Nous proposons des formules adaptées à chaque projet : coordination jour J, prestation partielle pour un accompagnement ciblé, ou organisation complète clé en main. Le paiement en plusieurs fois est possible.",
         },
       },
       {
@@ -186,7 +187,7 @@ export default function WeddingPlannerPage() {
     offers: {
       "@type": "AggregateOffer",
       priceCurrency: "EUR",
-      lowPrice: "200",
+      lowPrice: "1500",
     },
   };
 
@@ -229,15 +230,16 @@ export default function WeddingPlannerPage() {
             <div className="w-12 h-[1px] bg-gradient-to-l from-transparent to-gold" />
           </div>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 leading-[0.95]">
-            Dites oui à un mariage
+            Wedding Planner
             <br />
-            <span className="text-gold-gradient italic">extraordinaire</span>
+            <span className="text-gold-gradient italic">à Lyon</span>
           </h1>
           <p className="text-lg text-white/60 max-w-2xl mx-auto font-light">
             Notre équipe de wedding planners qualifiés à Lyon transforme vos
             rêves en réalité. Chaque moment de votre mariage mérite d&apos;être
             parfait.
           </p>
+          <HeroCtaRow />
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
       </section>
@@ -421,7 +423,7 @@ export default function WeddingPlannerPage() {
               },
               {
                 q: "Peut-on faire appel à un wedding planner avec un petit budget ?",
-                a: "Absolument ! Nos formules démarrent à partir de 200 €. Nous proposons des prestations adaptées à tous les budgets : prestation partielle pour un accompagnement ciblé, coordination jour J pour la sérénité le jour du mariage, ou organisation complète clé en main. Le paiement en plusieurs fois est possible.",
+                a: "Nos prestations démarrent à partir de 1 500 €. Nous proposons des formules adaptées à chaque projet : coordination jour J, prestation partielle pour un accompagnement ciblé, ou organisation complète clé en main. Le paiement en plusieurs fois est possible.",
               },
               {
                 q: "Quels lieux de réception recommandez-vous à Lyon ?",
@@ -656,6 +658,8 @@ export default function WeddingPlannerPage() {
           </div>
         </div>
       </section>
+
+      <StickyContactBar />
     </>
   );
 }

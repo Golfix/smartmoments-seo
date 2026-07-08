@@ -90,7 +90,7 @@ function generateFaqQuestions(
       },
       {
         q: `Quel budget pour un mariage champêtre à ${cityName} ?`,
-        a: `Un mariage champêtre à ${cityName} peut s'organiser avec des budgets variés, à partir de 200 € pour notre prestation de coordination. Le style champêtre permet souvent d'optimiser le budget décoration grâce aux matériaux naturels et au DIY encadré par nos décorateurs professionnels.`,
+        a: `Un mariage champêtre à ${cityName} peut s'organiser avec des budgets variés, à partir de 1 500 € pour nos prestations. Le style champêtre permet souvent d'optimiser le budget décoration grâce aux matériaux naturels et au DIY encadré par nos décorateurs professionnels.`,
       },
       {
         q: `Quels prestataires pour un mariage champêtre en ${cityRegion} ?`,
@@ -243,7 +243,7 @@ export default async function CityThemePage({
     offers: {
       "@type": "AggregateOffer",
       priceCurrency: "EUR",
-      lowPrice: "200",
+      lowPrice: "1500",
     },
   };
 

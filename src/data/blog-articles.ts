@@ -97,7 +97,7 @@ export const blogArticles: BlogArticle[] = [
       <h2>Les trois grandes formules de wedding planning</h2>
       <p>La plupart des wedding planners proposent trois niveaux de prestation. Chacun correspond à un degré d'accompagnement et donc à un budget différent. Comprendre ces formules vous permet de choisir celle qui correspond réellement à vos besoins.</p>
 
-      <h3>La coordination jour J (à partir de 800 €)</h3>
+      <h3>La coordination jour J (à partir de 1 500 €)</h3>
       <p>C'est la formule la plus accessible. Le <strong>coordinateur de mariage</strong> intervient dans les dernières semaines avant votre événement et prend tout en charge le jour J : gestion du rétroplanning, briefing des prestataires, supervision du déroulé, gestion des imprévus. Vous avez organisé votre mariage vous-même, mais le jour J, vous profitez sans stress.</p>
       <p>Cette formule est idéale pour les couples qui aiment organiser eux-mêmes mais veulent être <strong>sereins le jour de leur mariage</strong>. Le prix varie généralement entre 800 et 2 000 euros selon la durée de la prestation et le nombre d'invités.</p>
 
@@ -122,7 +122,7 @@ export const blogArticles: BlogArticle[] = [
       <p>Surtout, il vous offre le cadeau le plus précieux : la <strong>sérénité</strong>. Le jour de votre mariage, vous n'avez pas à gérer les retards du traiteur, la panne de sono ou l'oncle qui a oublié son discours. Vous vivez pleinement votre journée.</p>
 
       <h2>Les tarifs chez Smart Moments Event à Lyon</h2>
-      <p>Chez Smart Moments Event, nos <strong>prestations de wedding planning démarrent à partir de 200 euros</strong>. Nous proposons des formules adaptées à tous les budgets et tous les projets. Chaque devis est personnalisé car chaque mariage est unique. Nous offrons également la possibilité de payer en plusieurs fois, pour que le budget ne soit jamais un frein à votre rêve.</p>
+      <p>Chez Smart Moments Event, nos <strong>prestations de wedding planning démarrent à partir de 1 500 €</strong>. Nous proposons des formules adaptées à tous les budgets et tous les projets. Chaque devis est personnalisé car chaque mariage est unique. Nous offrons également la possibilité de payer en plusieurs fois, pour que le budget ne soit jamais un frein à votre rêve.</p>
       <p>Notre premier rendez-vous est <strong>toujours gratuit et sans engagement</strong>. C'est l'occasion de nous rencontrer, de discuter de votre projet et de recevoir un devis détaillé adapté à vos envies et votre budget.</p>
 
       <h3>Demandez votre devis gratuit</h3>
@@ -1327,7 +1327,7 @@ export const blogArticles: BlogArticle[] = [
         <li><strong>DJ :</strong> 800 à 1 200 € (500 à 2 000 €)</li>
         <li><strong>Fleurs et décoration :</strong> 1 500 à 4 000 € en Provence (la lavande, les oliviers et les herbes aromatiques locales permettent des compositions originales à moindre coût)</li>
         <li><strong>Robe de mariée :</strong> 1 500 à 2 250 €</li>
-        <li><strong>Wedding planner :</strong> à partir de 200 € pour une coordination jour J, jusqu'à 5 000-8 000 € pour une organisation complète</li>
+        <li><strong>Wedding planner :</strong> prestations à partir de 1 500 €, devis personnalisé selon la formule choisie</li>
       </ul>
 
       <h2>Budget pour 3 scénarios concrets (100 invités)</h2>

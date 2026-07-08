@@ -110,7 +110,7 @@ export const serviceTypes: ServiceType[] = [
     faqQuestions: [
       {
         q: "Quel budget prévoir pour la décoration de mariage à {city} ?",
-        a: "Le budget décoration d'un mariage à {city} varie selon l'ampleur du projet : comptez à partir de 800€ pour une décoration soignée et jusqu'à plusieurs milliers d'euros pour une scénographie complète haut de gamme. Nous nous adaptons à votre budget pour créer le plus bel effet possible.",
+        a: "Le budget décoration d'un mariage à {city} varie selon l'ampleur du projet : nombre de tables, arche de cérémonie, compositions florales, mise en lumière. Nous établissons un devis personnalisé gratuit et nous adaptons à votre budget pour créer le plus bel effet possible.",
       },
       {
         q: "Proposez-vous la location de matériel de décoration à {city} ?",
@@ -147,7 +147,7 @@ export const serviceTypes: ServiceType[] = [
     faqQuestions: [
       {
         q: "Combien coûte la location d'un photobooth pour un mariage à {city} ?",
-        a: "La location de notre photobooth pour un mariage à {city} démarre à partir de 350€ pour 3 heures d'animation, impressions illimitées incluses. Nous proposons plusieurs formules adaptées à la durée de votre événement et aux options souhaitées (livre d'or, galerie en ligne, vidéo).",
+        a: "La location de notre photobooth pour un mariage à {city} dépend de la durée d'animation et des options choisies (livre d'or, galerie en ligne, vidéo 360°). Impressions illimitées incluses dans toutes nos formules. Devis gratuit et personnalisé sous 24h.",
       },
       {
         q: "Le photobooth peut-il fonctionner en extérieur à {city} ?",
@@ -225,7 +225,7 @@ export const serviceTypes: ServiceType[] = [
       },
       {
         q: "Quel budget prévoir pour une fête d'anniversaire à {city} ?",
-        a: "Le budget dépend de l'ampleur de la fête souhaitée. Pour un anniversaire de 20 à 40 personnes à {city} avec décoration, traiteur et animation, comptez à partir de 800€. Nous nous adaptons à tous les budgets et proposons des solutions créatives pour maximiser l'effet.",
+        a: "Le budget dépend de l'ampleur de la fête souhaitée : nombre d'invités, décoration, traiteur, animations. Nous nous adaptons à tous les budgets et proposons des solutions créatives pour maximiser l'effet. Devis gratuit et personnalisé après un premier échange.",
       },
       {
         q: "Organisez-vous des anniversaires pour enfants à {city} ?",

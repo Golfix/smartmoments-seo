@@ -1,9 +1,25 @@
 "use client";
 
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 
+const EVENT_TYPES = [
+  "mariage",
+  "anniversaire",
+  "bapteme",
+  "bar-mitzvah",
+  "ceremonie-laique",
+  "seminaire",
+  "fete-entreprise",
+  "evenement-prive",
+  "autre",
+];
+
 export default function ContactForm() {
+  const searchParams = useSearchParams();
+  const typeParam = searchParams.get("type") || "";
+  const defaultType = EVENT_TYPES.includes(typeParam) ? typeParam : "";
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -114,10 +130,12 @@ export default function ContactForm() {
         </label>
         <select
           id="evenement" name="evenement" required
+          defaultValue={defaultType}
           className="w-full px-5 py-3.5 border border-gold/20 bg-white focus:border-gold focus:outline-none transition-colors text-sm"
         >
           <option value="">Sélectionnez un type</option>
           <option value="mariage">Mariage</option>
+          <option value="anniversaire">Anniversaire</option>
           <option value="bapteme">Baptême</option>
           <option value="bar-mitzvah">Bar-Mitzvah</option>
           <option value="ceremonie-laique">Cérémonie laïque</option>
@@ -179,6 +197,9 @@ export default function ContactForm() {
       >
         {status === "sending" ? "Envoi en cours..." : "Envoyer ma Demande de Devis"}
       </button>
+      <p className="text-[11px] text-taupe-soft text-center tracking-wider">
+        Devis gratuit · Réponse sous 24h · Sans engagement
+      </p>
       <p className="text-[10px] text-taupe-light text-center tracking-wider">
         En soumettant ce formulaire, vous acceptez notre{" "}
         <Link href="/politique-confidentialite" className="text-gold hover:underline">

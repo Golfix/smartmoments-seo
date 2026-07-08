@@ -36,6 +36,7 @@ export default function Footer() {
                 { href: "/services", label: "Nos Services" },
                 { href: "/wedding-planner", label: "Wedding Planner Lyon" },
                 { href: "/destination-wedding", label: "Destination Wedding" },
+                { href: "/tarifs-wedding-planner", label: "Tarifs Wedding Planner" },
                 { href: "/a-propos", label: "À Propos" },
                 { href: "/galerie", label: "Galerie" },
                 { href: "/avis", label: "Avis Clients" },

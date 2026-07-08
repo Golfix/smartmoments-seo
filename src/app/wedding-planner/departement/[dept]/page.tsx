@@ -148,7 +148,7 @@ function generateDeptFaq(dept: { name: string; slug: string; region: string; cit
   const allFaq = [
     {
       q: `Quel est le prix d'un wedding planner en ${dept.name} ?`,
-      a: `Nos formules de wedding planning en ${dept.name} démarrent à partir de 200 euros pour une coordination jour J. L'organisation complète et la décoration haut de gamme sont proposées sur devis personnalisé. Le budget dépend du nombre d'invités, du lieu de réception et des prestations souhaitées. Nous vous offrons une première consultation gratuite pour évaluer votre projet et établir un devis adapté.`,
+      a: `Nos formules de wedding planning en ${dept.name} démarrent à partir de 1 500 €. L'organisation complète et la décoration haut de gamme sont proposées sur devis personnalisé. Le budget dépend du nombre d'invités, du lieu de réception et des prestations souhaitées. Nous vous offrons une première consultation gratuite pour évaluer votre projet et établir un devis adapté.`,
     },
     {
       q: `Quels sont les meilleurs lieux de mariage en ${dept.name} ?`,
@@ -337,7 +337,7 @@ export default async function DepartmentWeddingPlannerPage({
     offers: {
       "@type": "AggregateOffer",
       priceCurrency: "EUR",
-      lowPrice: "200",
+      lowPrice: "1500",
     },
   };
 

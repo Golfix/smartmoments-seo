@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Breadcrumb from "@/components/Breadcrumb";
+import StickyContactBar, { HeroCtaRow } from "@/components/StickyContactBar";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 import { cities, getCityBySlug } from "@/data/cities";
 import { serviceTypes, getServiceTypeBySlug } from "@/data/service-types";
@@ -125,25 +126,25 @@ export async function generateMetadata({
   const descriptions: Record<string, string[]> = {
     metropole: [
       tpl(service.metaDescription, city),
-      `${service.name} haut de gamme a ${city.name}. Smart Moments Event, votre partenaire en ${city.region}. Note 4.6/5. Devis gratuit.`,
-      `${service.name} a ${city.name} (${city.department}). De la planification au jour J, Smart Moments Event organise votre evenement de A a Z. Consultation offerte.`,
+      `${service.name} haut de gamme à ${city.name}. Smart Moments Event, votre partenaire en ${city.region}. Noté 4.6/5. Devis gratuit.`,
+      `${service.name} à ${city.name} (${city.department}). De la planification au jour J, Smart Moments Event organise votre événement de A à Z. Consultation offerte.`,
     ],
     grande: [
       tpl(service.metaDescription, city),
-      `${service.name} a ${city.name} par Smart Moments Event. Intervention dans tout le ${city.department}. Devis offert.`,
-      `Votre ${service.name.toLowerCase()} a ${city.name}, ${city.description}. Smart Moments Event. Consultation gratuite.`,
+      `${service.name} à ${city.name} par Smart Moments Event. Intervention dans tout le ${city.department}. Devis offert.`,
+      `Votre ${service.name.toLowerCase()} à ${city.name}, ${city.description}. Smart Moments Event. Consultation gratuite.`,
     ],
     moyenne: [
       tpl(service.metaDescription, city),
-      `${service.name} a ${city.name} et ${city.nearbyCity}. Smart Moments Event en ${city.department}. Devis personnalise offert.`,
+      `${service.name} à ${city.name} et ${city.nearbyCity}. Smart Moments Event en ${city.department}. Devis personnalisé offert.`,
     ],
     petite: [
       tpl(service.metaDescription, city),
-      `${service.name} a ${city.name} et ses environs en ${city.department}. Smart Moments Event. Devis gratuit.`,
+      `${service.name} à ${city.name} et ses environs en ${city.department}. Smart Moments Event. Devis gratuit.`,
     ],
     village: [
       tpl(service.metaDescription, city),
-      `${service.name} a ${city.name} et alentours (${city.department}). Smart Moments Event en ${city.region}.`,
+      `${service.name} à ${city.name} et alentours (${city.department}). Smart Moments Event en ${city.region}.`,
     ],
   };
 
@@ -204,36 +205,36 @@ function generateIntro(
 
   const p2Pool: Record<string, string[]> = {
     metropole: [
-      `${city.name}, ${city.description}, est l'une des destinations les plus prisees pour les evenements en ${city.region}. Avec ses ${city.population} habitants, la ville offre un choix exceptionnel de lieux de reception et de prestataires de qualite en ${city.department}.`,
-      `Avec ses ${city.population} habitants, ${city.name} dispose d'un ecosysteme evenementiel parmi les plus riches de ${city.region}. Domaines, chateaux, hotels de prestige : les possibilites sont infinies en ${city.department}.`,
-      `${city.name}, ${city.description}. Cette metropole de ${city.region} seduit par la diversite de ses lieux de reception et la richesse de son reseau de prestataires en ${city.department}.`,
+      `${city.name}, ${city.description}, est l'une des destinations les plus prisées pour les événements en ${city.region}. Avec ses ${city.population} habitants, la ville offre un choix exceptionnel de lieux de réception et de prestataires de qualité en ${city.department}.`,
+      `Avec ses ${city.population} habitants, ${city.name} dispose d'un écosystème événementiel parmi les plus riches de ${city.region}. Domaines, châteaux, hôtels de prestige : les possibilités sont infinies en ${city.department}.`,
+      `${city.name}, ${city.description}. Cette métropole de ${city.region} séduit par la diversité de ses lieux de réception et la richesse de son réseau de prestataires en ${city.department}.`,
     ],
     grande: [
-      `${city.name}, ${city.description}, offre un cadre remarquable pour votre projet. Notre connaissance approfondie du ${city.department} nous permet de selectionner les meilleurs prestataires locaux, de ${city.name} a ${city.nearbyCity}.`,
-      `A ${city.name} et dans l'ensemble du ${city.department}, nous travaillons avec un reseau de prestataires de confiance en ${city.region}. ${city.name} est un lieu inspirant pour toute celebration.`,
-      `Le ${city.department} en ${city.region} regorge de lieux d'exception autour de ${city.name}. Notre expertise locale garantit une organisation sans faille pour votre evenement.`,
+      `${city.name}, ${city.description}, offre un cadre remarquable pour votre projet. Notre connaissance approfondie du ${city.department} nous permet de sélectionner les meilleurs prestataires locaux, de ${city.name} à ${city.nearbyCity}.`,
+      `À ${city.name} et dans l'ensemble du ${city.department}, nous travaillons avec un réseau de prestataires de confiance en ${city.region}. ${city.name} est un lieu inspirant pour toute célébration.`,
+      `Le ${city.department} en ${city.region} regorge de lieux d'exception autour de ${city.name}. Notre expertise locale garantit une organisation sans faille pour votre événement.`,
     ],
     moyenne: [
-      `${city.name}, ${city.description}. Cette ville du ${city.department} allie le charme d'une taille humaine a la richesse de ses prestataires. Nous intervenons egalement a ${city.nearbyCity} et dans toute la ${city.region}.`,
-      `Entre ${city.name} et ${city.nearbyCity}, le ${city.department} offre un cadre authentique pour votre evenement. Domaines, demeures de charme, espaces atypiques : les options ne manquent pas.`,
-      `A ${city.name} et ses environs en ${city.department}, les prestataires locaux apportent une touche personnelle a chaque celebration. Notre connaissance du terrain est votre meilleur atout.`,
+      `${city.name}, ${city.description}. Cette ville du ${city.department} allie le charme d'une taille humaine à la richesse de ses prestataires. Nous intervenons également à ${city.nearbyCity} et dans toute la ${city.region}.`,
+      `Entre ${city.name} et ${city.nearbyCity}, le ${city.department} offre un cadre authentique pour votre événement. Domaines, demeures de charme, espaces atypiques : les options ne manquent pas.`,
+      `À ${city.name} et ses environs en ${city.department}, les prestataires locaux apportent une touche personnelle à chaque célébration. Notre connaissance du terrain est votre meilleur atout.`,
     ],
     petite: [
-      `${city.name}, ${city.description}. Ce lieu de caractere en ${city.department} offre un cadre intimiste et authentique. Nous collaborons avec les artisans locaux de ${city.name} a ${city.nearbyCity} pour un resultat d'exception.`,
-      `Les communes comme ${city.name} offrent souvent les cadres les plus charmants du ${city.department}. Notre equipe connait les tresors caches de ${city.region} pour votre evenement.`,
-      `A ${city.name} et ses alentours en ${city.department}, chaque lieu a son caractere. Notre expertise en ${city.region} nous permet de denicher les perles rares pour votre celebration.`,
+      `${city.name}, ${city.description}. Ce lieu de caractère en ${city.department} offre un cadre intimiste et authentique. Nous collaborons avec les artisans locaux de ${city.name} à ${city.nearbyCity} pour un résultat d'exception.`,
+      `Les communes comme ${city.name} offrent souvent les cadres les plus charmants du ${city.department}. Notre équipe connaît les trésors cachés de ${city.region} pour votre événement.`,
+      `À ${city.name} et ses alentours en ${city.department}, chaque lieu a son caractère. Notre expertise en ${city.region} nous permet de dénicher les perles rares pour votre célébration.`,
     ],
     village: [
-      `${city.name}, ${city.description} : un decor d'exception pour votre projet. Les environs de ${city.nearbyCity} en ${city.department} completent cette offre avec des lieux de reception varies en ${city.region}.`,
-      `Le charme de ${city.name} en ${city.department} se prete magnifiquement aux celebrations intimistes et authentiques. Nous connaissons chaque recoin de ${city.region} pour votre evenement.`,
-      `A ${city.name} et dans tout le ${city.department}, nous creons des evenements qui subliment le cadre naturel. ${city.region} est une terre de caractere pour vos celebrations.`,
+      `${city.name}, ${city.description} : un décor d'exception pour votre projet. Les environs de ${city.nearbyCity} en ${city.department} complètent cette offre avec des lieux de réception variés en ${city.region}.`,
+      `Le charme de ${city.name} en ${city.department} se prête magnifiquement aux célébrations intimistes et authentiques. Nous connaissons chaque recoin de ${city.region} pour votre événement.`,
+      `À ${city.name} et dans tout le ${city.department}, nous créons des événements qui subliment le cadre naturel. ${city.region} est une terre de caractère pour vos célébrations.`,
     ],
   };
 
   const p3Pool = [
-    `Notre equipe met son expertise au service de votre projet a ${city.name}. De la premiere consultation a la realisation, nous vous accompagnons avec passion et rigueur pour un resultat a la hauteur de vos attentes en ${city.department}.`,
-    `Chez Smart Moments Event, chaque projet a ${city.name} est unique. Nous adaptons notre approche a votre vision, votre budget et vos envies pour creer un evenement qui vous ressemble en ${city.region}.`,
-    `Notre approche sur mesure a ${city.name} repose sur l'ecoute et la personnalisation. Chaque detail compte : nous veillons a ce que votre evenement en ${city.department} soit a la hauteur de vos reves.`,
+    `Notre équipe met son expertise au service de votre projet à ${city.name}. De la première consultation à la réalisation, nous vous accompagnons avec passion et rigueur pour un résultat à la hauteur de vos attentes en ${city.department}.`,
+    `Chez Smart Moments Event, chaque projet à ${city.name} est unique. Nous adaptons notre approche à votre vision, votre budget et vos envies pour créer un événement qui vous ressemble en ${city.region}.`,
+    `Notre approche sur mesure à ${city.name} repose sur l'écoute et la personnalisation. Chaque détail compte : nous veillons à ce que votre événement en ${city.department} soit à la hauteur de vos rêves.`,
   ];
 
   return {
@@ -291,49 +292,49 @@ export default async function ServiceTypeCityPage({
 
   // H1 variants
   const h1 = pick([
-    { pre: service.name, styled: `a ${city.name}` },
-    { pre: `Votre ${service.name.toLowerCase()}`, styled: `a ${city.name}` },
+    { pre: service.name, styled: `à ${city.name}` },
+    { pre: `Votre ${service.name.toLowerCase()}`, styled: `à ${city.name}` },
     { pre: service.name, styled: `en ${city.department}` },
-    { pre: service.name, styled: `a ${city.name} (${city.department})` },
+    { pre: service.name, styled: `à ${city.name} (${city.department})` },
   ], slug);
 
   // Subtitles
   const subtitle = pick([
-    `${service.name} sur mesure a ${city.name}, ${city.description}.`,
-    `${service.name} en ${city.department}. Votre evenement de reve en ${city.region}.`,
-    `Smart Moments Event, votre ${service.name.toLowerCase()} a ${city.name}. Devis gratuit.`,
-    `${service.name} haut de gamme a ${city.name} et environs.`,
-    `${service.name} a ${city.name}. De la planification au jour J.`,
+    `${service.name} sur mesure à ${city.name}, ${city.description}.`,
+    `${service.name} en ${city.department}. Votre événement de rêve en ${city.region}.`,
+    `Smart Moments Event, votre ${service.name.toLowerCase()} à ${city.name}. Devis gratuit.`,
+    `${service.name} haut de gamme à ${city.name} et environs.`,
+    `${service.name} à ${city.name}. De la planification au jour J.`,
   ], slug, 10);
 
   // H2 features section
   const featuresH2 = pick([
-    `Nos prestations a ${city.name}`,
-    `${service.name} a ${city.name} : nos services`,
-    `Ce que nous proposons a ${city.name}`,
+    `Nos prestations à ${city.name}`,
+    `${service.name} à ${city.name} : nos services`,
+    `Ce que nous proposons à ${city.name}`,
     `${service.name} en ${city.department} : nos atouts`,
   ], slug, 1);
 
   const featuresIntro = pick([
-    `Des prestations adaptees a chaque budget et chaque envie pour votre projet a ${city.name}.`,
-    `Smart Moments Event met son expertise au service de votre evenement a ${city.name} et dans tout le ${city.department}.`,
-    `Un service complet de ${service.name.toLowerCase()} a ${city.name}, de la conception a la realisation.`,
+    `Des prestations adaptées à chaque budget et chaque envie pour votre projet à ${city.name}.`,
+    `Smart Moments Event met son expertise au service de votre événement à ${city.name} et dans tout le ${city.department}.`,
+    `Un service complet de ${service.name.toLowerCase()} à ${city.name}, de la conception à la réalisation.`,
   ], slug, 3);
 
   // H2 FAQ section
   const faqH2 = pick([
-    `Questions sur notre service a ${city.name}`,
-    `Tout savoir sur ${service.name.toLowerCase()} a ${city.name}`,
-    `FAQ : ${service.name.toLowerCase()} a ${city.name}`,
+    `Questions sur notre service à ${city.name}`,
+    `Tout savoir sur ${service.name.toLowerCase()} à ${city.name}`,
+    `FAQ : ${service.name.toLowerCase()} à ${city.name}`,
     `Vos questions sur ${service.name.toLowerCase()} en ${city.department}`,
   ], slug, 2);
 
   // CTA
   const ctaH2 = pick([
-    { pre: `Votre projet a ${city.name}`, styled: "commence ici" },
-    { pre: `Pret(e) pour le plus`, styled: "beau jour de votre vie ?" },
-    { pre: "Organisons ensemble", styled: `votre evenement a ${city.name}` },
-    { pre: `${service.name} a ${city.name}`, styled: "demandez votre devis" },
+    { pre: `Votre projet à ${city.name}`, styled: "commence ici" },
+    { pre: `Prêt(e) pour le plus`, styled: "beau jour de votre vie ?" },
+    { pre: "Organisons ensemble", styled: `votre événement à ${city.name}` },
+    { pre: `${service.name} à ${city.name}`, styled: "demandez votre devis" },
   ], slug, 8);
 
   // Current tier slugs for cross-linking
@@ -363,7 +364,7 @@ export default async function ServiceTypeCityPage({
     },
     serviceType: service.name,
     areaServed: { "@type": "City", name: city.name },
-    description: `${service.name} a ${city.name} (${city.department}). Organisation evenementielle en ${city.region}.`,
+    description: `${service.name} à ${city.name} (${city.department}). Organisation événementielle en ${city.region}.`,
     offers: { "@type": "AggregateOffer", priceCurrency: "EUR", lowPrice: "200" },
   };
 
@@ -438,6 +439,7 @@ export default async function ServiceTypeCityPage({
           <p className="text-lg text-white/70 max-w-2xl mx-auto font-light">
             {subtitle}
           </p>
+          <HeroCtaRow />
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
       </section>
@@ -532,9 +534,9 @@ export default async function ServiceTypeCityPage({
                   </h3>
                   <p className="text-taupe-soft text-sm leading-relaxed">
                     {pick([
-                      `Un service essentiel pour votre projet a ${city.name}, realise avec soin par notre equipe experimentee.`,
-                      `Notre expertise en ${city.department} garantit un resultat a la hauteur de vos attentes pour cette prestation.`,
-                      `Un accompagnement personnalise a ${city.name} pour cette etape cle de votre evenement en ${city.region}.`,
+                      `Un service essentiel pour votre projet à ${city.name}, réalisé avec soin par notre équipe expérimentée.`,
+                      `Notre expertise en ${city.department} garantit un résultat à la hauteur de vos attentes pour cette prestation.`,
+                      `Un accompagnement personnalisé à ${city.name} pour cette étape clé de votre événement en ${city.region}.`,
                     ], slug + String(i), 0)}
                   </p>
                 </div>
@@ -553,45 +555,45 @@ export default async function ServiceTypeCityPage({
                 <div className="luxury-line-left mb-6" />
                 <h2 className="text-3xl md:text-4xl font-heading font-bold text-taupe mb-8 leading-tight">
                   {pick([
-                    <>Pourquoi {city.name} pour<br /><span className="text-gold-gradient italic">votre evenement ?</span></>,
-                    <>{city.name}, un cadre<br /><span className="text-gold-gradient italic">ideal pour votre celebration</span></>,
-                    <>{service.name}<br /><span className="text-gold-gradient italic">a {city.name} : nos atouts</span></>,
+                    <>Pourquoi {city.name} pour<br /><span className="text-gold-gradient italic">votre événement ?</span></>,
+                    <>{city.name}, un cadre<br /><span className="text-gold-gradient italic">idéal pour votre célébration</span></>,
+                    <>{service.name}<br /><span className="text-gold-gradient italic">à {city.name} : nos atouts</span></>,
                   ], slug, 21)}
                 </h2>
                 {cat === "metropole" || cat === "grande" ? (
                   <>
                     <p className="text-taupe-soft leading-relaxed mb-5">
-                      Avec ses <strong>{city.population} habitants</strong>, {city.name} est l&apos;une des destinations les plus prisees pour les evenements en {city.region}. La ville offre une diversite exceptionnelle de <strong>lieux de reception</strong> : hotels particuliers, rooftops, domaines historiques et espaces evenementiels contemporains.
+                      Avec ses <strong>{city.population} habitants</strong>, {city.name} est l&apos;une des destinations les plus prisées pour les événements en {city.region}. La ville offre une diversité exceptionnelle de <strong>lieux de réception</strong> : hôtels particuliers, rooftops, domaines historiques et espaces événementiels contemporains.
                     </p>
                     <p className="text-taupe-soft leading-relaxed mb-5">
-                      {city.name}, {city.description}, seduit par son <strong>accessibilite</strong> et la richesse de son <strong>reseau de prestataires</strong>. En tant que specialistes du {service.name.toLowerCase()} a {city.name}, nous avons tisse des partenariats privilegies avec les meilleurs professionnels du {city.department}.
+                      {city.name}, {city.description}, séduit par son <strong>accessibilité</strong> et la richesse de son <strong>réseau de prestataires</strong>. En tant que spécialistes du {service.name.toLowerCase()} à {city.name}, nous avons tissé des partenariats privilégiés avec les meilleurs professionnels du {city.department}.
                     </p>
                     <p className="text-taupe-soft leading-relaxed">
-                      Notre connaissance du terrain vous garantit un evenement a la hauteur de vos reves, avec des prestataires testes et approuves dans tout le {city.department} et la {city.region}.
+                      Notre connaissance du terrain vous garantit un événement à la hauteur de vos rêves, avec des prestataires testés et approuvés dans tout le {city.department} et la {city.region}.
                     </p>
                   </>
                 ) : cat === "moyenne" ? (
                   <>
                     <p className="text-taupe-soft leading-relaxed mb-5">
-                      {city.name}, {city.description}. Avec <strong>{city.population} habitants</strong>, la ville allie le charme d&apos;une taille humaine a la richesse de ses <strong>lieux de reception</strong>. Le {city.department} regorge de pepites pour votre evenement.
+                      {city.name}, {city.description}. Avec <strong>{city.population} habitants</strong>, la ville allie le charme d&apos;une taille humaine à la richesse de ses <strong>lieux de réception</strong>. Le {city.department} regorge de pépites pour votre événement.
                     </p>
                     <p className="text-taupe-soft leading-relaxed mb-5">
-                      Organiser votre evenement a {city.name} et ses environs vers {city.nearbyCity}, c&apos;est profiter d&apos;un cadre authentique en {city.region}. Les <strong>prestataires locaux</strong> connaissent parfaitement les lieux et apportent une touche personnelle a chaque celebration.
+                      Organiser votre événement à {city.name} et ses environs vers {city.nearbyCity}, c&apos;est profiter d&apos;un cadre authentique en {city.region}. Les <strong>prestataires locaux</strong> connaissent parfaitement les lieux et apportent une touche personnelle à chaque célébration.
                     </p>
                     <p className="text-taupe-soft leading-relaxed">
-                      Notre equipe de <strong>professionnels de l&apos;evenementiel</strong> sillonne le {city.department} depuis des annees. Nous connaissons les domaines caches, les artisans talentueux et les petites attentions qui font la difference pour votre evenement a {city.name}.
+                      Notre équipe de <strong>professionnels de l&apos;événementiel</strong> sillonne le {city.department} depuis des années. Nous connaissons les domaines cachés, les artisans talentueux et les petites attentions qui font la différence pour votre événement à {city.name}.
                     </p>
                   </>
                 ) : (
                   <>
                     <p className="text-taupe-soft leading-relaxed mb-5">
-                      {city.name}, {city.description}. Ce lieu de caractere en {city.department} offre un <strong>cadre intimiste et authentique</strong> qui seduit de plus en plus pour les celebrations. Un evenement ici a cette touche d&apos;exception que seuls les lieux preserves peuvent offrir.
+                      {city.name}, {city.description}. Ce lieu de caractère en {city.department} offre un <strong>cadre intimiste et authentique</strong> qui séduit de plus en plus pour les célébrations. Un événement ici a cette touche d&apos;exception que seuls les lieux préservés peuvent offrir.
                     </p>
                     <p className="text-taupe-soft leading-relaxed mb-5">
-                      Les environs de {city.name} recelent des <strong>tresors pour votre reception</strong> : granges renovees, jardins privatifs, demeures historiques. Le {city.department} est une terre de caractere qui sublime tous les types d&apos;evenements.
+                      Les environs de {city.name} recèlent des <strong>trésors pour votre réception</strong> : granges rénovées, jardins privatifs, demeures historiques. Le {city.department} est une terre de caractère qui sublime tous les types d&apos;événements.
                     </p>
                     <p className="text-taupe-soft leading-relaxed">
-                      Meme dans les communes plus intimes, notre exigence reste identique. Nous selectionnons des <strong>prestataires de confiance</strong> dans tout le {city.department} pour garantir une prestation irreprochable, de {city.name} a {city.nearbyCity} et au-dela.
+                      Même dans les communes plus intimes, notre exigence reste identique. Nous sélectionnons des <strong>prestataires de confiance</strong> dans tout le {city.department} pour garantir une prestation irréprochable, de {city.name} à {city.nearbyCity} et au-delà.
                     </p>
                   </>
                 )}
@@ -600,7 +602,7 @@ export default async function ServiceTypeCityPage({
                   href={`/wedding-planner/${city.slug}`}
                   className="inline-flex items-center gap-2 mt-8 text-gold text-[11px] font-bold uppercase tracking-[0.2em] hover:text-gold-dark transition-colors"
                 >
-                  Voir tous nos services a {city.name}
+                  Voir tous nos services à {city.name}
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
@@ -612,8 +614,8 @@ export default async function ServiceTypeCityPage({
                 {[
                   {
                     icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
-                    label: pick(["Lieux d'exception", "Domaines & Chateaux", "Lieux de reception"], slug, 22),
-                    desc: `${cat === "metropole" || cat === "grande" ? "Large choix" : "Selection de pepites"} en ${city.department}`,
+                    label: pick(["Lieux d'exception", "Domaines & Châteaux", "Lieux de réception"], slug, 22),
+                    desc: `${cat === "metropole" || cat === "grande" ? "Large choix" : "Sélection de pépites"} en ${city.department}`,
                   },
                   {
                     icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z",
@@ -622,12 +624,12 @@ export default async function ServiceTypeCityPage({
                   },
                   {
                     icon: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z",
-                    label: pick(["Sur mesure", "100% personnalise", "Unique"], slug, 24),
-                    desc: "Adapte a votre style et budget",
+                    label: pick(["Sur mesure", "100% personnalisé", "Unique"], slug, 24),
+                    desc: "Adapté à votre style et budget",
                   },
                   {
                     icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z",
-                    label: pick(["Prestataires locaux", "Reseau de confiance", "Artisans selectionnes"], slug, 25),
+                    label: pick(["Prestataires locaux", "Réseau de confiance", "Artisans sélectionnés"], slug, 25),
                     desc: `Les meilleurs du ${city.department}`,
                   },
                 ].map((item) => (
@@ -700,7 +702,7 @@ export default async function ServiceTypeCityPage({
               <h2 className="text-2xl md:text-3xl font-heading font-bold text-taupe">
                 {pick([
                   `${service.name} en ${city.department} et environs`,
-                  `${service.name} pres de ${city.name}`,
+                  `${service.name} près de ${city.name}`,
                   `Nos interventions en ${city.department}`,
                   `${service.name} dans les villes voisines`,
                 ], slug, 18)}
@@ -708,8 +710,8 @@ export default async function ServiceTypeCityPage({
               <p className="text-taupe-light mt-4">
                 {pick([
                   `Nous intervenons egalement dans ces villes du ${city.department} et de ${city.region}`,
-                  `Decouvrez notre ${service.name.toLowerCase()} dans les villes voisines de ${city.name}`,
-                  `Notre equipe se deplace dans tout le ${city.department} et la ${city.region}`,
+                  `Découvrez notre ${service.name.toLowerCase()} dans les villes voisines de ${city.name}`,
+                  `Notre équipe se déplace dans tout le ${city.department} et la ${city.region}`,
                 ], slug, 19)}
               </p>
             </div>
@@ -735,7 +737,7 @@ export default async function ServiceTypeCityPage({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-xl md:text-2xl font-heading font-bold text-taupe">
-              Decouvrez nos autres services a {city.name}
+              Découvrez nos autres services à {city.name}
             </h2>
           </div>
           <div className="flex flex-wrap justify-center gap-3">
@@ -786,9 +788,9 @@ export default async function ServiceTypeCityPage({
             </h2>
             <p className="text-white/50 text-lg mb-12 font-light">
               {pick([
-                "Premiere consultation gratuite et sans engagement.",
+                "Première consultation gratuite et sans engagement.",
                 "Rencontrons-nous pour parler de votre projet. Consultation offerte.",
-                "Contactez-nous pour un premier echange gratuit.",
+                "Contactez-nous pour un premier échange gratuit.",
                 "Echangeons sur votre projet. Premier rendez-vous offert.",
               ], slug, 20)}
             </p>
@@ -809,6 +811,8 @@ export default async function ServiceTypeCityPage({
           </AnimateOnScroll>
         </div>
       </section>
+
+      <StickyContactBar />
     </>
   );
 }

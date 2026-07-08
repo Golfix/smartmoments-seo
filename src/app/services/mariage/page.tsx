@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
+import StickyContactBar, { HeroCtaRow, TrustBadge } from "@/components/StickyContactBar";
 
 export const metadata: Metadata = {
-  title: "Wedding Planner Lyon dès 1 500 € | Organisation Mariage Clé en Main - Smart Moments Event",
+  title: "Organisation Mariage Lyon | Clé en Main dès 1 500 €",
   description:
-    "Wedding planner Lyon à partir de 1 500 €. Organisation mariage clé en main, coordination jour J, mariage intimiste, civil, laïque, multiculturel. De 50 à 250 invités. Noté 4.6/5, 100+ mariages organisés. Devis gratuit en 24h.",
+    "Organisation de mariage clé en main à Lyon dès 1 500 €. Coordination jour J, mariage intimiste, civil, laïque, multiculturel. Noté 4.6/5, 100+ mariages. Devis gratuit en 24h.",
   keywords: [
     "wedding planner lyon",
     "organisation mariage lyon",
@@ -332,12 +333,13 @@ export default function MariagePage() {
           </div>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 leading-[0.95]">
             Organisation de{" "}
-            <span className="text-gold-gradient italic">Mariage</span>
+            <span className="text-gold-gradient italic">Mariage à Lyon</span>
           </h1>
           <p className="text-lg text-white/60 max-w-2xl mx-auto font-light">
             Organisation complète et clé en main de votre mariage à Lyon
             et en Rhône-Alpes. Votre rêve, notre expertise.
           </p>
+          <HeroCtaRow />
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
       </section>
@@ -347,9 +349,9 @@ export default function MariagePage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { number: "150+", label: "Mariages organisés" },
-              { number: "100%", label: "Couples satisfaits" },
-              { number: "12", label: "Ans d'expérience" },
+              { number: "100+", label: "Mariages organisés" },
+              { number: "4.6/5", label: "Note Mariages.net" },
+              { number: "25", label: "Avis clients vérifiés" },
               { number: "50+", label: "Prestataires partenaires" },
             ].map((stat) => (
               <div key={stat.label}>
@@ -950,32 +952,9 @@ export default function MariagePage() {
             </h2>
           </div>
           <div className="space-y-6">
-            {[
-              {
-                q: "Quel est le prix d'un wedding planner à Lyon ?",
-                a: "Nos prestations de wedding planning à Lyon démarrent à partir de 1 500 €. Le tarif final dépend de la formule choisie (coordination jour J, prestation partielle, organisation complète), du nombre d'invités et du niveau de personnalisation. Chaque devis est gratuit, transparent et sans engagement. Possibilité de paiement en plusieurs fois.",
-              },
-              {
-                q: "Combien de temps à l'avance faut-il contacter un wedding planner ?",
-                a: "Nous recommandons de nous contacter entre 12 et 18 mois avant la date de votre mariage pour une organisation complète. Cela permet de réserver les meilleurs lieux et prestataires à Lyon. Pour une coordination jour J uniquement, un délai de 3 à 6 mois est suffisant. N'hésitez pas à nous contacter même avec un délai plus court, nous nous adaptons.",
-              },
-              {
-                q: "Que comprend une organisation de mariage clé en main ?",
-                a: "Notre formule clé en main comprend : la recherche et la visite de lieux de réception, la sélection et la coordination de tous les prestataires (traiteur, photographe, DJ, fleuriste, officiant), la création du rétroplanning, la gestion du budget, la conception de la décoration, la logistique complète et la coordination le jour J. Vous n'avez qu'à valider nos propositions et profiter de votre mariage.",
-              },
-              {
-                q: "Organisez-vous des mariages en extérieur à Lyon ?",
-                a: "Absolument ! Nous organisons des mariages en extérieur dans toute la région lyonnaise : domaines viticoles du Beaujolais, châteaux de la Drôme, mas provençaux, jardins privés, bords de Saône. Nous connaissons les plus beaux lieux de réception en plein air et gérons les plans B en cas d'intempéries.",
-              },
-              {
-                q: "Peut-on faire appel à vous uniquement pour la coordination le jour J ?",
-                a: "Oui, notre formule de coordination jour J est idéale si vous avez organisé votre mariage vous-même et souhaitez être accompagné le jour J. Notre coordinatrice reprend votre dossier 1 mois avant, contacte tous les prestataires, établit le planning minute par minute et gère l'intégralité de la journée pour que vous puissiez profiter sereinement.",
-              },
-              {
-                q: "Quels types de mariages organisez-vous ?",
-                a: "Nous organisons tous les styles de mariages : champêtre dans un domaine, bohème en pleine nature, chic et élégant dans un château, moderne et épuré dans un loft, intimiste pour les petits comités ou grandiose pour les grandes célébrations. Nous nous adaptons à votre vision, votre culture et vos traditions pour créer un mariage qui vous ressemble.",
-              },
-            ].map((faq) => (
+            {faqJsonLd.mainEntity
+              .map((item) => ({ q: item.name, a: item.acceptedAnswer.text }))
+              .map((faq) => (
               <details
                 key={faq.q}
                 className="group border border-gold/10 bg-white"
@@ -1105,11 +1084,14 @@ export default function MariagePage() {
           <p className="text-taupe-soft leading-relaxed text-lg max-w-2xl mx-auto mb-8">
             Nos prestations de wedding planning démarrent à <strong>1 500 €</strong>. Le tarif final dépend de la formule choisie (coordination jour J, prestation partielle, organisation complète), du nombre d&apos;invités et du niveau de personnalisation.
           </p>
-          <p className="text-taupe-light text-sm mb-10">
+          <p className="text-taupe-light text-sm mb-6">
             Devis gratuit en 24h, sans engagement. Paiement en plusieurs fois possible.
           </p>
+          <div className="mb-8">
+            <TrustBadge />
+          </div>
           <Link
-            href="/contact"
+            href="/contact?type=mariage"
             className="btn-luxury inline-block bg-gold text-white px-12 py-4 text-[11px] font-bold uppercase tracking-[0.3em] hover:bg-gold-dark transition-colors"
           >
             Demander mon devis personnalisé
@@ -1181,7 +1163,7 @@ export default function MariagePage() {
             gratuit pour l&apos;organisation de votre mariage à Lyon.
           </p>
           <Link
-            href="/contact"
+            href="/contact?type=mariage"
             className="btn-luxury inline-block bg-gold text-white px-12 py-4 text-[11px] font-bold uppercase tracking-[0.3em] hover:bg-gold-dark transition-colors"
           >
             Demander un Devis Gratuit
@@ -1201,6 +1183,8 @@ export default function MariagePage() {
           </div>
         </div>
       </section>
+
+      <StickyContactBar />
     </>
   );
 }

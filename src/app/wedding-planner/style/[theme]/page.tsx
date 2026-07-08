@@ -92,7 +92,7 @@ export default async function ThemeWeddingPlannerPage({
     offers: {
       "@type": "AggregateOffer",
       priceCurrency: "EUR",
-      lowPrice: "200",
+      lowPrice: "1500",
     },
   };
 

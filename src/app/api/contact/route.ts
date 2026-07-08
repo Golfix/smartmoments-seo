@@ -38,6 +38,7 @@ export async function POST(request: Request) {
 
     const eventLabels: Record<string, string> = {
       mariage: "Mariage",
+      anniversaire: "Anniversaire",
       bapteme: "Baptême",
       "bar-mitzvah": "Bar-Mitzvah",
       "ceremonie-laique": "Cérémonie laïque",

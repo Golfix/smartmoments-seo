@@ -124,7 +124,7 @@ export default function HomePage() {
         name: "Combien coûte un wedding planner à Lyon ?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Nos prestations de wedding planning à Lyon démarrent à partir de 200 €. Le tarif varie selon la formule choisie (coordination jour J, prestation partielle ou organisation complète) et le nombre d'invités. Nous proposons un devis gratuit et personnalisé, avec possibilité de paiement en plusieurs fois.",
+          text: "Nos prestations de wedding planning à Lyon démarrent à partir de 1 500 €. Le tarif varie selon la formule choisie (coordination jour J, prestation partielle ou organisation complète) et le nombre d'invités. Nous proposons un devis gratuit et personnalisé, avec possibilité de paiement en plusieurs fois.",
         },
       },
       {
@@ -343,18 +343,18 @@ export default function HomePage() {
             />
           </div>
           <h1 className="hero-reveal hero-reveal-delay-2 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-[0.95] mb-6">
-            L&apos;art de créer des
+            Wedding Planner à Lyon
             <br />
-            <span className="gold-shimmer italic">moments d&apos;exception</span>
+            <span className="gold-shimmer italic">l&apos;art des mariages d&apos;exception</span>
           </h1>
           <p className="hero-reveal hero-reveal-delay-3 text-base sm:text-lg text-white/70 max-w-2xl mx-auto mb-8 font-light leading-relaxed tracking-wide">
-            Organisateur d&apos;événements de prestige à Lyon. Mariage clé en
-            main, coordination jour J, décoration haut de gamme et animations
-            sur mesure.
+            Organisation de mariage clé en main, coordination jour J et
+            décoration haut de gamme à Lyon, en Rhône-Alpes, PACA et
+            partout où votre histoire vous mène.
           </p>
           <div className="hero-reveal hero-reveal-delay-4 flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/contact"
+              href="/contact?type=mariage"
               className="btn-luxury pulse-glow bg-gold text-white px-12 py-4 text-[11px] font-bold uppercase tracking-[0.3em] hover:bg-gold-dark transition-colors duration-500"
             >
               Demander un Devis Gratuit
@@ -517,7 +517,7 @@ export default function HomePage() {
           </div>
           <div className="text-center mt-12">
             <p className="text-taupe-light text-sm">
-              Prestations sur mesure <span className="text-gold">à partir de 200 &euro;</span> &mdash; Devis gratuit et personnalisé
+              Prestations sur mesure <span className="text-gold">à partir de 1 500 &euro;</span> &mdash; Devis gratuit et personnalisé
             </p>
           </div>
         </div>
@@ -631,7 +631,7 @@ export default function HomePage() {
             {[
               {
                 q: "Combien coûte un wedding planner à Lyon ?",
-                a: "Nos prestations de wedding planning à Lyon démarrent à partir de 200 €. Le tarif varie selon la formule choisie (coordination jour J, prestation partielle ou organisation complète) et le nombre d'invités. Nous proposons un devis gratuit et personnalisé, avec possibilité de paiement en plusieurs fois.",
+                a: "Nos prestations de wedding planning à Lyon démarrent à partir de 1 500 €. Le tarif varie selon la formule choisie (coordination jour J, prestation partielle ou organisation complète) et le nombre d'invités. Nous proposons un devis gratuit et personnalisé, avec possibilité de paiement en plusieurs fois.",
               },
               {
                 q: "Quelle est la différence entre un wedding planner et un coordinateur jour J ?",

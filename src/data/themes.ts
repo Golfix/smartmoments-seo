@@ -29,7 +29,7 @@ export const themes: WeddingTheme[] = [
     ],
     faqQuestions: [
       { q: "Quel lieu pour un mariage champêtre à Lyon ?", a: "Lyon et sa région offrent de nombreux lieux idéaux pour un mariage champêtre : domaines viticoles du Beaujolais, granges rénovées dans le Pilat, fermes du Bugey, jardins en bord de Saône. Notre équipe vous accompagne dans la recherche du lieu parfait." },
-      { q: "Quel budget pour un mariage champêtre ?", a: "Un mariage champêtre à Lyon peut s'organiser avec des budgets très variés, à partir de 200€ pour notre prestation. Le style champêtre permet souvent d'optimiser le budget décoration grâce aux matériaux naturels et au DIY encadré par nos décorateurs." },
+      { q: "Quel budget pour un mariage champêtre ?", a: "Un mariage champêtre à Lyon peut s'organiser avec des budgets très variés, à partir de 1 500 € pour nos prestations. Le style champêtre permet souvent d'optimiser le budget décoration grâce aux matériaux naturels et au DIY encadré par nos décorateurs." },
       { q: "Peut-on organiser un mariage champêtre en hiver ?", a: "Absolument ! Un mariage champêtre hivernal a un charme incomparable : couvertures en laine, bougies, branches de sapin, vin chaud d'accueil. Nous adaptons le concept champêtre à toutes les saisons." },
     ],
   },

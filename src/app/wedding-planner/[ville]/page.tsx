@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Breadcrumb from "@/components/Breadcrumb";
+import StickyContactBar, { HeroCtaRow } from "@/components/StickyContactBar";
 import { cities, getCityBySlug } from "@/data/cities";
 import { themes } from "@/data/themes";
 import { departments } from "@/data/departments";
@@ -37,6 +38,19 @@ function cityCategory(city: { population: string }): "metropole" | "grande" | "m
 
 export const dynamicParams = false;
 
+// Top 50 villes par population — seules ces villes ont des pages ville×thème
+const top50Slugs = new Set(
+  cities
+    .slice()
+    .sort(
+      (a, b) =>
+        parseInt(b.population.replace(/\s/g, "")) -
+        parseInt(a.population.replace(/\s/g, ""))
+    )
+    .slice(0, 50)
+    .map((c) => c.slug)
+);
+
 export function generateStaticParams() {
   return cities.map((city) => ({ ville: city.slug }));
 }
@@ -54,6 +68,22 @@ export async function generateMetadata({
   const h = hashCode(city.slug);
 
   // Titres variés par catégorie et hash
+  // Lyon a un title dédié pour ne pas cannibaliser le hub /wedding-planner
+  if (city.slug === "lyon") {
+    return {
+      title: "Organisatrice de Mariage à Lyon et sa Métropole | Smart Moments Event",
+      description:
+        "Organisatrice de mariage à Lyon : Presqu'île, Croix-Rousse, Confluence, Monts d'Or et toute la métropole. Coordination jour J, décoration, organisation clé en main dès 1 500 €. Devis gratuit.",
+      alternates: { canonical: "https://www.smartmoments.fr/wedding-planner/lyon" },
+      openGraph: {
+        title: "Organisatrice de Mariage à Lyon | Smart Moments Event",
+        description:
+          "Organisation de mariage dans toute la métropole de Lyon. Noté 4.6/5. Devis gratuit.",
+        url: "https://www.smartmoments.fr/wedding-planner/lyon",
+      },
+    };
+  }
+
   const titles = {
     metropole: [
       `Wedding Planner ${city.name} | Organisation Mariage Haut de Gamme`,
@@ -91,7 +121,7 @@ export async function generateMetadata({
     grande: [
       `Votre wedding planner à ${city.name}, ${city.description}. Organisation de mariage, coordination jour J et événement sur mesure en ${city.department}. Devis gratuit.`,
       `Organisation mariage à ${city.name} par Smart Moments Event. Coordinatrice jour J, décoration et gestion complète. Intervention dans tout le ${city.department}. Devis offert.`,
-      `Coordinatrice de mariage à ${city.name} en ${city.region}. Organisation événement, jour J et décoration. À partir de 200€. Noté 4.6/5.`,
+      `Coordinatrice de mariage à ${city.name} en ${city.region}. Organisation événement, jour J et décoration. À partir de 1 500 €. Noté 4.6/5.`,
     ],
     moyenne: [
       `Wedding planner à ${city.name} et ${city.nearbyCity}. Organisation mariage, coordinatrice jour J en ${city.department}. Smart Moments Event, devis gratuit.`,
@@ -226,7 +256,7 @@ function generateFaq(city: { name: string; slug: string; department: string; reg
   const allFaq = [
     {
       q: `Quel est le tarif d'un wedding planner à ${city.name} ?`,
-      a: `Chez Smart Moments Event, nos formules de wedding planning à ${city.name} commencent à partir de 200 €. Le budget dépend de la prestation choisie : coordination jour J seule, accompagnement partiel ou organisation complète de votre mariage. Chaque projet étant unique, nous établissons un devis gratuit et personnalisé après une première consultation.`,
+      a: `Chez Smart Moments Event, nos formules de wedding planning à ${city.name} commencent à partir de 1 500 €. Le budget dépend de la prestation choisie : coordination jour J seule, accompagnement partiel ou organisation complète de votre mariage. Chaque projet étant unique, nous établissons un devis gratuit et personnalisé après une première consultation.`,
     },
     {
       q: `Pourquoi faire appel à une coordinatrice de mariage à ${city.name} ?`,
@@ -393,7 +423,7 @@ export default async function CityWeddingPlannerPage({
     offers: {
       "@type": "AggregateOffer",
       priceCurrency: "EUR",
-      lowPrice: "200",
+      lowPrice: "1500",
     },
   };
 
@@ -530,6 +560,7 @@ export default async function CityWeddingPlannerPage({
           <p className="text-lg text-white/70 max-w-2xl mx-auto font-light">
             {pick(subtitles, city.slug, 10)}
           </p>
+          <HeroCtaRow />
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
       </section>
@@ -846,7 +877,11 @@ export default async function CityWeddingPlannerPage({
             {themes.map((theme) => (
               <Link
                 key={theme.slug}
-                href={`/wedding-planner/${city.slug}/${theme.slug}`}
+                href={
+                  top50Slugs.has(city.slug)
+                    ? `/wedding-planner/${city.slug}/${theme.slug}`
+                    : `/wedding-planner/style/${theme.slug}`
+                }
                 className="group border border-gold/10 bg-white p-6 hover:border-gold transition-all duration-300"
               >
                 <h3 className="text-lg font-heading font-bold text-taupe mb-2 group-hover:text-gold transition-colors">
@@ -972,6 +1007,8 @@ export default async function CityWeddingPlannerPage({
           </div>
         </div>
       </section>
+
+      <StickyContactBar />
     </>
   );
 }

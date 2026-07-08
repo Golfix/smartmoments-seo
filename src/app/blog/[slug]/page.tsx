@@ -221,10 +221,10 @@ export default async function BlogArticlePage({
                   Demander un Devis Gratuit
                 </Link>
                 <Link
-                  href="/services"
+                  href="/services/mariage"
                   className="btn-luxury border border-taupe/30 text-taupe px-10 py-4 text-[11px] font-semibold uppercase tracking-[0.3em] hover:bg-taupe/5 transition-all duration-500"
                 >
-                  Nos Services
+                  Organisation de Mariage
                 </Link>
               </div>
             </div>
