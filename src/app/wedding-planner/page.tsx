@@ -8,7 +8,7 @@ import { themes } from "@/data/themes";
 
 export const metadata: Metadata = {
   title:
-    "Wedding Planner Lyon - Organisatrice de Mariage Haut de Gamme | 4.6★",
+    "Wedding Planner Lyon | Agence de Mariage Notée 4.6★",
   description:
     "Wedding planner à Lyon et Rhône-Alpes. Organisation de mariage sur mesure, coordination jour J, prestation partielle. Noté 4.6/5 sur Mariages.net. Prestations à partir de 1 500 €. Devis gratuit en 24h.",
   alternates: { canonical: "https://www.smartmoments.fr/wedding-planner" },
