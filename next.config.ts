@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import { cityRedirects, cityRoutePrefixes } from "./src/data/city-redirects";
+import { goneRedirects } from "./src/data/gone-redirects";
 
 const nextConfig: NextConfig = {
   async redirects() {
@@ -15,6 +16,14 @@ const nextConfig: NextConfig = {
       ...cityRedirects.map(([from, to]) => ({
         source: `/:prefix(${prefixes})/${from}`,
         destination: `/:prefix/${to}`,
+        permanent: true,
+      })),
+      // Pages retirées du site mais toujours indexées et cliquées : chacune vers
+      // la page existante la plus proche, plutôt qu'un 404 sec. Sources littérales
+      // et vérifiées en 404 — aucune ne peut intercepter une page valide.
+      ...goneRedirects.map(([from, to]) => ({
+        source: from,
+        destination: to,
         permanent: true,
       })),
     ];
