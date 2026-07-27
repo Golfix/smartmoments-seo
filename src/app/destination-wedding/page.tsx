@@ -6,6 +6,7 @@ import { destinations } from "@/data/destinations";
 import Photo from "@/components/Photo";
 import { hashCode } from "@/lib/seed";
 import { providerRef } from "@/lib/schema";
+import { OG_DEFAULT } from "@/data/photos";
 
 // Graine stable : fait varier la photo choisie d'une page à l'autre.
 const PHOTO_SEED = 69;
@@ -35,7 +36,8 @@ export const metadata: Metadata = {
     title: "Destination Wedding | Smart Moments",
     description: "Votre mariage de rêve à l'étranger : Italie, Grèce, Bali, Maroc, USA, Suisse. Wedding planner spécialisé.",
     url: "https://www.smartmoments.fr/destination-wedding",
-  },
+      images: [OG_DEFAULT],
+    },
 };
 
 export default function DestinationWeddingPage() {

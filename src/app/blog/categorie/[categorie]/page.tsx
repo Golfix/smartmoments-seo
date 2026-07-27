@@ -11,6 +11,7 @@ import {
 import Photo from "@/components/Photo";
 import { hashCode } from "@/lib/seed";
 import { fitDescription, fitTitle } from "@/lib/seo";
+import { OG_DEFAULT } from "@/data/photos";
 
 export const dynamicParams = false;
 
@@ -40,6 +41,7 @@ export async function generateMetadata({
       title,
       description,
       url: `https://www.smartmoments.fr/blog/categorie/${categorie}`,
+      images: [OG_DEFAULT],
     },
   };
 }

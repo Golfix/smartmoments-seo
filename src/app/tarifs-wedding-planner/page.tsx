@@ -5,6 +5,7 @@ import AnimateOnScroll from "@/components/AnimateOnScroll";
 import StickyContactBar, { TrustBadge } from "@/components/StickyContactBar";
 import Photo from "@/components/Photo";
 import { providerRef } from "@/lib/schema";
+import { OG_DEFAULT } from "@/data/photos";
 
 // Graine stable : fait varier la photo choisie d'une page à l'autre.
 const PHOTO_SEED = 59;
@@ -31,7 +32,8 @@ export const metadata: Metadata = {
     description:
       "Nos prestations de wedding planning démarrent à 1 500 €. Devis gratuit et transparent en 24h.",
     url: "https://www.smartmoments.fr/tarifs-wedding-planner",
-  },
+      images: [OG_DEFAULT],
+    },
 };
 
 const formules = [

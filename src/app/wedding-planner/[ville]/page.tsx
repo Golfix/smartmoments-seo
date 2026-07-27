@@ -86,7 +86,8 @@ export async function generateMetadata({
         description:
           "Organisation de mariage dans toute la métropole de Lyon. Noté 4.6/5. Devis gratuit.",
         url: "https://www.smartmoments.fr/wedding-planner/lyon",
-      },
+      images: [OG_DEFAULT],
+    },
     };
   }
 

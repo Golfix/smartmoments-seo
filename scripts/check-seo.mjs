@@ -8,6 +8,7 @@
  *   - title      ≤ 60 caractères, présent, sans marque en double
  *   - description 120–160 caractères, présente
  *   - canonique  présente
+ *   - og:image   présente (non héritée quand une page redéfinit openGraph)
  *   - aucune image appelée depuis un CDN tiers (le hotlink mariages.net
  *     avait fait disparaître toutes les photos du site sans alerte)
  *   - aucun aggregateRating auto-déclaré dans le balisage
@@ -47,7 +48,7 @@ const decode = (s) =>
     .replace(/&#x2F;/g, "/");
 
 const files = walk(ROOT);
-const issues = { title: [], desc: [], canonical: [], cdn: [], rating: [], brand: [] };
+const issues = { title: [], desc: [], canonical: [], cdn: [], rating: [], brand: [], og: [] };
 const titles = new Map();
 const h1s = new Map();
 let checked = 0;
@@ -71,6 +72,9 @@ for (const file of files) {
   if (!desc || desc.length < MIN_DESC || desc.length > MAX_DESC)
     issues.desc.push(`${url} [${desc.length}]`);
   if (!canonical) issues.canonical.push(url);
+  // Next ne fusionne pas `openGraph` : une page qui redéfinit ce bloc sans
+  // `images` perd l'image de partage héritée du layout racine.
+  if (!/<meta property="og:image"/.test(html)) issues.og.push(url);
   if (/https:\/\/cdn\d*\.mariages\.net|static\.wixstatic\.com/.test(html)) issues.cdn.push(url);
   if (/"aggregateRating"/.test(html)) issues.rating.push(url);
 
@@ -93,6 +97,7 @@ report(`titles ≤ ${MAX_TITLE} caractères`, issues.title);
 report("marque non dupliquée dans le title", issues.brand);
 report(`descriptions ${MIN_DESC}–${MAX_DESC} caractères`, issues.desc);
 report("canonique présente", issues.canonical);
+report("og:image présente", issues.og);
 report("aucune image depuis un CDN tiers", issues.cdn);
 report("aucun aggregateRating auto-déclaré", issues.rating);
 report(
@@ -109,6 +114,7 @@ const blocking =
   issues.title.length +
   issues.brand.length +
   issues.canonical.length +
+  issues.og.length +
   issues.cdn.length +
   issues.rating.length +
   dupTitles.length;

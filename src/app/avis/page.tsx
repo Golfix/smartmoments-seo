@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
+import { OG_DEFAULT } from "@/data/photos";
 
 export const metadata: Metadata = {
   title: "Avis Clients - Wedding Planner Lyon",
@@ -12,7 +13,8 @@ export const metadata: Metadata = {
     description:
       "4.6/5 sur Mariages.net — Découvrez les témoignages de nos mariés et clients. Wedding planner Lyon.",
     url: "https://www.smartmoments.fr/avis",
-  },
+      images: [OG_DEFAULT],
+    },
   keywords: [
     "avis wedding planner lyon",
     "témoignages smart moments",
