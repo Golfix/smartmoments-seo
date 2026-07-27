@@ -25,6 +25,7 @@
  * comportement correct pour une page sans trafic.
  */
 export const goneRedirects: [from: string, to: string][] = [
+  ["/organisation-mariage/cholet", "/services/mariage"], // 2 clic(s), 23 impr.
   ["/photobooth-mariage/montpellier", "/services/photobooth"], // 0 clic(s), 268 impr.
   ["/wedding-planner/montpellier", "/wedding-planner"], // 3 clic(s), 262 impr.
   ["/photobooth-mariage/le-lamentin-martinique", "/services/photobooth"], // 5 clic(s), 186 impr.
