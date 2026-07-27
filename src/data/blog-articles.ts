@@ -10,7 +10,6 @@ export interface BlogArticle {
   category: string;
   tags: string[];
   readingTime: number;
-  heroImage: string;
 }
 
 export const blogArticles: BlogArticle[] = [
@@ -19,7 +18,7 @@ export const blogArticles: BlogArticle[] = [
     slug: "organiser-mariage-lyon",
     metaTitle: "Comment organiser son mariage à Lyon : le guide complet 2025",
     metaDescription:
-      "Guide complet pour organiser votre mariage à Lyon : rétroplanning, choix du lieu, prestataires, budget et conseils de wedding planner professionnel. Tout savoir étape par étape.",
+      "Guide complet pour organiser votre mariage à Lyon : rétroplanning, choix du lieu, prestataires, budget et conseils de wedding planner professionnel.",
     excerpt:
       "Découvrez notre guide complet pour organiser un mariage réussi à Lyon : planning, budget, lieux de réception et conseils de professionnels.",
     publishedDate: "2025-01-15",
@@ -32,8 +31,6 @@ export const blogArticles: BlogArticle[] = [
       "wedding planner lyon",
     ],
     readingTime: 8,
-    heroImage:
-      "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-30-at-10-54-55-1_3_306698-168563709678965.jpeg",
     content: `
       <p>Organiser un mariage à Lyon est une aventure extraordinaire. La capitale des Gaules offre un cadre exceptionnel entre Rhône et Saône, avec des <strong>lieux de réception prestigieux</strong>, des prestataires de talent et une gastronomie réputée dans le monde entier. Mais par où commencer ? Comment ne rien oublier ? Voici notre guide complet, fruit de plusieurs années d'expérience en tant que <strong>wedding planner à Lyon</strong>.</p>
 
@@ -76,7 +73,7 @@ export const blogArticles: BlogArticle[] = [
     metaTitle:
       "Budget Wedding Planner 2025 : tarifs et formules à Lyon",
     metaDescription:
-      "Combien coûte un wedding planner en 2025 ? Découvrez les tarifs, formules (jour J, partielle, complète) et ce qui est inclus. Conseils pour choisir la bonne formule à Lyon.",
+      "Combien coûte un wedding planner en 2025 ? Découvrez les tarifs, formules (jour J, partielle, complète) et ce qui est inclus.",
     excerpt:
       "Combien coûte un wedding planner en 2025 ? Tarifs par formule, ce qui est inclus et nos conseils pour bien investir dans votre mariage.",
     publishedDate: "2025-02-01",
@@ -89,8 +86,6 @@ export const blogArticles: BlogArticle[] = [
       "combien coute wedding planner",
     ],
     readingTime: 6,
-    heroImage:
-      "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41-3_3_306698-168546594978953.jpeg",
     content: `
       <p>Le budget d'un <strong>wedding planner</strong> est souvent la première question que se posent les futurs mariés. Et c'est légitime ! Mais au-delà du tarif brut, c'est la valeur apportée qu'il faut considérer. En 2025, les prix varient selon la formule choisie, la région et l'ampleur de votre événement. Faisons le point pour vous aider à y voir clair.</p>
 
@@ -134,9 +129,9 @@ export const blogArticles: BlogArticle[] = [
       "Les 10 plus beaux lieux de réception pour un mariage à Lyon",
     slug: "lieux-reception-mariage-lyon",
     metaTitle:
-      "Top 10 des plus beaux lieux de réception mariage à Lyon (2025)",
+      "Top 10 des lieux de réception mariage à Lyon",
     metaDescription:
-      "Découvrez les 10 plus beaux lieux de réception pour un mariage à Lyon et sa région : châteaux, domaines, rooftops, espaces atypiques. Guide complet avec conseils de wedding planner.",
+      "Découvrez les 10 plus beaux lieux de réception pour un mariage à Lyon et sa région : châteaux, domaines, rooftops, espaces atypiques.",
     excerpt:
       "Notre sélection des 10 plus beaux lieux de réception pour un mariage à Lyon : châteaux, domaines viticoles, espaces atypiques et rooftops.",
     publishedDate: "2025-01-20",
@@ -149,8 +144,6 @@ export const blogArticles: BlogArticle[] = [
       "domaine mariage rhone",
     ],
     readingTime: 7,
-    heroImage:
-      "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41_3_306698-168546595030467.jpeg",
     content: `
       <p>Le choix du <strong>lieu de réception</strong> est l'une des décisions les plus importantes dans l'organisation de votre mariage. Il détermine l'ambiance, le style de décoration et une grande partie du budget. Lyon et sa région offrent une incroyable diversité de lieux, du château historique au loft industriel. En tant que <strong>wedding planner à Lyon</strong>, nous avons visité des dizaines de lieux. Voici notre sélection des plus beaux.</p>
 
@@ -194,7 +187,7 @@ export const blogArticles: BlogArticle[] = [
       "Mariage champêtre : idées et inspiration pour une célébration nature",
     slug: "mariage-champetre-idees-inspiration",
     metaTitle:
-      "Mariage champêtre : idées déco, lieu et inspiration nature (2025)",
+      "Mariage champêtre : idées déco et inspiration",
     metaDescription:
       "Inspirez-vous pour votre mariage champêtre : idées déco, choix du lieu, fleurs, menu, tenue. Conseils de wedding planner pour un mariage nature réussi à Lyon.",
     excerpt:
@@ -209,8 +202,6 @@ export const blogArticles: BlogArticle[] = [
       "mariage champetre lyon",
     ],
     readingTime: 7,
-    heroImage:
-      "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-42-1_3_306698-168546594928335.jpeg",
     content: `
       <p>Le <strong>mariage champêtre</strong> reste l'un des styles les plus plébiscités par les couples en 2025. Et pour cause : il incarne l'authenticité, la convivialité et un retour à l'essentiel. Bois brut, fleurs sauvages, guirlandes lumineuses et ambiance décontractée : le champêtre séduit par sa simplicité élégante. Voici notre guide d'inspiration complet pour un mariage nature réussi.</p>
 
@@ -253,9 +244,9 @@ export const blogArticles: BlogArticle[] = [
       "Coordination jour J : pourquoi faire appel à un professionnel ?",
     slug: "coordination-jour-j-professionnel",
     metaTitle:
-      "Coordination jour J : pourquoi un coordinateur de mariage est indispensable",
+      "Coordination jour J : pourquoi c'est indispensable",
     metaDescription:
-      "Découvrez pourquoi la coordination jour J par un professionnel est essentielle pour votre mariage. Rôle du coordinateur, avantages et témoignages. Wedding planner Lyon.",
+      "Découvrez pourquoi la coordination jour J par un professionnel est essentielle pour votre mariage. Rôle du coordinateur, avantages et témoignages.",
     excerpt:
       "La coordination jour J est la garantie d'un mariage sans stress. Découvrez le rôle du coordinateur et pourquoi il est devenu indispensable.",
     publishedDate: "2025-02-20",
@@ -268,8 +259,6 @@ export const blogArticles: BlogArticle[] = [
       "wedding planner jour j",
     ],
     readingTime: 6,
-    heroImage:
-      "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-40-1_3_306698-168546595086946.jpeg",
     content: `
       <p>Vous avez passé des mois à organiser votre mariage dans les moindres détails. Le lieu est réservé, le traiteur confirmé, la décoration validée, le DJ briefé. Tout est prêt. Mais le jour J, qui va <strong>tout orchestrer</strong> ? Qui va s'assurer que chaque prestataire arrive à l'heure, que le timing est respecté, que les imprévus sont gérés sans que vous le sachiez ? C'est le rôle de la <strong>coordinatrice jour J</strong>.</p>
 
@@ -314,7 +303,7 @@ export const blogArticles: BlogArticle[] = [
     metaTitle:
       "Décoration de mariage haut de gamme : tendances 2025 à Lyon",
     metaDescription:
-      "Les tendances déco mariage 2025 : couleurs, matériaux, styles et idées pour une décoration haut de gamme. Conseils de wedding designer à Lyon pour un mariage sublime.",
+      "Les tendances déco mariage 2025 : couleurs, matériaux, styles et idées pour une décoration haut de gamme. Conseils de wedding designer à Lyon pour un mariage.",
     excerpt:
       "Les grandes tendances décoration mariage 2025 : couleurs, matériaux nobles, styles épurés et idées de wedding design haut de gamme.",
     publishedDate: "2025-03-01",
@@ -327,8 +316,6 @@ export const blogArticles: BlogArticle[] = [
       "deco mariage haut de gamme",
     ],
     readingTime: 7,
-    heroImage:
-      "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41-1_3_306698-168546595088459.jpeg",
     content: `
       <p>La <strong>décoration de mariage</strong> est l'élément qui transforme un lieu en un univers unique, à votre image. En 2025, les tendances déco mariage oscillent entre minimalisme raffiné et opulence maîtrisée, avec un fil conducteur : l'authenticité. En tant que <strong>wedding designers à Lyon</strong>, nous vous présentons les tendances phares de cette année.</p>
 
@@ -375,9 +362,9 @@ export const blogArticles: BlogArticle[] = [
       "Photobooth et vidéo 360 : les animations incontournables pour votre mariage",
     slug: "photobooth-video-360-mariage",
     metaTitle:
-      "Photobooth et vidéo 360 mariage : animation incontournable 2025",
+      "Photobooth et vidéo 360 : l'animation mariage",
     metaDescription:
-      "Photobooth miroir magique et vidéo 360 pour mariage : fonctionnement, tarifs et pourquoi c'est l'animation préférée des invités. Location à Lyon avec Smart Moments Event.",
+      "Photobooth miroir magique et vidéo 360 pour mariage : fonctionnement, tarifs et pourquoi c'est l'animation préférée des invités.",
     excerpt:
       "Le photobooth et la vidéo 360 sont les animations mariage les plus demandées. Découvrez comment elles fonctionnent et pourquoi vos invités vont adorer.",
     publishedDate: "2025-02-15",
@@ -390,8 +377,6 @@ export const blogArticles: BlogArticle[] = [
       "miroir magique mariage",
     ],
     readingTime: 6,
-    heroImage:
-      "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-30-at-10-54-55-1_3_306698-168563709678965.jpeg",
     content: `
       <p>Les animations sont ce qui transforme un mariage réussi en un mariage <strong>inoubliable</strong>. Parmi toutes les options disponibles, deux se démarquent largement en 2025 : le <strong>photobooth miroir magique</strong> et la <strong>vidéo 360 degrés</strong>. Ces animations modernes divertissent vos invités tout en créant des souvenirs exceptionnels que chacun gardera précieusement.</p>
 
@@ -429,9 +414,9 @@ export const blogArticles: BlogArticle[] = [
       "Comment choisir son wedding planner : 7 critères essentiels",
     slug: "choisir-wedding-planner-criteres",
     metaTitle:
-      "Comment choisir son wedding planner : 7 critères essentiels (2025)",
+      "Choisir son wedding planner : 7 critères",
     metaDescription:
-      "Les 7 critères indispensables pour choisir le bon wedding planner : expérience, avis, feeling, portfolio, tarifs, disponibilité et réseau. Guide complet pour ne pas se tromper.",
+      "Les 7 critères indispensables pour choisir le bon wedding planner : expérience, avis, feeling, portfolio, tarifs, disponibilité et réseau.",
     excerpt:
       "Comment bien choisir son wedding planner ? Voici les 7 critères essentiels pour trouver le professionnel idéal pour votre mariage.",
     publishedDate: "2025-03-05",
@@ -444,8 +429,6 @@ export const blogArticles: BlogArticle[] = [
       "meilleur wedding planner",
     ],
     readingTime: 7,
-    heroImage:
-      "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41-3_3_306698-168546594978953.jpeg",
     content: `
       <p>Choisir son <strong>wedding planner</strong> est une décision cruciale. C'est la personne qui va vous accompagner pendant des mois, partager vos doutes et vos joies, et orchestrer le plus beau jour de votre vie. Alors comment faire le bon choix ? Voici les <strong>7 critères essentiels</strong> à vérifier avant de signer.</p>
 
@@ -497,8 +480,6 @@ export const blogArticles: BlogArticle[] = [
     category: "Inspiration",
     tags: ["mariage hiver", "lyon", "conseils"],
     readingTime: 7,
-    heroImage:
-      "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-42-1_3_306698-168546594928335.jpeg",
     content: `
       <p>Qui a dit que le mariage devait forcément avoir lieu en été ? Un <strong>mariage en hiver à Lyon</strong> offre une atmosphère unique, intime et chaleureuse que les mariages estivaux ne peuvent pas égaler. Imaginez une salle baignée de lumières dorées, des bougies partout, un chocolat chaud en guise de welcome drink et une piste de danse qui ne désemplit pas parce qu'il fait bon à l'intérieur. Convaincu ? Voici nos conseils pour réussir votre <strong>mariage hivernal</strong>.</p>
 
@@ -552,8 +533,6 @@ export const blogArticles: BlogArticle[] = [
     category: "Inspiration",
     tags: ["tendances", "2025", "mariage"],
     readingTime: 8,
-    heroImage:
-      "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-40-1_3_306698-168546595086946.jpeg",
     content: `
       <p>Chaque année apporte son lot de <strong>nouvelles tendances mariage</strong>, et 2025 ne fait pas exception. Cette année, les mariages s'annoncent plus personnalisés, plus authentiques et plus responsables que jamais. En tant que <a href="/wedding-planner">wedding planner à Lyon</a>, nous avons identifié les grandes tendances qui vont marquer les célébrations cette année. Décryptage complet.</p>
 
@@ -611,8 +590,6 @@ export const blogArticles: BlogArticle[] = [
     category: "Organisation",
     tags: ["cérémonie laïque", "guide"],
     readingTime: 9,
-    heroImage:
-      "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41-1_3_306698-168546595088459.jpeg",
     content: `
       <p>La <strong>cérémonie laïque</strong> s'est imposée comme l'un des moments les plus forts du mariage moderne. Contrairement à la cérémonie civile obligatoire en mairie, elle n'a aucune valeur juridique — mais c'est justement ce qui la rend si précieuse. Libre de toute contrainte, elle vous permet de <strong>célébrer votre amour exactement comme vous le souhaitez</strong>. Voici notre guide complet pour créer la vôtre.</p>
 
@@ -665,7 +642,7 @@ export const blogArticles: BlogArticle[] = [
     slug: "mariage-eco-responsable",
     metaTitle: "Mariage éco-responsable : organiser un mariage green",
     metaDescription:
-      "Comment organiser un mariage éco-responsable : traiteur local, décoration durable, faire-part numériques et astuces pour réduire l'empreinte carbone de votre fête.",
+      "Comment organiser un mariage éco-responsable : traiteur local, décoration durable, faire-part numériques et astuces pour réduire l'empreinte carbone de votre.",
     excerpt:
       "Organisez un mariage éco-responsable sans sacrifier l'élégance : traiteur local, décoration durable, faire-part numériques et astuces green.",
     publishedDate: "2024-08-05",
@@ -673,8 +650,6 @@ export const blogArticles: BlogArticle[] = [
     category: "Conseils",
     tags: ["éco-responsable", "green", "mariage"],
     readingTime: 7,
-    heroImage:
-      "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-30-at-10-54-55-1_3_306698-168563709678965.jpeg",
     content: `
       <p>Organiser un <strong>mariage éco-responsable</strong> n'est plus une tendance marginale, c'est devenu une priorité pour de nombreux couples. Et bonne nouvelle : un mariage green ne signifie pas un mariage au rabais. Au contraire, c'est l'occasion de faire des <strong>choix plus réfléchis, plus locaux et souvent plus élégants</strong>. Voici comment organiser un mariage respectueux de l'environnement sans rien sacrifier à la beauté de votre jour J.</p>
 
@@ -722,8 +697,6 @@ export const blogArticles: BlogArticle[] = [
     category: "Conseils",
     tags: ["wedding planner", "jour J", "coordination"],
     readingTime: 8,
-    heroImage:
-      "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41-3_3_306698-168546594978953.jpeg",
     content: `
       <p>Beaucoup de futurs mariés se demandent : « <strong>Que fait concrètement un wedding planner le jour du mariage ?</strong> » C'est une question légitime, car c'est souvent le jour J que la valeur d'un coordinateur se révèle pleinement. Voici le récit d'une journée type, minute par minute, pour comprendre pourquoi un <a href="/wedding-planner">wedding planner</a> est votre meilleur allié.</p>
 
@@ -769,8 +742,6 @@ export const blogArticles: BlogArticle[] = [
     category: "Inspiration",
     tags: ["vin d'honneur", "idées", "cocktail"],
     readingTime: 6,
-    heroImage:
-      "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41_3_306698-168546595030467.jpeg",
     content: `
       <p>Le <strong>vin d'honneur</strong> est souvent le premier vrai moment de fête après la cérémonie. C'est l'instant où vos invités se retrouvent, trinquent et découvrent l'ambiance que vous avez créée. Autant dire que c'est un moment clé ! Fini le traditionnel kir et les petits fours sans saveur — voici nos <strong>idées originales</strong> pour un vin d'honneur qui marquera les esprits.</p>
 
@@ -816,7 +787,7 @@ export const blogArticles: BlogArticle[] = [
     slug: "mariage-multiculturel",
     metaTitle: "Mariage multiculturel : célébrer vos deux cultures",
     metaDescription:
-      "Comment organiser un mariage multiculturel réussi : mélange des traditions, menu interculturel, décoration et conseils pour célébrer vos deux cultures avec harmonie.",
+      "Comment organiser un mariage multiculturel réussi : mélange des traditions, menu interculturel, décoration et conseils pour célébrer vos deux cultures avec.",
     excerpt:
       "Organisez un mariage multiculturel harmonieux : mélange des traditions, menu interculturel, décoration et conseils pour célébrer l'union de deux cultures.",
     publishedDate: "2024-06-18",
@@ -824,8 +795,6 @@ export const blogArticles: BlogArticle[] = [
     category: "Inspiration",
     tags: ["multiculturel", "traditions", "mariage"],
     readingTime: 8,
-    heroImage:
-      "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-42-1_3_306698-168546594928335.jpeg",
     content: `
       <p>Un <strong>mariage multiculturel</strong> est une célébration riche en émotions, en couleurs et en surprises. Mêler deux cultures, deux familles, deux traditions — c'est un défi organisationnel, mais surtout une <strong>opportunité magnifique</strong> de créer un événement unique et inoubliable. En tant que <a href="/wedding-planner">wedding planner à Lyon</a>, ville cosmopolite par excellence, nous accompagnons régulièrement des couples dans cette aventure. Voici nos conseils.</p>
 
@@ -883,8 +852,6 @@ export const blogArticles: BlogArticle[] = [
     category: "Conseils",
     tags: ["plan de table", "organisation", "astuces"],
     readingTime: 6,
-    heroImage:
-      "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41-1_3_306698-168546595088459.jpeg",
     content: `
       <p>Le <strong>plan de table</strong> est souvent le casse-tête numéro un des futurs mariés. Entre les familles recomposées, les ex qui ne se parlent plus, les cousins qu'on ne connaît pas et les amis qui veulent absolument être ensemble, c'est un vrai puzzle. En tant que <a href="/wedding-planner">wedding planner</a>, nous avons vu (et résolu) toutes les situations. Voici nos <strong>10 astuces</strong> pour un placement réussi.</p>
 
@@ -927,7 +894,7 @@ export const blogArticles: BlogArticle[] = [
     slug: "fleurs-mariage-guide-saisons",
     metaTitle: "Fleurs de mariage : guide des saisons et tendances 2025",
     metaDescription:
-      "Guide complet des fleurs de mariage par saison : quelles fleurs choisir au printemps, été, automne et hiver ? Tendances florales 2025 et conseils de wedding planner.",
+      "Guide complet des fleurs de mariage par saison : quelles fleurs choisir au printemps, été, automne et hiver ? Tendances florales 2025 et conseils de wedding.",
     excerpt:
       "Quelles fleurs pour votre mariage selon la saison ? Découvrez notre guide complet : variétés, couleurs tendance et conseils pour sublimer votre décoration florale.",
     publishedDate: "2024-07-10",
@@ -935,8 +902,6 @@ export const blogArticles: BlogArticle[] = [
     category: "Décoration",
     tags: ["fleurs", "saisons", "décoration"],
     readingTime: 7,
-    heroImage:
-      "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-40-1_3_306698-168546595086946.jpeg",
     content: `
       <p>Les <strong>fleurs</strong> sont au cœur de la décoration de mariage. Elles habillent le bouquet de la mariée, les centres de table, l'arche de cérémonie et bien plus encore. Mais toutes les fleurs ne sont pas disponibles toute l'année — et choisir des <strong>fleurs de saison</strong>, c'est la garantie de fleurs fraîches, plus belles et souvent moins chères. Voici notre guide complet saison par saison.</p>
 
@@ -997,7 +962,7 @@ export const blogArticles: BlogArticle[] = [
     slug: "mariage-petit-budget-astuces",
     metaTitle: "Mariage petit budget : astuces pour ne pas se ruiner",
     metaDescription:
-      "Comment organiser un beau mariage avec un petit budget : astuces pour économiser sur le lieu, le traiteur, la décoration et les prestataires sans sacrifier la qualité.",
+      "Comment organiser un beau mariage avec un petit budget : astuces pour économiser sur le lieu, le traiteur, la décoration et les prestataires sans sacrifier.",
     excerpt:
       "Organisez un mariage magnifique sans exploser votre budget : nos astuces concrètes pour économiser sur chaque poste tout en gardant l'essentiel.",
     publishedDate: "2024-09-25",
@@ -1005,8 +970,6 @@ export const blogArticles: BlogArticle[] = [
     category: "Budget",
     tags: ["budget", "économies", "astuces"],
     readingTime: 7,
-    heroImage:
-      "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-30-at-10-54-55-1_3_306698-168563709678965.jpeg",
     content: `
       <p>Un beau mariage ne dépend pas du montant dépensé, mais de la <strong>justesse des choix</strong>. Avec un petit budget, il faut être malin, prioriser et parfois penser autrement. Et c'est tout à fait possible de créer un événement magnifique et mémorable ! En tant que <a href="/wedding-planner">wedding planner à Lyon</a>, nous accompagnons des couples avec tous les budgets. Voici nos <strong>astuces concrètes</strong> pour un mariage réussi sans se ruiner.</p>
 
@@ -1073,8 +1036,6 @@ export const blogArticles: BlogArticle[] = [
     category: "Organisation",
     tags: ["EVJF", "Lyon", "idées"],
     readingTime: 7,
-    heroImage:
-      "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41_3_306698-168546595030467.jpeg",
     content: `
       <p>Lyon est la ville idéale pour un <strong>enterrement de vie de jeune fille</strong> (EVJF) mémorable. Gastronomie, culture, activités originales, vie nocturne — la capitale des Gaules a tout pour plaire. Que la future mariée soit sportive, épicurienne, fêtarde ou zen, voici nos <strong>meilleures idées</strong> pour un EVJF réussi à Lyon.</p>
 
@@ -1134,7 +1095,7 @@ export const blogArticles: BlogArticle[] = [
     slug: "musique-dj-mariage-ambiance",
     metaTitle: "DJ mariage : comment créer l'ambiance parfaite",
     metaDescription:
-      "Comment choisir votre DJ de mariage et créer l'ambiance musicale parfaite : playlist, style musical, questions à poser et erreurs à éviter pour une soirée réussie.",
+      "Comment choisir votre DJ de mariage et créer l'ambiance musicale parfaite : playlist, style musical, questions à poser et erreurs à éviter pour une soirée.",
     excerpt:
       "Choisissez le bon DJ de mariage et créez une ambiance musicale inoubliable : playlist, style, questions à poser et conseils pour une piste de danse remplie.",
     publishedDate: "2025-02-18",
@@ -1142,8 +1103,6 @@ export const blogArticles: BlogArticle[] = [
     category: "Conseils",
     tags: ["musique", "DJ", "ambiance"],
     readingTime: 7,
-    heroImage:
-      "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-42-1_3_306698-168546594928335.jpeg",
     content: `
       <p>La musique est le <strong>fil rouge de votre mariage</strong>. Elle accompagne chaque moment — de l'entrée dans l'église ou la salle de cérémonie jusqu'au dernier slow de la soirée. Un bon DJ de mariage peut transformer une soirée correcte en une <strong>fête légendaire</strong> dont vos invités parleront pendant des années. Mais comment le choisir et comment construire l'ambiance musicale parfaite ? Voici notre guide complet.</p>
 
@@ -1205,15 +1164,14 @@ export const blogArticles: BlogArticle[] = [
   {
     title: "Les 15 plus beaux lieux de mariage en Auvergne-Rhône-Alpes",
     slug: "lieux-mariage-auvergne-rhone-alpes",
-    metaTitle: "15 Plus Beaux Lieux de Mariage en Auvergne-Rhône-Alpes (2026)",
-    metaDescription: "Découvrez les 15 plus beaux lieux de réception pour votre mariage en Auvergne-Rhône-Alpes : châteaux du Beaujolais, domaines au bord du lac d'Annecy, bastides en Drôme provençale.",
+    metaTitle: "15 lieux de mariage en Auvergne-Rhône-Alpes",
+    metaDescription: "Découvrez les 15 plus beaux lieux de réception pour votre mariage en Auvergne-Rhône-Alpes : châteaux du Beaujolais, domaines au bord du lac d'Annecy.",
     excerpt: "Châteaux du Beaujolais, domaines lacustres en Savoie, bastides en Drôme provençale : notre sélection des 15 plus beaux lieux de mariage en Auvergne-Rhône-Alpes.",
     publishedDate: "2026-03-20",
     updatedDate: "2026-03-24",
     category: "Lieux",
     tags: ["lieux mariage", "auvergne rhône-alpes", "château mariage", "domaine mariage", "réception mariage"],
     readingTime: 10,
-    heroImage: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-42-1_3_306698-168546594928335.jpeg",
     content: `
       <p>L'Auvergne-Rhône-Alpes est l'une des régions les plus prisées de France pour se marier. Entre les <strong>châteaux des pierres dorées du Beaujolais</strong>, les <strong>domaines face au Mont-Blanc</strong>, les <strong>bastides de la Drôme provençale</strong> et les <strong>abbaye au bord du lac d'Annecy</strong>, le choix est immense. Voici notre sélection de 15 lieux d'exception, testés et approuvés par notre équipe de <a href="/wedding-planner">wedding planners</a>.</p>
 
@@ -1295,7 +1253,6 @@ export const blogArticles: BlogArticle[] = [
     category: "Budget",
     tags: ["budget mariage", "mariage provence", "prix mariage PACA", "coût mariage", "wedding planner provence"],
     readingTime: 9,
-    heroImage: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41_3_306698-168546595030467.jpeg",
     content: `
       <p>La Provence fait rêver les couples du monde entier : lavande, oliviers, mas en pierre, lumière dorée. Mais combien coûte réellement un mariage en <strong>Provence-Alpes-Côte d'Azur</strong> en 2026 ? Voici les chiffres vérifiés, issus des dernières études du secteur nuptial et de notre expérience de <a href="/wedding-planner">wedding planner</a> intervenant dans toute la région.</p>
 
@@ -1362,14 +1319,13 @@ export const blogArticles: BlogArticle[] = [
     title: "Les plus beaux domaines de mariage en Provence et Côte d'Azur",
     slug: "domaines-mariage-provence-cote-azur",
     metaTitle: "15 Plus Beaux Domaines Mariage Provence & Côte d'Azur (2026)",
-    metaDescription: "Sélection des 15 plus beaux lieux de mariage en Provence et Côte d'Azur : bastides du Luberon, châteaux du Var, domaines face à la mer. Guide complet avec capacités et prix.",
+    metaDescription: "Sélection des 15 plus beaux lieux de mariage en Provence et Côte d'Azur : bastides du Luberon, châteaux du Var, domaines face à la mer.",
     excerpt: "Bastides du Luberon, châteaux du Var, domaines vue mer sur la Côte d'Azur : découvrez les 15 plus beaux lieux de mariage en Provence-Alpes-Côte d'Azur.",
     publishedDate: "2026-03-15",
     updatedDate: "2026-03-24",
     category: "Lieux",
     tags: ["lieux mariage provence", "domaine mariage", "château mariage PACA", "mariage côte d'azur", "bastide luberon"],
     readingTime: 10,
-    heroImage: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41-3_3_306698-168546594978953.jpeg",
     content: `
       <p>La Provence-Alpes-Côte d'Azur est la région de France la plus demandée pour les mariages internationaux, et pour cause : entre les <strong>bastides du Luberon</strong> noyées dans la lavande, les <strong>châteaux viticoles du Var</strong> et les <strong>domaines face à la Méditerranée</strong>, chaque lieu raconte une histoire. Voici notre sélection de 15 domaines d'exception, fruit de notre expérience de <a href="/wedding-planner">wedding planner</a> en PACA.</p>
 
@@ -1434,14 +1390,13 @@ export const blogArticles: BlogArticle[] = [
     title: "Mariage en Drôme provençale : le guide complet",
     slug: "mariage-drome-provencale-guide",
     metaTitle: "Mariage en Drôme Provençale : Guide Complet 2026",
-    metaDescription: "Tout savoir pour organiser votre mariage en Drôme provençale : lieux de réception à Grignan, Nyons et Dieulefit, budget, prestataires et conseils de wedding planner.",
+    metaDescription: "Tout savoir pour organiser votre mariage en Drôme provençale : lieux de réception à Grignan, Nyons et Dieulefit, budget, prestataires et conseils de wedding.",
     excerpt: "Lavande, villages perchés et bastides de caractère : tout ce qu'il faut savoir pour organiser un mariage en Drôme provençale.",
     publishedDate: "2026-03-10",
     updatedDate: "2026-03-24",
     category: "Organisation",
     tags: ["mariage drôme", "drôme provençale", "wedding planner drôme", "lieu mariage drôme", "grignan mariage"],
     readingTime: 8,
-    heroImage: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-30-at-10-54-55-1_3_306698-168563709678965.jpeg",
     content: `
       <p>La <strong>Drôme provençale</strong> est l'une des destinations mariage les plus romantiques de France. Entre <a href="/wedding-planner/grignan">Grignan</a> et son château de Madame de Sévigné, <a href="/wedding-planner/nyons">Nyons</a> la capitale de l'olive, et <a href="/wedding-planner/dieulefit">Dieulefit</a> village potier, cette terre de lavande et de lumière offre un cadre authentique et enchanteur. Voici notre guide complet pour organiser votre mariage dans la <a href="/wedding-planner/departement/drome">Drôme</a>.</p>
 
@@ -1512,7 +1467,6 @@ export const blogArticles: BlogArticle[] = [
     category: "Inspiration",
     tags: ["mariage provençal", "traditions mariage", "coutumes provence", "13 desserts", "mariage traditionnel"],
     readingTime: 7,
-    heroImage: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-40-1_3_306698-168546595086946.jpeg",
     content: `
       <p>Le mariage provençal est bien plus qu'une simple fête : c'est un héritage culturel riche en symboles, en saveurs et en émotions. Que vous souhaitiez un <strong>mariage 100% traditionnel</strong> ou simplement intégrer quelques touches provençales à votre célébration moderne, ces coutumes ancestrales ajouteront une dimension unique à votre jour J. En tant que <a href="/wedding-planner">wedding planner en Provence</a>, nous adorons accompagner les couples dans la redécouverte de ces rituels.</p>
 
@@ -1585,7 +1539,6 @@ export const blogArticles: BlogArticle[] = [
     category: "Lieux",
     tags: ["mariage annecy", "lac d'annecy", "mariage savoie", "lieux mariage montagne", "wedding planner annecy"],
     readingTime: 8,
-    heroImage: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41-3_3_306698-168546594978953.jpeg",
     content: `
       <p>Le lac d'Annecy, surnommé le « lac le plus pur d'Europe », offre un <strong>décor de carte postale</strong> pour votre mariage : eaux turquoise, montagnes enneigées en toile de fond, villages médiévaux et domaines de charme. Que vous rêviez d'une cérémonie les pieds dans l'eau ou d'un dîner face au Mont-Blanc, la Savoie et la Haute-Savoie regorgent de lieux d'exception. Voici notre guide complet en tant que <a href="/wedding-planner/annecy">wedding planner à Annecy</a>.</p>
 

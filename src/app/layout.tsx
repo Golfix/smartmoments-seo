@@ -4,32 +4,42 @@ import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { OG_DEFAULT } from "@/data/photos";
+import { ORG_ID, SITE_URL, organizationJsonLd } from "@/lib/schema";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 const GSC_VERIFICATION = process.env.NEXT_PUBLIC_GSC_VERIFICATION;
 
+// Polices sous-ensemblées en WOFF2 (latin + latin-1 + ponctuation FR) :
+// 455 Ko en TTF non sous-ensemblé → 85 Ko. `preload` est réservé aux deux graisses
+// réellement présentes au-dessus de la ligne de flottaison ; les autres sont chargées
+// à la demande au lieu d'occuper le chemin critique.
 const nourd = localFont({
   src: [
-    { path: "../../public/fonts/nourd_light.ttf", weight: "300", style: "normal" },
-    { path: "../../public/fonts/nourd_regular.ttf", weight: "400", style: "normal" },
-    { path: "../../public/fonts/nourd_medium.ttf", weight: "500", style: "normal" },
-    { path: "../../public/fonts/nourd_semi_bold.ttf", weight: "600", style: "normal" },
-    { path: "../../public/fonts/nourd_bold.ttf", weight: "700", style: "normal" },
-    { path: "../../public/fonts/nourd_heavy.ttf", weight: "900", style: "normal" },
+    { path: "../../public/fonts/nourd_light.woff2", weight: "300", style: "normal" },
+    { path: "../../public/fonts/nourd_regular.woff2", weight: "400", style: "normal" },
+    { path: "../../public/fonts/nourd_medium.woff2", weight: "500", style: "normal" },
+    { path: "../../public/fonts/nourd_semi_bold.woff2", weight: "600", style: "normal" },
+    { path: "../../public/fonts/nourd_bold.woff2", weight: "700", style: "normal" },
+    { path: "../../public/fonts/nourd_heavy.woff2", weight: "900", style: "normal" },
   ],
   variable: "--font-nourd",
   display: "swap",
+  preload: true,
+  fallback: ["Helvetica Neue", "Arial", "sans-serif"],
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.smartmoments.fr"),
+  // Le suffixe de marque est court (18 car.) : Google tronque l'affichage autour de
+  // 60 caractères, et l'ancien " | Smart Moments Event Lyon" (27 car.) poussait
+  // 100 % des titres du site au-delà de la limite.
   title: {
-    default:
-      "Smart Moments Event | Wedding Planner & Organisateur d'Événements de Prestige à Lyon",
-    template: "%s | Smart Moments Event Lyon",
+    default: "Wedding Planner & Organisation de Mariage à Lyon",
+    template: "%s | Smart Moments",
   },
   description:
-    "Wedding planner et organisateur d'événements haut de gamme à Lyon. Organisation de mariage clé en main, coordination jour J, décoration luxe, photobooth. Mariages en Rhône-Alpes, PACA, Île-de-France, Bourgogne et destination weddings (Italie, Suisse, Grèce, Bali). Devis gratuit.",
+    "Wedding planner à Lyon : organisation de mariage clé en main, coordination jour J, décoration et photobooth. Devis gratuit sous 24 h.",
   keywords: [
     "wedding planner lyon",
     "organisateur mariage lyon",
@@ -80,23 +90,18 @@ export const metadata: Metadata = {
     url: "https://www.smartmoments.fr",
     siteName: "Smart Moments Event",
     title:
-      "Smart Moments Event | Wedding Planner & Organisateur d'Événements de Prestige à Lyon",
+      "Smart Moments Event | Wedding Planner & Organisateur d'Événements à Lyon",
     description:
       "Organisation de mariage haut de gamme, coordination jour J, décoration luxe et animations sur mesure à Lyon. Noté 4.6/5, recommandé par 92% des couples.",
-    images: [
-      {
-        url: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-30-at-10-54-55-1_3_306698-168563709678965.jpeg",
-        width: 960,
-        height: 640,
-        alt: "Smart Moments Event - Organisation de mariage haut de gamme à Lyon",
-      },
-    ],
+    // Image de partage par défaut, héritée par les ~3 830 pages qui n'en déclarent pas.
+    images: [OG_DEFAULT],
   },
   twitter: {
     card: "summary_large_image",
     title: "Smart Moments Event | Wedding Planner Lyon",
     description:
       "Organisation de mariage, coordination jour J et décoration haut de gamme à Lyon. Devis gratuit.",
+    images: [OG_DEFAULT.url],
   },
   robots: {
     index: true,
@@ -107,32 +112,27 @@ export const metadata: Metadata = {
   },
 };
 
+// Graphe d'entité du site. Le bloc Organization porte un @id stable, référencé par
+// le LocalBusiness des pages internes (voir src/lib/schema.ts) : Google recoupe ainsi
+// toutes les pages sur une seule et même entité.
 const websiteJsonLd = {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: "Smart Moments Event",
-  alternateName: "Smart Moments",
-  url: "https://www.smartmoments.fr",
-  description:
-    "Wedding planner et organisateur d'événements haut de gamme à Lyon. Organisation de mariage, coordination jour J, décoration luxe.",
-  inLanguage: "fr-FR",
-  publisher: {
-    "@type": "Organization",
-    name: "Smart Moments Event",
-    url: "https://www.smartmoments.fr",
-    logo: {
-      "@type": "ImageObject",
-      url: "https://www.smartmoments.fr/favicon.ico",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      name: "Smart Moments Event",
+      alternateName: "Smart Moments",
+      url: SITE_URL,
+      description:
+        "Wedding planner et organisateur d'événements haut de gamme à Lyon. Organisation de mariage, coordination jour J, décoration luxe.",
+      inLanguage: "fr-FR",
+      publisher: { "@id": ORG_ID },
+      // Pas de potentialAction/SearchAction : le site n'a pas de moteur de recherche
+      // interne, et Google a retiré la sitelinks searchbox fin 2024.
     },
-  },
-  potentialAction: {
-    "@type": "SearchAction",
-    target: {
-      "@type": "EntryPoint",
-      urlTemplate: "https://www.smartmoments.fr/?q={search_term_string}",
-    },
-    "query-input": "required name=search_term_string",
-  },
+    organizationJsonLd,
+  ],
 };
 
 export default function RootLayout({
@@ -147,8 +147,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
-        <link rel="preconnect" href="https://cdn0.mariages.net" />
-        <link rel="dns-prefetch" href="https://cdn0.mariages.net" />
+        {/* Plus aucun CDN tiers : toutes les images sont servies depuis ce domaine. */}
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#c9a96e" />
         {GSC_VERIFICATION && (

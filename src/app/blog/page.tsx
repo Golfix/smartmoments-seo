@@ -1,30 +1,25 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 import { blogArticles, getCategories } from "@/data/blog-articles";
+import { OG_DEFAULT } from "@/data/photos";
+import Photo from "@/components/Photo";
+import { hashCode } from "@/lib/seed";
 
 export const metadata: Metadata = {
-  title: "Blog Mariage & Événementiel - Conseils de Wedding Planner",
+  title: "Blog Mariage & Conseils d'Organisation",
   description:
-    "Conseils, guides et inspiration pour votre mariage à Lyon. Articles de wedding planner professionnel : organisation, budget, décoration, lieux de réception et tendances 2025.",
+    "Conseils et inspiration pour votre mariage à Lyon : organisation, budget, décoration, lieux de réception et coordination du jour J.",
   alternates: {
     canonical: "https://www.smartmoments.fr/blog",
   },
   openGraph: {
-    title: "Blog Mariage & Événementiel | Smart Moments Event Lyon",
+    title: "Blog Mariage & Événementiel | Smart Moments",
     description:
       "Conseils, guides et inspiration pour votre mariage à Lyon par nos wedding planners professionnels.",
     url: "https://www.smartmoments.fr/blog",
-    images: [
-      {
-        url: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-30-at-10-54-55-1_3_306698-168563709678965.jpeg",
-        width: 960,
-        height: 640,
-        alt: "Blog mariage Smart Moments Event Lyon",
-      },
-    ],
+    images: [OG_DEFAULT],
   },
 };
 
@@ -142,10 +137,9 @@ export default function BlogPage() {
                 <article className="group bg-white border border-gold/10 overflow-hidden hover:shadow-lg hover:shadow-gold/5 transition-all duration-500">
                   <Link href={`/blog/${article.slug}`} className="block">
                     <div className="relative aspect-[16/10] overflow-hidden">
-                      <Image
-                        src={article.heroImage}
+                      <Photo
+                        seed={hashCode(article.slug)}
                         alt={article.title}
-                        fill
                         className="object-cover group-hover:scale-105 transition-transform duration-700"
                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       />

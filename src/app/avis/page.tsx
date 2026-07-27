@@ -3,12 +3,12 @@ import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "Avis Clients - Wedding Planner Lyon | Témoignages Smart Moments",
+  title: "Avis Clients - Wedding Planner Lyon",
   description:
-    "Découvrez les avis et témoignages de nos clients. Smart Moments Event, wedding planner à Lyon, noté 4.6/5 sur Mariages.net. 92% de recommandation, 25+ avis vérifiés. Organisation de mariage, décoration, coordination jour J.",
+    "Les témoignages de nos mariés : organisation, décoration et coordination jour J. Noté 4.6/5 sur Mariages.net, 92 % de recommandation.",
   alternates: { canonical: "https://www.smartmoments.fr/avis" },
   openGraph: {
-    title: "Avis Clients | Smart Moments Event Lyon",
+    title: "Avis Clients | Smart Moments",
     description:
       "4.6/5 sur Mariages.net — Découvrez les témoignages de nos mariés et clients. Wedding planner Lyon.",
     url: "https://www.smartmoments.fr/avis",
@@ -137,13 +137,6 @@ export default function AvisPage() {
       postalCode: "69007",
       addressRegion: "Rhône-Alpes",
       addressCountry: "FR",
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.6",
-      reviewCount: "25",
-      bestRating: "5",
-      worstRating: "1",
     },
     review: reviews.map((r) => ({
       "@type": "Review",

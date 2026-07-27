@@ -1,20 +1,24 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
+import Photo from "@/components/Photo";
+import { OG_DEFAULT } from "@/data/photos";
+
+// Graine stable : fait varier la photo choisie d'une page à l'autre.
+const PHOTO_SEED = 83;
 
 export const metadata: Metadata = {
   title:
-    "Services Organisation Mariage, Décoration & Photobooth Lyon | Devis Gratuit",
+    "Organisation Mariage & Décoration Lyon",
   description:
-    "Tous nos services événementiels à Lyon : organisation de mariage clé en main, décoration haut de gamme sur mesure, location photobooth miroir magique & vidéo 360°, coordination jour J. Baptêmes, bar-mitzvahs, séminaires. À partir de 1 500 €.",
+    "Organisation de mariage clé en main, décoration haut de gamme, photobooth et vidéo 360°, coordination jour J à Lyon. Devis gratuit.",
   alternates: { canonical: "https://www.smartmoments.fr/services" },
   openGraph: {
-    title: "Services d'Organisation d'Événements de Prestige | Smart Moments Event Lyon",
+    title: "Nos Services Événementiels | Smart Moments",
     description:
       "Organisation de mariage complète, décoration haut de gamme, location photobooth et coordination jour J à Lyon et en France.",
     url: "https://www.smartmoments.fr/services",
-    images: [{ url: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-43_3_306698-168546594996125.jpeg", width: 960, height: 640, alt: "Services organisation mariage et événements haut de gamme Lyon" }],
+    images: [OG_DEFAULT],
   },
 };
 
@@ -32,8 +36,6 @@ const mainServices = [
       "Coordination avec tous les intervenants",
       "Accompagnement personnalisé du premier rendez-vous au jour J",
     ],
-    image:
-      "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41_3_306698-168546595030467.jpeg",
     alt: "Organisation de mariage complète clé en main Lyon - Smart Moments wedding planner",
   },
   {
@@ -49,8 +51,6 @@ const mainServices = [
       "Personnalisation totale selon vos goûts et votre thème",
       "Mobilier et accessoires haut de gamme",
     ],
-    image:
-      "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-40-1_3_306698-168546595086946.jpeg",
     alt: "Décoration de mariage haut de gamme arche florale Lyon",
   },
   {
@@ -66,8 +66,6 @@ const mainServices = [
       "Animation adaptée à tout type d'événement",
       "Installation et gestion technique complète",
     ],
-    image:
-      "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-42_3_306698-168546594931608.jpeg",
     alt: "Location photobooth miroir magique animation mariage Lyon",
   },
   {
@@ -83,8 +81,6 @@ const mainServices = [
       "Gestion du timing et du déroulé minute par minute",
       "Anticipation et gestion des imprévus",
     ],
-    image:
-      "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-30-at-10-53-36_3_306698-168546595011373.jpeg",
     alt: "Coordination jour J mariage Lyon coordinatrice",
   },
 ];
@@ -237,13 +233,12 @@ export default function ServicesPage() {
       {/* Hero */}
       <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src="https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-43_3_306698-168546594996125.jpeg"
+          <Photo
+            seed={PHOTO_SEED}
             alt="Services organisation mariage et événements haut de gamme Lyon"
-            fill
             className="object-cover"
-            priority
             sizes="100vw"
+            priority
           />
           <div className="absolute inset-0 bg-gradient-to-b from-taupe/60 via-taupe/30 to-taupe/60" />
         </div>
@@ -289,10 +284,9 @@ export default function ServicesPage() {
             >
               <div className="w-full lg:w-1/2 relative">
                 <div className="relative aspect-[4/3] overflow-hidden">
-                  <Image
-                    src={service.image}
+                  <Photo
+                    seed={i}
                     alt={service.alt}
-                    fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
@@ -503,10 +497,10 @@ export default function ServicesPage() {
       {/* CTA */}
       <section className="relative py-28 overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src="https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-42-1_3_306698-168546594928335.jpeg"
+          <Photo
+            seed={PHOTO_SEED}
+            offset={1}
             alt="Organisation d'événement de prestige Lyon"
-            fill
             className="object-cover"
             sizes="100vw"
           />

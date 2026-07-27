@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Politique de Confidentialité",
-  description: "Politique de confidentialité de Smart Moments Event.",
+  description: "Politique de confidentialité de smartmoments.fr : données collectées, finalités, durée de conservation et exercice de vos droits RGPD.",
   robots: { index: false, follow: false },
 };
 

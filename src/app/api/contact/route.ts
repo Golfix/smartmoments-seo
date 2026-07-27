@@ -2,7 +2,18 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { prisma } from "@/lib/prisma";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Instanciation paresseuse : au niveau module, le constructeur Resend lève
+// « Missing API key » pendant la collecte des routes et fait échouer
+// `next build` sur toute machine où RESEND_API_KEY n'est pas défini.
+let resendClient: Resend | null = null;
+function getResend(): Resend {
+  if (!resendClient) {
+    const key = process.env.RESEND_API_KEY;
+    if (!key) throw new Error("RESEND_API_KEY manquant");
+    resendClient = new Resend(key);
+  }
+  return resendClient;
+}
 
 export async function POST(request: Request) {
   try {
@@ -57,7 +68,7 @@ export async function POST(request: Request) {
       "plus-500": "Plus de 500",
     };
 
-    await resend.emails.send({
+    await getResend().emails.send({
       from: "Smart Moments Event <contact@laphotobootherie.fr>",
       to: "smartmomentsevent@gmail.com",
       replyTo: email,

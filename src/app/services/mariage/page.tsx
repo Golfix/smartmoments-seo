@@ -1,13 +1,18 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 import StickyContactBar, { HeroCtaRow, TrustBadge } from "@/components/StickyContactBar";
+import Photo from "@/components/Photo";
+import { OG_DEFAULT } from "@/data/photos";
+import { providerRef } from "@/lib/schema";
+
+// Graine stable : fait varier la photo choisie d'une page à l'autre.
+const PHOTO_SEED = 70;
 
 export const metadata: Metadata = {
-  title: "Organisation Mariage Lyon | Clé en Main dès 1 500 €",
+  title: "Organisation Mariage Lyon dès 1 500 €",
   description:
-    "Organisation de mariage clé en main à Lyon dès 1 500 €. Coordination jour J, mariage intimiste, civil, laïque, multiculturel. Noté 4.6/5, 100+ mariages. Devis gratuit en 24h.",
+    "Organisation de mariage clé en main à Lyon dès 1 500 € : coordination jour J, mariage intimiste, laïque ou multiculturel. Devis sous 24 h.",
   keywords: [
     "wedding planner lyon",
     "organisation mariage lyon",
@@ -50,14 +55,7 @@ export const metadata: Metadata = {
     description:
       "Wedding planner à Lyon. Organisation complète de votre mariage : lieu, prestataires, décoration, coordination. Mariage sur mesure et haut de gamme.",
     url: "https://www.smartmoments.fr/services/mariage",
-    images: [
-      {
-        url: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41_3_306698-168546595030467.jpeg",
-        width: 960,
-        height: 640,
-        alt: "Organisation de mariage clé en main Lyon - Smart Moments Event",
-      },
-    ],
+    images: [OG_DEFAULT],
   },
 };
 
@@ -91,28 +89,7 @@ export default function MariagePage() {
     "@context": "https://schema.org",
     "@type": "Service",
     name: "Organisation de Mariage Clé en Main - Wedding Planner Lyon",
-    provider: {
-      "@type": "LocalBusiness",
-      name: "Smart Moments Event",
-      url: "https://www.smartmoments.fr",
-      telephone: "+33756987181",
-      email: "smartmomentsevent@gmail.com",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "85 Rue André Bollier",
-        addressLocality: "Lyon",
-        postalCode: "69007",
-        addressRegion: "Rhône-Alpes",
-        addressCountry: "FR",
-      },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.6",
-        reviewCount: "25",
-        bestRating: "5",
-        worstRating: "1",
-      },
-    },
+    provider: providerRef(),
     serviceType: [
       "Organisation de mariage",
       "Wedding planning",
@@ -313,13 +290,12 @@ export default function MariagePage() {
       {/* Hero */}
       <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src="https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41_3_306698-168546595030467.jpeg"
+          <Photo
+            seed={PHOTO_SEED}
             alt="Organisation de mariage clé en main à Lyon par Smart Moments Event"
-            fill
             className="object-cover"
-            priority
             sizes="100vw"
+            priority
           />
           <div className="absolute inset-0 bg-gradient-to-b from-taupe/60 via-taupe/30 to-taupe/60" />
         </div>
@@ -374,10 +350,10 @@ export default function MariagePage() {
             <div className="w-full lg:w-1/2">
               <div className="relative">
                 <div className="relative aspect-[4/3] overflow-hidden">
-                  <Image
-                    src="https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41_3_306698-168546595030467.jpeg"
+                  <Photo
+                    seed={PHOTO_SEED}
+                    offset={1}
                     alt="Organisateur de mariage Lyon - accompagnement personnalisé"
-                    fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
@@ -533,10 +509,10 @@ export default function MariagePage() {
             <div className="w-full lg:w-1/2">
               <div className="relative">
                 <div className="relative aspect-[4/3] overflow-hidden">
-                  <Image
-                    src="https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-30-at-10-53-36_3_306698-168546595011373.jpeg"
+                  <Photo
+                    seed={PHOTO_SEED}
+                    offset={2}
                     alt="Coordinatrice mariage jour J Lyon - Smart Moments Event"
-                    fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
@@ -809,10 +785,10 @@ export default function MariagePage() {
             <div className="w-full lg:w-1/2">
               <div className="relative">
                 <div className="relative aspect-[4/3] overflow-hidden">
-                  <Image
-                    src="https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-30-at-10-53-36_3_306698-168546595011373.jpeg"
+                  <Photo
+                    seed={PHOTO_SEED}
+                    offset={3}
                     alt="Coordination jour J mariage Lyon"
-                    fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
@@ -1144,10 +1120,10 @@ export default function MariagePage() {
       {/* CTA */}
       <section className="relative py-28 overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src="https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-42-1_3_306698-168546594928335.jpeg"
+          <Photo
+            seed={PHOTO_SEED}
+            offset={4}
             alt="Organisation mariage haut de gamme Lyon"
-            fill
             className="object-cover"
             sizes="100vw"
           />

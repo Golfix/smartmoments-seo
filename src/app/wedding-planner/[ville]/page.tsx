@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Breadcrumb from "@/components/Breadcrumb";
 import StickyContactBar, { HeroCtaRow } from "@/components/StickyContactBar";
-import { cities, getCityBySlug } from "@/data/cities";
+import { cities, getCityBySlug, isAmbiguousCityName } from "@/data/cities";
 import { themes } from "@/data/themes";
 import { departments } from "@/data/departments";
+import { OG_DEFAULT } from "@/data/photos";
+import Photo from "@/components/Photo";
+import { fitDescription, fitTitle, pickFittingTitle } from "@/lib/seo";
+import { providerRef } from "@/lib/schema";
+import { servicesForCity } from "@/lib/service-coverage";
 
 // Fonction de hash déterministe pour varier le contenu par ville
 function hashCode(str: string): number {
@@ -67,16 +71,18 @@ export async function generateMetadata({
   const cat = cityCategory(city);
   const h = hashCode(city.slug);
 
-  // Titres variés par catégorie et hash
-  // Lyon a un title dédié pour ne pas cannibaliser le hub /wedding-planner
+  // Titres variés par catégorie et hash.
+  // Lyon a un titre dédié pour ne pas cannibaliser le hub /wedding-planner.
+  // Toutes les bases font ≤ 44 caractères : avec le suffixe " | Smart Moments"
+  // du layout, le titre affiché tient sous les 60 caractères que Google montre.
   if (city.slug === "lyon") {
     return {
-      title: "Organisatrice de Mariage à Lyon et sa Métropole | Smart Moments Event",
+      title: "Organisatrice de Mariage à Lyon",
       description:
-        "Organisatrice de mariage à Lyon : Presqu'île, Croix-Rousse, Confluence, Monts d'Or et toute la métropole. Coordination jour J, décoration, organisation clé en main dès 1 500 €. Devis gratuit.",
+        "Organisatrice de mariage à Lyon : Presqu'île, Croix-Rousse, Confluence, Monts d'Or. Coordination jour J dès 1 500 €. Devis gratuit.",
       alternates: { canonical: "https://www.smartmoments.fr/wedding-planner/lyon" },
       openGraph: {
-        title: "Organisatrice de Mariage à Lyon | Smart Moments Event",
+        title: "Organisatrice de Mariage à Lyon | Smart Moments",
         description:
           "Organisation de mariage dans toute la métropole de Lyon. Noté 4.6/5. Devis gratuit.",
         url: "https://www.smartmoments.fr/wedding-planner/lyon",
@@ -84,63 +90,117 @@ export async function generateMetadata({
     };
   }
 
+  // Chaque variante est une base courte ; le complément entre parenthèses
+  // n'est ajouté par fitTitle que s'il tient dans le budget restant.
   const titles = {
     metropole: [
-      `Wedding Planner ${city.name} | Organisation Mariage Haut de Gamme`,
-      `Organisatrice de Mariage ${city.name} - Coordinatrice Jour J`,
-      `Wedding Planner ${city.name} - Organisation Événement & Mariage`,
+      pickFittingTitle(`Wedding Planner ${city.name} - Mariage Haut de Gamme`, `Wedding Planner ${city.name}`),
+      pickFittingTitle(`Organisatrice de Mariage ${city.name} - Jour J`, `Organisatrice de Mariage ${city.name}`, `Wedding Planner ${city.name}`),
+      pickFittingTitle(`Wedding Planner ${city.name} - Organisation Mariage`, `Wedding Planner ${city.name}`),
     ],
     grande: [
-      `Wedding Planner ${city.name} (${city.department}) | Mariage Clé en Main`,
-      `Organisation Mariage ${city.name} - Wedding Planner ${city.region}`,
-      `Coordinatrice Mariage ${city.name} | Smart Moments Event`,
+      fitTitle(`Wedding Planner ${city.name}`, ` (${city.department})`),
+      pickFittingTitle(`Organisatrice de Mariage ${city.name} - ${city.region}`, `Organisatrice de Mariage ${city.name}`, `Wedding Planner ${city.name}`),
+      fitTitle(`Coordinatrice Mariage ${city.name}`, ` (${city.department})`),
     ],
+    // « Organisation Mariage X » et « Coordinatrice Jour J X » appartiennent aux
+    // pages /organisation-mariage/[ville] et /coordinatrice-jour-j/[ville] :
+    // les réutiliser ici produisait des titles strictement identiques sur deux URL.
     moyenne: [
-      `Wedding Planner ${city.name} - Coordinatrice Mariage ${city.department}`,
-      `Organisation de Mariage à ${city.name} | Wedding Planner`,
-      `Wedding Planner ${city.name} et ${city.nearbyCity} - Organisation Mariage`,
+      fitTitle(`Wedding Planner ${city.name}`, ` - ${city.department}`),
+      pickFittingTitle(`Organisatrice de Mariage ${city.name}`, `Wedding Planner ${city.name}`),
+      fitTitle(`Wedding Planner ${city.name}`, ` et ${city.nearbyCity}`),
     ],
     petite: [
-      `Wedding Planner ${city.name} et environs | Organisation Mariage ${city.department}`,
-      `Organisation Mariage ${city.name} - Wedding Planner ${city.department}`,
-      `Coordinatrice Jour J à ${city.name} (${city.department})`,
+      pickFittingTitle(`Wedding Planner ${city.name} et environs`, `Wedding Planner ${city.name}`),
+      pickFittingTitle(`Organisatrice de Mariage ${city.name} (${city.department})`, `Organisatrice de Mariage ${city.name}`, `Wedding Planner ${city.name}`),
+      fitTitle(`Wedding Planner ${city.name}`, ` - ${city.region}`),
     ],
     village: [
-      `Wedding Planner ${city.name} (${city.department}) - Mariage en ${city.region}`,
-      `Organisation Mariage ${city.name} et alentours | ${city.department}`,
-      `Coordinatrice Mariage à ${city.name} - ${city.region}`,
+      fitTitle(`Wedding Planner ${city.name}`, ` (${city.department})`),
+      pickFittingTitle(`Wedding Planner ${city.name} et alentours`, `Wedding Planner ${city.name}`),
+      pickFittingTitle(`Organisatrice de Mariage ${city.name} - ${city.region}`, `Organisatrice de Mariage ${city.name}`, `Wedding Planner ${city.name}`),
     ],
   };
 
+  // Idem pour les descriptions : une base sous 120 caractères, puis les phrases
+  // complémentaires tant qu'on reste sous 158 — l'appel à l'action passe en premier
+  // pour ne jamais être la partie tronquée.
   const descriptions = {
     metropole: [
-      `Wedding planner à ${city.name} : organisation de mariage clé en main, coordinatrice jour J et décoration haut de gamme. Smart Moments Event, votre organisatrice de mariage en ${city.region}. Devis gratuit.`,
-      `Organisatrice de mariage à ${city.name} (${city.department}). Coordination jour J, organisation événement et mariage sur mesure. Noté 4.6/5 ★ Devis gratuit et sans engagement.`,
-      `Coordinatrice mariage à ${city.name}. De la planification au jour J, notre équipe organise votre mariage de A à Z en ${city.region}. Première consultation offerte.`,
+      fitDescription(
+        `Wedding planner à ${city.name} : organisation de mariage clé en main, coordination jour J et décoration. Devis gratuit.`,
+        `Intervention en ${city.region}.`
+      ),
+      fitDescription(
+        `Organisatrice de mariage à ${city.name} (${city.department}). Coordination jour J et événement sur mesure. Devis gratuit.`,
+        `Noté 4.6/5.`
+      ),
+      fitDescription(
+        `Coordinatrice mariage à ${city.name} : de la planification au jour J, nous organisons votre mariage de A à Z. Consultation offerte.`
+      ),
     ],
     grande: [
-      `Votre wedding planner à ${city.name}, ${city.description}. Organisation de mariage, coordination jour J et événement sur mesure en ${city.department}. Devis gratuit.`,
-      `Organisation mariage à ${city.name} par Smart Moments Event. Coordinatrice jour J, décoration et gestion complète. Intervention dans tout le ${city.department}. Devis offert.`,
-      `Coordinatrice de mariage à ${city.name} en ${city.region}. Organisation événement, jour J et décoration. À partir de 1 500 €. Noté 4.6/5.`,
+      fitDescription(
+        `Votre wedding planner à ${city.name}. Organisation de mariage, coordination jour J et événement sur mesure. Devis gratuit.`,
+        `Tout le ${city.department}.`
+      ),
+      fitDescription(
+        `Organisation de mariage à ${city.name} : coordination jour J, décoration et gestion complète. Devis offert.`,
+        `Intervention dans tout le ${city.department}.`
+      ),
+      fitDescription(
+        `Coordinatrice de mariage à ${city.name} en ${city.region}. Organisation, jour J et décoration à partir de 1 500 €. Devis gratuit.`
+      ),
     ],
     moyenne: [
-      `Wedding planner à ${city.name} et ${city.nearbyCity}. Organisation mariage, coordinatrice jour J en ${city.department}. Smart Moments Event, devis gratuit.`,
-      `Organisation de mariage à ${city.name} (${city.department}). Votre coordinatrice mariage pour un jour J parfait en ${city.region}. Devis personnalisé offert.`,
-      `Coordinatrice jour J à ${city.name}. Organisation événement et mariage sur mesure en ${city.department}, ${city.region}. Consultation gratuite.`,
+      fitDescription(
+        `Wedding planner à ${city.name} et ${city.nearbyCity}. Organisation de mariage et coordination jour J. Devis gratuit.`,
+        `En ${city.department}.`
+      ),
+      fitDescription(
+        `Organisation de mariage à ${city.name} (${city.department}). Votre coordinatrice pour un jour J parfait. Devis personnalisé offert.`
+      ),
+      fitDescription(
+        `Coordinatrice jour J à ${city.name}. Organisation d'événement et de mariage sur mesure en ${city.department}. Consultation gratuite.`
+      ),
     ],
     petite: [
-      `Wedding planner à ${city.name} et ses environs en ${city.department}. Organisation mariage, coordination jour J. Smart Moments Event intervient dans toute la ${city.region}.`,
-      `Organisation mariage à ${city.name}, ${city.description}. Coordinatrice mariage et jour J en ${city.department}. Devis gratuit.`,
-      `Votre wedding planner près de ${city.name} en ${city.department}. Organisation événement, mariage et coordination jour J. Devis offert.`,
+      fitDescription(
+        `Wedding planner à ${city.name} et ses environs. Organisation de mariage et coordination jour J en ${city.department}. Devis gratuit.`
+      ),
+      fitDescription(
+        `Organisation de mariage à ${city.name}, ${city.description}. Coordinatrice mariage et jour J en ${city.department}. Devis gratuit.`
+      ),
+      fitDescription(
+        `Votre wedding planner près de ${city.name} en ${city.department}. Organisation d'événement et coordination jour J. Devis offert.`
+      ),
     ],
     village: [
-      `Wedding planner à ${city.name} et alentours (${city.department}). Organisation mariage intimiste, coordinatrice jour J en ${city.region}. Devis gratuit.`,
-      `Organisation de mariage à ${city.name}, ${city.description}. Votre coordinatrice mariage en ${city.department}. Smart Moments Event.`,
-      `Coordinatrice mariage à ${city.name} et ${city.nearbyCity}. Organisation événement sur mesure en ${city.region}. Consultation offerte.`,
+      fitDescription(
+        `Wedding planner à ${city.name} et alentours (${city.department}). Organisation de mariage intimiste et jour J. Devis gratuit.`
+      ),
+      fitDescription(
+        `Organisation de mariage à ${city.name}, ${city.description}. Votre coordinatrice mariage en ${city.department}. Devis gratuit.`
+      ),
+      fitDescription(
+        `Coordinatrice mariage à ${city.name} et ${city.nearbyCity}. Organisation d'événement sur mesure en ${city.region}. Consultation offerte.`
+      ),
     ],
   };
 
-  const title = titles[cat][h % titles[cat].length];
+  // Villars (Loire) et Villars (Vaucluse) sont deux communes distinctes :
+  // sans le département, leurs balises seraient rigoureusement identiques.
+  // Villars (Loire) et Villars (Vaucluse) sont deux communes distinctes : le
+  // département est OBLIGATOIRE dans leur titre. On raccourcit donc le préfixe
+  // plutôt que de laisser tomber le département faute de place.
+  const title = isAmbiguousCityName(city.name)
+    ? pickFittingTitle(
+        `Wedding Planner ${city.name} (${city.department})`,
+        `Mariage ${city.name} (${city.department})`,
+        `${city.name} (${city.department})`
+      )
+    : titles[cat][h % titles[cat].length];
   const description = descriptions[cat][h % descriptions[cat].length];
 
   return {
@@ -150,28 +210,14 @@ export async function generateMetadata({
       canonical: `https://www.smartmoments.fr/wedding-planner/${city.slug}`,
     },
     openGraph: {
-      title: `Wedding Planner ${city.name} | Smart Moments Event`,
+      title: `Wedding Planner ${city.name} | Smart Moments`,
       description,
       url: `https://www.smartmoments.fr/wedding-planner/${city.slug}`,
-      images: [
-        {
-          url: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41-3_3_306698-168546594978953.jpeg",
-          width: 960,
-          height: 640,
-          alt: `Wedding Planner ${city.name} - Smart Moments Event`,
-        },
-      ],
+      images: [OG_DEFAULT],
     },
   };
 }
 
-const heroImages = [
-  "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41-3_3_306698-168546594978953.jpeg",
-  "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-40-1_3_306698-168546595086946.jpeg",
-  "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-42-1_3_306698-168546594928335.jpeg",
-  "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41_3_306698-168546595030467.jpeg",
-  "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-30-at-10-54-55-1_3_306698-168563709678965.jpeg",
-];
 
 // Paragraphes d'intro variés - pool de 8 variantes sélectionnées par hash
 function generateIntro(city: { name: string; slug: string; department: string; region: string; description: string; nearbyCity: string; population: string }) {
@@ -318,13 +364,27 @@ function generateFaq(city: { name: string; slug: string; department: string; reg
 }
 
 // Phrases d'accroche H1 variées
-function getH1Variant(city: { name: string; slug: string }): { pre: string; styled: string } {
+function getH1Variant(city: {
+  name: string;
+  slug: string;
+  department: string;
+}): { pre: string; styled: string } {
+  // Le hub /wedding-planner porte déjà « Wedding Planner à Lyon » : la page ville
+  // de Lyon prend un H1 distinct pour ne pas se disputer la même requête.
+  if (city.slug === "lyon") {
+    return { pre: "Organisatrice de Mariage", styled: "à Lyon" };
+  }
+  // Communes homonymes : le département est indispensable pour distinguer
+  // Villars (Loire) de Villars (Vaucluse).
+  const place = isAmbiguousCityName(city.name)
+    ? `à ${city.name} (${city.department})`
+    : `à ${city.name}`;
   const variants = [
-    { pre: "Wedding Planner", styled: `à ${city.name}` },
-    { pre: "Organisatrice de Mariage", styled: `à ${city.name}` },
-    { pre: "Coordinatrice Mariage", styled: `à ${city.name}` },
-    { pre: "Votre Wedding Planner", styled: `à ${city.name}` },
-    { pre: "Organisation Mariage", styled: `à ${city.name}` },
+    { pre: "Wedding Planner", styled: place },
+    { pre: "Organisatrice de Mariage", styled: place },
+    { pre: "Coordinatrice Mariage", styled: place },
+    { pre: "Votre Wedding Planner", styled: place },
+    { pre: "Organisation Mariage", styled: place },
   ];
   return pick(variants, city.slug);
 }
@@ -354,7 +414,6 @@ export default async function CityWeddingPlannerPage({
   if (!city) notFound();
 
   const h = hashCode(city.slug);
-  const heroImage = heroImages[h % heroImages.length];
   const intro = generateIntro(city);
   const faq = generateFaq(city);
   const h1 = getH1Variant(city);
@@ -397,23 +456,7 @@ export default async function CityWeddingPlannerPage({
     "@context": "https://schema.org",
     "@type": "Service",
     name: `Wedding Planner ${city.name} - Smart Moments Event`,
-    provider: {
-      "@type": "LocalBusiness",
-      name: "Smart Moments Event",
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Lyon",
-        addressRegion: "Rhône-Alpes",
-        postalCode: "69007",
-        addressCountry: "FR",
-      },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.6",
-        reviewCount: "25",
-        bestRating: "5",
-      },
-    },
+    provider: providerRef(),
     serviceType: "Wedding Planning",
     areaServed: {
       "@type": "City",
@@ -534,13 +577,12 @@ export default async function CityWeddingPlannerPage({
       {/* Hero */}
       <section className="relative h-[65vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src={heroImage}
+          <Photo
+            seed={h}
             alt={`${h1.pre} ${h1.styled} - Organisation de mariage en ${city.department}`}
-            fill
             className="object-cover"
-            priority
             sizes="100vw"
+            priority
           />
           <div className="absolute inset-0 bg-gradient-to-b from-taupe/60 via-taupe/30 to-taupe/60" />
         </div>
@@ -599,10 +641,10 @@ export default async function CityWeddingPlannerPage({
             </div>
             <div className="relative">
               <div className="relative aspect-[3/4] overflow-hidden">
-                <Image
-                  src={heroImages[(h + 2) % heroImages.length]}
+                <Photo
+                  seed={h}
+                  offset={2}
                   alt={`Décoration mariage ${city.name} ${city.department}`}
-                  fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
@@ -940,27 +982,20 @@ export default async function CityWeddingPlannerPage({
             <h2 className="text-xl font-light text-taupe mb-8">
               Nos services à <span className="text-gold">{city.name}</span>
             </h2>
+            {/* Seuils lus depuis @/lib/service-coverage, la même source que
+                generateStaticParams du gabarit service × ville : la liste
+                dupliquée qui vivait ici pouvait diverger et produire des liens
+                vers des pages non générées. */}
             <div className="flex flex-wrap justify-center gap-3">
-              {[
-                { slug: "organisation-mariage", name: "Organisation Mariage", minPop: 5000 },
-                { slug: "coordinatrice-jour-j", name: "Coordinatrice Jour J", minPop: 10000 },
-                { slug: "decoration-mariage", name: "Décoration Mariage", minPop: 10000 },
-                { slug: "photobooth-mariage", name: "Photobooth Mariage", minPop: 30000 },
-                { slug: "organisation-bapteme", name: "Organisation Baptême", minPop: 30000 },
-                { slug: "organisation-anniversaire", name: "Organisation Anniversaire", minPop: 30000 },
-                { slug: "seminaire-entreprise", name: "Séminaire Entreprise", minPop: 30000 },
-                { slug: "organisation-bar-mitzvah", name: "Bar-Mitzvah", minPop: 30000 },
-              ]
-                .filter((s) => pop(city) >= s.minPop)
-                .map((s) => (
-                  <Link
-                    key={s.slug}
-                    href={`/${s.slug}/${city.slug}`}
-                    className="border border-gold/20 bg-white px-5 py-2.5 text-[11px] text-taupe-soft uppercase tracking-[0.15em] hover:border-gold hover:text-gold transition-all duration-300"
-                  >
-                    {s.name} {city.name}
-                  </Link>
-                ))}
+              {servicesForCity(city).map((s) => (
+                <Link
+                  key={s.slug}
+                  href={`/${s.slug}/${city.slug}`}
+                  className="border border-gold/20 bg-white px-5 py-2.5 text-[11px] text-taupe-soft uppercase tracking-[0.15em] hover:border-gold hover:text-gold transition-all duration-300"
+                >
+                  {s.shortLabel} {city.name}
+                </Link>
+              ))}
             </div>
           </div>
         </section>
@@ -969,10 +1004,10 @@ export default async function CityWeddingPlannerPage({
       {/* CTA */}
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src={heroImages[(h + 3) % heroImages.length]}
+          <Photo
+            seed={h}
+            offset={3}
             alt={`Organisation mariage ${city.name} ${city.department}`}
-            fill
             className="object-cover"
             sizes="100vw"
           />

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -9,6 +8,9 @@ import {
   getArticleBySlug,
   getRelatedArticles,
 } from "@/data/blog-articles";
+import Photo from "@/components/Photo";
+import { OG_DEFAULT } from "@/data/photos";
+import { hashCode } from "@/lib/seed";
 
 export const dynamicParams = false;
 
@@ -26,13 +28,15 @@ export async function generateMetadata({
   if (!article) return {};
 
   return {
-    title: article.metaTitle,
+    // `absolute` : les titres d'articles sont éditoriaux et déjà porteurs de sens.
+    // Y ajouter le suffixe de marque les pousserait au-delà de 60 caractères.
+    title: { absolute: article.metaTitle },
     description: article.metaDescription,
     alternates: {
       canonical: `https://www.smartmoments.fr/blog/${article.slug}`,
     },
     openGraph: {
-      title: `${article.metaTitle} | Smart Moments Event`,
+      title: `${article.metaTitle} | Smart Moments`,
       description: article.metaDescription,
       url: `https://www.smartmoments.fr/blog/${article.slug}`,
       type: "article",
@@ -40,14 +44,7 @@ export async function generateMetadata({
       modifiedTime: article.updatedDate,
       authors: ["Smart Moments Event"],
       tags: article.tags,
-      images: [
-        {
-          url: article.heroImage,
-          width: 960,
-          height: 640,
-          alt: article.title,
-        },
-      ],
+      images: [OG_DEFAULT],
     },
   };
 }
@@ -68,7 +65,7 @@ export default async function BlogArticlePage({
     "@type": "Article",
     headline: article.title,
     description: article.metaDescription,
-    image: article.heroImage,
+    image: OG_DEFAULT.url,
     datePublished: article.publishedDate,
     dateModified: article.updatedDate,
     author: {
@@ -138,10 +135,9 @@ export default async function BlogArticlePage({
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src={article.heroImage}
+          <Photo
+            seed={hashCode(article.slug)}
             alt={article.title}
-            fill
             className="object-cover"
             priority
             sizes="100vw"
@@ -254,10 +250,9 @@ export default async function BlogArticlePage({
                 <article className="group bg-white border border-gold/10 overflow-hidden hover:shadow-lg hover:shadow-gold/5 transition-all duration-500">
                   <Link href={`/blog/${related.slug}`} className="block">
                     <div className="relative aspect-[16/10] overflow-hidden">
-                      <Image
-                        src={related.heroImage}
+                      <Photo
+                        seed={hashCode(related.slug)}
                         alt={related.title}
-                        fill
                         className="object-cover group-hover:scale-105 transition-transform duration-700"
                         sizes="(max-width: 768px) 100vw, 33vw"
                       />

@@ -7,9 +7,11 @@ interface BreadcrumbItem {
 
 export default function Breadcrumb({ items }: { items: BreadcrumbItem[] }) {
   return (
+    // pt-24 = hauteur du header fixe (h-24). Sans ce dégagement, le fil d'Ariane
+    // passait sous le header et les libellés du menu se chevauchaient.
     <nav
       aria-label="Fil d'Ariane"
-      className="bg-champagne/50 border-b border-gold/10"
+      className="bg-champagne/50 border-b border-gold/10 pt-24"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
         <ol className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em]">

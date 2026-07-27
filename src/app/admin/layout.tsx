@@ -1,4 +1,7 @@
 export const metadata = {
+  title: "Administration",
+  description:
+    "Espace d'administration de smartmoments.fr : consultation et suivi des demandes de devis reçues via le formulaire de contact du site public.",
   robots: "noindex, nofollow",
 };
 

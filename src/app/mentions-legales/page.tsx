@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Mentions Légales",
-  description: "Mentions légales du site Smart Moments Event.",
+  description: "Mentions légales du site smartmoments.fr : éditeur, hébergeur, propriété intellectuelle et conditions d'utilisation du site.",
   robots: { index: false, follow: false },
 };
 

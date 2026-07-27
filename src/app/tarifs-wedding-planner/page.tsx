@@ -1,14 +1,18 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 import StickyContactBar, { TrustBadge } from "@/components/StickyContactBar";
+import Photo from "@/components/Photo";
+import { providerRef } from "@/lib/schema";
+
+// Graine stable : fait varier la photo choisie d'une page à l'autre.
+const PHOTO_SEED = 59;
 
 export const metadata: Metadata = {
-  title: "Tarifs Wedding Planner Lyon | À partir de 1 500 €",
+  title: "Tarifs Wedding Planner Lyon dès 1 500 €",
   description:
-    "Combien coûte un wedding planner à Lyon ? Nos prestations démarrent à 1 500 € : coordination jour J, prestation partielle ou organisation complète. Devis gratuit en 24h, paiement en plusieurs fois.",
+    "Combien coûte un wedding planner à Lyon ? Nos formules démarrent à 1 500 € : coordination jour J, organisation partielle ou clé en main.",
   keywords: [
     "tarif wedding planner",
     "prix wedding planner lyon",
@@ -23,7 +27,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://www.smartmoments.fr/tarifs-wedding-planner" },
   openGraph: {
-    title: "Tarifs Wedding Planner Lyon | Smart Moments Event",
+    title: "Tarifs Wedding Planner Lyon | Smart Moments",
     description:
       "Nos prestations de wedding planning démarrent à 1 500 €. Devis gratuit et transparent en 24h.",
     url: "https://www.smartmoments.fr/tarifs-wedding-planner",
@@ -114,25 +118,7 @@ export default function TarifsPage() {
     "@context": "https://schema.org",
     "@type": "Service",
     name: "Wedding Planner Lyon - Tarifs",
-    provider: {
-      "@type": "LocalBusiness",
-      name: "Smart Moments Event",
-      url: "https://www.smartmoments.fr",
-      telephone: "+33756987181",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "85 Rue André Bollier",
-        addressLocality: "Lyon",
-        postalCode: "69007",
-        addressCountry: "FR",
-      },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.6",
-        reviewCount: "25",
-        bestRating: "5",
-      },
-    },
+    provider: providerRef(),
     serviceType: "Wedding Planning",
     areaServed: { "@type": "City", name: "Lyon" },
     offers: {
@@ -357,10 +343,9 @@ export default function TarifsPage() {
       {/* CTA final */}
       <section className="relative py-28 overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src="https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-42-1_3_306698-168546594928335.jpeg"
+          <Photo
+            seed={PHOTO_SEED}
             alt="Tarifs wedding planner Lyon - Smart Moments Event"
-            fill
             className="object-cover"
             sizes="100vw"
           />

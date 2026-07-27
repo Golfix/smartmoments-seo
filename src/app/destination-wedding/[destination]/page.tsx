@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Breadcrumb from "@/components/Breadcrumb";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 import { destinations, getDestinationBySlug } from "@/data/destinations";
+import Photo from "@/components/Photo";
+import { OG_DEFAULT } from "@/data/photos";
+import { hashCode } from "@/lib/seed";
+import { fitDescription, fitTitle } from "@/lib/seo";
+import { providerRef } from "@/lib/schema";
 
 export const dynamicParams = false;
 
@@ -22,8 +26,11 @@ export async function generateMetadata({
   if (!dest) return {};
 
   return {
-    title: `Mariage à ${dest.name} | Destination Wedding ${dest.country} - Smart Moments Event`,
-    description: `Organisation de votre destination wedding à ${dest.name} (${dest.country}). Wedding planner basé à Lyon, ${dest.travelTime}. ${dest.budgetRange}. Devis gratuit.`,
+    title: fitTitle(`Mariage à ${dest.name}`, ` - Destination Wedding ${dest.country}`, ``),
+    description: fitDescription(
+      `Organisation de votre mariage à ${dest.name} (${dest.country}) par un wedding planner basé à Lyon. Devis gratuit.`,
+      `${dest.travelTime}.`
+    ),
     alternates: {
       canonical: `https://www.smartmoments.fr/destination-wedding/${dest.slug}`,
     },
@@ -38,10 +45,10 @@ export async function generateMetadata({
       `mariage à l'étranger`,
     ],
     openGraph: {
-      title: `Mariage à ${dest.name} - Destination Wedding par Smart Moments Event`,
+      title: `Mariage à ${dest.name} - Destination Wedding | Smart Moments`,
       description: dest.description,
       url: `https://www.smartmoments.fr/destination-wedding/${dest.slug}`,
-      images: [{ url: dest.imageUrl, width: 960, height: 640, alt: `Destination wedding ${dest.name}` }],
+      images: [OG_DEFAULT],
     },
   };
 }
@@ -60,25 +67,7 @@ export default async function DestinationPage({
     "@type": "Service",
     name: `Destination Wedding ${dest.name} - Smart Moments Event`,
     description: dest.description,
-    provider: {
-      "@type": "EventPlanner",
-      name: "Smart Moments Event",
-      url: "https://www.smartmoments.fr",
-      telephone: "+33756987181",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "85 Rue André Bollier",
-        addressLocality: "Lyon",
-        postalCode: "69007",
-        addressCountry: "FR",
-      },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.6",
-        reviewCount: "25",
-        bestRating: "5",
-      },
-    },
+    provider: providerRef(),
     serviceType: `Destination Wedding ${dest.name}`,
     areaServed: { "@type": "Country", name: dest.country },
     offers: { "@type": "AggregateOffer", priceCurrency: "EUR", lowPrice: "25000" },
@@ -115,10 +104,9 @@ export default async function DestinationPage({
       {/* Hero */}
       <section className="relative h-[75vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src={dest.imageUrl}
+          <Photo
+            seed={hashCode(dest.slug)}
             alt={`Mariage à ${dest.name} - destination wedding ${dest.country}`}
-            fill
             className="object-cover"
             priority
             sizes="100vw"
@@ -287,10 +275,9 @@ export default async function DestinationPage({
                 className="group block bg-white border border-gold/10 hover:border-gold/40 transition-all duration-300 overflow-hidden"
               >
                 <div className="relative aspect-square overflow-hidden">
-                  <Image
-                    src={d.imageUrl}
+                  <Photo
+                    seed={hashCode(d.slug)}
                     alt={`Mariage à ${d.name}`}
-                    fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                     sizes="(max-width: 768px) 50vw, 25vw"
                   />
@@ -313,10 +300,10 @@ export default async function DestinationPage({
       {/* CTA */}
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src={dest.imageUrl}
+          <Photo
+            seed={hashCode(dest.slug)}
+            offset={2}
             alt={`Destination wedding ${dest.name}`}
-            fill
             className="object-cover"
             sizes="100vw"
           />

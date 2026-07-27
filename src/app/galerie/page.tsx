@@ -1,85 +1,75 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
+import Photo from "@/components/Photo";
+import { OG_DEFAULT, photos } from "@/data/photos";
 
 export const metadata: Metadata = {
-  title: "Galerie Photos Mariage & Décoration Lyon | Smart Moments Event",
+  title: "Galerie Photos Mariage & Décoration Lyon",
   description:
-    "Portfolio et réalisations Smart Moments Event à Lyon : décoration de mariage haut de gamme, cérémonies laïques avec arches fleuries, scénographies sur mesure, photobooth miroir magique. Inspirez-vous pour votre mariage.",
+    "Nos réalisations à Lyon : décoration de mariage haut de gamme, cérémonies laïques, scénographies sur mesure et photobooth miroir magique.",
   alternates: { canonical: "https://www.smartmoments.fr/galerie" },
   openGraph: {
-    title: "Galerie Photos | Smart Moments Event Lyon",
+    title: "Galerie Photos Mariage | Smart Moments",
     description:
       "Découvrez nos réalisations en images : mariages, cérémonies laïques et décoration haut de gamme à Lyon.",
     url: "https://www.smartmoments.fr/galerie",
-    images: [{ url: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-30-at-10-54-55-1_3_306698-168563709678965.jpeg", width: 960, height: 640, alt: "Galerie photos mariages et événements Smart Moments Lyon" }],
+    images: [OG_DEFAULT],
   },
 };
 
 const images = [
   {
-    src: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-30-at-10-54-55-1_3_306698-168563709678965.jpeg",
     alt: "Décoration soirée dansante mariage haut de gamme Lyon",
     category: "Décoration",
     span: "col-span-2 row-span-2",
   },
   {
-    src: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41-3_3_306698-168546594978953.jpeg",
     alt: "Cérémonie laïque décoration florale mariage Lyon",
     category: "Cérémonie",
     span: "",
   },
   {
-    src: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-40-1_3_306698-168546595086946.jpeg",
     alt: "Sortie des mariés avec décoration florale",
     category: "Mariage",
     span: "",
   },
   {
-    src: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41_3_306698-168546595030467.jpeg",
     alt: "Décoration salle de réception mariage élégant Lyon",
     category: "Décoration",
     span: "",
   },
   {
-    src: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-42-1_3_306698-168546594928335.jpeg",
     alt: "Arche fleurie cérémonie laïque mariage champêtre Lyon",
     category: "Cérémonie",
     span: "col-span-2",
   },
   {
-    src: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41-1_3_306698-168546595088459.jpeg",
     alt: "Détails décoration table mariage raffiné Smart Moments",
     category: "Détails",
     span: "",
   },
   {
-    src: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-43_3_306698-168546594996125.jpeg",
     alt: "Ambiance événement de prestige Smart Moments Lyon",
     category: "Ambiance",
     span: "",
   },
   {
-    src: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41-2_3_306698-168546594962541.jpeg",
     alt: "Organisation événement haut de gamme décoration Lyon",
     category: "Événement",
     span: "",
   },
   {
-    src: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-42_3_306698-168546594931608.jpeg",
     alt: "Animation photobooth mariage événement Lyon",
     category: "Animation",
     span: "",
   },
   {
-    src: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-30-at-10-53-36_3_306698-168546595011373.jpeg",
     alt: "Coordination jour J mariage organisateur Lyon",
     category: "Coordination",
     span: "col-span-2",
   },
   {
-    src: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/img-3255_3_306698-168573250631346.jpeg",
     alt: "Équipe Smart Moments Event wedding planner Lyon",
     category: "Équipe",
     span: "",
@@ -106,11 +96,13 @@ export default function GaleriePage() {
     mainEntity: {
       "@type": "ImageGallery",
       name: "Réalisations Smart Moments Event Lyon",
-      image: images.map((img) => ({
+      // Le balisage ImageObject n'est émis que lorsque la photothèque est remplie :
+      // déclarer des images inexistantes serait un balisage trompeur.
+      image: photos.map((p) => ({
         "@type": "ImageObject",
-        contentUrl: img.src,
-        description: img.alt,
-        name: img.category,
+        contentUrl: `https://www.smartmoments.fr${p.src}`,
+        description: p.alt,
+        name: p.category,
       })),
     },
   };
@@ -177,10 +169,9 @@ export default function GaleriePage() {
                 key={i}
                 className={`relative overflow-hidden group ${img.span}`}
               >
-                <Image
-                  src={img.src}
+                <Photo
+                  seed={i}
                   alt={img.alt}
-                  fill
                   className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-out"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />

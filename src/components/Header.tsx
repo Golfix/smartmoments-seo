@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 
 const navLinks = [
@@ -18,6 +19,7 @@ const navLinks = [
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -25,41 +27,48 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Le header ne flotte en transparence que sur la page d'accueil, seule page
+  // dont le hero commence en haut de l'écran. Partout ailleurs un fil d'Ariane
+  // occupe cette bande : un header transparent y superposait son menu blanc sur
+  // fond clair — menu illisible et libellés qui se chevauchaient.
+  const solid = scrolled || pathname !== "/";
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
+        solid
           ? "bg-ivory/95 backdrop-blur-md shadow-lg shadow-gold/5"
           : "bg-transparent"
       }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-24">
-          <Link href="/" className="flex items-center gap-3 group">
+          <Link href="/" className="flex shrink-0 items-center gap-3 group mr-6">
             <Image
-              src="/images/Logo.png"
+              src="/images/Logo.webp"
               alt="Smart Moments Planner - Wedding Planner Lyon"
               width={160}
               height={60}
-              className={`h-20 w-auto transition-all duration-500 ${scrolled ? "" : "brightness-0 invert"}`}
+              className={`h-20 w-auto transition-all duration-500 ${solid ? "" : "brightness-0 invert"}`}
               priority
+              fetchPriority="high"
             />
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden lg:flex items-center gap-10">
+          <div className="hidden lg:flex items-center gap-5 xl:gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`relative text-[11px] font-medium uppercase tracking-[0.25em] hover:text-gold transition-colors duration-300 after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1px] after:bg-gold after:transition-all after:duration-300 hover:after:w-full ${scrolled ? "text-taupe-soft" : "text-white/70"}`}
+                className={`relative whitespace-nowrap text-[11px] font-medium uppercase tracking-[0.18em] xl:tracking-[0.25em] hover:text-gold transition-colors duration-300 after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1px] after:bg-gold after:transition-all after:duration-300 hover:after:w-full ${solid ? "text-taupe-soft" : "text-white/70"}`}
               >
                 {link.label}
               </Link>
             ))}
             <Link
               href="/contact"
-              className={`btn-luxury border border-gold/60 text-gold px-7 py-2.5 text-[10px] font-semibold uppercase tracking-[0.3em] hover:bg-gold transition-all duration-500 ${scrolled ? "hover:text-white" : "hover:text-white"}`}
+              className={`btn-luxury whitespace-nowrap border border-gold/60 text-gold px-5 xl:px-7 py-2.5 text-[10px] font-semibold uppercase tracking-[0.2em] xl:tracking-[0.3em] hover:bg-gold transition-all duration-500 ${solid ? "hover:text-white" : "hover:text-white"}`}
             >
               Devis Gratuit
             </Link>
@@ -73,13 +82,13 @@ export default function Header() {
             aria-expanded={isOpen}
           >
             <span
-              className={`w-6 h-[1px] transition-all duration-300 ${scrolled ? "bg-taupe" : "bg-white"} ${isOpen ? "rotate-45 translate-y-[7px]" : ""}`}
+              className={`w-6 h-[1px] transition-all duration-300 ${solid ? "bg-taupe" : "bg-white"} ${isOpen ? "rotate-45 translate-y-[7px]" : ""}`}
             />
             <span
-              className={`w-6 h-[1px] transition-all duration-300 ${scrolled ? "bg-taupe" : "bg-white"} ${isOpen ? "opacity-0" : ""}`}
+              className={`w-6 h-[1px] transition-all duration-300 ${solid ? "bg-taupe" : "bg-white"} ${isOpen ? "opacity-0" : ""}`}
             />
             <span
-              className={`w-6 h-[1px] transition-all duration-300 ${scrolled ? "bg-taupe" : "bg-white"} ${isOpen ? "-rotate-45 -translate-y-[7px]" : ""}`}
+              className={`w-6 h-[1px] transition-all duration-300 ${solid ? "bg-taupe" : "bg-white"} ${isOpen ? "-rotate-45 -translate-y-[7px]" : ""}`}
             />
           </button>
         </div>
@@ -94,7 +103,7 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className={`text-[11px] font-medium uppercase tracking-[0.25em] hover:text-gold transition-colors ${scrolled ? "text-taupe-soft" : "text-white/70"}`}
+                className={`text-[11px] font-medium uppercase tracking-[0.25em] hover:text-gold transition-colors ${solid ? "text-taupe-soft" : "text-white/70"}`}
               >
                 {link.label}
               </Link>

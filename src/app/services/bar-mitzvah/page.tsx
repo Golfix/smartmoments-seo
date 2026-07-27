@@ -1,13 +1,17 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
+import Photo from "@/components/Photo";
+import { OG_DEFAULT } from "@/data/photos";
+
+// Graine stable : fait varier la photo choisie d'une page à l'autre.
+const PHOTO_SEED = 45;
 
 export const metadata: Metadata = {
-  title: "Organisation Bar Mitzvah Lyon | Smart Moments Event",
+  title: "Organisation Bar Mitzvah Lyon",
   description:
-    "Organisation de Bar-Mitzvah haut de gamme à Lyon. Décoration sur mesure, animation, traiteur casher, lieu de réception. Célébration traditionnelle et moderne. Devis gratuit.",
+    "Bar-Mitzvah haut de gamme à Lyon : décoration sur mesure, animation, traiteur casher, photobooth et coordination complète. Devis gratuit.",
   keywords: [
     "bar mitzvah lyon",
     "organisation bar mitzvah lyon",
@@ -26,14 +30,7 @@ export const metadata: Metadata = {
     description:
       "Organisation complète de Bar-Mitzvah à Lyon. Décoration raffinée, animations, traiteur et coordination le jour J.",
     url: "https://www.smartmoments.fr/services/bar-mitzvah",
-    images: [
-      {
-        url: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-42_3_306698-168546594931608.jpeg",
-        width: 960,
-        height: 640,
-        alt: "Organisation Bar Mitzvah haut de gamme Lyon - Smart Moments Event",
-      },
-    ],
+    images: [OG_DEFAULT],
   },
 };
 
@@ -164,13 +161,12 @@ export default function BarMitzvahPage() {
       {/* Hero */}
       <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src="https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-42_3_306698-168546594931608.jpeg"
+          <Photo
+            seed={PHOTO_SEED}
             alt="Organisation de Bar-Mitzvah haut de gamme à Lyon"
-            fill
             className="object-cover"
-            priority
             sizes="100vw"
+            priority
           />
           <div className="absolute inset-0 bg-gradient-to-b from-taupe/60 via-taupe/30 to-taupe/60" />
         </div>
@@ -201,10 +197,10 @@ export default function BarMitzvahPage() {
             <AnimateOnScroll animation="fade-right" className="w-full lg:w-1/2">
               <div className="relative">
                 <div className="relative aspect-[4/3] overflow-hidden">
-                  <Image
-                    src="https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-40-1_3_306698-168546595086946.jpeg"
+                  <Photo
+                    seed={PHOTO_SEED}
+                    offset={1}
                     alt="Décoration Bar-Mitzvah haut de gamme Lyon"
-                    fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
@@ -394,10 +390,10 @@ export default function BarMitzvahPage() {
             <AnimateOnScroll animation="fade-left" className="w-full lg:w-1/2">
               <div className="relative">
                 <div className="relative aspect-[4/3] overflow-hidden">
-                  <Image
-                    src="https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-30-at-10-53-36_3_306698-168546595011373.jpeg"
+                  <Photo
+                    seed={PHOTO_SEED}
+                    offset={2}
                     alt="Bar-Mitzvah décoration moderne et traditionnelle Lyon"
-                    fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
@@ -535,10 +531,10 @@ export default function BarMitzvahPage() {
       {/* CTA */}
       <section className="relative py-28 overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src="https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41-1_3_306698-168546595088459.jpeg"
+          <Photo
+            seed={PHOTO_SEED}
+            offset={3}
             alt="Organisation Bar-Mitzvah haut de gamme Lyon"
-            fill
             className="object-cover"
             sizes="100vw"
           />

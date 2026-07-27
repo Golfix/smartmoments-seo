@@ -1,11 +1,16 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Breadcrumb from "@/components/Breadcrumb";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 import { cities, getCityBySlug } from "@/data/cities";
 import { themes, getThemeBySlug } from "@/data/themes";
+import Photo from "@/components/Photo";
+import { OG_DEFAULT } from "@/data/photos";
+import { hashCode } from "@/lib/seed";
+import { fitDescription, fitTitle } from "@/lib/seo";
+import { providerRef } from "@/lib/schema";
+
 
 // Top 50 villes par population
 const top50Cities = cities
@@ -39,8 +44,11 @@ export async function generateMetadata({
   const themeData = getThemeBySlug(theme);
   if (!city || !themeData) return {};
 
-  const title = `${themeData.name} à ${city.name} | Smart Moments Event`;
-  const description = `Organisation de ${themeData.name.toLowerCase()} à ${city.name} (${city.department}). Wedding planner spécialisé : ${themeData.features.slice(0, 3).join(", ").toLowerCase()}. Devis gratuit.`;
+  const title = fitTitle(`${themeData.name} à ${city.name}`, ` (${city.department})`);
+  const description = fitDescription(
+    `Organisation de ${themeData.name.toLowerCase()} à ${city.name} (${city.department}) par un wedding planner spécialisé. Devis gratuit.`,
+    `Décoration, lieu et coordination.`
+  );
 
   return {
     title,
@@ -52,25 +60,11 @@ export async function generateMetadata({
       title,
       description,
       url: `https://www.smartmoments.fr/wedding-planner/${city.slug}/${themeData.slug}`,
-      images: [
-        {
-          url: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41-3_3_306698-168546594978953.jpeg",
-          width: 960,
-          height: 640,
-          alt: `${themeData.name} à ${city.name} - Smart Moments Event`,
-        },
-      ],
+      images: [OG_DEFAULT],
     },
   };
 }
 
-const heroImages = [
-  "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41-3_3_306698-168546594978953.jpeg",
-  "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-40-1_3_306698-168546595086946.jpeg",
-  "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-42-1_3_306698-168546594928335.jpeg",
-  "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41_3_306698-168546595030467.jpeg",
-  "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-30-at-10-54-55-1_3_306698-168563709678965.jpeg",
-];
 
 function generateFaqQuestions(
   cityName: string,
@@ -185,11 +179,9 @@ export default async function CityThemePage({
   const themeData = getThemeBySlug(theme);
   if (!city || !themeData) notFound();
 
-  const heroImage =
-    heroImages[
-      (city.slug.charCodeAt(0) + themeData.slug.charCodeAt(0)) %
-        heroImages.length
-    ];
+
+  // Graine déterministe : varie la photo selon le couple ville × thème.
+  const h = hashCode(city.slug + themeData.slug);
 
   const faqQuestions = generateFaqQuestions(
     city.name,
@@ -217,23 +209,7 @@ export default async function CityThemePage({
     "@context": "https://schema.org",
     "@type": "Service",
     name: `${themeData.name} à ${city.name} - Smart Moments Event`,
-    provider: {
-      "@type": "LocalBusiness",
-      name: "Smart Moments Event",
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Lyon",
-        addressRegion: "Rhône-Alpes",
-        postalCode: "69007",
-        addressCountry: "FR",
-      },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.6",
-        reviewCount: "25",
-        bestRating: "5",
-      },
-    },
+    provider: providerRef(),
     serviceType: "Wedding Planning",
     areaServed: {
       "@type": "City",
@@ -331,13 +307,12 @@ export default async function CityThemePage({
       {/* Hero */}
       <section className="relative h-[65vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src={heroImage}
+          <Photo
+            seed={h}
             alt={`${themeData.name} à ${city.name} - Organisation et décoration`}
-            fill
             className="object-cover"
-            priority
             sizes="100vw"
+            priority
           />
           <div className="absolute inset-0 bg-gradient-to-b from-taupe/60 via-taupe/30 to-taupe/60" />
         </div>
@@ -394,10 +369,10 @@ export default async function CityThemePage({
             <AnimateOnScroll animation="fade-up" delay={200}>
               <div className="relative">
                 <div className="relative aspect-[3/4] overflow-hidden">
-                  <Image
-                    src="https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-40-1_3_306698-168546595086946.jpeg"
+                  <Photo
+                    seed={h}
+                    offset={2}
                     alt={`Décoration ${themeData.name.toLowerCase()} à ${city.name}`}
-                    fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
@@ -606,10 +581,10 @@ export default async function CityThemePage({
       {/* CTA */}
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src="https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-42-1_3_306698-168546594928335.jpeg"
+          <Photo
+            seed={h}
+            offset={3}
             alt={`Organisation ${themeData.name.toLowerCase()} à ${city.name}`}
-            fill
             className="object-cover"
             sizes="100vw"
           />

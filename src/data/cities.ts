@@ -125,7 +125,6 @@ export const cities: City[] = [
   { name: "Montluel", slug: "montluel", department: "Ain", region: "Auvergne-Rhône-Alpes", population: "7 000", description: "petite ville de la Côtière au nord-est de Lyon", nearbyCity: "Lyon" },
   { name: "Lagnieu", slug: "lagnieu", department: "Ain", region: "Auvergne-Rhône-Alpes", population: "7 000", description: "ville du Bas-Bugey en bord de Rhône", nearbyCity: "Ambérieu-en-Bugey" },
   { name: "Péronnas", slug: "peronnas", department: "Ain", region: "Auvergne-Rhône-Alpes", population: "7 000", description: "commune résidentielle aux portes de Bourg-en-Bresse", nearbyCity: "Bourg-en-Bresse" },
-  { name: "Villars-les-Dombes", slug: "villars-les-dombes", department: "Ain", region: "Auvergne-Rhône-Alpes", population: "5 000", description: "ville du parc des oiseaux au cœur de la Dombes", nearbyCity: "Bourg-en-Bresse" },
   { name: "Châtillon-sur-Chalaronne", slug: "chatillon-sur-chalaronne", department: "Ain", region: "Auvergne-Rhône-Alpes", population: "5 000", description: "cité médiévale fleurie de la Dombes", nearbyCity: "Bourg-en-Bresse" },
   { name: "Nantua", slug: "nantua", department: "Ain", region: "Auvergne-Rhône-Alpes", population: "4 000", description: "ville lacustre du Haut-Bugey, célèbre pour sa quenelle", nearbyCity: "Oyonnax" },
   { name: "Jassans-Riottier", slug: "jassans-riottier", department: "Ain", region: "Auvergne-Rhône-Alpes", population: "6 000", description: "commune en bord de Saône face à Villefranche", nearbyCity: "Villefranche-sur-Saône" },
@@ -300,7 +299,6 @@ export const cities: City[] = [
   { name: "Anse", slug: "anse", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "7 000", description: "ville des pierres dorées du Beaujolais en bord de Saône", nearbyCity: "Villefranche-sur-Saône" },
   { name: "Limas", slug: "limas", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "5 000", description: "commune viticole du Beaujolais", nearbyCity: "Villefranche-sur-Saône" },
   { name: "Jonage", slug: "jonage", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "6 000", description: "ville du canal de Jonage à l'est de Lyon", nearbyCity: "Meyzieu" },
-  { name: "Marcy-l'Étoile", slug: "marcy-l-etoile", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "4 000", description: "ville du campus vétérinaire VetAgro Sup", nearbyCity: "Lyon" },
 
   // ===== AUVERGNE-RHÔNE-ALPES - Savoie (73) =====
   { name: "Aix-les-Bains", slug: "aix-les-bains", department: "Savoie", region: "Auvergne-Rhône-Alpes", population: "30 000", description: "station thermale Belle Époque sur les rives du lac du Bourget", nearbyCity: "Chambéry" },
@@ -561,7 +559,6 @@ export const cities: City[] = [
   { name: "Saint-Bonnet-de-Mure", slug: "saint-bonnet-de-mure", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "7 000", description: "commune dynamique de l'est lyonnais", nearbyCity: "Lyon" },
   { name: "Saint-Pierre-de-Chandieu", slug: "saint-pierre-de-chandieu", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "5 000", description: "village de l'est lyonnais", nearbyCity: "Lyon" },
   { name: "Lentilly", slug: "lentilly", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "6 000", description: "village résidentiel de l'ouest lyonnais", nearbyCity: "L'Arbresle" },
-  { name: "Fleurieu-sur-Saône", slug: "fleurieu-sur-saone", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "2 000", description: "village en bord de Saône au nord de Lyon", nearbyCity: "Neuville-sur-Saône" },
   { name: "Albigny-sur-Saône", slug: "albigny-sur-saone", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "3 000", description: "village en bord de Saône au nord de Lyon", nearbyCity: "Neuville-sur-Saône" },
   { name: "Couzon-au-Mont-d'Or", slug: "couzon-au-mont-d-or", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "3 000", description: "village des monts d'Or en bord de Saône", nearbyCity: "Lyon" },
   { name: "Poleymieux-au-Mont-d'Or", slug: "poleymieux-au-mont-d-or", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "2 000", description: "village d'Ampère dans les monts d'Or lyonnais", nearbyCity: "Lyon" },
@@ -570,7 +567,6 @@ export const cities: City[] = [
   { name: "Saint-Romain-au-Mont-d'Or", slug: "saint-romain-au-mont-d-or", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "1 500", description: "village pittoresque des monts d'Or", nearbyCity: "Lyon" },
   { name: "Curis-au-Mont-d'Or", slug: "curis-au-mont-d-or", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "1 200", description: "village des monts d'Or au nord de Lyon", nearbyCity: "Lyon" },
   { name: "Chazay-d'Azergues", slug: "chazay-d-azergues", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "5 000", description: "village des pierres dorées du Beaujolais", nearbyCity: "Anse" },
-  { name: "Civrieux-d'Azergues", slug: "civrieux-d-azergues", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "2 000", description: "village des pierres dorées du Val d'Azergues", nearbyCity: "Chazay-d'Azergues" },
   { name: "Lozanne", slug: "lozanne", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "3 000", description: "village de la vallée de l'Azergues", nearbyCity: "L'Arbresle" },
   { name: "Chessy", slug: "chessy-les-mines", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "2 000", description: "village des anciennes mines de cuivre du Beaujolais", nearbyCity: "L'Arbresle" },
   { name: "Theizé", slug: "theize", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "1 500", description: "village des pierres dorées du Beaujolais", nearbyCity: "Villefranche-sur-Saône" },
@@ -598,7 +594,6 @@ export const cities: City[] = [
   { name: "Lumbin", slug: "lumbin", department: "Isère", region: "Auvergne-Rhône-Alpes", population: "3 000", description: "village du Grésivaudan face à la Chartreuse", nearbyCity: "Crolles" },
   { name: "Villard-de-Lans", slug: "villard-de-lans", department: "Isère", region: "Auvergne-Rhône-Alpes", population: "4 000", description: "station du Vercors, village de montagne familial", nearbyCity: "Grenoble" },
   { name: "Autrans-Méaudre", slug: "autrans-meaudre", department: "Isère", region: "Auvergne-Rhône-Alpes", population: "3 000", description: "station nordique du Vercors", nearbyCity: "Villard-de-Lans" },
-  { name: "Lans-en-Vercors", slug: "lans-en-vercors", department: "Isère", region: "Auvergne-Rhône-Alpes", population: "3 000", description: "village familial du plateau du Vercors", nearbyCity: "Villard-de-Lans" },
   { name: "Corrençon-en-Vercors", slug: "correncon-en-vercors", department: "Isère", region: "Auvergne-Rhône-Alpes", population: "400", description: "village-station du Vercors au pied de la Grande Moucherolle", nearbyCity: "Villard-de-Lans" },
   { name: "Alpe d'Huez", slug: "alpe-d-huez", department: "Isère", region: "Auvergne-Rhône-Alpes", population: "1 500", description: "station mythique du Tour de France en Oisans", nearbyCity: "Grenoble" },
   { name: "Les Deux Alpes", slug: "les-deux-alpes", department: "Isère", region: "Auvergne-Rhône-Alpes", population: "2 000", description: "station de ski glacier en Oisans", nearbyCity: "Grenoble" },
@@ -606,7 +601,6 @@ export const cities: City[] = [
   { name: "Villard-Bonnot", slug: "villard-bonnot", department: "Isère", region: "Auvergne-Rhône-Alpes", population: "7 000", description: "ville du Grésivaudan entre Grenoble et Chambéry", nearbyCity: "Grenoble" },
   { name: "Tencin", slug: "tencin", department: "Isère", region: "Auvergne-Rhône-Alpes", population: "2 000", description: "village du Grésivaudan en Isère", nearbyCity: "Pontcharra" },
   { name: "Froges", slug: "froges", department: "Isère", region: "Auvergne-Rhône-Alpes", population: "3 000", description: "village industriel du Grésivaudan", nearbyCity: "Crolles" },
-  { name: "Champ-sur-Drac", slug: "champ-sur-drac", department: "Isère", region: "Auvergne-Rhône-Alpes", population: "4 000", description: "village du sud de Grenoble en bord de Drac", nearbyCity: "Vizille" },
   { name: "Jarrie", slug: "jarrie", department: "Isère", region: "Auvergne-Rhône-Alpes", population: "4 000", description: "commune au sud de Grenoble dans la vallée de la Romanche", nearbyCity: "Vizille" },
   { name: "Saint-Georges-de-Commiers", slug: "saint-georges-de-commiers", department: "Isère", region: "Auvergne-Rhône-Alpes", population: "2 000", description: "village du petit train de La Mure au sud de Grenoble", nearbyCity: "Vizille" },
   { name: "Vif", slug: "vif", department: "Isère", region: "Auvergne-Rhône-Alpes", population: "8 000", description: "petite ville du sud de la métropole grenobloise", nearbyCity: "Grenoble" },
@@ -621,7 +615,6 @@ export const cities: City[] = [
   { name: "Renaison", slug: "renaison", department: "Loire", region: "Auvergne-Rhône-Alpes", population: "3 000", description: "village viticole de la Côte Roannaise", nearbyCity: "Roanne" },
   { name: "Saint-Haon-le-Châtel", slug: "saint-haon-le-chatel", department: "Loire", region: "Auvergne-Rhône-Alpes", population: "1 500", description: "village médiéval fortifié de la Loire", nearbyCity: "Roanne" },
   { name: "Charlieu", slug: "charlieu", department: "Loire", region: "Auvergne-Rhône-Alpes", population: "4 000", description: "cité de la soierie et de l'abbaye bénédictine", nearbyCity: "Roanne" },
-  { name: "Chazelles-sur-Lyon", slug: "chazelles-sur-lyon", department: "Loire", region: "Auvergne-Rhône-Alpes", population: "5 000", description: "ancienne capitale du chapeau de feutre", nearbyCity: "Saint-Étienne" },
   { name: "Saint-Bonnet-le-Château", slug: "saint-bonnet-le-chateau", department: "Loire", region: "Auvergne-Rhône-Alpes", population: "2 000", description: "cité de la boule de pétanque dans le Forez", nearbyCity: "Montbrison" },
   { name: "Boën-sur-Lignon", slug: "boen-sur-lignon", department: "Loire", region: "Auvergne-Rhône-Alpes", population: "3 000", description: "petite ville au pied des monts du Forez", nearbyCity: "Montbrison" },
   { name: "Saint-Héand", slug: "saint-heand", department: "Loire", region: "Auvergne-Rhône-Alpes", population: "4 000", description: "village des collines au nord de Saint-Étienne", nearbyCity: "Saint-Étienne" },
@@ -884,7 +877,6 @@ export const cities: City[] = [
   { name: "Les Ulis", slug: "les-ulis", department: "Essonne", region: "Île-de-France", population: "25 000", description: "ville sur le plateau de Saclay", nearbyCity: "Orsay" },
   { name: "Longjumeau", slug: "longjumeau", department: "Essonne", region: "Île-de-France", population: "22 000", description: "ville historique de l'Essonne au sud de Paris", nearbyCity: "Paris" },
   { name: "Chilly-Mazarin", slug: "chilly-mazarin", department: "Essonne", region: "Île-de-France", population: "20 000", description: "ville de l'Essonne au sud de Paris", nearbyCity: "Longjumeau" },
-  { name: "Sainte-Geneviève-des-Bois", slug: "sainte-genevieve-des-bois-91", department: "Essonne", region: "Île-de-France", population: "37 000", description: "ville verte au sud de Paris", nearbyCity: "Paris" },
   { name: "Brétigny-sur-Orge", slug: "bretigny-sur-orge", department: "Essonne", region: "Île-de-France", population: "25 000", description: "ville de l'ancienne base aérienne en Essonne", nearbyCity: "Paris" },
   { name: "Draveil", slug: "draveil", department: "Essonne", region: "Île-de-France", population: "30 000", description: "ville en bord de Seine de l'Essonne", nearbyCity: "Paris" },
   { name: "Vigneux-sur-Seine", slug: "vigneux-sur-seine", department: "Essonne", region: "Île-de-France", population: "32 000", description: "ville du lac et des bords de Seine", nearbyCity: "Paris" },
@@ -919,7 +911,6 @@ export const cities: City[] = [
   { name: "Saint-Leu-la-Forêt", slug: "saint-leu-la-foret", department: "Val-d'Oise", region: "Île-de-France", population: "16 000", description: "ville de la forêt de Montmorency", nearbyCity: "Taverny" },
   { name: "Écouen", slug: "ecouen", department: "Val-d'Oise", region: "Île-de-France", population: "8 000", description: "ville du musée national de la Renaissance", nearbyCity: "Paris" },
   { name: "Luzarches", slug: "luzarches", department: "Val-d'Oise", region: "Île-de-France", population: "4 000", description: "village médiéval du Pays de France", nearbyCity: "Paris" },
-  { name: "Vincennes", slug: "vincennes-idf", department: "Val-de-Marne", region: "Île-de-France", population: "51 000", description: "ville du château et du bois de Vincennes", nearbyCity: "Paris" },
   { name: "Saint-Mandé", slug: "saint-mande", department: "Val-de-Marne", region: "Île-de-France", population: "23 000", description: "ville résidentielle en lisière du bois de Vincennes", nearbyCity: "Paris" },
   { name: "Nogent-sur-Marne", slug: "nogent-sur-marne", department: "Val-de-Marne", region: "Île-de-France", population: "33 000", description: "ville des bords de Marne aux guinguettes", nearbyCity: "Paris" },
   { name: "Le Perreux-sur-Marne", slug: "le-perreux-sur-marne", department: "Val-de-Marne", region: "Île-de-France", population: "34 000", description: "ville résidentielle en bord de Marne", nearbyCity: "Nogent-sur-Marne" },
@@ -1151,7 +1142,6 @@ export const cities: City[] = [
   { name: "Alba-la-Romaine", slug: "alba-la-romaine", department: "Ardèche", region: "Auvergne-Rhône-Alpes", population: "1 500", description: "village du château de basalte et du théâtre antique", nearbyCity: "Le Teil" },
 
   // --- Loire (42) - communes complémentaires ---
-  { name: "Saint-Héand", slug: "saint-heand-42", department: "Loire", region: "Auvergne-Rhône-Alpes", population: "4 000", description: "village résidentiel des collines de Saint-Étienne", nearbyCity: "Saint-Étienne" },
   { name: "La Grand-Croix", slug: "la-grand-croix", department: "Loire", region: "Auvergne-Rhône-Alpes", population: "5 000", description: "ville de la vallée du Gier", nearbyCity: "Rive-de-Gier" },
   { name: "Lorette", slug: "lorette", department: "Loire", region: "Auvergne-Rhône-Alpes", population: "5 000", description: "ville de la vallée du Gier", nearbyCity: "Rive-de-Gier" },
   { name: "L'Horme", slug: "l-horme", department: "Loire", region: "Auvergne-Rhône-Alpes", population: "5 000", description: "ville de la vallée du Gier", nearbyCity: "Rive-de-Gier" },
@@ -1175,8 +1165,6 @@ export const cities: City[] = [
   { name: "Usson", slug: "usson", department: "Puy-de-Dôme", region: "Auvergne-Rhône-Alpes", population: "300", description: "plus beau village de France, prison de la Reine Margot", nearbyCity: "Issoire" },
 
   // --- Bouches-du-Rhône (13) - communes complémentaires ---
-  { name: "Ventabren", slug: "ventabren-13", department: "Bouches-du-Rhône", region: "Provence-Alpes-Côte d'Azur", population: "5 000", description: "village perché de l'aqueduc de Roquefavour", nearbyCity: "Aix-en-Provence" },
-  { name: "Meyrargues", slug: "meyrargues-13", department: "Bouches-du-Rhône", region: "Provence-Alpes-Côte d'Azur", population: "4 000", description: "village du château au-dessus de la Durance", nearbyCity: "Pertuis" },
   { name: "La Barben", slug: "la-barben", department: "Bouches-du-Rhône", region: "Provence-Alpes-Côte d'Azur", population: "800", description: "village du château et du zoo de La Barben", nearbyCity: "Salon-de-Provence" },
   { name: "Vernègues", slug: "vernegues", department: "Bouches-du-Rhône", region: "Provence-Alpes-Côte d'Azur", population: "2 500", description: "village perché du Vieux Vernègues en Provence", nearbyCity: "Salon-de-Provence" },
   { name: "Aurons", slug: "aurons", department: "Bouches-du-Rhône", region: "Provence-Alpes-Côte d'Azur", population: "600", description: "petit village provençal perché entre Alpilles et Luberon", nearbyCity: "Salon-de-Provence" },
@@ -1247,7 +1235,6 @@ export const cities: City[] = [
   { name: "Bar-sur-Loup", slug: "bar-sur-loup", department: "Alpes-Maritimes", region: "Provence-Alpes-Côte d'Azur", population: "3 000", description: "village médiéval perché de la cité des orangers", nearbyCity: "Grasse" },
   { name: "Gourdon", slug: "gourdon-06", department: "Alpes-Maritimes", region: "Provence-Alpes-Côte d'Azur", population: "400", description: "village nid d'aigle surplombant les gorges du Loup", nearbyCity: "Grasse" },
   { name: "Tourrettes-sur-Loup", slug: "tourrettes-sur-loup", department: "Alpes-Maritimes", region: "Provence-Alpes-Côte d'Azur", population: "4 500", description: "cité des violettes au-dessus des gorges du Loup", nearbyCity: "Vence" },
-  { name: "Saint-Paul-de-Vence", slug: "saint-paul-de-vence-06", department: "Alpes-Maritimes", region: "Provence-Alpes-Côte d'Azur", population: "4 000", description: "village d'artistes de la Fondation Maeght", nearbyCity: "Vence" },
   { name: "Coursegoules", slug: "coursegoules", department: "Alpes-Maritimes", region: "Provence-Alpes-Côte d'Azur", population: "600", description: "village perché du pays de Vence dans le haut-pays", nearbyCity: "Vence" },
   { name: "Caussols", slug: "caussols", department: "Alpes-Maritimes", region: "Provence-Alpes-Côte d'Azur", population: "300", description: "plateau lunaire au-dessus de Grasse, site d'observation", nearbyCity: "Grasse" },
   { name: "Saint-Vallier-de-Thiey", slug: "saint-vallier-de-thiey", department: "Alpes-Maritimes", region: "Provence-Alpes-Côte d'Azur", population: "4 000", description: "bourg du pays grassois, porte de la Haute-Provence", nearbyCity: "Grasse" },
@@ -1348,11 +1335,8 @@ export const cities: City[] = [
   { name: "Chaussan", slug: "chaussan", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "1 000", description: "village des coteaux du Lyonnais", nearbyCity: "Mornant" },
   { name: "Chénelette", slug: "chenelette", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "500", description: "village du Haut-Beaujolais", nearbyCity: "Beaujeu" },
   { name: "Civrieux-d'Azergues", slug: "civrieux-azergues", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "2 000", description: "village du Val d'Azergues", nearbyCity: "Chazay-d'Azergues" },
-  { name: "Colombier-Saugnieu", slug: "colombier-saugnieu-69", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "3 000", description: "village de l'aéroport Lyon Saint-Exupéry", nearbyCity: "Pusignan" },
-  { name: "Condrieu", slug: "condrieu-69", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "4 000", description: "village du vin blanc de Condrieu en bord de Rhône", nearbyCity: "Vienne" },
   { name: "Cours", slug: "cours-69", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "4 000", description: "ville textile du Haut-Beaujolais", nearbyCity: "Amplepuis" },
   { name: "Cublize", slug: "cublize", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "1 500", description: "village du lac des Sapins en Haut-Beaujolais", nearbyCity: "Amplepuis" },
-  { name: "Dardilly", slug: "dardilly-69", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "9 000", description: "commune de l'ouest lyonnais", nearbyCity: "Lyon" },
   { name: "Dommartin", slug: "dommartin-69", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "3 000", description: "village résidentiel de l'ouest lyonnais", nearbyCity: "L'Arbresle" },
   { name: "Duerne", slug: "duerne", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "1 200", description: "village des monts du Lyonnais", nearbyCity: "Saint-Martin-en-Haut" },
   { name: "Éveux", slug: "eveux", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "2 000", description: "village du couvent de La Tourette de Le Corbusier", nearbyCity: "L'Arbresle" },
@@ -1362,7 +1346,6 @@ export const cities: City[] = [
   { name: "Haute-Rivoire", slug: "haute-rivoire", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "1 200", description: "village des monts du Lyonnais", nearbyCity: "Saint-Martin-en-Haut" },
   { name: "Joux", slug: "joux-69", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "700", description: "village viticole du Beaujolais", nearbyCity: "Tarare" },
   { name: "Lamure-sur-Azergues", slug: "lamure-sur-azergues", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "1 500", description: "bourg du Haut-Beaujolais en vallée d'Azergues", nearbyCity: "Amplepuis" },
-  { name: "Lancié", slug: "lancie-69", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "800", description: "village du cru Moulin-à-Vent", nearbyCity: "Belleville-en-Beaujolais" },
   { name: "Le Bois-d'Oingt", slug: "le-bois-d-oingt", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "2 000", description: "bourg des pierres dorées du Beaujolais", nearbyCity: "Oingt" },
   { name: "Les Halles", slug: "les-halles-69", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "600", description: "village viticole du Beaujolais", nearbyCity: "Beaujeu" },
   { name: "Les Sauvages", slug: "les-sauvages", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "700", description: "village du Haut-Beaujolais", nearbyCity: "Amplepuis" },
@@ -1398,8 +1381,6 @@ export const cities: City[] = [
   { name: "Sainte-Paule", slug: "sainte-paule", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "600", description: "village viticole du Beaujolais", nearbyCity: "Belleville-en-Beaujolais" },
   { name: "Savigny", slug: "savigny-69", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "2 000", description: "village du musée de l'aviation dans l'ouest lyonnais", nearbyCity: "L'Arbresle" },
   { name: "Sourcieux-les-Mines", slug: "sourcieux-les-mines", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "2 500", description: "village de l'ouest lyonnais", nearbyCity: "L'Arbresle" },
-  { name: "Ternand", slug: "ternand-69", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "700", description: "village médiéval fortifié du Val d'Azergues", nearbyCity: "L'Arbresle" },
-  { name: "Theizé", slug: "theize-69", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "1 500", description: "village du château de Rochebonne dans les pierres dorées", nearbyCity: "Oingt" },
   { name: "Valsonne", slug: "valsonne", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "1 000", description: "village de la vallée de la Turdine", nearbyCity: "Tarare" },
   { name: "Ville-sur-Jarnioux", slug: "ville-sur-jarnioux", department: "Rhône", region: "Auvergne-Rhône-Alpes", population: "1 000", description: "village des pierres dorées du Beaujolais", nearbyCity: "Oingt" },
 
@@ -1421,7 +1402,6 @@ export const cities: City[] = [
   { name: "La Pacaudière", slug: "la-pacaudiere", department: "Loire", region: "Auvergne-Rhône-Alpes", population: "1 500", description: "bourg du Roannais sur la route de Paris", nearbyCity: "Roanne" },
   { name: "Le Coteau", slug: "le-coteau", department: "Loire", region: "Auvergne-Rhône-Alpes", population: "7 000", description: "ville accolée à Roanne en bord de Loire", nearbyCity: "Roanne" },
   { name: "Lérigneux", slug: "lerigneux", department: "Loire", region: "Auvergne-Rhône-Alpes", population: "500", description: "village des monts du Forez", nearbyCity: "Montbrison" },
-  { name: "Lorette", slug: "lorette-42", department: "Loire", region: "Auvergne-Rhône-Alpes", population: "5 000", description: "commune de la vallée du Gier", nearbyCity: "Rive-de-Gier" },
   { name: "Maclas", slug: "maclas", department: "Loire", region: "Auvergne-Rhône-Alpes", population: "1 000", description: "village du parc du Pilat côté Rhône", nearbyCity: "Pélussin" },
   { name: "Malleval", slug: "malleval", department: "Loire", region: "Auvergne-Rhône-Alpes", population: "500", description: "village médiéval du Pilat surplombant le Rhône", nearbyCity: "Pélussin" },
   { name: "Marcenod", slug: "marcenod", department: "Loire", region: "Auvergne-Rhône-Alpes", population: "500", description: "village des monts du Lyonnais ligérien", nearbyCity: "Chazelles-sur-Lyon" },
@@ -1436,7 +1416,6 @@ export const cities: City[] = [
   { name: "Pouilly-les-Nonains", slug: "pouilly-les-nonains", department: "Loire", region: "Auvergne-Rhône-Alpes", population: "2 000", description: "commune du Roannais", nearbyCity: "Roanne" },
   { name: "Précieux", slug: "precieux", department: "Loire", region: "Auvergne-Rhône-Alpes", population: "1 500", description: "village de la plaine du Forez", nearbyCity: "Montbrison" },
   { name: "Régny", slug: "regny", department: "Loire", region: "Auvergne-Rhône-Alpes", population: "1 500", description: "village de la vallée du Rhins", nearbyCity: "Roanne" },
-  { name: "Renaison", slug: "renaison-42", department: "Loire", region: "Auvergne-Rhône-Alpes", population: "3 000", description: "village viticole de la Côte Roannaise", nearbyCity: "Roanne" },
   { name: "Rozier-en-Donzy", slug: "rozier-en-donzy", department: "Loire", region: "Auvergne-Rhône-Alpes", population: "1 500", description: "village des monts du Lyonnais ligérien", nearbyCity: "Feurs" },
   { name: "Saint-Barthélemy-Lestra", slug: "saint-barthelemy-lestra", department: "Loire", region: "Auvergne-Rhône-Alpes", population: "1 200", description: "village des monts du Lyonnais", nearbyCity: "Chazelles-sur-Lyon" },
   { name: "Saint-Cyprien", slug: "saint-cyprien-42", department: "Loire", region: "Auvergne-Rhône-Alpes", population: "2 000", description: "commune des collines du Forez", nearbyCity: "Andrézieux-Bouthéon" },
@@ -1444,7 +1423,6 @@ export const cities: City[] = [
   { name: "Saint-Étienne-le-Molard", slug: "saint-etienne-le-molard", department: "Loire", region: "Auvergne-Rhône-Alpes", population: "1 000", description: "village du château de la Bâtie d'Urfé dans le Forez", nearbyCity: "Boën-sur-Lignon" },
   { name: "Saint-Germain-Laval", slug: "saint-germain-laval", department: "Loire", region: "Auvergne-Rhône-Alpes", population: "2 000", description: "bourg des bords de l'Aix en Forez", nearbyCity: "Boën-sur-Lignon" },
   { name: "Saint-Georges-de-Baroille", slug: "saint-georges-de-baroille", department: "Loire", region: "Auvergne-Rhône-Alpes", population: "300", description: "village des gorges de la Loire", nearbyCity: "Saint-Just-Saint-Rambert" },
-  { name: "Saint-Héand", slug: "saint-heand-steph", department: "Loire", region: "Auvergne-Rhône-Alpes", population: "4 000", description: "commune résidentielle au nord de Saint-Étienne", nearbyCity: "Saint-Étienne" },
   { name: "Saint-Jean-Bonnefonds", slug: "saint-jean-bonnefonds", department: "Loire", region: "Auvergne-Rhône-Alpes", population: "6 500", description: "commune résidentielle de la métropole stéphanoise", nearbyCity: "Saint-Étienne" },
   { name: "Saint-Joseph", slug: "saint-joseph-42", department: "Loire", region: "Auvergne-Rhône-Alpes", population: "3 000", description: "commune de la vallée de l'Ondaine", nearbyCity: "Firminy" },
   { name: "Saint-Martin-la-Plaine", slug: "saint-martin-la-plaine", department: "Loire", region: "Auvergne-Rhône-Alpes", population: "4 000", description: "commune de la vallée du Gier", nearbyCity: "Rive-de-Gier" },
@@ -1511,7 +1489,6 @@ export const cities: City[] = [
   { name: "Seyssuel", slug: "seyssuel", department: "Isère", region: "Auvergne-Rhône-Alpes", population: "2 500", description: "commune des hauteurs de Vienne", nearbyCity: "Vienne" },
   { name: "Succieu", slug: "succieu", department: "Isère", region: "Auvergne-Rhône-Alpes", population: "1 200", description: "village des Terres Froides du Nord-Isère", nearbyCity: "La Tour-du-Pin" },
   { name: "Trept", slug: "trept", department: "Isère", region: "Auvergne-Rhône-Alpes", population: "2 000", description: "village de l'Isle Crémieu", nearbyCity: "Crémieu" },
-  { name: "Tullins", slug: "tullins-38", department: "Isère", region: "Auvergne-Rhône-Alpes", population: "8 000", description: "ville de la noix du Sud-Grésivaudan", nearbyCity: "Voiron" },
   { name: "Valencin", slug: "valencin", department: "Isère", region: "Auvergne-Rhône-Alpes", population: "2 500", description: "commune résidentielle du Nord-Isère", nearbyCity: "Heyrieux" },
   { name: "Vézeronce-Curtin", slug: "vezeronce-curtin", department: "Isère", region: "Auvergne-Rhône-Alpes", population: "2 500", description: "commune du Nord-Isère en bord de Rhône", nearbyCity: "Morestel" },
   { name: "Villette-de-Vienne", slug: "villette-de-vienne", department: "Isère", region: "Auvergne-Rhône-Alpes", population: "4 000", description: "commune résidentielle au sud de Vienne", nearbyCity: "Vienne" },
@@ -1550,7 +1527,6 @@ export const cities: City[] = [
   { name: "Misérieux", slug: "miserieux", department: "Ain", region: "Auvergne-Rhône-Alpes", population: "2 000", description: "commune de la Dombes proche de Lyon", nearbyCity: "Trévoux" },
   { name: "Montagnat", slug: "montagnat", department: "Ain", region: "Auvergne-Rhône-Alpes", population: "2 500", description: "commune résidentielle de Bourg-en-Bresse", nearbyCity: "Bourg-en-Bresse" },
   { name: "Montceaux", slug: "montceaux-01", department: "Ain", region: "Auvergne-Rhône-Alpes", population: "800", description: "village de la Bresse", nearbyCity: "Bourg-en-Bresse" },
-  { name: "Montluel", slug: "montluel-01", department: "Ain", region: "Auvergne-Rhône-Alpes", population: "7 000", description: "ville de la Côtière au nord-est de Lyon", nearbyCity: "Lyon" },
   { name: "Montracol", slug: "montracol", department: "Ain", region: "Auvergne-Rhône-Alpes", population: "800", description: "village de la Bresse", nearbyCity: "Bourg-en-Bresse" },
   { name: "Neuville-les-Dames", slug: "neuville-les-dames", department: "Ain", region: "Auvergne-Rhône-Alpes", population: "1 500", description: "bourg de la Dombes", nearbyCity: "Châtillon-sur-Chalaronne" },
   { name: "Pont-de-Vaux", slug: "pont-de-vaux", department: "Ain", region: "Auvergne-Rhône-Alpes", population: "2 200", description: "bourg de la Bresse en bord de Saône", nearbyCity: "Mâcon" },
@@ -1587,4 +1563,19 @@ export const cities: City[] = [
 
 export function getCityBySlug(slug: string): City | undefined {
   return cities.find((c) => c.slug === slug);
+}
+
+/**
+ * Noms de communes présents plusieurs fois dans le jeu de données, sur des
+ * départements différents (Villars, Chessy, Maubec, Simiane-la-Rotonde,
+ * Entrevaux, Corps). Leurs pages doivent impérativement porter le département
+ * dans le title et le H1, sinon elles se retrouvent avec des balises identiques.
+ */
+const nameCount = cities.reduce<Record<string, number>>((acc, c) => {
+  acc[c.name] = (acc[c.name] ?? 0) + 1;
+  return acc;
+}, {});
+
+export function isAmbiguousCityName(name: string): boolean {
+  return (nameCount[name] ?? 0) > 1;
 }

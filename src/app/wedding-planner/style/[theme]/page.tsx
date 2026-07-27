@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Breadcrumb from "@/components/Breadcrumb";
 import { themes, getThemeBySlug } from "@/data/themes";
+import Photo from "@/components/Photo";
+import { OG_DEFAULT } from "@/data/photos";
+import { fitDescription, fitTitle } from "@/lib/seo";
+import { providerRef } from "@/lib/schema";
+
 
 export const dynamicParams = false;
 
@@ -20,35 +24,27 @@ export async function generateMetadata({
   const themeData = getThemeBySlug(theme);
   if (!themeData) return {};
 
+  // Cette page vise une intention d'INSPIRATION, nationale et sans ville :
+  // /wedding-planner/[ville]/[theme] couvre déjà l'intention locale. Les deux
+  // partageaient auparavant le même H1 (« Mariage Champêtre à Lyon ») et 60 %
+  // de leur contenu — elles se disputaient la même requête.
   return {
-    title: themeData.title,
-    description: themeData.metaDescription,
+    title: fitTitle(`${themeData.name} : Idées & Organisation`),
+    description: fitDescription(
+      `${themeData.name} : inspirations déco, choix du lieu et organisation par un wedding planner. Nos conseils pour réussir votre thème.`
+    ),
     alternates: {
       canonical: `https://www.smartmoments.fr/wedding-planner/style/${themeData.slug}`,
     },
     openGraph: {
-      title: `${themeData.title} | Smart Moments Event`,
+      title: `${themeData.name} : Idées & Organisation | Smart Moments`,
       description: themeData.metaDescription,
       url: `https://www.smartmoments.fr/wedding-planner/style/${themeData.slug}`,
-      images: [
-        {
-          url: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41-3_3_306698-168546594978953.jpeg",
-          width: 960,
-          height: 640,
-          alt: `${themeData.name} - Smart Moments Event`,
-        },
-      ],
+      images: [OG_DEFAULT],
     },
   };
 }
 
-const heroImages = [
-  "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41-3_3_306698-168546594978953.jpeg",
-  "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-40-1_3_306698-168546595086946.jpeg",
-  "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-42-1_3_306698-168546594928335.jpeg",
-  "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41_3_306698-168546595030467.jpeg",
-  "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-30-at-10-54-55-1_3_306698-168563709678965.jpeg",
-];
 
 export default async function ThemeWeddingPlannerPage({
   params,
@@ -59,30 +55,15 @@ export default async function ThemeWeddingPlannerPage({
   const themeData = getThemeBySlug(theme);
   if (!themeData) notFound();
 
-  const heroImage =
-    heroImages[themeData.slug.charCodeAt(0) % heroImages.length];
+  // Graine déterministe : chaque style pioche une photo différente de la photothèque.
+  const h = themeData.slug.charCodeAt(0);
+
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
     name: `${themeData.name} Lyon - Smart Moments Event`,
-    provider: {
-      "@type": "LocalBusiness",
-      name: "Smart Moments Event",
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Lyon",
-        addressRegion: "Rhône-Alpes",
-        postalCode: "69007",
-        addressCountry: "FR",
-      },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.6",
-        reviewCount: "25",
-        bestRating: "5",
-      },
-    },
+    provider: providerRef(),
     serviceType: "Wedding Planning",
     areaServed: {
       "@type": "City",
@@ -161,13 +142,12 @@ export default async function ThemeWeddingPlannerPage({
       {/* Hero */}
       <section className="relative h-[65vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src={heroImage}
+          <Photo
+            seed={h}
             alt={`${themeData.name} Lyon - Organisation et décoration`}
-            fill
             className="object-cover"
-            priority
             sizes="100vw"
+            priority
           />
           <div className="absolute inset-0 bg-gradient-to-b from-taupe/60 via-taupe/30 to-taupe/60" />
         </div>
@@ -182,7 +162,7 @@ export default async function ThemeWeddingPlannerPage({
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 leading-[0.95]">
             {themeData.name}
             <br />
-            <span className="text-gold-gradient italic">à Lyon</span>
+            <span className="text-gold-gradient italic">idées &amp; inspiration</span>
           </h1>
           <p className="text-lg text-white/70 max-w-2xl mx-auto font-light">
             {themeData.description}
@@ -231,10 +211,10 @@ export default async function ThemeWeddingPlannerPage({
             </div>
             <div className="relative">
               <div className="relative aspect-[3/4] overflow-hidden">
-                <Image
-                  src="https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-40-1_3_306698-168546595086946.jpeg"
+                <Photo
+                  seed={h}
+                  offset={2}
                   alt={`Décoration ${themeData.name.toLowerCase()} Lyon`}
-                  fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
@@ -334,10 +314,10 @@ export default async function ThemeWeddingPlannerPage({
       {/* CTA */}
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src="https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-42-1_3_306698-168546594928335.jpeg"
+          <Photo
+            seed={h}
+            offset={3}
             alt={`Organisation ${themeData.name.toLowerCase()} Lyon`}
-            fill
             className="object-cover"
             sizes="100vw"
           />

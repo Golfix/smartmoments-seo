@@ -1,14 +1,19 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 import { destinations } from "@/data/destinations";
+import Photo from "@/components/Photo";
+import { hashCode } from "@/lib/seed";
+import { providerRef } from "@/lib/schema";
+
+// Graine stable : fait varier la photo choisie d'une page à l'autre.
+const PHOTO_SEED = 69;
 
 export const metadata: Metadata = {
-  title: "Destination Wedding | Mariage à l'Étranger sur Mesure - Smart Moments Event",
+  title: "Destination Wedding : Mariage à l'Étranger",
   description:
-    "Organisation de votre destination wedding clé en main : Italie, Grèce, Suisse, Bali, Maroc, USA. Wedding planner spécialisé mariage à l'étranger basé à Lyon. Devis gratuit.",
+    "Mariage à l'étranger clé en main : Italie, Grèce, Suisse, Bali, Maroc, USA. Coordination depuis Lyon par un wedding planner français. Devis gratuit.",
   alternates: {
     canonical: "https://www.smartmoments.fr/destination-wedding",
   },
@@ -27,7 +32,7 @@ export const metadata: Metadata = {
     "organisation mariage étranger lyon",
   ],
   openGraph: {
-    title: "Destination Wedding par Smart Moments Event",
+    title: "Destination Wedding | Smart Moments",
     description: "Votre mariage de rêve à l'étranger : Italie, Grèce, Bali, Maroc, USA, Suisse. Wedding planner spécialisé.",
     url: "https://www.smartmoments.fr/destination-wedding",
   },
@@ -40,25 +45,7 @@ export default function DestinationWeddingPage() {
     name: "Destination Wedding - Smart Moments Event",
     description:
       "Organisation de mariages à l'étranger clé en main. Italie, Grèce, Suisse, Bali, Maroc, USA, Portugal, Espagne.",
-    provider: {
-      "@type": "EventPlanner",
-      name: "Smart Moments Event",
-      url: "https://www.smartmoments.fr",
-      telephone: "+33756987181",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "85 Rue André Bollier",
-        addressLocality: "Lyon",
-        postalCode: "69007",
-        addressCountry: "FR",
-      },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.6",
-        reviewCount: "25",
-        bestRating: "5",
-      },
-    },
+    provider: providerRef(),
     serviceType: "Destination Wedding Planning",
     areaServed: destinations.map((d) => ({ "@type": "Country", name: d.country })),
   };
@@ -80,13 +67,12 @@ export default function DestinationWeddingPage() {
       {/* Hero */}
       <section className="relative h-[75vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src="https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-30-at-10-54-55-1_3_306698-168563709678965.jpeg"
+          <Photo
+            seed={PHOTO_SEED}
             alt="Destination wedding - mariage à l'étranger sur mesure"
-            fill
             className="object-cover"
-            priority
             sizes="100vw"
+            priority
           />
           <div className="absolute inset-0 bg-gradient-to-b from-taupe/60 via-taupe/30 to-taupe/70" />
         </div>
@@ -154,10 +140,9 @@ export default function DestinationWeddingPage() {
                   className="group block bg-white border border-gold/10 hover:border-gold/40 transition-all duration-300 overflow-hidden h-full"
                 >
                   <div className="relative aspect-[4/3] overflow-hidden">
-                    <Image
-                      src={dest.imageUrl}
+                    <Photo
+                      seed={hashCode(dest.slug)}
                       alt={`Mariage à ${dest.name} - destination wedding par Smart Moments Event`}
-                      fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
@@ -240,10 +225,10 @@ export default function DestinationWeddingPage() {
       {/* CTA */}
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src="https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-42-1_3_306698-168546594928335.jpeg"
+          <Photo
+            seed={PHOTO_SEED}
+            offset={1}
             alt="Destination wedding Smart Moments Event"
-            fill
             className="object-cover"
             sizes="100vw"
           />

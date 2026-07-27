@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
+import Photo from "@/components/Photo";
+import { OG_DEFAULT } from "@/data/photos";
+
+// Graine stable : fait varier la photo choisie d'une page à l'autre.
+const PHOTO_SEED = 56;
 
 export const metadata: Metadata = {
-  title: "Organisation Anniversaire Lyon | Fête Sur Mesure | Smart Moments Event",
+  title: "Organisation Anniversaire Lyon Sur Mesure",
   description:
-    "Organisation d'anniversaire haut de gamme à Lyon. Fêtes sur mesure pour 18, 30, 40, 50, 60 ans, anniversaires surprise, soirées à thème. Décoration, animation, traiteur. Devis gratuit.",
+    "Fêtes d'anniversaire sur mesure à Lyon : 18, 30, 40, 50, 60 ans, surprises et soirées à thème. Décoration, animation, traiteur. Devis gratuit.",
   keywords: [
     "organisation anniversaire lyon",
     "anniversaire lyon",
@@ -25,14 +29,7 @@ export const metadata: Metadata = {
     description:
       "Fêtes d'anniversaire sur mesure à Lyon. Décoration raffinée, animations, lieux d'exception. De 18 à 60 ans et plus.",
     url: "https://www.smartmoments.fr/services/anniversaire",
-    images: [
-      {
-        url: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-42-1_3_306698-168546594928335.jpeg",
-        width: 960,
-        height: 640,
-        alt: "Organisation anniversaire haut de gamme Lyon - Smart Moments Event",
-      },
-    ],
+    images: [OG_DEFAULT],
   },
 };
 
@@ -162,13 +159,12 @@ export default function AnniversairePage() {
       {/* Hero */}
       <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src="https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-42-1_3_306698-168546594928335.jpeg"
+          <Photo
+            seed={PHOTO_SEED}
             alt="Organisation d'anniversaire haut de gamme à Lyon avec décoration raffinée"
-            fill
             className="object-cover"
-            priority
             sizes="100vw"
+            priority
           />
           <div className="absolute inset-0 bg-gradient-to-b from-taupe/60 via-taupe/30 to-taupe/60" />
         </div>
@@ -199,10 +195,10 @@ export default function AnniversairePage() {
             <div className="w-full lg:w-1/2">
               <div className="relative">
                 <div className="relative aspect-[4/3] overflow-hidden">
-                  <Image
-                    src="https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-40-1_3_306698-168546595086946.jpeg"
+                  <Photo
+                    seed={PHOTO_SEED}
+                    offset={1}
                     alt="Décoration anniversaire haut de gamme Lyon"
-                    fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
@@ -389,10 +385,10 @@ export default function AnniversairePage() {
             <div className="w-full lg:w-1/2">
               <div className="relative">
                 <div className="relative aspect-[4/3] overflow-hidden">
-                  <Image
-                    src="https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-42_3_306698-168546594931608.jpeg"
+                  <Photo
+                    seed={PHOTO_SEED}
+                    offset={2}
                     alt="Lieu de réception pour anniversaire à Lyon"
-                    fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
@@ -601,10 +597,10 @@ export default function AnniversairePage() {
       {/* CTA */}
       <section className="relative py-28 overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src="https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41-3_3_306698-168546594978953.jpeg"
+          <Photo
+            seed={PHOTO_SEED}
+            offset={3}
             alt="Organisation anniversaire de prestige Lyon"
-            fill
             className="object-cover"
             sizes="100vw"
           />
