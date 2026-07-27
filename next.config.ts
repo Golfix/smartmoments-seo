@@ -7,11 +7,17 @@ const nextConfig: NextConfig = {
     // qui porte un segment ville. Le motif de préfixe est contraint à la liste
     // connue pour ne pas capter /blog/<slug> ou /services/<slug>.
     const prefixes = cityRoutePrefixes.join("|");
-    return cityRedirects.map(([from, to]) => ({
-      source: `/:prefix(${prefixes})/${from}`,
-      destination: `/:prefix/${to}`,
-      permanent: true,
-    }));
+    return [
+      // Anciennes URL du site Wix, toujours indexées en position 4-5 alors
+      // qu'elles renvoient 404 (36 et 35 impressions sur 12 mois).
+      { source: "/about-4", destination: "/a-propos", permanent: true },
+      { source: "/weddingplanner", destination: "/wedding-planner", permanent: true },
+      ...cityRedirects.map(([from, to]) => ({
+        source: `/:prefix(${prefixes})/${from}`,
+        destination: `/:prefix/${to}`,
+        permanent: true,
+      })),
+    ];
   },
   images: {
     // Aucun domaine distant : toutes les photos sont servies depuis public/images/.

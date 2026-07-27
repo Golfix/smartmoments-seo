@@ -89,29 +89,29 @@ export async function generateMetadata({
   // fitTitle n'ajoute le département ou la région que s'ils tiennent encore.
   const titles: Record<string, string[]> = {
     metropole: [
-      fitTitle(`${service.shortLabel} ${city.name}`, ` - Haut de Gamme`),
-      pickFittingTitle(tpl(service.metaTitle, city), `${service.shortLabel} ${city.name}`, `${service.shortLabel.split(" ")[0]} ${city.name}`),
-      fitTitle(`${service.shortLabel} ${city.name}`, ` - ${city.region}`),
+      pickFittingTitle(`${service.shortLabel} ${city.name} - Haut de Gamme`, `${service.shortLabel} ${city.name}`, `${service.tinyLabel} ${city.name}`),
+      pickFittingTitle(tpl(service.metaTitle, city), `${service.shortLabel} ${city.name}`, `${service.tinyLabel} ${city.name}`),
+      pickFittingTitle(`${service.shortLabel} ${city.name} - ${city.region}`, `${service.shortLabel} ${city.name}`, `${service.tinyLabel} ${city.name}`),
     ],
     grande: [
-      pickFittingTitle(tpl(service.metaTitle, city), `${service.shortLabel} ${city.name}`, `${service.shortLabel.split(" ")[0]} ${city.name}`),
-      fitTitle(`${service.shortLabel} ${city.name}`, ` (${city.department})`),
-      pickFittingTitle(`${service.shortLabel} à ${city.name}`, `${service.shortLabel} ${city.name}`, `${service.shortLabel.split(" ")[0]} ${city.name}`),
+      pickFittingTitle(tpl(service.metaTitle, city), `${service.shortLabel} ${city.name}`, `${service.tinyLabel} ${city.name}`),
+      pickFittingTitle(`${service.shortLabel} ${city.name} (${city.department})`, `${service.shortLabel} ${city.name}`, `${service.tinyLabel} ${city.name}`),
+      pickFittingTitle(`${service.shortLabel} à ${city.name}`, `${service.shortLabel} ${city.name}`, `${service.tinyLabel} ${city.name}`),
     ],
     moyenne: [
-      pickFittingTitle(tpl(service.metaTitle, city), `${service.shortLabel} ${city.name}`, `${service.shortLabel.split(" ")[0]} ${city.name}`),
-      fitTitle(`${service.shortLabel} ${city.name}`, ` et ${city.nearbyCity}`),
-      fitTitle(`${service.shortLabel} ${city.name}`, ` - ${city.department}`),
+      pickFittingTitle(tpl(service.metaTitle, city), `${service.shortLabel} ${city.name}`, `${service.tinyLabel} ${city.name}`),
+      pickFittingTitle(`${service.shortLabel} ${city.name} et ${city.nearbyCity}`, `${service.shortLabel} ${city.name}`, `${service.tinyLabel} ${city.name}`),
+      pickFittingTitle(`${service.shortLabel} ${city.name} - ${city.department}`, `${service.shortLabel} ${city.name}`, `${service.tinyLabel} ${city.name}`),
     ],
     petite: [
-      pickFittingTitle(`${service.shortLabel} ${city.name} et environs`, `${service.shortLabel} ${city.name}`, `${service.shortLabel.split(" ")[0]} ${city.name}`),
-      pickFittingTitle(tpl(service.metaTitle, city), `${service.shortLabel} ${city.name}`, `${service.shortLabel.split(" ")[0]} ${city.name}`),
-      fitTitle(`${service.shortLabel} ${city.name}`, ` (${city.department})`),
+      pickFittingTitle(`${service.shortLabel} ${city.name} et environs`, `${service.shortLabel} ${city.name}`, `${service.tinyLabel} ${city.name}`),
+      pickFittingTitle(tpl(service.metaTitle, city), `${service.shortLabel} ${city.name}`, `${service.tinyLabel} ${city.name}`),
+      pickFittingTitle(`${service.shortLabel} ${city.name} (${city.department})`, `${service.shortLabel} ${city.name}`, `${service.tinyLabel} ${city.name}`),
     ],
     village: [
-      fitTitle(`${service.shortLabel} ${city.name}`, ` (${city.department})`),
-      pickFittingTitle(tpl(service.metaTitle, city), `${service.shortLabel} ${city.name}`, `${service.shortLabel.split(" ")[0]} ${city.name}`),
-      pickFittingTitle(`${service.shortLabel} ${city.name} et alentours`, `${service.shortLabel} ${city.name}`, `${service.shortLabel.split(" ")[0]} ${city.name}`),
+      pickFittingTitle(`${service.shortLabel} ${city.name} (${city.department})`, `${service.shortLabel} ${city.name}`, `${service.tinyLabel} ${city.name}`),
+      pickFittingTitle(tpl(service.metaTitle, city), `${service.shortLabel} ${city.name}`, `${service.tinyLabel} ${city.name}`),
+      pickFittingTitle(`${service.shortLabel} ${city.name} et alentours`, `${service.shortLabel} ${city.name}`, `${service.tinyLabel} ${city.name}`),
     ],
   };
 

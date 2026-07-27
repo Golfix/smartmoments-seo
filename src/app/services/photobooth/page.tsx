@@ -9,9 +9,9 @@ import { OG_DEFAULT } from "@/data/photos";
 const PHOTO_SEED = 75;
 
 export const metadata: Metadata = {
-  title: "Photobooth & Vidéo 360° Mariage Lyon",
+  title: "Photobooth, Miroir Magique & Vidéo 360°",
   description:
-    "Location de photobooth miroir magique et vidéo 360° à Lyon : impressions instantanées et personnalisation. Mariages et événements. Devis gratuit.",
+    "Location de photobooth, miroir magique et vidéo 360° à Lyon : mariage, anniversaire, bar-mitzvah, soirée d'entreprise. Devis gratuit.",
   keywords: [
     "photobooth mariage lyon",
     "location photobooth lyon",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://www.smartmoments.fr/services/photobooth" },
   openGraph: {
-    title: "Location Photobooth & Vidéo 360° Mariage Lyon",
+    title: "Photobooth, Miroir Magique & Vidéo 360° Lyon",
     description:
       "Photobooth miroir magique et vidéo 360° immersive pour mariage et événements à Lyon. L'animation préférée des invités !",
     url: "https://www.smartmoments.fr/services/photobooth",

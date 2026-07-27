@@ -6,6 +6,13 @@ export interface ServiceType {
    * (« Décoration mariage haut de gamme » = 32 caractères à lui seul).
    */
   shortLabel: string;
+  /**
+   * Dernier repli quand même `shortLabel` + un nom de commune long dépasse le
+   * budget. Doit rester DISTINCTIF : prendre le premier mot de `shortLabel`
+   * donnait « Organisation » pour trois services différents, donc des titles
+   * identiques sur trois URL.
+   */
+  tinyLabel: string;
   slug: string;
   title: string;
   metaTitle: string;
@@ -20,6 +27,7 @@ export const serviceTypes: ServiceType[] = [
   {
     name: "Organisation de mariage",
     shortLabel: "Organisation Mariage",
+    tinyLabel: "Mariage",
     slug: "organisation-mariage",
     title: "Organisation de Mariage à {city} - Wedding Planner",
     metaTitle: "Organisation de Mariage à {city}",
@@ -65,6 +73,7 @@ export const serviceTypes: ServiceType[] = [
   {
     name: "Coordination jour J",
     shortLabel: "Coordination Jour J",
+    tinyLabel: "Jour J",
     slug: "coordinatrice-jour-j",
     title: "Coordinatrice Jour J à {city} - Smart Moments Event",
     metaTitle: "Coordinatrice Jour J à {city}",
@@ -103,6 +112,7 @@ export const serviceTypes: ServiceType[] = [
   {
     name: "Décoration mariage haut de gamme",
     shortLabel: "Décoration Mariage",
+    tinyLabel: "Décoration",
     slug: "decoration-mariage",
     title: "Décoration de Mariage à {city} - Décor Haut de Gamme",
     metaTitle: "Décoration Mariage {city}",
@@ -139,46 +149,62 @@ export const serviceTypes: ServiceType[] = [
     ],
   },
   {
-    name: "Photobooth & animation mariage",
-    shortLabel: "Photobooth Mariage",
+    // Ces pages se positionnent en page 1 sur « miroir magique anniversaire »,
+    // « photobooth bar mitzvah », « photo booth », « 360 »… mais leur intitulé ne
+    // parlait que de mariage : 6 421 impressions pour 19 clics sur 12 mois, dont
+    // /photobooth-mariage/marseille en position 7,3 avec 0,21 % de CTR.
+    // L'intitulé couvre désormais toutes les occasions, l'URL reste inchangée.
+    name: "Photobooth & miroir magique",
+    shortLabel: "Photobooth & Miroir Magique",
+    tinyLabel: "Photobooth",
     slug: "photobooth-mariage",
-    title: "Photobooth Mariage à {city} - Animation & Souvenirs",
-    metaTitle: "Photobooth Mariage {city}",
-    metaDescription: "Location de photobooth pour mariage à {city} ({department}). Smart Moments Event propose des photobooths modernes avec accessoires, impressions instantanées et animations interactives. Devis gratuit.",
-    intro: "Ajoutez une touche fun et mémorable à votre mariage à {city} avec le photobooth Smart Moments Event ! Notre borne photo professionnelle, disponible dans tout le {department} en {region}, offre des impressions haute qualité instantanées, un large choix d'accessoires et des animations interactives qui ravissent les invités de tous âges. Plus qu'un simple divertissement, notre photobooth crée des souvenirs uniques que vos invités garderont précieusement. Idéal pour animer le cocktail ou la soirée de votre mariage à {city}.",
+    title: "Photobooth & Miroir Magique à {city} - Toutes Occasions",
+    metaTitle: "Photobooth & Miroir Magique {city}",
+    metaDescription: "Location de photobooth, miroir magique et vidéo 360° à {city} ({department}) : mariage, anniversaire, bar-mitzvah, soirée d'entreprise. Devis gratuit.",
+    intro: "Location de photobooth, miroir magique et vidéo 360° à {city} et dans tout le {department} en {region}. Que vous prépariez un mariage, un anniversaire, une bar-mitzvah, un baptême, un séminaire ou une soirée d'entreprise, notre borne photo professionnelle offre des impressions haute qualité instantanées, un large choix d'accessoires et des animations interactives qui ravissent les invités de tous âges. Plus qu'un simple divertissement, le photobooth crée des souvenirs que vos invités garderont précieusement — et devient souvent le point de ralliement de la soirée à {city}.",
     features: [
       "Borne photo professionnelle avec écran tactile et appareil haute résolution",
+      "Miroir magique interactif : animation guidée et signature tactile à l'écran",
+      "Vidéo 360° sur plateforme rotative pour un rendu façon clip",
       "Impressions instantanées illimitées avec personnalisation (cadre, logo, date)",
-      "Large sélection d'accessoires et props thématiques",
+      "Accessoires et props adaptés à l'occasion : mariage, anniversaire, entreprise",
       "Galerie en ligne privée avec toutes les photos en haute définition",
       "Livre d'or photo : impressions collées avec messages des invités",
       "Installation, animation et désinstallation par notre équipe",
     ],
     faqQuestions: [
       {
-        q: "Combien coûte la location d'un photobooth pour un mariage à {city} ?",
-        a: "La location de notre photobooth pour un mariage à {city} dépend de la durée d'animation et des options choisies (livre d'or, galerie en ligne, vidéo 360°). Impressions illimitées incluses dans toutes nos formules. Devis gratuit et personnalisé sous 24h.",
+        q: "Pour quels événements peut-on louer un photobooth à {city} ?",
+        a: "Nous installons notre photobooth et notre miroir magique pour tous les types d'événements à {city} : mariage, anniversaire (18, 30, 40, 50 ans), bar-mitzvah, baptême, séminaire et soirée d'entreprise, arbre de Noël, gala associatif ou événement sportif. La borne et les accessoires sont adaptés à l'occasion et à votre thème.",
+      },
+      {
+        q: "Combien coûte la location d'un photobooth à {city} ?",
+        a: "Le tarif dépend de la durée d'animation et des options choisies (miroir magique, vidéo 360°, livre d'or, galerie en ligne). Les impressions sont illimitées dans toutes nos formules. Devis gratuit et personnalisé sous 24h pour votre événement à {city}.",
+      },
+      {
+        q: "Quelle différence entre photobooth, miroir magique et vidéo 360° ?",
+        a: "Le photobooth est la borne photo classique avec écran tactile et impression instantanée. Le miroir magique est un miroir interactif en pied qui guide les invités par animation et signature tactile — très spectaculaire à l'entrée d'une salle. La vidéo 360° filme les invités sur une plateforme rotative pour un rendu façon clip. Les trois sont disponibles à {city}, séparément ou combinés.",
       },
       {
         q: "Le photobooth peut-il fonctionner en extérieur à {city} ?",
-        a: "Oui, notre photobooth est conçu pour fonctionner aussi bien en intérieur qu'en extérieur (sous abri). Pour les mariages en plein air à {city}, nous prévoyons une installation protégée avec un éclairage adapté pour des photos parfaites en toute circonstance.",
-      },
-      {
-        q: "Quelles animations proposez-vous en plus du photobooth à {city} ?",
-        a: "En complément du photobooth classique, nous proposons des animations photo créatives : GIF animés, boomerangs vidéo, filtres personnalisés, et même un mode vidéo slow motion. De quoi surprendre et amuser vos invités tout au long de la soirée à {city} !",
+        a: "Oui, notre matériel fonctionne aussi bien en intérieur qu'en extérieur sous abri. Pour les événements en plein air à {city}, nous prévoyons une installation protégée avec un éclairage adapté pour des photos parfaites en toute circonstance.",
       },
     ],
     keywords: [
-      "photobooth mariage {city}",
+      "photobooth {city}",
+      "miroir magique {city}",
       "location photobooth {city}",
-      "borne photo mariage {city}",
-      "animation photo mariage {city}",
-      "photomaton mariage {city}",
+      "photobooth mariage {city}",
+      "photobooth anniversaire {city}",
+      "vidéo 360 {city}",
+      "borne photo {city}",
+      "photomaton {city}",
     ],
   },
   {
     name: "Organisation de baptême",
     shortLabel: "Organisation Baptême",
+    tinyLabel: "Baptême",
     slug: "organisation-bapteme",
     title: "Organisation de Baptême à {city} - Smart Moments Event",
     metaTitle: "Organisation Baptême {city}",
@@ -217,6 +243,7 @@ export const serviceTypes: ServiceType[] = [
   {
     name: "Organisation d'anniversaire",
     shortLabel: "Organisation Anniversaire",
+    tinyLabel: "Anniversaire",
     slug: "organisation-anniversaire",
     title: "Organisation d'Anniversaire à {city} - Fêtes Sur Mesure",
     metaTitle: "Organisation Anniversaire {city}",
@@ -255,6 +282,7 @@ export const serviceTypes: ServiceType[] = [
   {
     name: "Séminaire d'entreprise",
     shortLabel: "Séminaire Entreprise",
+    tinyLabel: "Séminaire",
     slug: "seminaire-entreprise",
     title: "Séminaire d'Entreprise à {city} - Organisation Professionnelle",
     metaTitle: "Séminaire Entreprise {city}",
@@ -293,6 +321,7 @@ export const serviceTypes: ServiceType[] = [
   {
     name: "Organisation de bar-mitzvah",
     shortLabel: "Bar-Mitzvah",
+    tinyLabel: "Bar-Mitzvah",
     slug: "organisation-bar-mitzvah",
     title: "Organisation de Bar-Mitzvah à {city} - Smart Moments Event",
     metaTitle: "Organisation Bar-Mitzvah {city}",
