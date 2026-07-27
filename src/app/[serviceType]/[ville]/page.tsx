@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Breadcrumb from "@/components/Breadcrumb";
 import StickyContactBar, { HeroCtaRow } from "@/components/StickyContactBar";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 import { cities, getCityBySlug } from "@/data/cities";
-import { serviceTypes, getServiceTypeBySlug } from "@/data/service-types";
-import { departments } from "@/data/departments";
+import { getServiceTypeBySlug } from "@/data/service-types";
+import { OG_DEFAULT } from "@/data/photos";
+import Photo from "@/components/Photo";
+import { fitDescription, fitTitle, pickFittingTitle } from "@/lib/seo";
+import { providerRef } from "@/lib/schema";
+import { serviceSlugsForPopulation } from "@/lib/service-coverage";
 
 // ─── Helpers ────────────────────────────────────────────────────────────────
 
@@ -50,21 +53,8 @@ function tpl(
 }
 
 // ─── Tiers ──────────────────────────────────────────────────────────────────
-
-const tier1Threshold = 30000;
-const tier2Threshold = 10000;
-const tier3Threshold = 5000;
-
-const allSlugs = serviceTypes.map((s) => s.slug);
-const tier2Slugs = ["organisation-mariage", "coordinatrice-jour-j", "decoration-mariage"];
-const tier3Slugs = ["organisation-mariage"];
-
-function tierSlugsForPop(p: number): string[] {
-  if (p >= tier1Threshold) return allSlugs;
-  if (p >= tier2Threshold) return tier2Slugs;
-  if (p >= tier3Threshold) return tier3Slugs;
-  return [];
-}
+// La logique de couverture vit dans @/lib/service-coverage : la page ville
+// s'en sert aussi pour ne lier que des pages service qui existent réellement.
 
 // ─── Static params ──────────────────────────────────────────────────────────
 
@@ -73,7 +63,7 @@ export const dynamicParams = false;
 export function generateStaticParams() {
   const params: { serviceType: string; ville: string }[] = [];
   for (const city of cities) {
-    for (const slug of tierSlugsForPop(pop(city))) {
+    for (const slug of serviceSlugsForPopulation(pop(city))) {
       params.push({ serviceType: slug, ville: city.slug });
     }
   }
@@ -95,56 +85,106 @@ export async function generateMetadata({
   const cat = cityCategory(city);
   const h = hashCode(city.slug + service.slug);
 
+  // Bases ≤ 44 caractères : `shortLabel` remplace `name`, trop long pour un title.
+  // fitTitle n'ajoute le département ou la région que s'ils tiennent encore.
   const titles: Record<string, string[]> = {
     metropole: [
-      `${service.name} ${city.name} | Organisation Haut de Gamme`,
-      tpl(service.metaTitle, city),
-      `${service.name} ${city.name} - Expert en ${city.region}`,
+      fitTitle(`${service.shortLabel} ${city.name}`, ` - Haut de Gamme`),
+      pickFittingTitle(tpl(service.metaTitle, city), `${service.shortLabel} ${city.name}`, `${service.shortLabel.split(" ")[0]} ${city.name}`),
+      fitTitle(`${service.shortLabel} ${city.name}`, ` - ${city.region}`),
     ],
     grande: [
-      tpl(service.metaTitle, city),
-      `${service.name} ${city.name} (${city.department}) | Smart Moments`,
-      `${service.name} ${city.name} - Smart Moments Event`,
+      pickFittingTitle(tpl(service.metaTitle, city), `${service.shortLabel} ${city.name}`, `${service.shortLabel.split(" ")[0]} ${city.name}`),
+      fitTitle(`${service.shortLabel} ${city.name}`, ` (${city.department})`),
+      pickFittingTitle(`${service.shortLabel} à ${city.name}`, `${service.shortLabel} ${city.name}`, `${service.shortLabel.split(" ")[0]} ${city.name}`),
     ],
     moyenne: [
-      tpl(service.metaTitle, city),
-      `${service.name} ${city.name} et ${city.nearbyCity} | ${city.department}`,
-      `${service.name} ${city.name} - ${city.department}`,
+      pickFittingTitle(tpl(service.metaTitle, city), `${service.shortLabel} ${city.name}`, `${service.shortLabel.split(" ")[0]} ${city.name}`),
+      fitTitle(`${service.shortLabel} ${city.name}`, ` et ${city.nearbyCity}`),
+      fitTitle(`${service.shortLabel} ${city.name}`, ` - ${city.department}`),
     ],
     petite: [
-      `${service.name} ${city.name} et environs | ${city.department}`,
-      tpl(service.metaTitle, city),
-      `${service.name} ${city.name} (${city.department})`,
+      pickFittingTitle(`${service.shortLabel} ${city.name} et environs`, `${service.shortLabel} ${city.name}`, `${service.shortLabel.split(" ")[0]} ${city.name}`),
+      pickFittingTitle(tpl(service.metaTitle, city), `${service.shortLabel} ${city.name}`, `${service.shortLabel.split(" ")[0]} ${city.name}`),
+      fitTitle(`${service.shortLabel} ${city.name}`, ` (${city.department})`),
     ],
     village: [
-      `${service.name} ${city.name} (${city.department}) | ${city.region}`,
-      tpl(service.metaTitle, city),
-      `${service.name} ${city.name} et alentours`,
+      fitTitle(`${service.shortLabel} ${city.name}`, ` (${city.department})`),
+      pickFittingTitle(tpl(service.metaTitle, city), `${service.shortLabel} ${city.name}`, `${service.shortLabel.split(" ")[0]} ${city.name}`),
+      pickFittingTitle(`${service.shortLabel} ${city.name} et alentours`, `${service.shortLabel} ${city.name}`, `${service.shortLabel.split(" ")[0]} ${city.name}`),
     ],
   };
 
+  // Chaque variante = base courte + compléments optionnels. fitDescription ajoute
+  // les compléments tant qu'on reste sous 158 caractères, et recoupe la base si
+  // elle dépasse à elle seule — les deux bornes (120 et 160) sont ainsi tenues
+  // quelle que soit la longueur du nom de commune ou du département.
+  const svc = service.shortLabel.toLowerCase();
   const descriptions: Record<string, string[]> = {
     metropole: [
-      tpl(service.metaDescription, city),
-      `${service.name} haut de gamme à ${city.name}. Smart Moments Event, votre partenaire en ${city.region}. Noté 4.6/5. Devis gratuit.`,
-      `${service.name} à ${city.name} (${city.department}). De la planification au jour J, Smart Moments Event organise votre événement de A à Z. Consultation offerte.`,
+      fitDescription(
+        `${service.shortLabel} à ${city.name} : de la planification au jour J, nous organisons votre événement de A à Z.`,
+        `Devis gratuit sous 24 h.`,
+        `Intervention en ${city.region}.`
+      ),
+      fitDescription(
+        `${service.shortLabel} haut de gamme à ${city.name}. Votre partenaire événementiel en ${city.region}.`,
+        `Devis gratuit et sans engagement.`,
+        `Noté 4.6/5.`
+      ),
+      fitDescription(
+        `Votre spécialiste ${svc} à ${city.name} (${city.department}). Un accompagnement sur mesure du premier rendez-vous au jour J.`,
+        `Consultation offerte.`
+      ),
     ],
     grande: [
-      tpl(service.metaDescription, city),
-      `${service.name} à ${city.name} par Smart Moments Event. Intervention dans tout le ${city.department}. Devis offert.`,
-      `Votre ${service.name.toLowerCase()} à ${city.name}, ${city.description}. Smart Moments Event. Consultation gratuite.`,
+      fitDescription(
+        `${service.shortLabel} à ${city.name} : organisation complète, coordination et accompagnement sur mesure.`,
+        `Devis offert.`,
+        `Intervention dans tout le ${city.department}.`
+      ),
+      fitDescription(
+        `Votre spécialiste ${svc} à ${city.name}, ${city.description}.`,
+        `Organisation sur mesure et coordination le jour J.`,
+        `Consultation gratuite.`
+      ),
+      fitDescription(
+        `${service.shortLabel} à ${city.name} (${city.department}). Nous prenons en charge chaque étape de votre événement.`,
+        `Devis gratuit sous 24 h.`
+      ),
     ],
     moyenne: [
-      tpl(service.metaDescription, city),
-      `${service.name} à ${city.name} et ${city.nearbyCity}. Smart Moments Event en ${city.department}. Devis personnalisé offert.`,
+      fitDescription(
+        `${service.shortLabel} à ${city.name} et ${city.nearbyCity}. Organisation et coordination de votre événement sur mesure.`,
+        `Devis personnalisé offert.`,
+        `En ${city.department}.`
+      ),
+      fitDescription(
+        `Votre spécialiste ${svc} à ${city.name} (${city.department}). Un interlocuteur unique du premier rendez-vous au jour J.`,
+        `Devis gratuit.`
+      ),
     ],
     petite: [
-      tpl(service.metaDescription, city),
-      `${service.name} à ${city.name} et ses environs en ${city.department}. Smart Moments Event. Devis gratuit.`,
+      fitDescription(
+        `${service.shortLabel} à ${city.name} et ses environs en ${city.department}. Organisation et coordination sur mesure.`,
+        `Devis gratuit et sans engagement.`,
+        `Nous nous déplaçons en ${city.region}.`
+      ),
+      fitDescription(
+        `Votre spécialiste ${svc} près de ${city.name}. Nous intervenons dans tout le ${city.department} pour votre événement.`,
+        `Consultation offerte.`
+      ),
     ],
     village: [
-      tpl(service.metaDescription, city),
-      `${service.name} à ${city.name} et alentours (${city.department}). Smart Moments Event en ${city.region}.`,
+      fitDescription(
+        `${service.shortLabel} à ${city.name} et alentours (${city.department}). Organisation intimiste et coordination sur mesure.`,
+        `Devis gratuit.`,
+        `En ${city.region}.`
+      ),
+      fitDescription(
+        `Votre spécialiste ${svc} à ${city.name}. Nous nous déplaçons dans tout le ${city.department} pour organiser votre événement.`,
+        `Devis offert.`
+      ),
     ],
   };
 
@@ -158,30 +198,16 @@ export async function generateMetadata({
       canonical: `https://www.smartmoments.fr/${service.slug}/${city.slug}`,
     },
     openGraph: {
-      title: `${service.name} ${city.name} | Smart Moments Event`,
+      title: `${service.shortLabel} ${city.name} | Smart Moments`,
       description,
       url: `https://www.smartmoments.fr/${service.slug}/${city.slug}`,
-      images: [
-        {
-          url: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41-3_3_306698-168546594978953.jpeg",
-          width: 960,
-          height: 640,
-          alt: `${service.name} ${city.name} - Smart Moments Event`,
-        },
-      ],
+      images: [OG_DEFAULT],
     },
   };
 }
 
 // ─── Data ───────────────────────────────────────────────────────────────────
 
-const heroImages = [
-  "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41-3_3_306698-168546594978953.jpeg",
-  "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-40-1_3_306698-168546595086946.jpeg",
-  "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-42-1_3_306698-168546594928335.jpeg",
-  "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41_3_306698-168546595030467.jpeg",
-  "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-30-at-10-54-55-1_3_306698-168563709678965.jpeg",
-];
 
 const featureIcons = [
   "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
@@ -252,7 +278,7 @@ function getNearbyCitiesForService(
 ): typeof cities {
   const eligible = cities.filter((c) => {
     if (c.slug === city.slug) return false;
-    return tierSlugsForPop(pop(c)).includes(serviceSlug);
+    return serviceSlugsForPopulation(pop(c)).includes(serviceSlug);
   });
 
   const sameDept = eligible.filter((c) => c.department === city.department);
@@ -279,7 +305,6 @@ export default async function ServiceTypeCityPage({
 
   const slug = city.slug + service.slug;
   const h = hashCode(slug);
-  const heroImage = heroImages[h % heroImages.length];
   const intro = generateIntro(city, service);
   const cat = cityCategory(city);
   const nearbyCities = getNearbyCitiesForService(city, service.slug);
@@ -290,29 +315,38 @@ export default async function ServiceTypeCityPage({
     a: tpl(q.a, city),
   }));
 
-  // H1 variants
+  // H1 : la ville figure dans TOUTES les variantes. La variante
+  // « en {département} » produisait le même H1 pour toutes les communes d'un
+  // même département — jusqu'à 10 pages avec « Coordination jour J en
+  // Bouches-du-Rhône » pour H1.
   const h1 = pick([
     { pre: service.name, styled: `à ${city.name}` },
     { pre: `Votre ${service.name.toLowerCase()}`, styled: `à ${city.name}` },
-    { pre: service.name, styled: `en ${city.department}` },
+    { pre: service.name, styled: `à ${city.name}, ${city.department}` },
     { pre: service.name, styled: `à ${city.name} (${city.department})` },
   ], slug);
 
   // Subtitles
   const subtitle = pick([
-    `${service.name} sur mesure à ${city.name}, ${city.description}.`,
-    `${service.name} en ${city.department}. Votre événement de rêve en ${city.region}.`,
+    fitDescription(`${service.name} sur mesure à ${city.name}, ${city.description}.`
+      ),
+    fitDescription(`${service.name} en ${city.department}. Votre événement de rêve en ${city.region}.`
+      ),
     `Smart Moments Event, votre ${service.name.toLowerCase()} à ${city.name}. Devis gratuit.`,
-    `${service.name} haut de gamme à ${city.name} et environs.`,
-    `${service.name} à ${city.name}. De la planification au jour J.`,
+    fitDescription(`${service.name} haut de gamme à ${city.name} et environs.`
+      ),
+    fitDescription(`${service.name} à ${city.name}. De la planification au jour J.`
+      ),
   ], slug, 10);
 
   // H2 features section
   const featuresH2 = pick([
     `Nos prestations à ${city.name}`,
-    `${service.name} à ${city.name} : nos services`,
+    fitDescription(`${service.name} à ${city.name} : nos services`
+      ),
     `Ce que nous proposons à ${city.name}`,
-    `${service.name} en ${city.department} : nos atouts`,
+    fitDescription(`${service.name} en ${city.department} : nos atouts`
+      ),
   ], slug, 1);
 
   const featuresIntro = pick([
@@ -338,30 +372,14 @@ export default async function ServiceTypeCityPage({
   ], slug, 8);
 
   // Current tier slugs for cross-linking
-  const currentTierSlugs = tierSlugsForPop(pop(city));
+  const currentTierSlugs = serviceSlugsForPopulation(pop(city));
 
   // JSON-LD
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
     name: `${service.name} ${city.name} - Smart Moments Event`,
-    provider: {
-      "@type": "LocalBusiness",
-      name: "Smart Moments Event",
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Lyon",
-        addressRegion: "Rhone-Alpes",
-        postalCode: "69007",
-        addressCountry: "FR",
-      },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.6",
-        reviewCount: "25",
-        bestRating: "5",
-      },
-    },
+    provider: providerRef(),
     serviceType: service.name,
     areaServed: { "@type": "City", name: city.name },
     description: `${service.name} à ${city.name} (${city.department}). Organisation événementielle en ${city.region}.`,
@@ -413,13 +431,12 @@ export default async function ServiceTypeCityPage({
       {/* ── Hero ─────────────────────────────────────────────────────── */}
       <section className="relative h-[65vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src={heroImage}
+          <Photo
+            seed={h}
             alt={`${service.name} ${city.name} - Smart Moments Event en ${city.department}`}
-            fill
             className="object-cover"
-            priority
             sizes="100vw"
+            priority
           />
           <div className="absolute inset-0 bg-gradient-to-b from-taupe/60 via-taupe/30 to-taupe/60" />
         </div>
@@ -453,10 +470,13 @@ export default async function ServiceTypeCityPage({
                 <div className="luxury-line-left mb-6" />
                 <p className="text-gold text-[10px] uppercase tracking-[0.4em] font-semibold mb-4">
                   {pick([
-                    `${service.name} a ${city.name}`,
-                    `${service.name} en ${city.department}`,
+                    fitDescription(`${service.name} a ${city.name}`
+      ),
+                    fitDescription(`${service.name} en ${city.department}`
+      ),
                     `Smart Moments Event a ${city.name}`,
-                    `Votre ${service.name.toLowerCase()} a ${city.name}`,
+                    fitDescription(`Votre ${service.name.toLowerCase()} a ${city.name}`
+      ),
                   ], slug, 11)}
                 </p>
                 <h2 className="text-3xl md:text-4xl font-heading font-bold text-taupe mb-8 leading-tight">
@@ -481,10 +501,10 @@ export default async function ServiceTypeCityPage({
             <AnimateOnScroll animation="fade-left" delay={200}>
               <div className="relative">
                 <div className="relative aspect-[3/4] overflow-hidden">
-                  <Image
-                    src={heroImages[(h + 2) % heroImages.length]}
+                  <Photo
+                    seed={h}
+                    offset={2}
                     alt={`${service.name} ${city.name} ${city.department}`}
-                    fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
@@ -701,10 +721,13 @@ export default async function ServiceTypeCityPage({
             <div className="text-center mb-12">
               <h2 className="text-2xl md:text-3xl font-heading font-bold text-taupe">
                 {pick([
-                  `${service.name} en ${city.department} et environs`,
-                  `${service.name} près de ${city.name}`,
+                  fitDescription(`${service.name} en ${city.department} et environs`
+      ),
+                  fitDescription(`${service.name} près de ${city.name}`
+      ),
                   `Nos interventions en ${city.department}`,
-                  `${service.name} dans les villes voisines`,
+                  fitDescription(`${service.name} dans les villes voisines`
+      ),
                 ], slug, 18)}
               </h2>
               <p className="text-taupe-light mt-4">
@@ -748,8 +771,8 @@ export default async function ServiceTypeCityPage({
               Wedding Planner {city.name}
             </Link>
             {currentTierSlugs
-              .filter((s) => s !== service.slug)
-              .map((s) => {
+              .filter((s: string) => s !== service.slug)
+              .map((s: string) => {
                 const st = getServiceTypeBySlug(s);
                 if (!st) return null;
                 return (
@@ -769,10 +792,10 @@ export default async function ServiceTypeCityPage({
       {/* ── CTA ───────────────────────────────────────────────────────── */}
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src={heroImages[(h + 3) % heroImages.length]}
+          <Photo
+            seed={h}
+            offset={3}
             alt={`${service.name} ${city.name} ${city.department}`}
-            fill
             className="object-cover"
             sizes="100vw"
           />

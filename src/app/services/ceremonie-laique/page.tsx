@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
+import Photo from "@/components/Photo";
+import { OG_DEFAULT } from "@/data/photos";
+
+// Graine stable : fait varier la photo choisie d'une page à l'autre.
+const PHOTO_SEED = 45;
 
 export const metadata: Metadata = {
-  title: "Cérémonie Laïque Lyon | Officiant & Organisation | Smart Moments Event",
+  title: "Cérémonie Laïque Lyon - Officiant",
   description:
-    "Organisation de cérémonie laïque à Lyon. Officiant professionnel, rituels personnalisés (sable, bougie, wine box), lieux en intérieur ou extérieur. Créez une cérémonie unique à votre image. Devis gratuit.",
+    "Cérémonie laïque à Lyon : officiant professionnel, écriture sur mesure, rituels symboliques, décoration et coordination. Devis gratuit.",
   keywords: [
     "cérémonie laïque lyon",
     "officiant cérémonie laïque lyon",
@@ -21,18 +25,11 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://www.smartmoments.fr/services/ceremonie-laique" },
   openGraph: {
-    title: "Cérémonie Laïque Lyon | Organisation & Officiant",
+    title: "Cérémonie Laïque Lyon | Smart Moments",
     description:
       "Cérémonie laïque sur mesure à Lyon. Officiant professionnel, rituels symboliques, décoration et coordination. Vivez une cérémonie unique et émouvante.",
     url: "https://www.smartmoments.fr/services/ceremonie-laique",
-    images: [
-      {
-        url: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-30-at-10-54-55-1_3_306698-168563709678965.jpeg",
-        width: 960,
-        height: 640,
-        alt: "Cérémonie laïque mariage Lyon - Smart Moments Event",
-      },
-    ],
+    images: [OG_DEFAULT],
   },
 };
 
@@ -162,13 +159,12 @@ export default function CeremonieLaiquePage() {
       {/* Hero */}
       <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src="https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-30-at-10-54-55-1_3_306698-168563709678965.jpeg"
+          <Photo
+            seed={PHOTO_SEED}
             alt="Cérémonie laïque de mariage en extérieur à Lyon"
-            fill
             className="object-cover"
-            priority
             sizes="100vw"
+            priority
           />
           <div className="absolute inset-0 bg-gradient-to-b from-taupe/60 via-taupe/30 to-taupe/60" />
         </div>
@@ -200,10 +196,10 @@ export default function CeremonieLaiquePage() {
             <div className="w-full lg:w-1/2">
               <div className="relative">
                 <div className="relative aspect-[4/3] overflow-hidden">
-                  <Image
-                    src="https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41_3_306698-168546595030467.jpeg"
+                  <Photo
+                    seed={PHOTO_SEED}
+                    offset={1}
                     alt="Officiant de cérémonie laïque à Lyon"
-                    fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
@@ -643,10 +639,10 @@ export default function CeremonieLaiquePage() {
       {/* CTA */}
       <section className="relative py-28 overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src="https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-40-1_3_306698-168546595086946.jpeg"
+          <Photo
+            seed={PHOTO_SEED}
+            offset={2}
             alt="Cérémonie laïque de mariage à Lyon"
-            fill
             className="object-cover"
             sizes="100vw"
           />

@@ -1,5 +1,11 @@
 export interface ServiceType {
   name: string;
+  /**
+   * Libellé court réservé aux balises title. `name` est trop long pour tenir
+   * dans les 44 caractères disponibles avant le suffixe de marque
+   * (« Décoration mariage haut de gamme » = 32 caractères à lui seul).
+   */
+  shortLabel: string;
   slug: string;
   title: string;
   metaTitle: string;
@@ -13,9 +19,10 @@ export interface ServiceType {
 export const serviceTypes: ServiceType[] = [
   {
     name: "Organisation de mariage",
+    shortLabel: "Organisation Mariage",
     slug: "organisation-mariage",
     title: "Organisation de Mariage à {city} - Wedding Planner",
-    metaTitle: "Organisation de Mariage à {city} | Wedding Planner Smart Moments Event",
+    metaTitle: "Organisation de Mariage à {city}",
     metaDescription: "Wedding planner à {city} ({department}) pour l'organisation complète de votre mariage. Smart Moments Event vous accompagne de A à Z : lieu, traiteur, décoration, coordination. Devis gratuit.",
     intro: "Vous recherchez un wedding planner à {city} pour organiser le mariage de vos rêves ? Smart Moments Event, agence d'organisation de mariages basée à Lyon, intervient à {city} et dans tout le département {department} en région {region}. De la recherche du lieu de réception à la coordination le jour J, nous prenons en charge chaque détail pour que vous puissiez profiter pleinement de ce moment unique. Notre expertise et notre réseau de prestataires de qualité à {city} garantissent un mariage à votre image, dans le respect de votre budget.",
     features: [
@@ -57,9 +64,10 @@ export const serviceTypes: ServiceType[] = [
   },
   {
     name: "Coordination jour J",
+    shortLabel: "Coordination Jour J",
     slug: "coordinatrice-jour-j",
     title: "Coordinatrice Jour J à {city} - Smart Moments Event",
-    metaTitle: "Coordinatrice Jour J à {city} | Coordination Mariage Smart Moments Event",
+    metaTitle: "Coordinatrice Jour J à {city}",
     metaDescription: "Coordinatrice jour J à {city} ({department}). Smart Moments Event assure la coordination de votre mariage le jour J : gestion des prestataires, timing, imprévus. Profitez sereinement de votre mariage.",
     intro: "Vous avez organisé votre mariage vous-même à {city} mais souhaitez profiter pleinement du jour J sans stress ? Smart Moments Event propose un service de coordination jour J à {city} et dans le {department} en {region}. Notre coordinatrice prend le relais quelques semaines avant votre mariage pour s'assurer que chaque détail est en place, puis gère l'intégralité du déroulement le jour de la célébration. Vous et vos proches pouvez enfin vivre ce moment sans contrainte logistique.",
     features: [
@@ -94,9 +102,10 @@ export const serviceTypes: ServiceType[] = [
   },
   {
     name: "Décoration mariage haut de gamme",
+    shortLabel: "Décoration Mariage",
     slug: "decoration-mariage",
     title: "Décoration de Mariage à {city} - Décor Haut de Gamme",
-    metaTitle: "Décoration Mariage {city} | Décoratrice Haut de Gamme Smart Moments Event",
+    metaTitle: "Décoration Mariage {city}",
     metaDescription: "Décoration de mariage haut de gamme à {city} ({department}). Smart Moments Event conçoit des scénographies uniques : fleurs, mobilier, mise en lumière. Décoration mariage sur mesure. Devis gratuit.",
     intro: "La décoration est l'âme de votre mariage. À {city}, Smart Moments Event imagine et réalise des scénographies sur mesure qui transforment n'importe quel lieu en un écrin féérique. De la conception du thème à l'installation complète dans les salles et domaines du {department} en {region}, notre équipe de décorateurs crée des ambiances uniques qui reflètent votre personnalité. Compositions florales spectaculaires, mobilier d'exception, mise en lumière architecturale : chaque élément est pensé pour sublimer votre célébration à {city}.",
     features: [
@@ -131,9 +140,10 @@ export const serviceTypes: ServiceType[] = [
   },
   {
     name: "Photobooth & animation mariage",
+    shortLabel: "Photobooth Mariage",
     slug: "photobooth-mariage",
     title: "Photobooth Mariage à {city} - Animation & Souvenirs",
-    metaTitle: "Photobooth Mariage {city} | Animation Photo Smart Moments Event",
+    metaTitle: "Photobooth Mariage {city}",
     metaDescription: "Location de photobooth pour mariage à {city} ({department}). Smart Moments Event propose des photobooths modernes avec accessoires, impressions instantanées et animations interactives. Devis gratuit.",
     intro: "Ajoutez une touche fun et mémorable à votre mariage à {city} avec le photobooth Smart Moments Event ! Notre borne photo professionnelle, disponible dans tout le {department} en {region}, offre des impressions haute qualité instantanées, un large choix d'accessoires et des animations interactives qui ravissent les invités de tous âges. Plus qu'un simple divertissement, notre photobooth crée des souvenirs uniques que vos invités garderont précieusement. Idéal pour animer le cocktail ou la soirée de votre mariage à {city}.",
     features: [
@@ -168,9 +178,10 @@ export const serviceTypes: ServiceType[] = [
   },
   {
     name: "Organisation de baptême",
+    shortLabel: "Organisation Baptême",
     slug: "organisation-bapteme",
     title: "Organisation de Baptême à {city} - Smart Moments Event",
-    metaTitle: "Organisation Baptême {city} | Décoration & Événement Smart Moments Event",
+    metaTitle: "Organisation Baptême {city}",
     metaDescription: "Organisation de baptême à {city} ({department}). Smart Moments Event organise votre baptême clé en main : lieu, décoration, traiteur, animation. Baptême religieux ou républicain. Devis gratuit.",
     intro: "Le baptême de votre enfant mérite une célébration à la hauteur de ce moment de joie. À {city}, Smart Moments Event organise des baptêmes sur mesure, qu'ils soient religieux ou républicains. De la recherche du lieu idéal dans le {department} en {region} à la décoration, en passant par le traiteur et les animations, nous créons un événement harmonieux et élégant. Confiez-nous l'organisation de ce jour si spécial à {city} et concentrez-vous sur l'essentiel : partager ce bonheur avec vos proches.",
     features: [
@@ -205,9 +216,10 @@ export const serviceTypes: ServiceType[] = [
   },
   {
     name: "Organisation d'anniversaire",
+    shortLabel: "Organisation Anniversaire",
     slug: "organisation-anniversaire",
     title: "Organisation d'Anniversaire à {city} - Fêtes Sur Mesure",
-    metaTitle: "Organisation Anniversaire {city} | Fête & Événement Smart Moments Event",
+    metaTitle: "Organisation Anniversaire {city}",
     metaDescription: "Organisation de fête d'anniversaire à {city} ({department}). Smart Moments Event crée des anniversaires mémorables : décoration thématique, traiteur, animations, lieu. Enfants et adultes. Devis gratuit.",
     intro: "Un anniversaire marquant mérite une organisation à la hauteur. Que ce soit pour les 1 an de votre enfant, un anniversaire surprise ou une grande fête pour vos 30, 40 ou 50 ans à {city}, Smart Moments Event conçoit des célébrations personnalisées et mémorables. Nous intervenons dans tout le {department} en {region} pour transformer votre vision en réalité. Décoration thématique, lieu d'exception, traiteur, animations : chaque élément est orchestré avec soin pour que cette journée à {city} reste gravée dans les mémoires.",
     features: [
@@ -242,9 +254,10 @@ export const serviceTypes: ServiceType[] = [
   },
   {
     name: "Séminaire d'entreprise",
+    shortLabel: "Séminaire Entreprise",
     slug: "seminaire-entreprise",
     title: "Séminaire d'Entreprise à {city} - Organisation Professionnelle",
-    metaTitle: "Séminaire Entreprise {city} | Organisation Événement Pro Smart Moments Event",
+    metaTitle: "Séminaire Entreprise {city}",
     metaDescription: "Organisation de séminaire d'entreprise à {city} ({department}). Smart Moments Event organise vos événements professionnels : séminaire, team building, soirée d'entreprise, convention. Devis gratuit.",
     intro: "Smart Moments Event accompagne les entreprises de {city} et du {department} en {region} dans l'organisation de leurs séminaires et événements professionnels. Que vous souhaitiez renforcer la cohésion de vos équipes, célébrer un succès ou réunir vos collaborateurs pour un moment stratégique, nous concevons des séminaires sur mesure qui combinent efficacité professionnelle et moments de convivialité. Notre connaissance des lieux et prestataires événementiels à {city} nous permet de vous proposer des formats originaux et impactants.",
     features: [
@@ -279,9 +292,10 @@ export const serviceTypes: ServiceType[] = [
   },
   {
     name: "Organisation de bar-mitzvah",
+    shortLabel: "Bar-Mitzvah",
     slug: "organisation-bar-mitzvah",
     title: "Organisation de Bar-Mitzvah à {city} - Smart Moments Event",
-    metaTitle: "Organisation Bar-Mitzvah {city} | Événement Sur Mesure Smart Moments Event",
+    metaTitle: "Organisation Bar-Mitzvah {city}",
     metaDescription: "Organisation de bar-mitzvah et bat-mitzvah à {city} ({department}). Smart Moments Event crée des célébrations inoubliables : décoration, traiteur casher, animation, salle. Devis gratuit.",
     intro: "La bar-mitzvah ou bat-mitzvah est une étape majeure dans la vie de votre enfant et de votre famille. À {city}, Smart Moments Event met son expertise événementielle au service de cette célébration unique. Nous organisons des bar-mitzvah élégantes et festives dans le {department} en {region}, en respectant les traditions tout en apportant une touche moderne et personnalisée. De la recherche de la salle idéale à {city} à la gestion du traiteur casher, en passant par la décoration et les animations, nous créons un événement à la hauteur de ce passage important.",
     features: [

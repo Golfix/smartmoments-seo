@@ -1,23 +1,28 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 import StickyContactBar, { HeroCtaRow } from "@/components/StickyContactBar";
 import { cities } from "@/data/cities";
 import { themes } from "@/data/themes";
+import Photo from "@/components/Photo";
+import { OG_DEFAULT } from "@/data/photos";
+import { providerRef } from "@/lib/schema";
+
+// Graine stable : fait varier la photo choisie d'une page à l'autre.
+const PHOTO_SEED = 53;
 
 export const metadata: Metadata = {
   title:
-    "Wedding Planner Lyon | Agence de Mariage Notée 4.6★",
+    "Wedding Planner Lyon - Agence de Mariage",
   description:
-    "Wedding planner à Lyon et Rhône-Alpes. Organisation de mariage sur mesure, coordination jour J, prestation partielle. Noté 4.6/5 sur Mariages.net. Prestations à partir de 1 500 €. Devis gratuit en 24h.",
+    "Wedding planner à Lyon et en Rhône-Alpes : organisation sur mesure, coordination jour J, clé en main dès 1 500 €. Noté 4.6/5. Devis gratuit.",
   alternates: { canonical: "https://www.smartmoments.fr/wedding-planner" },
   openGraph: {
-    title: "Wedding Planner Lyon | Smart Moments Event - Noté 4.6/5",
+    title: "Wedding Planner Lyon | Smart Moments",
     description:
       "Dites oui à Smart Moments et vivez un mariage extraordinaire. Wedding planning sur mesure, coordination jour J et décoration haut de gamme à Lyon.",
     url: "https://www.smartmoments.fr/wedding-planner",
-    images: [{ url: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41-3_3_306698-168546594978953.jpeg", width: 960, height: 640, alt: "Wedding Planner Lyon - Smart Moments organise votre mariage" }],
+    images: [OG_DEFAULT],
   },
 };
 
@@ -159,23 +164,7 @@ export default function WeddingPlannerPage() {
     "@context": "https://schema.org",
     "@type": "Service",
     name: "Wedding Planner Lyon - Smart Moments Event",
-    provider: {
-      "@type": "LocalBusiness",
-      name: "Smart Moments Event",
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Lyon",
-        addressRegion: "Rhône-Alpes",
-        postalCode: "69007",
-        addressCountry: "FR",
-      },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.6",
-        reviewCount: "25",
-        bestRating: "5",
-      },
-    },
+    provider: providerRef(),
     serviceType: "Wedding Planning",
     areaServed: [
       { "@type": "City", name: "Lyon" },
@@ -211,13 +200,12 @@ export default function WeddingPlannerPage() {
       {/* Hero */}
       <section className="relative h-[75vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src="https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41-3_3_306698-168546594978953.jpeg"
+          <Photo
+            seed={PHOTO_SEED}
             alt="Wedding Planner Lyon - Smart Moments organise votre mariage haut de gamme"
-            fill
             className="object-cover"
-            priority
             sizes="100vw"
+            priority
           />
           <div className="absolute inset-0 bg-gradient-to-b from-taupe/60 via-taupe/30 to-taupe/60" />
         </div>
@@ -280,10 +268,10 @@ export default function WeddingPlannerPage() {
             </div>
             <div className="relative">
               <div className="relative aspect-[3/4] overflow-hidden">
-                <Image
-                  src="https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-40-1_3_306698-168546595086946.jpeg"
+                <Photo
+                  seed={PHOTO_SEED}
+                  offset={1}
                   alt="Décoration florale mariage haut de gamme Lyon"
-                  fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
@@ -623,10 +611,10 @@ export default function WeddingPlannerPage() {
       {/* CTA */}
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src="https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-42-1_3_306698-168546594928335.jpeg"
+          <Photo
+            seed={PHOTO_SEED}
+            offset={2}
             alt="Organisation mariage cérémonie laïque Lyon"
-            fill
             className="object-cover"
             sizes="100vw"
           />

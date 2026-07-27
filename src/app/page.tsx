@@ -1,6 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
+import Photo from "@/components/Photo";
+import { OG_DEFAULT } from "@/data/photos";
+
+// Graine stable : fait varier la photo choisie d'une page à l'autre.
+const PHOTO_SEED = 50;
 
 const services = [
   {
@@ -77,27 +82,21 @@ const testimonials = [
 
 const galleryImages = [
   {
-    src: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-30-at-10-54-55-1_3_306698-168563709678965.jpeg",
     alt: "Décoration soirée dansante mariage haut de gamme Lyon",
   },
   {
-    src: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41-3_3_306698-168546594978953.jpeg",
     alt: "Cérémonie laïque avec arche florale Lyon",
   },
   {
-    src: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-40-1_3_306698-168546595086946.jpeg",
     alt: "Sortie des mariés décoration florale",
   },
   {
-    src: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41_3_306698-168546595030467.jpeg",
     alt: "Décoration salle de réception mariage élégant",
   },
   {
-    src: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-42-1_3_306698-168546594928335.jpeg",
     alt: "Arche fleurie cérémonie mariage champêtre Lyon",
   },
   {
-    src: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41-1_3_306698-168546595088459.jpeg",
     alt: "Détails décoration table mariage raffiné",
   },
 ];
@@ -219,12 +218,6 @@ export default function HomePage() {
       { "@type": "AdministrativeArea", name: "Rhône-Alpes" },
       { "@type": "Country", name: "France" },
     ],
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.6",
-      reviewCount: "25",
-      bestRating: "5",
-    },
     review: [
       {
         "@type": "Review",
@@ -252,8 +245,7 @@ export default function HomePage() {
       },
     ],
     priceRange: "$$",
-    image:
-      "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-30-at-10-54-55-1_3_306698-168563709678965.jpeg",
+    image: OG_DEFAULT.url,
     sameAs: [
       "https://www.instagram.com/weddingplanner.smartmoments/",
       "https://www.mariages.net/organisation-mariage/smart-moments--e306698",
@@ -320,13 +312,12 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src="https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-30-at-10-54-55-1_3_306698-168563709678965.jpeg"
+          <Photo
+            seed={PHOTO_SEED}
             alt="Organisation de mariage haut de gamme à Lyon - Smart Moments Event wedding planner"
-            fill
             className="object-cover slow-zoom"
-            priority
             sizes="100vw"
+            priority
           />
           <div className="absolute inset-0 bg-gradient-to-b from-taupe/50 via-taupe/30 to-taupe/60" />
         </div>
@@ -334,7 +325,7 @@ export default function HomePage() {
           {/* Logo */}
           <div className="hero-reveal hero-reveal-delay-1 flex justify-center mb-4">
             <Image
-              src="/images/Logo.png"
+              src="/images/Logo.webp"
               alt="Smart Moments Planner - Wedding Planner Lyon"
               width={200}
               height={80}
@@ -404,10 +395,10 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <AnimateOnScroll animation="fade-right" className="relative">
               <div className="relative aspect-[4/5] overflow-hidden">
-                <Image
-                  src="https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41-3_3_306698-168546594978953.jpeg"
+                <Photo
+                  seed={PHOTO_SEED}
+                  offset={1}
                   alt="Cérémonie laïque organisée par Smart Moments wedding planner Lyon"
-                  fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
@@ -547,10 +538,9 @@ export default function HomePage() {
                 className={`relative overflow-hidden group ${i === 0 ? "md:col-span-2 md:row-span-2" : ""}`}
               >
                 <div className={`relative ${i === 0 ? "aspect-square" : "aspect-[4/3]"}`}>
-                  <Image
-                    src={img.src}
+                  <Photo
+                    seed={i}
                     alt={img.alt}
-                    fill
                     className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-out"
                     sizes={i === 0 ? "(max-width: 768px) 100vw, 66vw" : "(max-width: 768px) 100vw, 33vw"}
                   />
@@ -795,10 +785,10 @@ export default function HomePage() {
       {/* CTA final */}
       <section className="relative py-32 md:py-40 overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src="https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-42-1_3_306698-168546594928335.jpeg"
+          <Photo
+            seed={PHOTO_SEED}
+            offset={2}
             alt="Arche fleurie pour cérémonie de mariage - wedding planner Lyon"
-            fill
             className="object-cover"
             sizes="100vw"
           />

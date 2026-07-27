@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Breadcrumb from "@/components/Breadcrumb";
 import { departments, getDepartmentBySlug, getDepartmentsByRegion } from "@/data/departments";
+import Photo from "@/components/Photo";
+import { OG_DEFAULT } from "@/data/photos";
+import { fitDescription, fitTitle } from "@/lib/seo";
+import { providerRef } from "@/lib/schema";
 
 // Deterministic hash for content variation
 function hashCode(str: string): number {
@@ -18,13 +21,6 @@ function pick<T>(arr: T[], slug: string, offset = 0): T {
   return arr[(hashCode(slug) + offset) % arr.length];
 }
 
-const heroImages = [
-  "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41-3_3_306698-168546594978953.jpeg",
-  "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-40-1_3_306698-168546595086946.jpeg",
-  "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-42-1_3_306698-168546594928335.jpeg",
-  "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41_3_306698-168546595030467.jpeg",
-  "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-30-at-10-54-55-1_3_306698-168563709678965.jpeg",
-];
 
 // Region-specific descriptions for richer content
 const regionDescriptions: Record<string, string[]> = {
@@ -202,17 +198,26 @@ export async function generateMetadata({
   const h = hashCode(department.slug);
 
   const titles = [
-    `Wedding Planner ${department.name} | Organisation Mariage en ${department.name}`,
-    `Organisatrice de Mariage en ${department.name} | Smart Moments Event`,
-    `Wedding Planner en ${department.name} - Coordinatrice Mariage ${department.region}`,
-    `Organisation Mariage ${department.name} | Coordinatrice Jour J`,
+    fitTitle(`Wedding Planner ${department.name}`, ` - Organisation Mariage`),
+    fitTitle(`Organisatrice de Mariage en ${department.name}`),
+    fitTitle(`Wedding Planner en ${department.name}`, ` - ${department.region}`),
+    fitTitle(`Organisation Mariage ${department.name}`, ` - Jour J`),
   ];
 
   const descriptions = [
-    `Wedding planner en ${department.name} : organisation de mariage, coordination jour J et décoration haut de gamme. ${department.cities.length} villes couvertes en ${department.region}. Devis gratuit.`,
-    `Votre organisatrice de mariage en ${department.name}. Smart Moments Event intervient dans ${department.cities.length} villes du département pour des mariages sur mesure. Consultation offerte.`,
-    `Coordinatrice mariage en ${department.name} (${department.region}). Organisation complète, jour J et décoration. Noté 4.6/5. Devis personnalisé gratuit.`,
-    `Wedding planner en ${department.name}, ${department.region}. De ${department.cities[0]?.name || department.name} à tout le département, organisation de mariage clé en main. Devis offert.`,
+    fitDescription(
+      `Wedding planner en ${department.name} : organisation de mariage, coordination jour J et décoration. Devis gratuit.`,
+      `${department.cities.length} villes couvertes.`
+      ),
+    fitDescription(
+      `Votre organisatrice de mariage en ${department.name}. Nous intervenons dans ${department.cities.length} villes du département pour des mariages sur mesure. Consultation offerte.`
+      ),
+    fitDescription(
+      `Coordinatrice mariage en ${department.name} (${department.region}). Organisation complète, jour J et décoration. Devis personnalisé gratuit.`
+      ),
+    fitDescription(
+      `Wedding planner en ${department.name}, ${department.region}. Organisation de mariage clé en main dans tout le département. Devis offert.`
+      ),
   ];
 
   const title = titles[h % titles.length];
@@ -225,12 +230,12 @@ export async function generateMetadata({
       canonical: `https://www.smartmoments.fr/wedding-planner/departement/${department.slug}`,
     },
     openGraph: {
-      title: `Wedding Planner ${department.name} | Smart Moments Event`,
+      title: `Wedding Planner ${department.name} | Smart Moments`,
       description,
       url: `https://www.smartmoments.fr/wedding-planner/departement/${department.slug}`,
       images: [
         {
-          url: heroImages[0],
+          url: OG_DEFAULT.url,
           width: 960,
           height: 640,
           alt: `Wedding Planner ${department.name} - Smart Moments Event`,
@@ -250,7 +255,6 @@ export default async function DepartmentWeddingPlannerPage({
   if (!department) notFound();
 
   const h = hashCode(department.slug);
-  const heroImage = heroImages[h % heroImages.length];
   const intro = generateDeptIntro(department);
   const faq = generateDeptFaq(department);
 
@@ -307,23 +311,7 @@ export default async function DepartmentWeddingPlannerPage({
     "@context": "https://schema.org",
     "@type": "Service",
     name: `Wedding Planner ${department.name} - Smart Moments Event`,
-    provider: {
-      "@type": "LocalBusiness",
-      name: "Smart Moments Event",
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Lyon",
-        addressRegion: "Rhône-Alpes",
-        postalCode: "69007",
-        addressCountry: "FR",
-      },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.6",
-        reviewCount: "25",
-        bestRating: "5",
-      },
-    },
+    provider: providerRef(),
     serviceType: "Wedding Planning",
     areaServed: {
       "@type": "AdministrativeArea",
@@ -404,13 +392,12 @@ export default async function DepartmentWeddingPlannerPage({
       {/* Hero - 45vh, smaller than city pages */}
       <section className="relative h-[45vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src={heroImage}
+          <Photo
+            seed={h}
             alt={`${h1.pre} ${h1.styled} - Organisation de mariage en ${department.name}, ${department.region}`}
-            fill
             className="object-cover"
-            priority
             sizes="100vw"
+            priority
           />
           <div className="absolute inset-0 bg-gradient-to-b from-taupe/60 via-taupe/30 to-taupe/60" />
         </div>
@@ -480,10 +467,10 @@ export default async function DepartmentWeddingPlannerPage({
             </div>
             <div className="relative">
               <div className="relative aspect-[3/4] overflow-hidden">
-                <Image
-                  src={heroImages[(h + 2) % heroImages.length]}
+                <Photo
+                  seed={h}
+                  offset={2}
                   alt={`Décoration mariage ${department.name} ${department.region}`}
-                  fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
@@ -649,10 +636,10 @@ export default async function DepartmentWeddingPlannerPage({
       {/* CTA */}
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src={heroImages[(h + 3) % heroImages.length]}
+          <Photo
+            seed={h}
+            offset={3}
             alt={`Organisation mariage ${department.name} ${department.region}`}
-            fill
             className="object-cover"
             sizes="100vw"
           />

@@ -12,7 +12,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-1">
             <Image
-              src="/images/Logo.png"
+              src="/images/Logo.webp"
               alt="Smart Moments Planner - Wedding Planner Lyon"
               width={180}
               height={70}

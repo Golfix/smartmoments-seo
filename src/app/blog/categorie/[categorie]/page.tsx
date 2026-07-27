@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -9,6 +8,9 @@ import {
   getArticlesByCategory,
   getCategoryNameBySlug,
 } from "@/data/blog-articles";
+import Photo from "@/components/Photo";
+import { hashCode } from "@/lib/seed";
+import { fitDescription, fitTitle } from "@/lib/seo";
 
 export const dynamicParams = false;
 
@@ -25,7 +27,7 @@ export async function generateMetadata({
   const categoryName = getCategoryNameBySlug(categorie);
   if (!categoryName) return {};
 
-  const title = `${categoryName} - Articles & Conseils Mariage | Smart Moments Event`;
+  const title = fitTitle(`${categoryName} - Conseils Mariage`);
   const description = `Retrouvez tous nos articles sur le thème "${categoryName}" : conseils, guides et inspiration pour votre mariage à Lyon par nos wedding planners professionnels.`;
 
   return {
@@ -157,10 +159,9 @@ export default async function BlogCategoriePage({
                 <article className="group bg-white border border-gold/10 overflow-hidden hover:shadow-lg hover:shadow-gold/5 transition-all duration-500">
                   <Link href={`/blog/${article.slug}`} className="block">
                     <div className="relative aspect-[16/10] overflow-hidden">
-                      <Image
-                        src={article.heroImage}
+                      <Photo
+                        seed={hashCode(article.slug)}
                         alt={article.title}
-                        fill
                         className="object-cover group-hover:scale-105 transition-transform duration-700"
                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       />

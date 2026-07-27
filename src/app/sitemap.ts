@@ -1,4 +1,17 @@
 import type { MetadataRoute } from "next";
+
+/**
+ * Date de dernière modification des gabarits programmatiques.
+ *
+ * `new Date()` renvoyait la date du build : chaque déploiement annonçait à Google
+ * que les 3 831 URL avaient changé (3 805 lastmod identiques au 8 juillet 2026
+ * lors de l'audit). Google finit par ignorer un signal aussi bruyant.
+ *
+ * À mettre à jour À LA MAIN quand le contenu d'un gabarit change réellement —
+ * pas à chaque déploiement, ni pour un correctif de style.
+ */
+const TEMPLATES_UPDATED = "2026-07-27";
+const templateDate = new Date(TEMPLATES_UPDATED);
 import { cities } from "@/data/cities";
 import { departments } from "@/data/departments";
 import { themes } from "@/data/themes";
@@ -12,97 +25,97 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const mainPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
-      lastModified: new Date(),
+      lastModified: templateDate,
       changeFrequency: "weekly",
       priority: 1,
     },
     {
       url: `${baseUrl}/services`,
-      lastModified: new Date(),
+      lastModified: templateDate,
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/services/photobooth`,
-      lastModified: new Date(),
+      lastModified: templateDate,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${baseUrl}/services/decoration`,
-      lastModified: new Date(),
+      lastModified: templateDate,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${baseUrl}/services/mariage`,
-      lastModified: new Date(),
+      lastModified: templateDate,
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/services/bapteme`,
-      lastModified: new Date(),
+      lastModified: templateDate,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${baseUrl}/services/bar-mitzvah`,
-      lastModified: new Date(),
+      lastModified: templateDate,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${baseUrl}/services/anniversaire`,
-      lastModified: new Date(),
+      lastModified: templateDate,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${baseUrl}/services/seminaire-entreprise`,
-      lastModified: new Date(),
+      lastModified: templateDate,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${baseUrl}/services/ceremonie-laique`,
-      lastModified: new Date(),
+      lastModified: templateDate,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${baseUrl}/wedding-planner`,
-      lastModified: new Date(),
+      lastModified: templateDate,
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/tarifs-wedding-planner`,
-      lastModified: new Date(),
+      lastModified: templateDate,
       changeFrequency: "monthly",
       priority: 0.85,
     },
     {
       url: `${baseUrl}/a-propos`,
-      lastModified: new Date(),
+      lastModified: templateDate,
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${baseUrl}/galerie`,
-      lastModified: new Date(),
+      lastModified: templateDate,
       changeFrequency: "weekly",
       priority: 0.8,
     },
     {
       url: `${baseUrl}/contact`,
-      lastModified: new Date(),
+      lastModified: templateDate,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${baseUrl}/avis`,
-      lastModified: new Date(),
+      lastModified: templateDate,
       changeFrequency: "monthly",
       priority: 0.8,
     },
@@ -110,14 +123,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const cityPages: MetadataRoute.Sitemap = cities.map((city) => ({
     url: `${baseUrl}/wedding-planner/${city.slug}`,
-    lastModified: new Date(),
+    lastModified: templateDate,
     changeFrequency: "monthly",
     priority: 0.7,
   }));
 
   const themePages: MetadataRoute.Sitemap = themes.map((theme) => ({
     url: `${baseUrl}/wedding-planner/style/${theme.slug}`,
-    lastModified: new Date(),
+    lastModified: templateDate,
     changeFrequency: "monthly",
     priority: 0.8,
   }));
@@ -135,7 +148,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const cityThemePages: MetadataRoute.Sitemap = top50Cities.flatMap((city) =>
     themes.map((theme) => ({
       url: `${baseUrl}/wedding-planner/${city.slug}/${theme.slug}`,
-      lastModified: new Date(),
+      lastModified: templateDate,
       changeFrequency: "monthly" as const,
       priority: 0.6,
     }))
@@ -144,7 +157,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const blogIndexPage: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}/blog`,
-      lastModified: new Date(),
+      lastModified: templateDate,
       changeFrequency: "weekly",
       priority: 0.8,
     },
@@ -159,14 +172,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const blogCategoryPages: MetadataRoute.Sitemap = getCategories().map((cat) => ({
     url: `${baseUrl}/blog/categorie/${cat.slug}`,
-    lastModified: new Date(),
+    lastModified: templateDate,
     changeFrequency: "weekly",
     priority: 0.6,
   }));
 
   const departmentPages: MetadataRoute.Sitemap = departments.map((dept) => ({
     url: `${baseUrl}/wedding-planner/departement/${dept.slug}`,
-    lastModified: new Date(),
+    lastModified: templateDate,
     changeFrequency: "monthly",
     priority: 0.8,
   }));
@@ -181,7 +194,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const slugs = p >= 30000 ? allServiceSlugs : p >= 10000 ? tier2ServiceSlugs : p >= 5000 ? tier3ServiceSlugs : [];
     return slugs.map((slug) => ({
       url: `${baseUrl}/${slug}/${city.slug}`,
-      lastModified: new Date(),
+      lastModified: templateDate,
       changeFrequency: "monthly" as const,
       priority: p >= 30000 ? 0.7 : 0.6,
     }));
@@ -191,7 +204,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const destinationHubPage: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}/destination-wedding`,
-      lastModified: new Date(),
+      lastModified: templateDate,
       changeFrequency: "monthly",
       priority: 0.85,
     },
@@ -199,7 +212,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const destinationPages: MetadataRoute.Sitemap = destinations.map((d) => ({
     url: `${baseUrl}/destination-wedding/${d.slug}`,
-    lastModified: new Date(),
+    lastModified: templateDate,
     changeFrequency: "monthly",
     priority: 0.75,
   }));

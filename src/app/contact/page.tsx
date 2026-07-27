@@ -3,19 +3,20 @@ import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 import { Suspense } from "react";
 import ContactForm from "@/components/ContactForm";
+import { OG_DEFAULT } from "@/data/photos";
 
 export const metadata: Metadata = {
   title:
-    "Contact & Devis Gratuit - Organisation Mariage Lyon",
+    "Contact & Devis Gratuit Mariage Lyon",
   description:
-    "Contactez Smart Moments Event pour votre projet de mariage ou d'événement à Lyon. Devis gratuit et sans engagement sous 24h. Wedding planner Lyon : 07 56 98 71 81. Lyon 7ème, Rhône-Alpes.",
+    "Devis gratuit et sans engagement sous 24 h pour votre mariage ou événement à Lyon. Wedding planner Lyon 7e : 07 56 98 71 81.",
   alternates: { canonical: "https://www.smartmoments.fr/contact" },
   openGraph: {
-    title: "Contact & Devis Gratuit | Smart Moments Event Lyon",
+    title: "Contact & Devis Gratuit | Smart Moments",
     description:
       "Demandez un devis gratuit pour votre mariage ou événement à Lyon. Réponse sous 24h.",
     url: "https://www.smartmoments.fr/contact",
-    images: [{ url: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-42-1_3_306698-168546594928335.jpeg", width: 960, height: 640, alt: "Contactez Smart Moments Event wedding planner Lyon" }],
+    images: [OG_DEFAULT],
   },
 };
 

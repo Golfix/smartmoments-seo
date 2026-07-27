@@ -1,13 +1,17 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
+import Photo from "@/components/Photo";
+import { OG_DEFAULT } from "@/data/photos";
+
+// Graine stable : fait varier la photo choisie d'une page à l'autre.
+const PHOTO_SEED = 91;
 
 export const metadata: Metadata = {
-  title: "Organisation de Baptême à Lyon | Smart Moments Event",
+  title: "Organisation de Baptême à Lyon",
   description:
-    "Organisation et décoration de baptême à Lyon. Baptême religieux ou laïque, décoration sur mesure, animations, traiteur et coordination le jour J. Devis gratuit.",
+    "Organisation et décoration de baptême à Lyon, religieux ou laïque : décoration sur mesure, animation enfants et coordination. Devis gratuit.",
   keywords: [
     "organisation baptême lyon",
     "baptême lyon",
@@ -26,14 +30,7 @@ export const metadata: Metadata = {
     description:
       "Organisation complète de baptême à Lyon : cérémonie, décoration, animations et coordination. Baptême religieux ou laïque, sur mesure et haut de gamme.",
     url: "https://www.smartmoments.fr/services/bapteme",
-    images: [
-      {
-        url: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-30-at-10-53-36_3_306698-168546595011373.jpeg",
-        width: 960,
-        height: 640,
-        alt: "Organisation de baptême haut de gamme à Lyon - Smart Moments Event",
-      },
-    ],
+    images: [OG_DEFAULT],
   },
 };
 
@@ -163,13 +160,12 @@ export default function BaptemePage() {
       {/* Hero */}
       <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src="https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-30-at-10-53-36_3_306698-168546595011373.jpeg"
+          <Photo
+            seed={PHOTO_SEED}
             alt="Organisation de baptême haut de gamme à Lyon"
-            fill
             className="object-cover"
-            priority
             sizes="100vw"
+            priority
           />
           <div className="absolute inset-0 bg-gradient-to-b from-taupe/60 via-taupe/30 to-taupe/60" />
         </div>
@@ -200,10 +196,10 @@ export default function BaptemePage() {
             <AnimateOnScroll animation="fade-right" className="w-full lg:w-1/2">
               <div className="relative">
                 <div className="relative aspect-[4/3] overflow-hidden">
-                  <Image
-                    src="https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-40-1_3_306698-168546595086946.jpeg"
+                  <Photo
+                    seed={PHOTO_SEED}
+                    offset={1}
                     alt="Décoration de baptême élégante Lyon"
-                    fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
@@ -637,10 +633,10 @@ export default function BaptemePage() {
       {/* CTA */}
       <section className="relative py-28 overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src="https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-30-at-10-54-55-1_3_306698-168563709678965.jpeg"
+          <Photo
+            seed={PHOTO_SEED}
+            offset={2}
             alt="Organisation baptême haut de gamme Lyon"
-            fill
             className="object-cover"
             sizes="100vw"
           />

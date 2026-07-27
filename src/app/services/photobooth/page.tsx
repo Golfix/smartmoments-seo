@@ -1,13 +1,17 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
+import Photo from "@/components/Photo";
+import { OG_DEFAULT } from "@/data/photos";
+
+// Graine stable : fait varier la photo choisie d'une page à l'autre.
+const PHOTO_SEED = 75;
 
 export const metadata: Metadata = {
-  title: "Location Photobooth & Vidéo 360° Mariage Lyon | Smart Moments Event",
+  title: "Photobooth & Vidéo 360° Mariage Lyon",
   description:
-    "Location de photobooth miroir magique et vidéo 360° pour mariage à Lyon. Impressions instantanées, accessoires personnalisés, galerie en ligne. Animation originale pour mariages, baptêmes et événements. Devis gratuit.",
+    "Location de photobooth miroir magique et vidéo 360° à Lyon : impressions instantanées et personnalisation. Mariages et événements. Devis gratuit.",
   keywords: [
     "photobooth mariage lyon",
     "location photobooth lyon",
@@ -26,14 +30,7 @@ export const metadata: Metadata = {
     description:
       "Photobooth miroir magique et vidéo 360° immersive pour mariage et événements à Lyon. L'animation préférée des invités !",
     url: "https://www.smartmoments.fr/services/photobooth",
-    images: [
-      {
-        url: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-42_3_306698-168546594931608.jpeg",
-        width: 960,
-        height: 640,
-        alt: "Photobooth miroir magique mariage Lyon - Smart Moments Event",
-      },
-    ],
+    images: [OG_DEFAULT],
   },
 };
 
@@ -151,13 +148,12 @@ export default function PhotoboothPage() {
       {/* Hero */}
       <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src="https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-42_3_306698-168546594931608.jpeg"
+          <Photo
+            seed={PHOTO_SEED}
             alt="Photobooth miroir magique et vidéo 360 pour mariage à Lyon"
-            fill
             className="object-cover"
-            priority
             sizes="100vw"
+            priority
           />
           <div className="absolute inset-0 bg-gradient-to-b from-taupe/60 via-taupe/30 to-taupe/60" />
         </div>
@@ -188,10 +184,10 @@ export default function PhotoboothPage() {
             <AnimateOnScroll animation="fade-right" className="w-full lg:w-1/2">
               <div className="relative">
                 <div className="relative aspect-[4/3] overflow-hidden">
-                  <Image
-                    src="https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-42_3_306698-168546594931608.jpeg"
+                  <Photo
+                    seed={PHOTO_SEED}
+                    offset={1}
                     alt="Location photobooth miroir magique pour mariage Lyon"
-                    fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
@@ -254,10 +250,10 @@ export default function PhotoboothPage() {
             <AnimateOnScroll animation="fade-left" className="w-full lg:w-1/2">
               <div className="relative">
                 <div className="relative aspect-[4/3] overflow-hidden">
-                  <Image
-                    src="https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-43_3_306698-168546594996125.jpeg"
+                  <Photo
+                    seed={PHOTO_SEED}
+                    offset={2}
                     alt="Animation vidéo 360 degrés pour mariage et événement Lyon"
-                    fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
@@ -468,10 +464,10 @@ export default function PhotoboothPage() {
       {/* CTA */}
       <section className="relative py-28 overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src="https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-42-1_3_306698-168546594928335.jpeg"
+          <Photo
+            seed={PHOTO_SEED}
+            offset={3}
             alt="Animation photobooth pour événement de prestige Lyon"
-            fill
             className="object-cover"
             sizes="100vw"
           />

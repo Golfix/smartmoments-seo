@@ -9,7 +9,6 @@ export interface Destination {
   bestSeason: string;
   budgetRange: string;
   travelTime: string;
-  imageUrl: string;
   faqQuestions: { q: string; a: string }[];
 }
 
@@ -32,7 +31,6 @@ export const destinations: Destination[] = [
     bestSeason: "Mai à septembre pour les célébrations en extérieur, décembre à mars pour les mariages d'hiver en montagne",
     budgetRange: "À partir de 40 000€ pour un mariage de 80 invités",
     travelTime: "1h30 depuis Lyon jusqu'à Genève",
-    imageUrl: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41-3_3_306698-168546594978953.jpeg",
     faqQuestions: [
       {
         q: "Combien coûte un mariage en Suisse ?",
@@ -66,7 +64,6 @@ export const destinations: Destination[] = [
     bestSeason: "Mai à octobre, septembre étant le mois préféré pour la lumière dorée",
     budgetRange: "À partir de 35 000€ pour un mariage de 80 invités",
     travelTime: "1h30-2h en avion depuis Lyon",
-    imageUrl: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-40-1_3_306698-168546595086946.jpeg",
     faqQuestions: [
       {
         q: "Quelle région d'Italie choisir pour son mariage ?",
@@ -100,7 +97,6 @@ export const destinations: Destination[] = [
     bestSeason: "Mai à octobre, juin et septembre étant les plus agréables (moins de touristes)",
     budgetRange: "À partir de 30 000€ pour un mariage de 80 invités",
     travelTime: "3h30 en avion depuis Lyon",
-    imageUrl: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-42-1_3_306698-168546594928335.jpeg",
     faqQuestions: [
       {
         q: "Pourquoi Santorin est-elle si prisée pour les mariages ?",
@@ -134,7 +130,6 @@ export const destinations: Destination[] = [
     bestSeason: "Variable selon la destination — printemps/automne pour New York, été pour Californie, hiver pour Floride",
     budgetRange: "À partir de 50 000€ pour un mariage de 80 invités",
     travelTime: "8h-11h en avion depuis Paris",
-    imageUrl: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41_3_306698-168546595030467.jpeg",
     faqQuestions: [
       {
         q: "Quel État américain choisir pour son mariage ?",
@@ -168,7 +163,6 @@ export const destinations: Destination[] = [
     bestSeason: "Mai à septembre (saison sèche), à éviter de décembre à mars (mousson)",
     budgetRange: "À partir de 25 000€ pour un mariage de 50 invités",
     travelTime: "16-20h en avion depuis Paris (avec escale)",
-    imageUrl: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-30-at-10-54-55-1_3_306698-168563709678965.jpeg",
     faqQuestions: [
       {
         q: "Pourquoi Bali pour son mariage ?",
@@ -202,7 +196,6 @@ export const destinations: Destination[] = [
     bestSeason: "Mars-mai et septembre-novembre (éviter juillet-août, trop chaud)",
     budgetRange: "À partir de 25 000€ pour un mariage de 80 invités",
     travelTime: "3h en avion depuis Paris",
-    imageUrl: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41-3_3_306698-168546594978953.jpeg",
     faqQuestions: [
       {
         q: "Pourquoi Marrakech pour son mariage ?",
@@ -236,7 +229,6 @@ export const destinations: Destination[] = [
     bestSeason: "Mai à octobre, juin et septembre étant les meilleurs mois",
     budgetRange: "À partir de 25 000€ pour un mariage de 80 invités",
     travelTime: "2h30 en avion depuis Lyon",
-    imageUrl: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-40-1_3_306698-168546595086946.jpeg",
     faqQuestions: [
       {
         q: "Quelle région du Portugal pour son mariage ?",
@@ -270,7 +262,6 @@ export const destinations: Destination[] = [
     bestSeason: "Avril à octobre, mai-juin et septembre-octobre étant idéaux",
     budgetRange: "À partir de 25 000€ pour un mariage de 80 invités",
     travelTime: "1h30-2h en avion depuis Lyon",
-    imageUrl: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-42-1_3_306698-168546594928335.jpeg",
     faqQuestions: [
       {
         q: "Ibiza ou Majorque pour son mariage ?",

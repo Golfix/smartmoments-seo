@@ -1,19 +1,23 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
+import Photo from "@/components/Photo";
+import { OG_DEFAULT } from "@/data/photos";
+
+// Graine stable : fait varier la photo choisie d'une page à l'autre.
+const PHOTO_SEED = 7;
 
 export const metadata: Metadata = {
-  title: "À Propos - Agence Wedding Planner & Événementiel Lyon",
+  title: "À Propos - Agence Wedding Planner Lyon",
   description:
-    "Découvrez Smart Moments Event, agence d'organisation de mariage et d'événements haut de gamme à Lyon 7ème. Équipe de wedding planners qualifiés, décorateurs créatifs et coordinatrices expérimentées. 4.6/5 sur Mariages.net, 92% recommandé.",
+    "Agence d'organisation de mariage et d'événements haut de gamme à Lyon 7e. Wedding planners, décorateurs et coordinatrices. 4.6/5 sur Mariages.net.",
   alternates: { canonical: "https://www.smartmoments.fr/a-propos" },
   openGraph: {
-    title: "À Propos | Smart Moments Event Lyon",
+    title: "À Propos | Smart Moments",
     description:
       "L'équipe Smart Moments : des passionnés de l'événementiel haut de gamme à votre service à Lyon.",
     url: "https://www.smartmoments.fr/a-propos",
-    images: [{ url: "https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/img-3255_3_306698-168573250631346.jpeg", width: 960, height: 640, alt: "Équipe Smart Moments Event wedding planner Lyon" }],
+    images: [OG_DEFAULT],
   },
 };
 
@@ -78,12 +82,6 @@ export default function AProposPage() {
       "https://www.instagram.com/weddingplanner.smartmoments/",
       "https://www.mariages.net/organisation-mariage/smart-moments--e306698",
     ],
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.6",
-      reviewCount: "25",
-      bestRating: "5",
-    },
     knowsAbout: [
       "Organisation de mariage",
       "Wedding planning",
@@ -130,13 +128,12 @@ export default function AProposPage() {
       {/* Hero */}
       <section className="relative h-[65vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src="https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-41-1_3_306698-168546595088459.jpeg"
+          <Photo
+            seed={PHOTO_SEED}
             alt="Équipe Smart Moments Event organisateur événement Lyon"
-            fill
             className="object-cover"
-            priority
             sizes="100vw"
+            priority
           />
           <div className="absolute inset-0 bg-gradient-to-b from-taupe/60 via-taupe/30 to-taupe/60" />
         </div>
@@ -194,10 +191,10 @@ export default function AProposPage() {
             </div>
             <div className="relative">
               <div className="relative aspect-square overflow-hidden">
-                <Image
-                  src="https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/img-3255_3_306698-168573250631346.jpeg"
+                <Photo
+                  seed={PHOTO_SEED}
+                  offset={1}
                   alt="Smart Moments Event équipe événementiel prestige Lyon"
-                  fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
@@ -258,10 +255,10 @@ export default function AProposPage() {
       {/* CTA */}
       <section className="relative py-28 overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src="https://cdn0.mariages.net/vendor/6698/3_2/960/jpeg/whatsapp-image-2023-05-29-at-18-44-42-1_3_306698-168546594928335.jpeg"
+          <Photo
+            seed={PHOTO_SEED}
+            offset={2}
             alt="Smart Moments Event Lyon"
-            fill
             className="object-cover"
             sizes="100vw"
           />

@@ -1,18 +1,26 @@
 import type { NextConfig } from "next";
+import { cityRedirects, cityRoutePrefixes } from "./src/data/city-redirects";
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    // 301 des anciens slugs de villes dédoublonnés, sur chaque famille de routes
+    // qui porte un segment ville. Le motif de préfixe est contraint à la liste
+    // connue pour ne pas capter /blog/<slug> ou /services/<slug>.
+    const prefixes = cityRoutePrefixes.join("|");
+    return cityRedirects.map(([from, to]) => ({
+      source: `/:prefix(${prefixes})/${from}`,
+      destination: `/:prefix/${to}`,
+      permanent: true,
+    }));
+  },
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "cdn0.mariages.net",
-      },
-      {
-        protocol: "https",
-        hostname: "static.wixstatic.com",
-      },
-    ],
-    unoptimized: true,
+    // Aucun domaine distant : toutes les photos sont servies depuis public/images/.
+    // Le hotlink vers cdn0.mariages.net a été coupé côté CDN (403) et avait fait
+    // disparaître toutes les images du site d'un seul coup.
+    remotePatterns: [],
+    // `unoptimized` désactivait WebP/AVIF, le srcset responsive et le
+    // dimensionnement automatique. Réactivé maintenant que les fichiers sont locaux.
+    formats: ["image/avif", "image/webp"],
   },
   async headers() {
     return [
