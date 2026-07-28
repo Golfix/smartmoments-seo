@@ -93,6 +93,16 @@ const report = (label, list, limit = 8) => {
 };
 
 console.log(`\nContrôle SEO — ${checked} pages générées\n`);
+
+// Un build vide passerait tous les contrôles par vacuité : c'est le cas le plus
+// dangereux, celui d'un build cassé qu'on déploierait en croyant l'avoir vérifié.
+if (checked < 3000) {
+  console.error(
+    `\nBUILD INCOMPLET : ${checked} pages seulement, ${3000} attendues au minimum.` +
+      `\nRelancez \`npm run build\` avant de déployer.\n`
+  );
+  process.exit(1);
+}
 report(`titles ≤ ${MAX_TITLE} caractères`, issues.title);
 report("marque non dupliquée dans le title", issues.brand);
 report(`descriptions ${MIN_DESC}–${MAX_DESC} caractères`, issues.desc);

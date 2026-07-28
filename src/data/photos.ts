@@ -35,7 +35,85 @@ export type PhotoCategory =
   | "Photobooth";
 
 /* --- DÉBUT LISTE GÉNÉRÉE (npm run photos:sync) --- */
-export const photos: Photo[] = [];
+export const photos: Photo[] = [
+  {
+    src: "/images/photos/ceremonie-vue-ensemble-arche-collines.webp",
+    alt: "Vue d'ensemble d'une cérémonie en plein air : allée blanche, arche fleurie et collines en arrière-plan",
+    category: "Cérémonie",
+    width: 1600,
+    height: 1067,
+  },
+  {
+    src: "/images/photos/ambiance-salle-reception-soiree-eclairage-scenique.webp",
+    alt: "Salle de réception en pierre le soir, tables rondes et compositions florales hautes sous éclairage scénique",
+    category: "Ambiance",
+    width: 1600,
+    height: 1067,
+  },
+  {
+    src: "/images/photos/ceremonie-arche-fleurie-roses-hortensias.webp",
+    alt: "Arche de cérémonie fleurie de roses pastel et d'hortensias bleus sous des guirlandes guinguette",
+    category: "Cérémonie",
+    width: 1600,
+    height: 1067,
+  },
+  {
+    src: "/images/photos/decoration-salle-voutee-pierre-fauteuils-rotin.webp",
+    alt: "Salle de réception voûtée en pierre, fauteuils en rotin et compositions florales sous jeux de lumière",
+    category: "Décoration",
+    width: 1600,
+    height: 1067,
+  },
+  {
+    src: "/images/photos/ceremonie-allee-fauteuils-rotin-arche-fleurie.webp",
+    alt: "Allée de cérémonie laïque en extérieur, fauteuils en rotin et arche fleurie face aux collines",
+    category: "Cérémonie",
+    width: 1600,
+    height: 1067,
+  },
+  {
+    src: "/images/photos/mariage-couple-marches-pierre-bouquet.webp",
+    alt: "Les mariés main dans la main sur un escalier en pierre, bouquet de fleurs des champs",
+    category: "Mariage",
+    width: 1600,
+    height: 1067,
+  },
+  {
+    src: "/images/photos/details-table-dressee-chandeliers-dores.webp",
+    alt: "Table de réception dressée devant un mur en pierre, chandeliers dorés et menus personnalisés",
+    category: "Détails",
+    width: 1600,
+    height: 1067,
+  },
+  {
+    src: "/images/photos/mariage-sortie-des-maries-devant-la-mairie.webp",
+    alt: "Sortie des mariés devant la mairie, bouquet levé au milieu des invités",
+    category: "Mariage",
+    width: 1600,
+    height: 1067,
+  },
+  {
+    src: "/images/photos/ceremonie-rangees-chaises-bistrot-exterieur.webp",
+    alt: "Rangées de chaises bistrot en bois installées pour une cérémonie en extérieur",
+    category: "Cérémonie",
+    width: 1600,
+    height: 1067,
+  },
+  {
+    src: "/images/photos/details-cocktail-mini-burgers-traiteur.webp",
+    alt: "Plateau de mini-burgers servi au cocktail de réception",
+    category: "Détails",
+    width: 1600,
+    height: 1067,
+  },
+  {
+    src: "/images/photos/mariage-ceremonie-civile-mairie.webp",
+    alt: "Façade de mairie pavoisée le jour d'une cérémonie civile",
+    category: "Mariage",
+    width: 1600,
+    height: 1067,
+  },
+];
 /* --- FIN LISTE GÉNÉRÉE --- */
 
 export const hasPhotos = photos.length > 0;
