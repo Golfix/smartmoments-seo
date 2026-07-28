@@ -350,8 +350,9 @@ export default function TarifsPage() {
             alt="Tarifs wedding planner Lyon - Smart Moments Event"
             className="object-cover"
             sizes="100vw"
+            prefer="landscape"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-taupe/60 via-taupe/40 to-taupe/70" />
+          <div className="absolute inset-0 bg-gradient-to-b from-taupe/75 via-taupe/60 to-taupe/85" />
         </div>
         <div className="relative z-10 text-center text-white max-w-3xl mx-auto px-4">
           <div className="luxury-line mb-8" />

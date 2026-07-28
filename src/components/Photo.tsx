@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { photoAt } from "@/data/photos";
+import { photoAt, type Photo } from "@/data/photos";
 
 /**
  * Affiche une photo de la photothèque locale, ou — tant qu'aucune photo n'est
@@ -12,6 +12,7 @@ import { photoAt } from "@/data/photos";
  * il n'y a donc jamais de décalage de mise en page (CLS).
  */
 export default function Photo({
+  photo: explicitPhoto,
   seed,
   offset = 0,
   alt,
@@ -19,9 +20,15 @@ export default function Photo({
   sizes = "100vw",
   className = "object-cover",
   overlay,
+  prefer,
 }: {
+  /**
+   * Photo imposée. La galerie doit afficher exactement l'image dont elle
+   * montre la légende : elle ne peut pas passer par la sélection par graine.
+   */
+  photo?: Photo;
   /** Graine déterministe (hash du slug) pour varier la photo d'une page à l'autre. */
-  seed: number;
+  seed?: number;
   offset?: number;
   /** Texte alternatif — décrit la photo réelle une fois la photothèque remplie. */
   alt: string;
@@ -30,15 +37,21 @@ export default function Photo({
   className?: string;
   /** Voile posé par-dessus (dégradé de lisibilité du hero, par exemple). */
   overlay?: string;
+  /**
+   * Format souhaité pour l'emplacement : `landscape` pour un bandeau pleine
+   * largeur, `portrait` pour une colonne haute. Sans valeur, toute la
+   * photothèque est éligible.
+   */
+  prefer?: "landscape" | "portrait";
 }) {
-  const photo = photoAt(seed, offset);
+  const photo = explicitPhoto ?? photoAt(seed ?? 0, offset, prefer);
 
   if (photo) {
     return (
       <>
         <Image
           src={photo.src}
-          alt={alt}
+          alt={photo.alt || alt}
           fill
           className={className}
           priority={priority}

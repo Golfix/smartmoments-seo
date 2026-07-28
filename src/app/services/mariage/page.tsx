@@ -295,9 +295,10 @@ export default function MariagePage() {
             alt="Organisation de mariage clé en main à Lyon par Smart Moments Event"
             className="object-cover"
             sizes="100vw"
+            prefer="landscape"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-taupe/60 via-taupe/30 to-taupe/60" />
+          <div className="absolute inset-0 bg-gradient-to-b from-taupe/75 via-taupe/55 to-taupe/80" />
         </div>
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
           <div className="flex items-center justify-center gap-4 mb-6">
@@ -1126,8 +1127,9 @@ export default function MariagePage() {
             alt="Organisation mariage haut de gamme Lyon"
             className="object-cover"
             sizes="100vw"
+            prefer="landscape"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-taupe/60 via-taupe/40 to-taupe/70" />
+          <div className="absolute inset-0 bg-gradient-to-b from-taupe/75 via-taupe/60 to-taupe/85" />
         </div>
         <div className="relative z-10 text-center text-white max-w-3xl mx-auto px-4">
           <div className="luxury-line mb-8" />

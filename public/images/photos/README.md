@@ -24,14 +24,22 @@ Déposez ici les photos de réalisations. Elles sont servies depuis ce domaine �
    que lisent Google Images et les lecteurs d'écran. Décrivez la scène, pas le fichier.
 6. `npm run build` puis déployez.
 
-## Tant que ce dossier est vide
+## État actuel
 
-Le composant `<Photo>` affiche un panneau décoratif aux couleurs de la marque
-(dégradé taupe/or, filet doré). Le site reste cohérent, sans image cassée ni trou
-de mise en page — mais **il n'a aucune photo de réalisation**, ce qui reste le point
-faible n°1 pour un métier visuel. À remplir dès que possible.
+20 photos du mariage de Kenza & Kevin, fournies par Kevin. Les originaux pleine
+résolution sont conservés **hors du dépôt**, dans
+`/Users/kevin/Projects/smartmoments-photos-originaux/` — 268 Mo qui n'ont rien à
+faire dans un dépôt git.
 
-## Combien de photos ?
+## Orientation
 
-8 à 12 suffisent : les gabarits piochent dans la photothèque de façon déterministe
-(variation par ville, par service et par thème). Idéalement au moins une par catégorie.
+Chaque entrée porte `orientation: "landscape" | "portrait"`, déduite des
+dimensions du fichier. Les bandeaux pleine largeur passent `prefer="landscape"`,
+les colonnes `aspect-[3/4]` passent `prefer="portrait"` : sans cela, une photo
+verticale placée dans un hero se recadre au point d'en perdre le sujet.
+
+## Si ce dossier est vidé
+
+Le composant `<Photo>` affiche un panneau décoratif aux couleurs de la marque.
+Le site reste cohérent, sans image cassée ni trou de mise en page — mais sans
+aucune photo de réalisation, ce qui est rédhibitoire pour un métier visuel.

@@ -18,63 +18,15 @@ export const metadata: Metadata = {
   },
 };
 
-const images = [
-  {
-    alt: "Décoration soirée dansante mariage haut de gamme Lyon",
-    category: "Décoration",
-    span: "col-span-2 row-span-2",
-  },
-  {
-    alt: "Cérémonie laïque décoration florale mariage Lyon",
-    category: "Cérémonie",
-    span: "",
-  },
-  {
-    alt: "Sortie des mariés avec décoration florale",
-    category: "Mariage",
-    span: "",
-  },
-  {
-    alt: "Décoration salle de réception mariage élégant Lyon",
-    category: "Décoration",
-    span: "",
-  },
-  {
-    alt: "Arche fleurie cérémonie laïque mariage champêtre Lyon",
-    category: "Cérémonie",
-    span: "col-span-2",
-  },
-  {
-    alt: "Détails décoration table mariage raffiné Smart Moments",
-    category: "Détails",
-    span: "",
-  },
-  {
-    alt: "Ambiance événement de prestige Smart Moments Lyon",
-    category: "Ambiance",
-    span: "",
-  },
-  {
-    alt: "Organisation événement haut de gamme décoration Lyon",
-    category: "Événement",
-    span: "",
-  },
-  {
-    alt: "Animation photobooth mariage événement Lyon",
-    category: "Animation",
-    span: "",
-  },
-  {
-    alt: "Coordination jour J mariage organisateur Lyon",
-    category: "Coordination",
-    span: "col-span-2",
-  },
-  {
-    alt: "Équipe Smart Moments Event wedding planner Lyon",
-    category: "Équipe",
-    span: "",
-  },
-];
+// La galerie est pilotée par la photothèque : la taille de chaque vignette
+// découle de l'orientation du fichier (portrait = haute, paysage = large),
+// et les libellés viennent de la photo elle-même. Plus de tableau figé à
+// maintenir en parallèle — c'était la source des légendes qui ne
+// correspondaient plus aux images affichées.
+function tileSpan(orientation: "landscape" | "portrait", index: number): string {
+  if (orientation === "portrait") return "row-span-2";
+  return index % 3 === 0 ? "col-span-2" : "";
+}
 
 export default function GaleriePage() {
   const collectionJsonLd = {
@@ -164,14 +116,14 @@ export default function GaleriePage() {
       <section className="py-20 bg-ivory">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3 auto-rows-[300px]">
-            {images.map((img, i) => (
+            {photos.map((photo, i) => (
               <div
-                key={i}
-                className={`relative overflow-hidden group ${img.span}`}
+                key={photo.src}
+                className={`relative overflow-hidden group ${tileSpan(photo.orientation, i)}`}
               >
                 <Photo
-                  seed={i}
-                  alt={img.alt}
+                  photo={photo}
+                  alt={photo.alt}
                   className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-out"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
@@ -179,9 +131,9 @@ export default function GaleriePage() {
                 <div className="absolute inset-0 border border-gold/0 group-hover:border-gold/20 m-3 transition-all duration-700" />
                 <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
                   <span className="text-gold text-[9px] uppercase tracking-[0.3em] font-semibold">
-                    {img.category}
+                    {photo.category}
                   </span>
-                  <p className="text-white text-sm mt-1 font-light">{img.alt}</p>
+                  <p className="text-white text-sm mt-1 font-light">{photo.alt}</p>
                 </div>
               </div>
             ))}

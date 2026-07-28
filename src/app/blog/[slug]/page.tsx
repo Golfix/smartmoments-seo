@@ -141,8 +141,9 @@ export default async function BlogArticlePage({
             className="object-cover"
             priority
             sizes="100vw"
+            prefer="landscape"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-taupe/70 via-taupe/50 to-taupe/80" />
+          <div className="absolute inset-0 bg-gradient-to-b from-taupe/80 via-taupe/65 to-taupe/88" />
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-4">

@@ -10,6 +10,9 @@
  *   ex. ceremonie-arche-fleurie-domaine-beaujolais.webp
  *
  * Catégories reconnues : mariage, ceremonie, decoration, details, ambiance, photobooth
+ *
+ * ⚠️ Ce script écrase l'ordre de la liste. La galerie affiche les photos dans
+ * l'ordre du manifeste : après un sync, replacer les plus fortes en tête.
  * (à défaut, la photo est classée « Mariage »).
  *
  * Le `alt` est pré-rempli depuis le nom de fichier — il DOIT être relu et
@@ -64,10 +67,14 @@ const entries = files.map((f) => {
   const words = (CATEGORIES[head.toLowerCase()] ? rest : stem.split("-")).join(" ");
   const alt = words ? words.charAt(0).toUpperCase() + words.slice(1) : stem;
   const { width, height } = dimensions(join(PHOTOS_DIR, f));
+  // L'orientation pilote le choix des visuels : un bandeau pleine largeur ne
+  // doit pas recevoir une photo verticale, et inversement pour les colonnes.
+  const orientation = width >= height ? "landscape" : "portrait";
   return `  {
     src: "/images/photos/${f}",
     alt: ${JSON.stringify(alt)},
     category: ${JSON.stringify(category)},
+    orientation: ${JSON.stringify(orientation)},
     width: ${width},
     height: ${height},
   },`;
